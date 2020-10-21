@@ -154,7 +154,8 @@ public class MenuManager : MonoBehaviour
 
     void onSettingsButtonClick()
     {
-        _settingsButton.gameObject.SetActive(false);
+        disableNavButtons();
+
         _mainMenu.GetComponent<Animator>().SetTrigger("FadeOut");
         StartCoroutine(disableGOAfterAnimation(_mainMenu.GetComponent<Animator>(), showSettings, _mainMenu, false));
 
@@ -170,10 +171,12 @@ public class MenuManager : MonoBehaviour
 
     void onBackButtonClick()
     {
-        _backButton.gameObject.SetActive(false);
+        disableNavButtons();
+
         if (CurrentMenuState == MenuState.Credits)
         {
-            //GoToCredits();
+            _credits.GetComponent<Animator>().SetTrigger("FadeOut");
+            StartCoroutine(disableGOAfterAnimation(_credits.GetComponent<Animator>(), showSettings, _credits, false));
             return;
         }
 
@@ -193,7 +196,8 @@ public class MenuManager : MonoBehaviour
 
     void onSecondBackButtonClick()
     {
-        _secondBackButton.gameObject.SetActive(false);
+        disableNavButtons();
+
         switch (CurrentMenuState)
         {
             case MenuState.PreLobby:
@@ -207,6 +211,7 @@ public class MenuManager : MonoBehaviour
 
     public void GoToPlay()
     {
+        disableNavButtons();
         closeSlider();
 
         switch (CurrentMenuState)
@@ -234,6 +239,8 @@ public class MenuManager : MonoBehaviour
 
     public void GoToPreLobby()
     {
+        disableNavButtons();
+
         switch (CurrentMenuState)
         {
             case MenuState.Play:
@@ -286,6 +293,8 @@ public class MenuManager : MonoBehaviour
 
     public void GoToLobby()
     {
+        disableNavButtons();
+
         switch (CurrentMenuState)
         {
             case MenuState.PreLobby:
@@ -371,6 +380,21 @@ public class MenuManager : MonoBehaviour
         _isSliderOpen = false;
     }
 
+    public void GoToCredits()
+    {
+        disableNavButtons();
+
+        _settings.GetComponent<Animator>().SetTrigger("FadeOut");
+        StartCoroutine(disableGOAfterAnimation(_settings.GetComponent<Animator>(), showCredits, _settings, false));
+    }
+
+    void showCredits()
+    {
+        _credits.SetActive(true);
+
+        updateMenuState();
+    }
+
     IEnumerator disableGOAfterAnimation(Animator pAnimator, System.Action pMethodToCall, GameObject overrideGO = null, bool disableBothGOs = true, bool pShouldCallMethod = true)
     {
         float timeout = 0;
@@ -404,5 +428,12 @@ public class MenuManager : MonoBehaviour
                 yield return null;
             }
         }
+    }
+
+    void disableNavButtons()
+    {
+        _settingsButton.gameObject.SetActive(false);
+        _backButton.gameObject.SetActive(false);
+        _secondBackButton.gameObject.SetActive(false);
     }
 }
