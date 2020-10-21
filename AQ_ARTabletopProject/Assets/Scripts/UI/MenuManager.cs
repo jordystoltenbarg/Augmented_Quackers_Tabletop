@@ -211,7 +211,6 @@ public class MenuManager : MonoBehaviour
 
     public void GoToPlay()
     {
-        disableNavButtons();
         closeSlider();
 
         switch (CurrentMenuState)
@@ -219,10 +218,14 @@ public class MenuManager : MonoBehaviour
             case MenuState.PreLobby:
                 _preLobby.GetComponent<Animator>().SetTrigger("FadeOut");
                 StartCoroutine(disableGOAfterAnimation(_preLobby.GetComponent<Animator>(), showPlay));
+
+                disableNavButtons();
                 break;
             case MenuState.Settings:
                 _settings.GetComponent<Animator>().SetTrigger("FadeOut");
                 StartCoroutine(disableGOAfterAnimation(_settings.GetComponent<Animator>(), showPlay, _settings, false));
+
+                disableNavButtons();
                 break;
         }
     }
@@ -239,22 +242,27 @@ public class MenuManager : MonoBehaviour
 
     public void GoToPreLobby()
     {
-        disableNavButtons();
 
         switch (CurrentMenuState)
         {
             case MenuState.Play:
                 _play.GetComponent<Animator>().SetTrigger("FadeOut");
                 StartCoroutine(disableGOAfterAnimation(_play.GetComponent<Animator>(), showPreLobby));
+
+                disableNavButtons();
                 break;
             case MenuState.Lobby:
                 _lobby.GetComponent<Animator>().SetTrigger("FadeOut");
                 _lobbyContent.GetComponent<Animator>().SetTrigger("FadeOut");
                 StartCoroutine(disableGOAfterAnimation(_lobby.GetComponent<Animator>(), showPreLobby));
+
+                disableNavButtons();
                 break;
             case MenuState.Settings:
                 _settings.GetComponent<Animator>().SetTrigger("FadeOut");
                 StartCoroutine(disableGOAfterAnimation(_settings.GetComponent<Animator>(), showPreLobby, _settings, false));
+
+                disableNavButtons();
                 break;
         }
     }
@@ -293,7 +301,6 @@ public class MenuManager : MonoBehaviour
 
     public void GoToLobby()
     {
-        disableNavButtons();
 
         switch (CurrentMenuState)
         {
@@ -302,10 +309,14 @@ public class MenuManager : MonoBehaviour
                 _preLobby.GetComponent<Animator>().SetTrigger("FadeOut");
                 _preLobbyContent.GetComponent<Animator>().SetTrigger("FadeOut");
                 StartCoroutine(disableGOAfterAnimation(_preLobby.GetComponent<Animator>(), showLobby));
+
+                disableNavButtons();
                 break;
             case MenuState.Settings:
                 _settings.GetComponent<Animator>().SetTrigger("FadeOut");
                 StartCoroutine(disableGOAfterAnimation(_settings.GetComponent<Animator>(), showLobby, _settings, false));
+
+                disableNavButtons();
                 break;
         }
     }
