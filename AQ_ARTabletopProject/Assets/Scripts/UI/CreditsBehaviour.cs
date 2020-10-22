@@ -25,6 +25,6 @@ public class CreditsBehaviour : MonoBehaviour
 
     void OnValidate()
     {
-        _textScrollSpeed = Mathf.Clamp(_textScrollSpeed, 5, 10);
+        _textScrollSpeed = Mathf.Clamp(_textScrollSpeed, 1, 20);
     }
 }

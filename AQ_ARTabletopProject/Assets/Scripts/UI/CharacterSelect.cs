@@ -7,18 +7,10 @@ public class CharacterSelect : MonoBehaviour
 {
     public static GameObject SelectedCharacter = null;
 
-    [SerializeField]
-    private Color _defultColor;
-    [SerializeField]
-    private Color _highlightColor;
-
     private List<GameObject> _listOfCharacters = new List<GameObject>();
+    private Color _transparent = new Color(1, 1, 1, 0);
 
-    void Start()
-    {
-    }
-
-    void updateListOfServers()
+    void updateList()
     {
         _listOfCharacters.Clear();
 
@@ -28,13 +20,13 @@ public class CharacterSelect : MonoBehaviour
 
     private void OnEnable()
     {
-        updateListOfServers();
+        updateList();
         SelectedCharacter = null;
 
         foreach (GameObject go in _listOfCharacters)
         {
             go.GetComponent<Button>().onClick.AddListener(() => highlightServer(go));
-            go.GetComponent<Image>().color = _defultColor;
+            go.transform.Find("Highlight").GetComponent<Image>().color = _transparent;
         }
     }
 
@@ -47,9 +39,9 @@ public class CharacterSelect : MonoBehaviour
     void highlightServer(GameObject pGO)
     {
         foreach (GameObject go in _listOfCharacters)
-            go.GetComponent<Image>().color = _defultColor;
+            go.transform.Find("Highlight").GetComponent<Image>().color = _transparent;
 
-        pGO.GetComponent<Image>().color = _highlightColor;
+        pGO.transform.Find("Highlight").GetComponent<Image>().color = Color.white;
         SelectedCharacter = pGO;
     }
 }
