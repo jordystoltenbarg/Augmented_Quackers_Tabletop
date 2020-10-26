@@ -1,12 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Diagnostics.Contracts;
-using System.Linq;
-using TMPro;
-using UnityEditor;
-using UnityEditor.UIElements;
-using UnityEditorInternal;
+﻿using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
