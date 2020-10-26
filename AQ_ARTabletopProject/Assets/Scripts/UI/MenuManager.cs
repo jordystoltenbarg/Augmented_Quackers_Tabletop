@@ -1,21 +1,10 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Diagnostics.Contracts;
-using System.Linq;
-using TMPro;
-using UnityEditor;
-using UnityEditor.UIElements;
-using UnityEditorInternal;
+﻿using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class MenuManager : MonoBehaviour
 {
-    [Header("Transition")]
-    [SerializeField]
-    private int fadeTime;
-
+    #region Inspector exposed fields
     [Header("Navigation Buttons")]
     [SerializeField]
     private Button _settingsButton;
@@ -45,11 +34,14 @@ public class MenuManager : MonoBehaviour
     private GameObject _settings;
     [SerializeField]
     private GameObject _credits;
+    #endregion
 
+    #region Private fields
     private GameObject _mainMenu;
-
     private bool _isSliderOpen;
+    #endregion
 
+    #region Enum fields
     public enum MenuState
     {
         Play,
@@ -61,6 +53,7 @@ public class MenuManager : MonoBehaviour
     }
     private MenuState _previousState;
     public static MenuState CurrentMenuState;
+    #endregion
 
     void Start()
     {
@@ -130,6 +123,12 @@ public class MenuManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Enables nav buttons buttons
+    /// </summary>
+    /// <remarks>
+    /// 0 = only _settingsButton <para>1 = only _backButton</para> <para>2 = _settingsButton and _secondBackButton</para>
+    /// </remarks>
     void navButtons(int pState)
     {
         switch (pState)
@@ -152,6 +151,9 @@ public class MenuManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Transition to Settings Screen
+    /// </summary>
     void onSettingsButtonClick()
     {
         disableNavButtons();
@@ -209,6 +211,9 @@ public class MenuManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Transition to Play Screen
+    /// </summary>
     public void GoToPlay()
     {
         closeSlider();
@@ -240,6 +245,9 @@ public class MenuManager : MonoBehaviour
         updateMenuState();
     }
 
+    /// <summary>
+    /// Transition to Pre-Lobby Screen
+    /// </summary>
     public void GoToPreLobby()
     {
 
@@ -299,6 +307,9 @@ public class MenuManager : MonoBehaviour
         yield break;
     }
 
+    /// <summary>
+    /// Transition to Lobby Screen
+    /// </summary>
     public void GoToLobby()
     {
 
@@ -391,6 +402,9 @@ public class MenuManager : MonoBehaviour
         _isSliderOpen = false;
     }
 
+    /// <summary>
+    /// Transition to Credits Screen
+    /// </summary>
     public void GoToCredits()
     {
         disableNavButtons();
