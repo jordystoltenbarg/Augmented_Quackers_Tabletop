@@ -13,7 +13,7 @@ public class UpdateSettingValue : MonoBehaviour
 
     private void OnEnable()
     {
-        _settingValue.text = _settingSlider.value.ToString();
+        _settingValue.text = Mathf.FloorToInt(_settingSlider.value).ToString();
     }
 
     public void OnSliderValueChange()

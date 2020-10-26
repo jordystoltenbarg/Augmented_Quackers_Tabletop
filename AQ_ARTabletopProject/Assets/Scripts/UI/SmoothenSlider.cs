@@ -14,6 +14,12 @@ public class SmoothenSlider : MonoBehaviour, IBeginDragHandler, IDropHandler
         _slider.wholeNumbers = false;
     }
 
+    private void OnDisable()
+    {
+        _slider.value = Mathf.FloorToInt(_slider.value);
+        _slider.wholeNumbers = true;
+    }
+
     public void OnBeginDrag(PointerEventData eventData)
     {
         if (eventData.pointerDrag != null)
