@@ -13,7 +13,7 @@ public class ExtendTurnOrderAvatar : MonoBehaviour
     void Start()
     {
         _rect = GetComponent<RectTransform>();
-        _extendedY = Mathf.FloorToInt(_rect.rect.height * 0.5f);
+        _extendedY = Mathf.FloorToInt(99 * 0.5f);
     }
 
     void Update()

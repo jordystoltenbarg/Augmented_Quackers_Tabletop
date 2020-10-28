@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class LerpToZero : MonoBehaviour
 {
-    [SerializeField]
-    private int _speed = 10;
+    private static int _speed = 15;
     private RectTransform _rect;
 
     private enum LerpAxis
@@ -15,7 +14,7 @@ public class LerpToZero : MonoBehaviour
         Y
     }
     [SerializeField]
-    private LerpAxis _axisToLerpOn;
+    private LerpAxis _axisToLerpOn = LerpAxis.Both;
 
     void Start()
     {
