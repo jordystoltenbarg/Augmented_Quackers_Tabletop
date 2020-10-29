@@ -4,44 +4,44 @@ using UnityEngine.UI;
 
 public class MenuManager : MonoBehaviour
 {
-    [Header("Transition")]
-    [SerializeField]
-    private int fadeTime;
-
+    #region Inspector exposed fields
     [Header("Navigation Buttons")]
     [SerializeField]
-    private Button _settingsButton;
+    private Button _settingsButton = null;
     [SerializeField]
-    private Button _backButton;
+    private Button _backButton = null;
     [SerializeField]
-    private Button _secondBackButton;
+    private Button _secondBackButton = null;
 
     [Header("Slider")]
     [SerializeField]
-    private GameObject _slider;
+    private GameObject _slider = null;
     [SerializeField]
-    private GameObject _preLobbyContent;
+    private GameObject _preLobbyContent = null;
     [SerializeField]
-    private GameObject _lobbyContent;
+    private GameObject _lobbyContent = null;
 
     [Header("Menu Screens")]
     [SerializeField]
-    private GameObject _play;
+    private GameObject _play = null;
     [SerializeField]
-    private GameObject _collection;
+    private GameObject _collection = null;
     [SerializeField]
-    private GameObject _preLobby;
+    private GameObject _preLobby = null;
     [SerializeField]
-    private GameObject _lobby;
+    private GameObject _lobby = null;
     [SerializeField]
-    private GameObject _settings;
+    private GameObject _settings = null;
     [SerializeField]
-    private GameObject _credits;
+    private GameObject _credits = null;
+    #endregion
 
-    private GameObject _mainMenu;
+    #region Private fields
+    private GameObject _mainMenu = null;
+    private bool _isSliderOpen = false;
+    #endregion
 
-    private bool _isSliderOpen;
-
+    #region Enum fields
     public enum MenuState
     {
         Play,
@@ -53,6 +53,7 @@ public class MenuManager : MonoBehaviour
     }
     private MenuState _previousState;
     public static MenuState CurrentMenuState;
+    #endregion
 
     void Start()
     {
@@ -73,7 +74,6 @@ public class MenuManager : MonoBehaviour
         _backButton.onClick.RemoveAllListeners();
         _secondBackButton.onClick.RemoveAllListeners();
     }
-
     void checkMenuState()
     {
         if (_mainMenu.activeSelf)
@@ -122,36 +122,60 @@ public class MenuManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Enables nav buttons buttons
+    /// </summary>
+    /// <remarks>
+    /// 0 = only _settingsButton <para>1 = only _backButton</para> <para>2 = _settingsButton and _secondBackButton</para>
+    /// </remarks>
     void navButtons(int pState)
     {
         switch (pState)
         {
             case 0:
                 _settingsButton.gameObject.SetActive(true);
+                _settingsButton.interactable = true;
+
                 _backButton.gameObject.SetActive(false);
+                _backButton.interactable = false;
+
                 _secondBackButton.gameObject.SetActive(false);
+                _secondBackButton.interactable = false;
                 break;
             case 1:
                 _settingsButton.gameObject.SetActive(false);
+                _settingsButton.interactable = false;
+
                 _backButton.gameObject.SetActive(true);
+                _backButton.interactable = true;
+
                 _secondBackButton.gameObject.SetActive(false);
+                _secondBackButton.interactable = false;
                 break;
             case 2:
                 _settingsButton.gameObject.SetActive(true);
+                _settingsButton.interactable = true;
+
                 _backButton.gameObject.SetActive(false);
+                _backButton.interactable = false;
+
                 _secondBackButton.gameObject.SetActive(true);
+                _secondBackButton.interactable = true;
                 break;
         }
     }
 
+    /// <summary>
+    /// Transition to Settings Screen
+    /// </summary>
     void onSettingsButtonClick()
     {
-        disableNavButtons();
-
         _mainMenu.GetComponent<Animator>().SetTrigger("FadeOut");
         StartCoroutine(disableGOAfterAnimation(_mainMenu.GetComponent<Animator>(), showSettings, _mainMenu, false));
 
         _previousState = CurrentMenuState;
+
+        disableNavButtons();
     }
 
     void showSettings()
@@ -201,6 +225,9 @@ public class MenuManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Transition to Play Screen
+    /// </summary>
     public void GoToPlay()
     {
         closeSlider();
@@ -232,9 +259,11 @@ public class MenuManager : MonoBehaviour
         updateMenuState();
     }
 
+    /// <summary>
+    /// Transition to Pre-Lobby Screen
+    /// </summary>
     public void GoToPreLobby()
     {
-
         switch (CurrentMenuState)
         {
             case MenuState.Play:
@@ -291,9 +320,11 @@ public class MenuManager : MonoBehaviour
         yield break;
     }
 
+    /// <summary>
+    /// Transition to Lobby Screen
+    /// </summary>
     public void GoToLobby()
     {
-
         switch (CurrentMenuState)
         {
             case MenuState.PreLobby:
@@ -383,18 +414,20 @@ public class MenuManager : MonoBehaviour
         _isSliderOpen = false;
     }
 
+    /// <summary>
+    /// Transition to Credits Screen
+    /// </summary>
     public void GoToCredits()
     {
-        disableNavButtons();
-
         _settings.GetComponent<Animator>().SetTrigger("FadeOut");
         StartCoroutine(disableGOAfterAnimation(_settings.GetComponent<Animator>(), showCredits, _settings, false));
+
+        disableNavButtons();
     }
 
     void showCredits()
     {
         _credits.SetActive(true);
-
         updateMenuState();
     }
 
@@ -435,8 +468,8 @@ public class MenuManager : MonoBehaviour
 
     void disableNavButtons()
     {
-        _settingsButton.gameObject.SetActive(false);
-        _backButton.gameObject.SetActive(false);
-        _secondBackButton.gameObject.SetActive(false);
+        _settingsButton.interactable = false;
+        _backButton.interactable = false;
+        _secondBackButton.interactable = false;
     }
 }

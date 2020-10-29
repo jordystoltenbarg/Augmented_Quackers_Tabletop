@@ -13929,7 +13929,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee2a8f7732fe1ca49b4978f47d6fe8db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fadeTime: 1
   _settingsButton: {fileID: 3582187150616453575}
   _backButton: {fileID: 3582187149084431841}
   _secondBackButton: {fileID: 3582187150590165963}

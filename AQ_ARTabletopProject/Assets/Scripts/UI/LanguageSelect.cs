@@ -5,7 +5,8 @@ using UnityEngine.UI;
 
 public class LanguageSelect : MonoBehaviour
 {
-    public static GameObject SelectedLanguage = null;
+    private static GameObject _selectedLanguage = null;
+    public static GameObject SelectedLanguage { get { return _selectedLanguage; } }
 
     private List<GameObject> _listOfLanguages = new List<GameObject>();
     private Color _transparent = new Color(1, 1, 1, 0);
@@ -14,7 +15,7 @@ public class LanguageSelect : MonoBehaviour
     {
         updateList();
         transform.Find("English").Find("Highlight").GetComponent<Image>().color = Color.white;
-        SelectedLanguage = transform.Find("English").gameObject;
+        _selectedLanguage = transform.Find("English").gameObject;
     }
 
     void updateList()
@@ -49,6 +50,6 @@ public class LanguageSelect : MonoBehaviour
             go.transform.Find("Highlight").GetComponent<Image>().color = _transparent;
 
         pGO.transform.Find("Highlight").GetComponent<Image>().color = Color.white;
-        SelectedLanguage = pGO;
+        _selectedLanguage = pGO;
     }
 }

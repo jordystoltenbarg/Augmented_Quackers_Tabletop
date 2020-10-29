@@ -7,9 +7,9 @@ using UnityEngine.UI;
 public class UpdateSettingValue : MonoBehaviour
 {
     [SerializeField]
-    private Slider _settingSlider;
+    private Slider _settingSlider = null;
     [SerializeField]
-    private TextMeshProUGUI _settingValue;
+    private TextMeshProUGUI _settingValue = null;
 
     private void OnEnable()
     {

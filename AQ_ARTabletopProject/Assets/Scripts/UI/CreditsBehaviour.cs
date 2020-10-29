@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class CreditsBehaviour : MonoBehaviour
 {
     [SerializeField]
-    private RectTransform _textContainer;
+    private RectTransform _textContainer = null;
     [SerializeField]
     private float _textScrollSpeed;
 

@@ -5,7 +5,8 @@ using UnityEngine.UI;
 
 public class CharacterSelect : MonoBehaviour
 {
-    public static GameObject SelectedCharacter = null;
+    private static GameObject _selectedCharacter = null;
+    public static GameObject SelectedCharacter { get { return _selectedCharacter; } }
 
     private List<GameObject> _listOfCharacters = new List<GameObject>();
     private Color _transparent = new Color(1, 1, 1, 0);
@@ -21,7 +22,7 @@ public class CharacterSelect : MonoBehaviour
     private void OnEnable()
     {
         updateList();
-        SelectedCharacter = null;
+        _selectedCharacter = null;
 
         foreach (GameObject go in _listOfCharacters)
         {
@@ -42,6 +43,6 @@ public class CharacterSelect : MonoBehaviour
             go.transform.Find("Highlight").GetComponent<Image>().color = _transparent;
 
         pGO.transform.Find("Highlight").GetComponent<Image>().color = Color.white;
-        SelectedCharacter = pGO;
+        _selectedCharacter = pGO;
     }
 }

@@ -5,7 +5,8 @@ using UnityEngine.UI;
 
 public class ServerSelect : MonoBehaviour
 {
-    public static GameObject SelectedServer = null;
+    private static GameObject _selectedServer = null;
+    public static GameObject SelectedServer { get { return _selectedServer; } }
 
     private List<GameObject> _listOfServers = new List<GameObject>();
     private Color _transparent = new Color(1, 1, 1, 0);
@@ -21,7 +22,7 @@ public class ServerSelect : MonoBehaviour
     private void OnEnable()
     {
         updateList();
-        SelectedServer = null;
+        _selectedServer = null;
 
         foreach (GameObject go in _listOfServers)
         {
@@ -42,6 +43,6 @@ public class ServerSelect : MonoBehaviour
             go.transform.Find("Highlight").GetComponent<Image>().color = _transparent;
 
         pGO.transform.Find("Highlight").GetComponent<Image>().color = Color.white;
-        SelectedServer = pGO;
+        _selectedServer = pGO;
     }
 }
