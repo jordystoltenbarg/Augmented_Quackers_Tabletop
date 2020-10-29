@@ -15,8 +15,8 @@ public class TurnOrderManager : MonoBehaviour
     private static VasilPlayer _currentPlayerTurn = null;
     public static VasilPlayer CurrentPlayerTurn { get { return _currentPlayerTurn; } }
 
-    private static int _turn = 1;
-    public static int Turn { get { return _turn; } }
+    private static int _round = 1;
+    public static int Round { get { return _round; } }
 
     private List<GameObject> _positions = new List<GameObject>();
     private List<GameObject> _playerAvatars = new List<GameObject>();
@@ -36,13 +36,18 @@ public class TurnOrderManager : MonoBehaviour
     {
         fillLists();
         shufflePlayerTurnOrder();
+        setPlayerTurn(_playersByTurnOrder[0]);
+        GameObject.Find("RoundCount").GetComponent<TextMeshProUGUI>().text = string.Format("Round: {0}", _round);
     }
 
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.D))
         {
-            nextPlayer();
+            if (!_currentPlayerTurn.IsOutOfActions)
+                GameObject.Find("DieRoll").GetComponent<TextMeshProUGUI>().text = string.Format("{0} pls act before ending your turn", _currentPlayerTurn.PlayerName);
+            else
+                nextPlayer();
         }
 
         if (Input.GetKeyDown(KeyCode.Keypad1))
@@ -124,10 +129,12 @@ public class TurnOrderManager : MonoBehaviour
     void nextPlayer()
     {
         _playerAvatars[0].GetComponent<TurnOrderPlayerAvatar>().Player.hasActedThisTurn = true;
-        if (hasLastPlayerActed())
+        _playerAvatars[0].GetComponent<TurnOrderPlayerAvatar>().Player.EndTurn();
+        if (hasFinalPlayerActed())
         {
-            _turn++;
-            print(string.Format("Turn: {0}", _turn));
+            _round++;
+            GameObject.Find("RoundCount").GetComponent<TextMeshProUGUI>().text = string.Format("Round: {0}", _round);
+
             foreach (VasilPlayer p in _players)
             {
                 if (p.turnsToSkip == 0)
@@ -154,15 +161,18 @@ public class TurnOrderManager : MonoBehaviour
 
         if (_playerAvatars.Count > _players.Count)
         {
-            _playerAvatars[_playerAvatars.Count - 1].GetComponent<RectTransform>().position = new Vector2(0, _playerAvatars[_playerAvatars.Count - 1].GetComponent<RectTransform>().position.y);
             _playerAvatars[_playerAvatars.Count - 1].GetComponent<LerpToZero>().enabled = false;
+            _playerAvatars[_playerAvatars.Count - 1].GetComponent<Image>().enabled = false;
+            _playerAvatars[_playerAvatars.Count - 1].GetComponent<RectTransform>().position = new Vector2(transform.parent.parent.position.x, _playerAvatars[_playerAvatars.Count - 1].GetComponent<RectTransform>().position.y);
             _playerAvatars[_playerAvatars.Count - 1].GetComponent<TurnOrderPlayerAvatar>().SelfDestroy();
             _positions.RemoveAt(_positions.Count - 1);
             _playerAvatars.RemoveAt(_playerAvatars.Count - 1);
         }
+
+        setPlayerTurn(_playerAvatars[0].GetComponent<TurnOrderPlayerAvatar>().Player);
     }
 
-    bool hasLastPlayerActed()
+    bool hasFinalPlayerActed()
     {
         for (int i = _playersByTurnOrder.Count - 1; i >= 0; i--)
         {
@@ -265,5 +275,13 @@ public class TurnOrderManager : MonoBehaviour
         newPosition.GetComponent<SetSizeToChildSize>().StartUpdatingSize(newPosition.transform.GetChild(0).gameObject);
         _positions.Add(newPosition);
         _playerAvatars.Add(newPosition.transform.GetChild(0).gameObject);
+    }
+
+    void setPlayerTurn(VasilPlayer pPlayer)
+    {
+        _currentPlayerTurn = pPlayer;
+        foreach (VasilPlayer p in _players)
+            if (p == _currentPlayerTurn)
+                p.StartTurn();
     }
 }
