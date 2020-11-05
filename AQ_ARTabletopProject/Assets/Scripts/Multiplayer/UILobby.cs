@@ -14,6 +14,7 @@ public class UILobby : MonoBehaviour
     [SerializeField] List<Selectable> lobbySelectables = new List<Selectable> (); 
     [SerializeField] Canvas lobbyCanvas;
     [SerializeField] Canvas searchCanvas;
+    [SerializeField] GameObject Lobby_UI;
     
 
     [Header("Lobby")]
@@ -101,6 +102,7 @@ public class UILobby : MonoBehaviour
 
     public void StartGame ()
     {
+        Lobby_UI.SetActive(false);
         Player.localPlayer.StartGame();
     }
 

@@ -1,0 +1,16 @@
+<component name="libraryTable">
+  <library name="release">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/Temp/gradleOut/launcher/build/intermediates/transforms/dexBuilder/release/2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Temp/gradleOut/launcher/build/intermediates/transforms/dexBuilder/release/1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Temp/gradleOut/launcher/build/intermediates/transforms/dexBuilder/release/7.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Temp/gradleOut/launcher/build/intermediates/transforms/dexBuilder/release/8.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Temp/gradleOut/launcher/build/intermediates/transforms/dexBuilder/release/9.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Temp/gradleOut/launcher/build/intermediates/transforms/dexBuilder/release/3.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Temp/gradleOut/launcher/build/intermediates/transforms/dexBuilder/release/6.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Temp/gradleOut/launcher/build/intermediates/transforms/dexBuilder/release/0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
