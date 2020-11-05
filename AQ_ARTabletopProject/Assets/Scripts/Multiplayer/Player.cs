@@ -173,7 +173,7 @@ public class Player : NetworkBehaviour
     {
         Debug.Log($"MatchID: {matchID} | Starting..");
         //additively load game scene
-        SceneManager.LoadScene(2, LoadSceneMode.Additive);
+        SceneManager.LoadScene(2);
     }
 
     /*

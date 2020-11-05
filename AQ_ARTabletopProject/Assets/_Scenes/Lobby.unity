@@ -706,6 +706,7 @@ MonoBehaviour:
   - {fileID: 1410988036}
   lobbyCanvas: {fileID: 310789236}
   searchCanvas: {fileID: 817131720}
+  Lobby_UI: {fileID: 1063715970}
   UIPlayerParent: {fileID: 1085469494}
   UIPlayerPrefab: {fileID: 5146222982673100488, guid: db5488e9c161a5140a14a1a3974f5cc7,
     type: 3}

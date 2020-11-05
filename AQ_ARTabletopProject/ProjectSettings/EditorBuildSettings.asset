@@ -12,11 +12,13 @@ EditorBuildSettings:
     path: Assets/_Scenes/Lobby.unity
     guid: adf3e412b324a984b948ac7bad933b59
   - enabled: 1
-    path: Assets/_Scenes/MenuScene.unity
-    guid: 99258c8d52f1cb44cbb459d9d131bef4
-  - enabled: 1
     path: Assets/_Scenes/MainGame.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 1
+    path: Assets/_Scenes/Ka Kei/MenuScene1.unity
+    guid: 5d3a9df3dd13df949a66599b3b64c0ba
   m_configObjects:
+    UnityEditor.XR.ARCore.ARCoreSettings: {fileID: 11400000, guid: 42a504777c0c97346ba5191c87597d05,
+      type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: ffa14e981ffe43a469864a6c2dbbb722,
       type: 2}
