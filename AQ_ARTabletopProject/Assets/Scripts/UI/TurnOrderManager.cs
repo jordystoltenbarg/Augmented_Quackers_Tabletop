@@ -52,19 +52,19 @@ public class TurnOrderManager : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Keypad1))
         {
-            playerSkipTurn(_playersByTurnOrder[0]);
+            playerSkipTurnNextRound(_playersByTurnOrder[0]);
         }
         if (Input.GetKeyDown(KeyCode.Keypad2))
         {
-            playerSkipTurn(_playersByTurnOrder[1]);
+            playerSkipTurnNextRound(_playersByTurnOrder[1]);
         }
         if (Input.GetKeyDown(KeyCode.Keypad3))
         {
-            playerSkipTurn(_playersByTurnOrder[2]);
+            playerSkipTurnNextRound(_playersByTurnOrder[2]);
         }
         if (Input.GetKeyDown(KeyCode.Keypad4))
         {
-            playerSkipTurn(_playersByTurnOrder[3]);
+            playerSkipTurnNextRound(_playersByTurnOrder[3]);
         }
     }
 
@@ -188,7 +188,43 @@ public class TurnOrderManager : MonoBehaviour
         return false;
     }
 
-    void playerSkipTurn(VasilPlayer pPlayer)
+    void playerSkipNextTurn(VasilPlayer pPlayer)
+    {
+        pPlayer.turnsToSkip++;
+        for (int i = 0; i < _playerAvatars.Count; i++)
+        {
+            if (_playerAvatars[i].GetComponent<TurnOrderPlayerAvatar>().Player == pPlayer)
+            {
+                _playerAvatars[i].GetComponent<TurnOrderPlayerAvatar>().SelfDestroy();
+                _positions.RemoveAt(i);
+                _playerAvatars.RemoveAt(i);
+                break;
+            }
+        }
+
+        if (_playerAvatars.Count >= _players.Count)
+        {
+            for (int i = _players.Count - 1; i >= 0; i--)
+            {
+                if (_playerAvatars[_playerAvatars.Count - 1 - i].GetComponent<TurnOrderPlayerAvatar>().Player != _playersByTurnOrder[_players.Count - 1 - i])
+                    break;
+
+                if (i == 0 && _playerAvatars.Count != _players.Count)
+                    return;
+            }
+        }
+
+        if (_playerAvatars.Count < _players.Count ||
+            (_playerAvatars.Count <= _players.Count && !pPlayer.hasActedThisTurn))
+        {
+        }
+        else
+        {
+            _hasCreatingSkippedTurnFinished = true;
+        }
+    }
+
+    void playerSkipTurnNextRound(VasilPlayer pPlayer)
     {
         pPlayer.turnsToSkip++;
         int timesFoundInAvatars = 0;
