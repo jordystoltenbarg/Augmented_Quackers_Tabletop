@@ -1,12 +1,7 @@
-﻿using JetBrains.Annotations;
-using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using System.Reflection;
-using System.Runtime.CompilerServices;
 using TMPro;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -25,11 +20,6 @@ public class TurnOrderManager : MonoBehaviour
     private List<VasilPlayer> _playersByTurnOrder = new List<VasilPlayer>();
     private List<GameObject> _playersByTurnOrderPositionPrefabs = new List<GameObject>();
 
-    private GameObject p0Origin;
-    private GameObject p1Origin;
-    private GameObject p2Origin;
-    private GameObject p3Origin;
-
     private bool _hasCreatingSkippedTurnFinished = false;
 
     void Start()
@@ -42,30 +32,28 @@ public class TurnOrderManager : MonoBehaviour
 
     void Update()
     {
+        //End Turn
         if (Input.GetKeyDown(KeyCode.D))
-        {
             if (!_currentPlayerTurn.IsOutOfActions)
-                GameObject.Find("DieRoll").GetComponent<TextMeshProUGUI>().text = string.Format("{0} pls act before ending your turn", _currentPlayerTurn.PlayerName);
+                GameObject.Find("DieRoll").GetComponent<TextMeshProUGUI>().text = string.Format("Waiting for {0}...", _currentPlayerTurn.PlayerName);
             else
                 nextPlayer();
-        }
 
+        //Skip P1
         if (Input.GetKeyDown(KeyCode.Keypad1))
-        {
-            playerSkipTurnNextRound(_playersByTurnOrder[0]);
-        }
+            playerSkipTurn(_playersByTurnOrder[0]);
+
+        //Skip P2
         if (Input.GetKeyDown(KeyCode.Keypad2))
-        {
-            playerSkipTurnNextRound(_playersByTurnOrder[1]);
-        }
+            playerSkipTurn(_playersByTurnOrder[1]);
+
+        //Skip P3
         if (Input.GetKeyDown(KeyCode.Keypad3))
-        {
-            playerSkipTurnNextRound(_playersByTurnOrder[2]);
-        }
+            playerSkipTurn(_playersByTurnOrder[2]);
+
+        //Skip P4
         if (Input.GetKeyDown(KeyCode.Keypad4))
-        {
-            playerSkipTurnNextRound(_playersByTurnOrder[3]);
-        }
+            playerSkipTurn(_playersByTurnOrder[3]);
     }
 
     void fillLists()
@@ -92,7 +80,7 @@ public class TurnOrderManager : MonoBehaviour
     {
         Dictionary<VasilPlayer, int> order = new Dictionary<VasilPlayer, int>();
         foreach (VasilPlayer p in _players)
-            order.Add(p, p.RollDie());
+            order.Add(p, p.RullDie());
 
         List<KeyValuePair<VasilPlayer, int>> orderList = order.ToList();
         orderList.Sort((x, y) => x.Value.CompareTo(y.Value));
@@ -188,13 +176,25 @@ public class TurnOrderManager : MonoBehaviour
         return false;
     }
 
-    void playerSkipNextTurn(VasilPlayer pPlayer)
+    void playerSkipTurn(VasilPlayer pPlayer)
     {
         pPlayer.turnsToSkip++;
         for (int i = 0; i < _playerAvatars.Count; i++)
         {
             if (_playerAvatars[i].GetComponent<TurnOrderPlayerAvatar>().Player == pPlayer)
             {
+                if (_currentPlayerTurn == pPlayer && i == 0)
+                {
+                    if (_playerAvatars.Count == _players.Count)
+                    {
+                        StartCoroutine(createSkippedTurn(pPlayer));
+                        StartCoroutine(createNextPlayableTurn());
+                        return;
+                    }
+
+                    continue;
+                }
+
                 _playerAvatars[i].GetComponent<TurnOrderPlayerAvatar>().SelfDestroy();
                 _positions.RemoveAt(i);
                 _playerAvatars.RemoveAt(i);
@@ -215,48 +215,7 @@ public class TurnOrderManager : MonoBehaviour
         }
 
         if (_playerAvatars.Count < _players.Count ||
-            (_playerAvatars.Count <= _players.Count && !pPlayer.hasActedThisTurn))
-        {
-        }
-        else
-        {
-            _hasCreatingSkippedTurnFinished = true;
-        }
-    }
-
-    void playerSkipTurnNextRound(VasilPlayer pPlayer)
-    {
-        pPlayer.turnsToSkip++;
-        int timesFoundInAvatars = 0;
-        for (int i = 0; i < _playerAvatars.Count; i++)
-        {
-            if (_playerAvatars[i].GetComponent<TurnOrderPlayerAvatar>().Player == pPlayer)
-            {
-                timesFoundInAvatars++;
-                if (timesFoundInAvatars > ((pPlayer.hasActedThisTurn) ? 0 : 1))
-                {
-                    _playerAvatars[i].GetComponent<TurnOrderPlayerAvatar>().SelfDestroy();
-                    _positions.RemoveAt(i);
-                    _playerAvatars.RemoveAt(i);
-                    break;
-                }
-            }
-        }
-
-        if (_playerAvatars.Count >= _players.Count)
-        {
-            for (int i = _players.Count - 1; i >= 0; i--)
-            {
-                if (_playerAvatars[_playerAvatars.Count - 1 - i].GetComponent<TurnOrderPlayerAvatar>().Player != _playersByTurnOrder[_players.Count - 1 - i])
-                    break;
-
-                if (i == 0 && _playerAvatars.Count != _players.Count)
-                    return;
-            }
-        }
-
-        if (_playerAvatars.Count < _players.Count ||
-            (_playerAvatars.Count <= _players.Count && !pPlayer.hasActedThisTurn))
+           (_playerAvatars.Count <= _players.Count && !pPlayer.hasActedThisTurn))
         {
             //Show turns in which pPlayer is skipped
             StartCoroutine(createSkippedTurn(pPlayer));

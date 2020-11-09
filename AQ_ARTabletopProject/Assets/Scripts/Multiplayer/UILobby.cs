@@ -8,14 +8,14 @@ public class UILobby : MonoBehaviour
 {
     public static UILobby instance;
 
-    [Header ("Host Join")]
+    [Header("Host Join")]
 
     [SerializeField] TMP_InputField joinMatchInput;
-    [SerializeField] List<Selectable> lobbySelectables = new List<Selectable> (); 
+    [SerializeField] List<Selectable> lobbySelectables = new List<Selectable>();
     [SerializeField] Canvas lobbyCanvas;
     [SerializeField] Canvas searchCanvas;
     [SerializeField] GameObject Lobby_UI;
-    
+
 
     [Header("Lobby")]
 
@@ -50,7 +50,7 @@ public class UILobby : MonoBehaviour
         Player.localPlayer.HostGame(true);
     }
 
-    public void HostSucces (bool success, string matchID)
+    public void HostSucces(bool success, string matchID)
     {
         if (success)
         {
@@ -60,14 +60,15 @@ public class UILobby : MonoBehaviour
             playerLobbyUI = SpawnPlayerUIPrefab(Player.localPlayer);
             matchIDText.text = matchID;
             startGameButton.SetActive(true);
-        } else
+        }
+        else
         {
             joinMatchInput.interactable = true;
             lobbySelectables.ForEach(x => x.interactable = true);
         }
     }
 
-    public void Join ()
+    public void Join()
     {
         joinMatchInput.interactable = false;
         lobbySelectables.ForEach(x => x.interactable = false);
@@ -75,7 +76,7 @@ public class UILobby : MonoBehaviour
         Player.localPlayer.JoinGame(joinMatchInput.text.ToUpper());
     }
 
-    public void JoinSucces (bool success, string matchID)
+    public void JoinSucces(bool success, string matchID)
     {
         if (success)
         {
@@ -95,25 +96,25 @@ public class UILobby : MonoBehaviour
     public GameObject SpawnPlayerUIPrefab(Player player)
     {
         GameObject newUIPlayer = Instantiate(UIPlayerPrefab, UIPlayerParent);
-        newUIPlayer.GetComponent<UIPlayer> ().SetPlayer(player);
+        newUIPlayer.GetComponent<UIPlayer>().SetPlayer(player);
         newUIPlayer.transform.SetSiblingIndex(player.playerIndex - 1);
         return newUIPlayer;
     }
 
-    public void StartGame ()
+    public void StartGame()
     {
         Lobby_UI.SetActive(false);
         Player.localPlayer.StartGame();
     }
 
-    public void SearchGame ()
+    public void SearchGame()
     {
         Debug.Log($"Searching for game");
         searchCanvas.enabled = true;
-        StartCoroutine (SearchingForGame());
+        StartCoroutine(SearchingForGame());
     }
 
-    IEnumerator SearchingForGame ()
+    IEnumerator SearchingForGame()
     {
         searching = true;
 
@@ -123,10 +124,11 @@ public class UILobby : MonoBehaviour
             if (currentTime > 0)
             {
                 currentTime -= Time.deltaTime;
-            } else
+            }
+            else
             {
                 currentTime = 1;
-                Player.localPlayer.SearchGame();              
+                Player.localPlayer.SearchGame();
             }
             yield return null;
         }
@@ -144,14 +146,14 @@ public class UILobby : MonoBehaviour
     public void SearchCancel()
     {
         searchCanvas.enabled = false;
-        searching = false;      
+        searching = false;
         lobbySelectables.ForEach(x => x.interactable = true);
     }
 
-    public void DisconnectLobby ()
+    public void DisconnectLobby()
     {
         if (playerLobbyUI != null) Destroy(playerLobbyUI);
-        Player.localPlayer.DisconnectGame ();
+        Player.localPlayer.DisconnectGame();
 
         lobbyCanvas.enabled = false;
         lobbySelectables.ForEach(x => x.interactable = true);

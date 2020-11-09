@@ -7,32 +7,32 @@ using System.Security.Cryptography;
 using System.Text;
 
 [System.Serializable]
-    public class Match
+public class Match
+{
+    public string matchID;
+
+    public bool publicMatch;
+
+    public bool inMatch;
+
+    public bool matchFull;
+
+    public SynclistGameObject players = new SynclistGameObject();
+
+    public Match(string matchID, GameObject player)
     {
-        public string matchID;
-
-        public bool publicMatch;
-
-        public bool inMatch;
-
-        public bool matchFull;
-
-        public SynclistGameObject players = new SynclistGameObject ();
-
-        public Match(string matchID, GameObject player)
-        {
-            this.matchID = matchID;
-            players.Add(player);
-        }
-
-        public Match () { }
+        this.matchID = matchID;
+        players.Add(player);
     }
 
-    [System.Serializable]
-    public class SynclistGameObject : SyncList<GameObject> { }
+    public Match() { }
+}
 
-    [System.Serializable]
-    public class SynclistMatch : SyncList<Match> { }
+[System.Serializable]
+public class SynclistGameObject : SyncList<GameObject> { }
+
+[System.Serializable]
+public class SynclistMatch : SyncList<Match> { }
 
 public class MatchMaker : NetworkBehaviour
 {
@@ -61,7 +61,8 @@ public class MatchMaker : NetworkBehaviour
             //_player.GetComponent<Player>().currentMatch = match;
             playerIndex = 1;
             return true;
-        } else
+        }
+        else
         {
             Debug.Log($"Match ID already exists");
             return false;
@@ -95,7 +96,7 @@ public class MatchMaker : NetworkBehaviour
         }
     }
 
-    public bool SearchGame (GameObject _player, out int playerIndex, out string matchID)
+    public bool SearchGame(GameObject _player, out int playerIndex, out string matchID)
     {
         playerIndex = -1;
         matchID = string.Empty;
@@ -105,7 +106,7 @@ public class MatchMaker : NetworkBehaviour
             if (matches[i].publicMatch && !matches[i].matchFull && !matches[i].inMatch)
             {
                 matchID = matches[i].matchID;
-                if (JoinGame (matchID, _player, out playerIndex))
+                if (JoinGame(matchID, _player, out playerIndex))
                 {
                     return true;
                 }
@@ -115,7 +116,7 @@ public class MatchMaker : NetworkBehaviour
         return false;
     }
 
-    public void StartGame (string _matchID)
+    public void StartGame(string _matchID)
     {
         GameObject newTurnManager = Instantiate(turnManagerPrefab);
         NetworkServer.Spawn(newTurnManager);
@@ -130,7 +131,7 @@ public class MatchMaker : NetworkBehaviour
                 {
                     Player _player = player.GetComponent<Player>();
                     turnManager.AddPlayer(_player);
-                    _player.BeginGame ();
+                    _player.BeginGame();
                 }
                 break;
             }
@@ -169,7 +170,7 @@ public class MatchMaker : NetworkBehaviour
                     matches.RemoveAt(i);
                     matchIDs.Remove(_matchID);
                 }
-                break; 
+                break;
             }
         }
     }

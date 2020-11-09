@@ -19,9 +19,22 @@ public class AutoHostClient : MonoBehaviour
             Debug.Log("===== Server Build =====");
         }
     }
-    public void JoinLocal ()
-    {  
+
+    public void JoinLocal()
+    {
         networkManager.networkAddress = "localhost";
+        networkManager.StartClient();
+    }
+
+    public void JoinKakei()
+    {
+        networkManager.networkAddress = "82.74.130.31";
+        networkManager.StartClient();
+    }
+
+    public void JoinArnoud()
+    {
+        networkManager.networkAddress = "185.113.85.69";
         networkManager.StartClient();
     }
 }

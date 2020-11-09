@@ -1,6 +1,5 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using UnityEditor;
 using UnityEngine;
 
 public class Pawn : MonoBehaviour
@@ -21,9 +20,19 @@ public class Pawn : MonoBehaviour
         _rb = GetComponent<Rigidbody>();
     }
 
-    private void Update()
+    void Update()
     {
         _rb.velocity = Vector3.zero;
+    }
+
+    void OnEnable()
+    {
+        RollDie.OnDieRolled += (int pRoll) => setNextTargetTile(TilesManager.ListOfTiles, pRoll);
+    }
+
+    void OnDisable()
+    {
+        RollDie.OnDieRolled -= (int pRoll) => setNextTargetTile(TilesManager.ListOfTiles, pRoll);
     }
 
     public void SetPlayer(VasilPlayer pPlayer)
@@ -31,8 +40,10 @@ public class Pawn : MonoBehaviour
         _player = pPlayer;
     }
 
-    public void SetNextTargetTile(List<Tile> pTilesList, int pDieRoll)
+    void setNextTargetTile(List<Tile> pTilesList, int pDieRoll)
     {
+        if (!_player.HasCurrentTurn) return;
+
         int currTileIndex = 0;
         if (_currentTile)
             for (int i = 0; i < pTilesList.Count; i++)
@@ -57,14 +68,14 @@ public class Pawn : MonoBehaviour
         if (_currentTile == pTilesList[pTilesList.Count - 1])
         {
             _currentTile = null;
-            SetNextTargetTile(pTilesList, pDieRoll);
+            setNextTargetTile(pTilesList, pDieRoll);
             return;
         }
 
         StartCoroutine(moveTowardsTargetTile(tiles, waypoints));
     }
 
-    private IEnumerator moveTowardsTargetTile(List<Tile> pTileList, List<Vector3> pWaypointList)
+    IEnumerator moveTowardsTargetTile(List<Tile> pTileList, List<Vector3> pWaypointList)
     {
         int reachedWPIndex = 0;
         int targetWPIndex = 1;
@@ -94,6 +105,7 @@ public class Pawn : MonoBehaviour
             }
 
             transform.Translate(direction * Time.deltaTime * _speed, Space.World);
+            if (!_player.HasCurrentTurn) break;
             yield return null;
         }
     }
