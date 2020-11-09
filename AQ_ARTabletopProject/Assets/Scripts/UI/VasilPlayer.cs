@@ -1,4 +1,5 @@
-﻿using TMPro;
+﻿using System.Collections;
+using TMPro;
 using UnityEngine;
 
 public class VasilPlayer : MonoBehaviour
@@ -86,12 +87,7 @@ public class VasilPlayer : MonoBehaviour
         _canRollAgain = true;
 
         GameObject.Find("DieRoll").GetComponent<TextMeshProUGUI>().text = string.Format("{0} press 'R' roll your die", _name);
-        GameObject.Find("BackgoundEmmision").GetComponent<Renderer>().material.color = _pawn.GetComponent<Renderer>().material.color;
-        GameObject.Find("BackgoundEmmision").GetComponent<Renderer>().material.SetColor("_EmissionColor", _pawn.GetComponent<Renderer>().material.color);
-
-        RollDie die = FindObjectOfType(typeof(RollDie)) as RollDie;
-        die.gameObject.transform.GetChild(0).GetComponent<Renderer>().material.color = _pawn.GetComponent<Renderer>().material.color;
-        die.gameObject.transform.GetChild(0).GetComponent<Renderer>().material.SetColor("_EmissionColor", _pawn.GetComponent<Renderer>().material.color);
+        StartCoroutine(lerpToColor(_pawn.GetComponent<Renderer>().material.color));
     }
 
     public void EndTurn()
@@ -103,5 +99,30 @@ public class VasilPlayer : MonoBehaviour
     void onDieRoll(int pInt)
     {
         _isOutOfActions = true;
+    }
+
+    IEnumerator lerpToColor(Color pColor)
+    {
+        RollDie die = FindObjectOfType(typeof(RollDie)) as RollDie;
+        Renderer dieRend = die.gameObject.transform.GetChild(0).GetComponent<Renderer>();
+        Renderer boardRend = GameObject.Find("BackgoundEmmision").GetComponent<Renderer>();
+        boardRend.material.EnableKeyword("_EMISSION");
+        Color newCol = dieRend.material.color;
+
+        while (true)
+        {
+            newCol = Color.Lerp(newCol, pColor, Time.deltaTime * 5);
+
+            dieRend.material.color = newCol;
+            dieRend.material.SetColor("_EmissionColor", newCol);
+
+            boardRend.material.color = newCol;
+            boardRend.material.SetColor("_EmissionColor", newCol);
+
+            dieRend.gameObject.transform.GetComponentInChildren<Light>().color = newCol;
+
+            if (newCol == pColor) yield break;
+            else yield return null;
+        }
     }
 }
