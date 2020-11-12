@@ -5,6 +5,9 @@ using Mirror;
 using System;
 using System.Security.Cryptography;
 using System.Text;
+using Unity.Collections;
+using System.Net.NetworkInformation;
+using UnityEngineInternal;
 
 [System.Serializable]
 public class Match
@@ -17,7 +20,7 @@ public class Match
 
     public bool matchFull;
 
-    public SynclistGameObject players = new SynclistGameObject();
+    public readonly SynclistGameObject players = new SynclistGameObject();
 
     public Match(string matchID, GameObject player)
     {
@@ -38,8 +41,8 @@ public class MatchMaker : NetworkBehaviour
 {
     public static MatchMaker instance;
 
-    public SynclistMatch matches = new SynclistMatch();
-    public SyncListString matchIDs = new SyncListString();
+    public readonly SynclistMatch matches = new SynclistMatch();
+    public readonly SyncListString matchIDs = new SyncListString();
 
     [SerializeField] GameObject turnManagerPrefab;
 
@@ -74,7 +77,6 @@ public class MatchMaker : NetworkBehaviour
         playerIndex = -1;
         if (matchIDs.Contains(_matchID))
         {
-
             for (int i = 0; i < matches.Count; i++)
             {
                 if (matches[i].matchID == _matchID)

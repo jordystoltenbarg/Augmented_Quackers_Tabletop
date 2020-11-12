@@ -133,6 +133,7 @@ public class UILobby : MonoBehaviour
             yield return null;
         }
     }
+
     public void SearchSucces(bool success, string matchID)
     {
         if (success)

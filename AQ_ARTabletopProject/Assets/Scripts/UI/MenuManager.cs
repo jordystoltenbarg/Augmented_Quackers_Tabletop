@@ -58,6 +58,7 @@ public class MenuManager : MonoBehaviour
     void Start()
     {
         _mainMenu = _play.transform.parent.gameObject;
+        init();
         updateMenuState();
     }
 
@@ -74,6 +75,32 @@ public class MenuManager : MonoBehaviour
         _backButton.onClick.RemoveAllListeners();
         _secondBackButton.onClick.RemoveAllListeners();
     }
+
+    void init()
+    {
+        if (_play)
+            _play.SetActive(true);
+        if (_collection)
+            _collection.SetActive(false);
+        if (_preLobby)
+            _preLobby.SetActive(false);
+        if (_lobby)
+            _lobby.SetActive(false);
+        if (_settings)
+            _settings.SetActive(false);
+        if (_credits)
+            _credits.SetActive(false);
+
+        if (_preLobbyContent)
+        {
+            for (int i = 0; i < _preLobbyContent.transform.childCount; i++)
+                _preLobbyContent.transform.GetChild(i).gameObject.SetActive(false);
+            _preLobbyContent.SetActive(false);
+        }
+        if (_lobbyContent)
+            _lobbyContent.SetActive(false);
+    }
+
     void checkMenuState()
     {
         if (_mainMenu.activeSelf)
@@ -312,12 +339,10 @@ public class MenuManager : MonoBehaviour
 
     IEnumerator preLobbySearchForServer()
     {
-        for (int i = 0; i < 1; i++)
-            yield return new WaitForSeconds(UnityEngine.Random.Range(1.0f, 5.0f));
+        yield return new WaitForSeconds(UnityEngine.Random.Range(0.1f, 1.0f));
 
         _preLobbyContent.transform.Find("Searching").gameObject.SetActive(false);
         _preLobbyContent.transform.Find("ServerListContainer").gameObject.SetActive(true);
-        yield break;
     }
 
     /// <summary>
