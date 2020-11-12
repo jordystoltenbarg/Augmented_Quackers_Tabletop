@@ -15,6 +15,9 @@ public class Pawn : MonoBehaviour
 
     private VasilPlayer _player;
 
+    private bool _hasReachedDestination = false;
+    public bool hasReachedDestination => _hasReachedDestination;
+
     void Start()
     {
         _rb = GetComponent<Rigidbody>();
@@ -83,6 +86,7 @@ public class Pawn : MonoBehaviour
         transform.LookAt(new Vector3(pWaypointList[targetWPIndex].x, transform.position.y, pWaypointList[targetWPIndex].z));
 
         _rb.constraints = RigidbodyConstraints.FreezeAll;
+        _hasReachedDestination = false;
 
         while (true)
         {
@@ -93,6 +97,7 @@ public class Pawn : MonoBehaviour
                 {
                     _currentTile = pTileList[reachedWPIndex];
                     _rb.constraints = RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezeRotation;
+                    _hasReachedDestination = true;
                     yield break;
                 }
                 else

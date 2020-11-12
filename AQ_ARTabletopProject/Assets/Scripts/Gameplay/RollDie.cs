@@ -254,8 +254,11 @@ public class RollDie : MonoBehaviour
     int numberRolled()
     {
         foreach (Transform side in _dieSides)
-            if (side.transform.up == Vector3.up)
+        {
+            float dot = Vector3.Dot(side.transform.up, Vector3.up);
+            if (dot >= 0.9f)
                 return Int16.Parse(side.name.Substring(4));
+        }
 
         return 0;
     }

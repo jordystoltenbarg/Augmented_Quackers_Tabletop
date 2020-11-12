@@ -30,6 +30,7 @@ public class VasilPlayer : MonoBehaviour
     private bool _canRollAgain = true;
 
     private Pawn _pawn;
+    public Pawn pawn => _pawn;
 
     private void OnEnable()
     {
@@ -64,6 +65,16 @@ public class VasilPlayer : MonoBehaviour
             if (_dieRolls <= 0)
                 _canRollAgain = false;
         }
+    }
+
+    public void RollDieInput()
+    {
+        if (!_hasCurrentTurn || !_canRollAgain) return;
+
+        Roll();
+        _dieRolls--;
+        if (_dieRolls <= 0)
+            _canRollAgain = false;
     }
 
     public int RullDie(int pSides = 6)

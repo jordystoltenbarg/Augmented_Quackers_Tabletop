@@ -56,6 +56,14 @@ public class TurnOrderManager : MonoBehaviour
             playerSkipTurn(_playersByTurnOrder[3]);
     }
 
+    public void EndTurnInput()
+    {
+        if (!_currentPlayerTurn.IsOutOfActions)
+            GameObject.Find("DieRoll").GetComponent<TextMeshProUGUI>().text = string.Format("Waiting for {0}...", _currentPlayerTurn.PlayerName);
+        else
+            nextPlayer();
+    }
+
     void fillLists()
     {
         _players.Clear();
@@ -116,8 +124,12 @@ public class TurnOrderManager : MonoBehaviour
 
     void nextPlayer()
     {
-        _playerAvatars[0].GetComponent<TurnOrderPlayerAvatar>().Player.hasActedThisTurn = true;
-        _playerAvatars[0].GetComponent<TurnOrderPlayerAvatar>().Player.EndTurn();
+        VasilPlayer currentPlayer = _playerAvatars[0].GetComponent<TurnOrderPlayerAvatar>().Player;
+        if (!currentPlayer.pawn.hasReachedDestination) return;
+
+        currentPlayer.hasActedThisTurn = true;
+        currentPlayer.EndTurn();
+
         if (hasFinalPlayerActed())
         {
             _round++;
