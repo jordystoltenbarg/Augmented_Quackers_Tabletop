@@ -13,7 +13,7 @@ public class TTServerListManager : MonoBehaviour
     [Header("Buttons")]
     public Button joinButton = null;
     [SerializeField] private Button _refreshButton = null;
-    [SerializeField] private Button _startServerButton = null;
+    [SerializeField] private Button _startHostButton = null;
 
     [Header("Auto Refresh")]
     [SerializeField] private bool _autoRefreshServerlist = false;
@@ -36,7 +36,7 @@ public class TTServerListManager : MonoBehaviour
     void AddButtonHandlers()
     {
         _refreshButton.onClick.AddListener(RefreshButtonHandler);
-        _startServerButton.onClick.AddListener(StartServerButtonHandler);
+        _startHostButton.onClick.AddListener(StartHostButtonHandler);
     }
 
     void OnDestroy()
@@ -55,8 +55,8 @@ public class TTServerListManager : MonoBehaviour
         _apiConnector.ListServer.ClientApi.GetServerList();
     }
 
-    public void StartServerButtonHandler()
+    public void StartHostButtonHandler()
     {
-        NetworkManager.singleton.StartServer();
+        NetworkManager.singleton.StartHost();
     }
 }

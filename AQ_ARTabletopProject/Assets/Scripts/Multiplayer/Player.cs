@@ -26,6 +26,7 @@ public class Player : NetworkBehaviour
         if (isLocalPlayer)
         {
             localPlayer = this;
+            print("asd");
         }
         else
         {

@@ -369,6 +369,20 @@ public class MenuManager : MonoBehaviour
         }
     }
 
+    public void CreateLobby()
+    {
+        switch (CurrentMenuState)
+        {
+            case MenuState.PreLobby:
+                _preLobby.GetComponent<Animator>().SetTrigger("FadeOut");
+                _preLobbyContent.GetComponent<Animator>().SetTrigger("FadeOut");
+                StartCoroutine(disableGOAfterAnimation(_preLobby.GetComponent<Animator>(), showLobby));
+
+                disableNavButtons();
+                break;
+        }
+    }
+
     void showLobby()
     {
         if (!_mainMenu.activeSelf)
@@ -378,7 +392,7 @@ public class MenuManager : MonoBehaviour
         }
 
         _lobby.SetActive(true);
-        StartCoroutine(lobbyLoadPlayers());
+        //StartCoroutine(lobbyLoadPlayers());
 
         updateMenuState();
         openSlider();

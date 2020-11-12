@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text.RegularExpressions;
 using TMPro;
 using UnityEngine;
 
@@ -18,13 +19,14 @@ public class PlayerNameInputfieldIdentifier : MonoBehaviour
 
         if (!isValidName(pInputText)) return;
 
-        TTPlayer.localPlayer.ChangePlayerName(pInputText);
+        TTSettingsManager.singleton.ChangePlayerName(pInputText);
+        inputField.text = pInputText;
         _lastInput = pInputText;
     }
 
     private bool isValidName(string pInputText)
     {
-        if (pInputText == "" || pInputText.Length < 3)
+        if (pInputText.Length < 3 || containsProfanity(pInputText))
         {
             return false;
         }
@@ -32,5 +34,20 @@ public class PlayerNameInputfieldIdentifier : MonoBehaviour
         {
             return true;
         }
+    }
+
+    private bool containsProfanity(string pInputText)
+    {
+        string[] strToReplace = { " ", "_", "-" };
+        string check = pInputText;
+        for (int i = 0; i < strToReplace.Length; i++)
+            check = check.Replace(strToReplace[i], "");
+
+        string[] bans = TTSettingsManager.singleton.bannedWords;
+        for (int i = 0; i < bans.Length; i++)
+            if (check.ToLower().Contains(bans[i].ToLower()))
+                return true;
+
+        return false;
     }
 }

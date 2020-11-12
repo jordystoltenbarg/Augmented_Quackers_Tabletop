@@ -22,8 +22,6 @@ public class TTApiUpdater : MonoBehaviour
         _manager.onPlayerListChanged += onPlayerListChanged;
         _manager.onServerStarted += serverStartedHandler;
         _manager.onServerStopped += serverStoppedHandler;
-
-        addServer(0);
     }
 
     private void OnDestroy()
@@ -76,7 +74,7 @@ public class TTApiUpdater : MonoBehaviour
 
         _apiConnector.ListServer.ServerApi.AddServer(new ServerJson
         {
-            displayName = $"{gameName} {UnityEngine.Random.value * 1000:0}",
+            displayName = $"{TTSettingsManager.singleton.playerName}",
             protocol = protocol,
             port = port,
             maxPlayerCount = NetworkManager.singleton.maxConnections,

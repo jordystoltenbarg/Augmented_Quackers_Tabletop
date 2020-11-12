@@ -17,6 +17,11 @@ public class TTNetworkManagerListServer : NetworkManager
     public event Action onServerStopped;
 
     /// <summary>
+    /// Called when Client Starts
+    /// </summary>
+    public event Action onClientStarted;
+
+    /// <summary>
     /// Called when players leaves or joins the room
     /// </summary>
     public event OnPlayerListChanged onPlayerListChanged;
@@ -50,5 +55,10 @@ public class TTNetworkManagerListServer : NetworkManager
     public override void OnStopServer()
     {
         onServerStopped?.Invoke();
+    }
+
+    public override void OnStartClient()
+    {
+        onClientStarted?.Invoke();
     }
 }
