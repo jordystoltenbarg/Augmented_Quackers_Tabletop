@@ -1357,7 +1357,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Server connection failed
+  m_Text: Couldn't autoconnect to server
 --- !u!222 &1437357006
 CanvasRenderer:
   m_ObjectHideFlags: 0
