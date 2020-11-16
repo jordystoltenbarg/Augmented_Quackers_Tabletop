@@ -21,17 +21,38 @@ public class TurnOrderManager : MonoBehaviour
     private List<GameObject> _playersByTurnOrderPositionPrefabs = new List<GameObject>();
 
     private bool _hasCreatingSkippedTurnFinished = false;
+    private bool _isinit = false;
 
     void Start()
     {
+        //fillLists();
+        //shufflePlayerTurnOrder();
+        //setPlayerTurn(_playersByTurnOrder[0]);
+        //GameObject.Find("RoundCount").GetComponent<TextMeshProUGUI>().text = string.Format("Round: {0}", _round);
+    }
+
+    public void setup ()
+    {
+        if (_isinit == true)
+        {
+            return;
+        }
+
         fillLists();
         shufflePlayerTurnOrder();
         setPlayerTurn(_playersByTurnOrder[0]);
         GameObject.Find("RoundCount").GetComponent<TextMeshProUGUI>().text = string.Format("Round: {0}", _round);
+
+        _isinit = true;
     }
 
     void Update()
     {
+        if (_isinit == true)
+        {
+            return;
+        }
+
         //End Turn
         if (Input.GetKeyDown(KeyCode.D))
             if (!_currentPlayerTurn.IsOutOfActions)
@@ -55,6 +76,7 @@ public class TurnOrderManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Keypad4))
             playerSkipTurn(_playersByTurnOrder[3]);
     }
+
 
     public void EndTurnInput()
     {

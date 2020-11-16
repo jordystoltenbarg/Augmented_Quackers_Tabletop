@@ -209,7 +209,7 @@ public class RollDie : MonoBehaviour
 
     void rollRandomDie()
     {
-        _bodyRB.transform.position += Vector3.up * 5;
+        _bodyRB.transform.position += Vector3.up * 5 * 0.005f;
 
         int x = UnityEngine.Random.Range(-1, 2);
         while (x == 0)
@@ -227,7 +227,7 @@ public class RollDie : MonoBehaviour
 
     void rollWithValues(int pX, int pZ)
     {
-        _bodyRB.transform.position += Vector3.up * 5;
+        //_bodyRB.transform.position += Vector3.up * 5;
 
         _bodyRB.AddForce(new Vector3(pX, 0, pZ) * _sideForce + Vector3.up * _upwardsForce);
         _bodyRB.AddTorque(new Vector3(pX, 0, pZ) * _rotationTorque);
