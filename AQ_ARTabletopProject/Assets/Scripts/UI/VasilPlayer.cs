@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class VasilPlayer : MonoBehaviour
 {
@@ -31,6 +32,13 @@ public class VasilPlayer : MonoBehaviour
 
     private Pawn _pawn;
     public Pawn pawn => _pawn;
+
+    private void Start()
+    {
+        FindObjectOfType<TurnOrderManager>().GetComponent<TurnOrderManager>().setup();
+
+        GameObject.Find("RollButton").GetComponent<Button>().onClick.AddListener(()=>RollDieInput());
+    }
 
     private void OnEnable()
     {
