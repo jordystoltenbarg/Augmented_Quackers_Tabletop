@@ -30,7 +30,7 @@ namespace Mirror.Cloud.ListServerService
         /// Update the current server
         /// </summary>
         /// <param name="newPlayerCount"></param>
-        void UpdateServer(int newPlayerCount);
+        void UpdateServer(int newPlayerCount, string pDisplayName = "");
         /// <summary>
         /// Update the current server
         /// </summary>

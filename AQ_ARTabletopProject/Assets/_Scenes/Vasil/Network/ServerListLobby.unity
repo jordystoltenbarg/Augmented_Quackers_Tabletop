@@ -949,6 +949,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: TabletopNetworkManager
       objectReference: {fileID: 0}
+    - target: {fileID: 4190436326857494006, guid: 3082295bf56ad314b8dc5794dfa76085,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4190436326857494012, guid: 3082295bf56ad314b8dc5794dfa76085,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1003,17 +1008,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7061764009553101425, guid: 3082295bf56ad314b8dc5794dfa76085,
-        type: 3}
-      propertyPath: playerPrefab
-      value: 
-      objectReference: {fileID: 4059512043169728468, guid: 814015f5964f79e4ca5c2e9a4a03e71e,
-        type: 3}
-    - target: {fileID: 7061764009553101425, guid: 3082295bf56ad314b8dc5794dfa76085,
-        type: 3}
-      propertyPath: onlineScene
-      value: Assets/_Scenes/Vasil/Network/ServerListLobby.unity
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3082295bf56ad314b8dc5794dfa76085, type: 3}

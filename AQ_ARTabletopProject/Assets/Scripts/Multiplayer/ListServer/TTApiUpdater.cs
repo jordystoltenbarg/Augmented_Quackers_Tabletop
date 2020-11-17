@@ -1,21 +1,25 @@
 ﻿using System;
+using System.Collections.Generic;
 using Mirror;
 using Mirror.Cloud.ListServerService;
 using UnityEngine;
-
 /// <summary>
 /// This component should be put on the NetworkManager object
 /// </summary>
 public class TTApiUpdater : MonoBehaviour
 {
+    public static TTApiUpdater apiUpdater = null;
     private static readonly ILogger _logger = LogFactory.GetLogger<TTApiUpdater>();
 
     private TTNetworkManagerListServer _manager;
     private TTApiConnector _apiConnector;
     public string gameName = "Game";
+    public ServerJson serverToReach;
 
     private void Start()
     {
+        apiUpdater = this;
+
         _manager = NetworkManager.singleton as TTNetworkManagerListServer;
         _apiConnector = _manager.GetComponent<TTApiConnector>();
 
@@ -39,7 +43,7 @@ public class TTApiUpdater : MonoBehaviour
             if (pPlayerCount < _manager.maxConnections)
             {
                 if (_logger.LogEnabled()) _logger.Log($"Updating Server, player count: {pPlayerCount} ");
-                _apiConnector.ListServer.ServerApi.UpdateServer(pPlayerCount);
+                _apiConnector.ListServer.ServerApi.UpdateServer(pPlayerCount, gameName);
             }
             //Remove server when there is max players
             else
@@ -74,11 +78,11 @@ public class TTApiUpdater : MonoBehaviour
 
         _apiConnector.ListServer.ServerApi.AddServer(new ServerJson
         {
-            displayName = $"{TTSettingsManager.singleton.playerName}",
+            displayName = $"{gameName}",
             protocol = protocol,
             port = port,
             maxPlayerCount = NetworkManager.singleton.maxConnections,
-            playerCount = pPlayerCount
+            playerCount = pPlayerCount,
         });
     }
 

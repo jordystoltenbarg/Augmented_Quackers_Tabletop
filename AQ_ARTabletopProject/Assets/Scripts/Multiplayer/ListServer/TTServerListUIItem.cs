@@ -65,7 +65,10 @@ public class TTServerListUIItem : MonoBehaviour
     private void onJoinClicked()
     {
         if (!_isHighlited) return;
-        NetworkManager.singleton.StartClient(new Uri(_server.address));
+        //NetworkManager.singleton.StartClient(new Uri(_server.address));
+        TTSettingsManager.singleton.SetPlayerIndex(_server.playerCount);
+        NetworkManager.singleton.networkAddress = "localhost";
+        NetworkManager.singleton.StartClient();
     }
 
     private Sprite getBackgroundVariation()

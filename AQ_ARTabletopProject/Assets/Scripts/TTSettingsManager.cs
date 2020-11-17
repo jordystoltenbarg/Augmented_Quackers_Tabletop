@@ -8,6 +8,8 @@ public class TTSettingsManager : MonoBehaviour
 
     private string _playerName = "";
     public string playerName => _playerName;
+    private int _playerIndex = 0;
+    public int playerIndex => _playerIndex;
 
     private void Awake()
     {
@@ -24,5 +26,13 @@ public class TTSettingsManager : MonoBehaviour
         _playerName = pNewName;
         if (TTPlayer.localPlayer)
             TTPlayer.localPlayer.ChangePlayerName(pNewName);
+
+        if (TTApiUpdater.apiUpdater)
+            TTApiUpdater.apiUpdater.gameName = pNewName;
+    }
+
+    public void SetPlayerIndex(int pIndex)
+    {
+        _playerIndex = pIndex;
     }
 }
