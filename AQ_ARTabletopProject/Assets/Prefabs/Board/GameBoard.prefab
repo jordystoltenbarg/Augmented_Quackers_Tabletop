@@ -273,9 +273,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d1b4e79e246ace468c161786fd8a795, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _upwardsForce: 5
-  _sideForce: 10
-  _rotationTorque: 50
+  _upwardsForce: 2000
+  _sideForce: 2000
+  _rotationTorque: 10000
 --- !u!1 &7591892655406099454
 GameObject:
   m_ObjectHideFlags: 0
@@ -1688,7 +1688,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3de556388d39975408a4ee92f597bdc4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 0.25
+  _speed: 50
 --- !u!136 &7591892655754256851
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -2780,7 +2780,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3de556388d39975408a4ee92f597bdc4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 0.25
+  _speed: 50
 --- !u!136 &7591892656015482599
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -4772,7 +4772,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3de556388d39975408a4ee92f597bdc4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 0.25
+  _speed: 50
 --- !u!136 &7591892656694066569
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -6531,7 +6531,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3de556388d39975408a4ee92f597bdc4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 0.25
+  _speed: 50
 --- !u!136 &7591892657130977616
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -7038,7 +7038,7 @@ Transform:
   m_GameObject: {fileID: 7591892657355952461}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.005, y: 0.005, z: 0.005}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 7591892656315077002}
   - {fileID: 7591892656694066571}
@@ -7100,7 +7100,6 @@ GameObject:
   - component: {fileID: 7591892657398036151}
   - component: {fileID: 7591892657398036150}
   - component: {fileID: 7591892657398036153}
-  - component: {fileID: 7591892657398036152}
   - component: {fileID: 7591892657398036155}
   m_Layer: 0
   m_Name: Body
@@ -7193,19 +7192,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 1
---- !u!65 &7591892657398036152
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7591892657398036157}
-  m_Material: {fileID: 13400000, guid: 9bfd963e485facd4b9678755068c80ad, type: 2}
-  m_IsTrigger: 0
-  m_Enabled: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!64 &7591892657398036155
 MeshCollider:
   m_ObjectHideFlags: 0

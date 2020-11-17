@@ -78,3 +78,7 @@ AQ_ARTabletopProject/Library/SourceAssetDB
 AQ_ARTabletopProject/Library/Artifacts/
 
 AQ_ARTabletopProject/Library/
+
+AQ_ARTabletopProject/obj/
+
+*.meta

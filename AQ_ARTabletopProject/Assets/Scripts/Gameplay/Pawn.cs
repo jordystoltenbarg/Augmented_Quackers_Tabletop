@@ -1,9 +1,12 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Pawn : MonoBehaviour
 {
+    public static event Action onPawnReadecFinalTile;
+
     [SerializeField]
     private float _speed = 5;
 
@@ -14,9 +17,6 @@ public class Pawn : MonoBehaviour
     private Rigidbody _rb = null;
 
     private VasilPlayer _player;
-
-    private bool _hasReachedDestination = false;
-    public bool hasReachedDestination => _hasReachedDestination;
 
     void Start()
     {
@@ -30,12 +30,12 @@ public class Pawn : MonoBehaviour
 
     void OnEnable()
     {
-        RollDie.OnDieRolled += (int pRoll) => setNextTargetTile(TilesManager.ListOfTiles, pRoll);
+        RollDie.onDieRolled += (int pRoll) => setNextTargetTile(TilesManager.ListOfTiles, pRoll);
     }
 
     void OnDisable()
     {
-        RollDie.OnDieRolled -= (int pRoll) => setNextTargetTile(TilesManager.ListOfTiles, pRoll);
+        RollDie.onDieRolled -= (int pRoll) => setNextTargetTile(TilesManager.ListOfTiles, pRoll);
     }
 
     public void SetPlayer(VasilPlayer pPlayer)
@@ -86,7 +86,6 @@ public class Pawn : MonoBehaviour
         transform.LookAt(new Vector3(pWaypointList[targetWPIndex].x, transform.position.y, pWaypointList[targetWPIndex].z));
 
         _rb.constraints = RigidbodyConstraints.FreezeAll;
-        _hasReachedDestination = false;
 
         while (true)
         {
@@ -97,7 +96,7 @@ public class Pawn : MonoBehaviour
                 {
                     _currentTile = pTileList[reachedWPIndex];
                     _rb.constraints = RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezeRotation;
-                    _hasReachedDestination = true;
+                    onPawnReadecFinalTile?.Invoke();
                     yield break;
                 }
                 else

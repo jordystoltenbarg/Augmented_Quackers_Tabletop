@@ -25,33 +25,25 @@ public class TurnOrderManager : MonoBehaviour
 
     void Start()
     {
-        //fillLists();
-        //shufflePlayerTurnOrder();
-        //setPlayerTurn(_playersByTurnOrder[0]);
-        //GameObject.Find("RoundCount").GetComponent<TextMeshProUGUI>().text = string.Format("Round: {0}", _round);
     }
 
-    public void setup ()
+    public void Init()
     {
-        if (_isinit == true)
-        {
-            return;
-        }
+        if (_isinit) return;
 
         fillLists();
         shufflePlayerTurnOrder();
         setPlayerTurn(_playersByTurnOrder[0]);
         GameObject.Find("RoundCount").GetComponent<TextMeshProUGUI>().text = string.Format("Round: {0}", _round);
 
+        Pawn.onPawnReadecFinalTile += nextPlayer;
+
         _isinit = true;
     }
 
     void Update()
     {
-        if (_isinit == true)
-        {
-            return;
-        }
+        if (!_isinit) return;
 
         //End Turn
         if (Input.GetKeyDown(KeyCode.D))
@@ -147,8 +139,6 @@ public class TurnOrderManager : MonoBehaviour
     void nextPlayer()
     {
         VasilPlayer currentPlayer = _playerAvatars[0].GetComponent<TurnOrderPlayerAvatar>().Player;
-        if (!currentPlayer.pawn.hasReachedDestination) return;
-
         currentPlayer.hasActedThisTurn = true;
         currentPlayer.EndTurn();
 
