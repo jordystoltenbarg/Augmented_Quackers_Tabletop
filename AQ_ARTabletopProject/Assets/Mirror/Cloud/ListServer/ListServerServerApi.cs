@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
 
@@ -34,6 +35,8 @@ namespace Mirror.Cloud.ListServerService
 
         public bool ServerInList => _added;
 
+        private List<GameObject> _players = new List<GameObject>();
+
         public ListServerServerApi(ICoroutineRunner runner, IRequestCreator requestCreator) : base(runner, requestCreator)
         {
         }
@@ -57,13 +60,19 @@ namespace Mirror.Cloud.ListServerService
             runner.StartCoroutine(addServer(server));
         }
 
-        public void UpdateServer(int newPlayerCount, string pDisplayName = "")
+        public void UpdateServer(int newPlayerCount)
         {
             if (!_added) { Logger.LogWarning("UpdateServer called when before server was added"); return; }
 
             _currentServer.playerCount = newPlayerCount;
-            if (pDisplayName != "")
-                _currentServer.displayName = pDisplayName;
+            UpdateServer(_currentServer);
+        }
+
+        public void UpdateServer(string pDisplayName)
+        {
+            if (!_added) { Logger.LogWarning("UpdateServer called when before server was added"); return; }
+
+            _currentServer.displayName = pDisplayName;
             UpdateServer(_currentServer);
         }
 
@@ -96,6 +105,16 @@ namespace Mirror.Cloud.ListServerService
 
             stopPingCoroutine();
             runner.StartCoroutine(removeServer());
+        }
+
+        public int GetServerPlayerCount()
+        {
+            return _currentServer.playerCount;
+        }
+
+        public List<GameObject> GetPlayersInServer()
+        {
+            return _players;
         }
 
         void stopPingCoroutine()

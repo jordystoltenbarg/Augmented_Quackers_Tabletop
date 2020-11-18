@@ -13,6 +13,8 @@ public class TTServerListUI : MonoBehaviour
     [SerializeField] private TTServerListUIItem _listItemPrefab = null;
     [SerializeField] private Transform _listItemParent = null;
 
+    [HideInInspector] public bool allowDraw = true;
+
     private readonly List<TTServerListUIItem> _items = new List<TTServerListUIItem>();
 
     private void OnDisable()
@@ -22,13 +24,26 @@ public class TTServerListUI : MonoBehaviour
 
     public void UpdateList(ServerCollectionJson pServerCollection)
     {
-        deleteOldItems();
-        createNewItems(pServerCollection.servers);
+        if (pServerCollection.servers.Length == 0) return;
+
+        if (_items.Count == 0)
+            allowDraw = true;
+
+        if (allowDraw)
+        {
+            deleteOldItems();
+            createNewItems(pServerCollection.servers);
+        }
+        else
+        {
+            updateListContent(pServerCollection.servers);
+        }
     }
 
     private void createNewItems(ServerJson[] pServers)
     {
-        Array.Sort(pServers, delegate (ServerJson x, ServerJson y) { return x.playerCount.CompareTo(y.playerCount); });
+        Array.Sort(pServers, delegate (ServerJson pX, ServerJson pY) { return pX.playerCount.CompareTo(pY.playerCount); });
+        Array.Reverse(pServers);
         foreach (ServerJson server in pServers)
         {
             TTServerListUIItem clone = Instantiate(_listItemPrefab, _listItemParent);
@@ -36,6 +51,7 @@ public class TTServerListUI : MonoBehaviour
             clone.Setup(server);
             _items.Add(clone);
         }
+        allowDraw = false;
     }
 
     private void deleteOldItems()
@@ -44,6 +60,12 @@ public class TTServerListUI : MonoBehaviour
             Destroy(item.gameObject);
 
         _items.Clear();
+    }
+
+    private void updateListContent(ServerJson[] pServers)
+    {
+        for (int i = 0; i < _items.Count; i++)
+            _items[i].UpdateContent(pServers[i]);
     }
 
     private void highlightItem(TTServerListUIItem pItem)

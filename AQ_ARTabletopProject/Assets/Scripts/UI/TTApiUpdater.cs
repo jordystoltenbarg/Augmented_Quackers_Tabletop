@@ -13,8 +13,8 @@ public class TTApiUpdater : MonoBehaviour
 
     private TTNetworkManagerListServer _manager;
     private TTApiConnector _apiConnector;
-    public string gameName = "Game";
-    public ServerJson serverToReach;
+    private string _gameName = "";
+    public string gameName => _gameName;
 
     private void Start()
     {
@@ -26,6 +26,7 @@ public class TTApiUpdater : MonoBehaviour
         _manager.onPlayerListChanged += onPlayerListChanged;
         _manager.onServerStarted += serverStartedHandler;
         _manager.onServerStopped += serverStoppedHandler;
+        TTSettingsManager.onPlayerNameChanged += updateGameName;
     }
 
     private void OnDestroy()
@@ -33,6 +34,7 @@ public class TTApiUpdater : MonoBehaviour
         _manager.onPlayerListChanged -= onPlayerListChanged;
         _manager.onServerStarted -= serverStartedHandler;
         _manager.onServerStopped -= serverStoppedHandler;
+        TTSettingsManager.onPlayerNameChanged -= updateGameName;
     }
 
     private void onPlayerListChanged(int pPlayerCount)
@@ -43,19 +45,20 @@ public class TTApiUpdater : MonoBehaviour
             if (pPlayerCount < _manager.maxConnections)
             {
                 if (_logger.LogEnabled()) _logger.Log($"Updating Server, player count: {pPlayerCount} ");
-                _apiConnector.ListServer.ServerApi.UpdateServer(pPlayerCount, gameName);
+                _apiConnector.ListServer.ServerApi.UpdateServer(pPlayerCount);
             }
             //Remove server when there is max players
             else
             {
                 if (_logger.LogEnabled()) _logger.Log($"Removing Server, player count: {pPlayerCount}");
+                _apiConnector.ListServer.ServerApi.UpdateServer(pPlayerCount);
                 _apiConnector.ListServer.ServerApi.RemoveServer();
             }
         }
         else
         {
             //If not in list, and player counts drops below 2, add server to list
-            if (pPlayerCount < _manager.maxConnections - 1)
+            if (pPlayerCount < _manager.maxConnections)
             {
                 if (_logger.LogEnabled()) _logger.Log($"Adding Server, player count: {pPlayerCount}");
                 addServer(pPlayerCount);
@@ -75,10 +78,9 @@ public class TTApiUpdater : MonoBehaviour
         Uri uri = transport.ServerUri();
         int port = uri.Port;
         string protocol = uri.Scheme;
-
         _apiConnector.ListServer.ServerApi.AddServer(new ServerJson
         {
-            displayName = $"{gameName}",
+            displayName = $"{_gameName}",
             protocol = protocol,
             port = port,
             maxPlayerCount = NetworkManager.singleton.maxConnections,
@@ -89,5 +91,21 @@ public class TTApiUpdater : MonoBehaviour
     private void serverStoppedHandler()
     {
         _apiConnector.ListServer.ServerApi.RemoveServer();
+    }
+
+    private void updateGameName(string pNewName)
+    {
+        _gameName = pNewName;
+        _apiConnector.ListServer.ServerApi.UpdateServer(_gameName);
+    }
+
+    public int GetServerPlayerCount()
+    {
+        return _apiConnector.ListServer.ServerApi.GetServerPlayerCount();
+    }
+
+    public List<GameObject> GetPlayersInServer()
+    {
+        return _apiConnector.ListServer.ServerApi.GetPlayersInServer();
     }
 }

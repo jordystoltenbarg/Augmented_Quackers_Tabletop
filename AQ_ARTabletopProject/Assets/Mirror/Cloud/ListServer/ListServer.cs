@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.Events;
 
 namespace Mirror.Cloud.ListServerService
@@ -27,10 +29,15 @@ namespace Mirror.Cloud.ListServerService
         /// <param name="server"></param>
         void AddServer(ServerJson server);
         /// <summary>
-        /// Update the current server
+        /// Update the current server Player Count
         /// </summary>
         /// <param name="newPlayerCount"></param>
-        void UpdateServer(int newPlayerCount, string pDisplayName = "");
+        void UpdateServer(int newPlayerCount);
+        /// <summary>
+        /// Update the current server Name
+        /// </summary>
+        /// <param name="pDisplayName"></param>
+        void UpdateServer(string pDisplayName);
         /// <summary>
         /// Update the current server
         /// </summary>
@@ -40,6 +47,10 @@ namespace Mirror.Cloud.ListServerService
         /// Removes the current server
         /// </summary>
         void RemoveServer();
+
+        int GetServerPlayerCount();
+
+        List<GameObject> GetPlayersInServer();
     }
 
     public interface IListServerClientApi : IBaseApi
@@ -48,7 +59,6 @@ namespace Mirror.Cloud.ListServerService
         /// Called when the server list is updated
         /// </summary>
         event UnityAction<ServerCollectionJson> onServerListUpdated;
-
         /// <summary>
         /// Get the server list once
         /// </summary>

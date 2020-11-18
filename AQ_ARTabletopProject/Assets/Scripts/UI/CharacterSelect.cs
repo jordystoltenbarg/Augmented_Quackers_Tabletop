@@ -5,27 +5,26 @@ using UnityEngine.UI;
 
 public class CharacterSelect : MonoBehaviour
 {
-    private static GameObject _selectedCharacter = null;
-    public static GameObject SelectedCharacter { get { return _selectedCharacter; } }
+    public static readonly List<GameObject> ListOfCharacters = new List<GameObject>();
 
-    private List<GameObject> _listOfCharacters = new List<GameObject>();
     private Color _transparent = new Color(1, 1, 1, 0);
 
     void updateList()
     {
-        _listOfCharacters.Clear();
+        ListOfCharacters.Clear();
 
         for (int i = 0; i < transform.childCount; i++)
-            _listOfCharacters.Add(transform.GetChild(i).gameObject);
+            ListOfCharacters.Add(transform.GetChild(i).gameObject);
     }
 
     private void OnEnable()
     {
         updateList();
-        _selectedCharacter = null;
 
-        foreach (GameObject go in _listOfCharacters)
+        for (int i = 0; i < ListOfCharacters.Count; i++)
         {
+            GameObject go = ListOfCharacters[i];
+            go.GetComponent<TTLobbyUICharacterItem>().characterIndex = i;
             go.GetComponent<Button>().onClick.AddListener(() => highlightServer(go));
             go.transform.Find("Highlight").GetComponent<Image>().color = _transparent;
         }
@@ -33,16 +32,16 @@ public class CharacterSelect : MonoBehaviour
 
     private void OnDisable()
     {
-        foreach (GameObject go in _listOfCharacters)
+        foreach (GameObject go in ListOfCharacters)
             go.GetComponent<Button>().onClick.RemoveAllListeners();
     }
 
     void highlightServer(GameObject pGO)
     {
-        foreach (GameObject go in _listOfCharacters)
-            go.transform.Find("Highlight").GetComponent<Image>().color = _transparent;
+        foreach (GameObject go in ListOfCharacters)
+            if (go != pGO)
+                go.GetComponent<TTLobbyUICharacterItem>().DeSelectCharacter(TTPlayer.localPlayer);
 
-        pGO.transform.Find("Highlight").GetComponent<Image>().color = Color.white;
-        _selectedCharacter = pGO;
+        pGO.GetComponent<TTLobbyUICharacterItem>().SelectCharacter(TTPlayer.localPlayer);
     }
 }

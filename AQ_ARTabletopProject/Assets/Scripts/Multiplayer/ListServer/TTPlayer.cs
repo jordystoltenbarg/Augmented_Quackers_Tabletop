@@ -1,39 +1,57 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 using Mirror;
-using Mirror.Cloud.ListServerService;
-using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class TTPlayer : NetworkBehaviour
 {
     public static TTPlayer localPlayer;
 
-    [SyncVar] private int _lobbyIndex = 0;
+    [SyncVar] private int _lobbyIndex = -1;
     public int lobbyIndex => _lobbyIndex;
     [SyncVar] private string _playerName = "";
     public string playerName => _playerName;
     [SyncVar] private bool _isReady = false;
     public bool isReady => _isReady;
+    [SyncVar] private int _selectedCharacterIndex = -1;
+    public int selectedCharacterIndex => _selectedCharacterIndex;
+    [SyncVar] private List<GameObject> _playersInCurrentServer = null;
+    public List<GameObject> playersInCurrentServer => _playersInCurrentServer;
 
-    private TTNetworkManagerListServer _manager;
+    [SerializeField] private bool _autoUpdatePlayerListInCurrentServer = true;
+    [SerializeField] private float _playerListInCurrentServerUpdateInterval = 1.0f;
 
-    private void Awake()
-    {
-        if (TTSettingsManager.singleton)
-            _playerName = TTSettingsManager.singleton.playerName;
-    }
+    private TTNetworkManagerListServer _manager = null;
 
     private void Start()
     {
-        _manager = NetworkManager.singleton as TTNetworkManagerListServer;
-        _manager.onHostStarted += onHostStarted;
-        _manager.onHostStopped += onHostStopped;
+        Invoke("lobbyUIAddPlayer", 0.5f);
     }
 
     private void OnDestroy()
     {
-        _manager.onHostStarted -= onHostStarted;
-        _manager.onHostStopped -= onHostStopped;
+        if (!isLocalPlayer) return;
+
+        TTSettingsManager.onPlayerNameChanged -= ChangePlayerName;
+
+        cmdRemovePlayerFromList(gameObject);
+
+        FindObjectOfType<MenuManager>().GoToPreLobby();
+
+        localPlayer = null;
+    }
+
+    private void Update()
+    {
+        if (!isLocalPlayer) return;
+    }
+
+    private void lobbyUIAddPlayer()
+    {
+        TTLobbyUI.singleton.AddPlayer(this);
     }
 
     /// <summary>
@@ -44,28 +62,58 @@ public class TTPlayer : NetworkBehaviour
         if (!isLocalPlayer) return;
 
         localPlayer = this;
-        cmdSetPlayerIndex(TTSettingsManager.singleton.playerIndex);
+        FindObjectOfType<MenuManager>().JoinLobby();
+
+        initLocalPlayer();
     }
 
-    private void onHostStarted()
+    public override void OnStopClient()
     {
+        TTLobbyUI.singleton.RemovePlayer(this);
     }
 
-    private void onHostStopped()
+    private void initLocalPlayer()
     {
+        _manager = NetworkManager.singleton as TTNetworkManagerListServer;
+        TTSettingsManager.onPlayerNameChanged += ChangePlayerName;
+
+        Invoke("cmdSetPlayerIndex", 0.5f);
+        cmdChangePlayerName(TTSettingsManager.singleton.playerName);
+        cmdAddPToList(gameObject);
+
+        //StartCoroutine(updatePlayerListInCurrentServer(_playerListInCurrentServerUpdateInterval));
     }
 
     [Command]
-    private void cmdSetPlayerIndex(int pIndex)
+    private void cmdAddPToList(GameObject pGO)
     {
-        _lobbyIndex = pIndex;
-        TargetWhatisIndex();
+        TTApiUpdater.apiUpdater.GetPlayersInServer().Add(pGO);
     }
 
-    [TargetRpc]
-    private void TargetWhatisIndex()
+    [Command]
+    private void cmdRemovePlayerFromList(GameObject pGO)
     {
-        print(lobbyIndex);
+        TTApiUpdater.apiUpdater.GetPlayersInServer().Remove(pGO);
+    }
+
+    public void GetPlayersInCurrentServer()
+    {
+        cmdGetPlayersInCurrentServer();
+    }
+
+    [Command]
+    private void cmdGetPlayersInCurrentServer()
+    {
+        _playersInCurrentServer = new List<GameObject>(TTApiUpdater.apiUpdater.GetPlayersInServer());
+    }
+
+    private IEnumerator updatePlayerListInCurrentServer(float pInterval)
+    {
+        while (_autoUpdatePlayerListInCurrentServer)
+        {
+            yield return new WaitForSeconds(pInterval);
+            GetPlayersInCurrentServer();
+        }
     }
 
     public void ChangePlayerName(string pNewName)
@@ -77,13 +125,24 @@ public class TTPlayer : NetworkBehaviour
     private void cmdChangePlayerName(string pNewName)
     {
         _playerName = pNewName;
-        TargetNAme();
     }
 
-    [TargetRpc]
-    public void TargetNAme()
+    [Command]
+    private void cmdSetPlayerIndex()
     {
-        print(_playerName);
+        _lobbyIndex = TTApiUpdater.apiUpdater.GetServerPlayerCount() - 1;
+    }
+
+    public void UpdateHigherLobbyIndex(int pLobbyIndex)
+    {
+        if (_lobbyIndex > pLobbyIndex)
+            cmdUpdateHigherLobbyIndex();
+    }
+
+    [Command]
+    private void cmdUpdateHigherLobbyIndex()
+    {
+        _lobbyIndex--;
     }
 
     public void ReadyToggle()
@@ -103,5 +162,16 @@ public class TTPlayer : NetworkBehaviour
         {
             //When Un-Ready
         }
+    }
+
+    public void SelectCharacter(int pCharacterIndex)
+    {
+        cmdSelectCharacter(pCharacterIndex);
+    }
+
+    [Command]
+    private void cmdSelectCharacter(int pCharacterIndex)
+    {
+        _selectedCharacterIndex = pCharacterIndex;
     }
 }

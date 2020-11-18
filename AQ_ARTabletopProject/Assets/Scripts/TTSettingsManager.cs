@@ -1,7 +1,10 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public class TTSettingsManager : MonoBehaviour
 {
+    public static event Action<string> onPlayerNameChanged;
+
     public string[] bannedWords;
 
     public static TTSettingsManager singleton;
@@ -24,11 +27,7 @@ public class TTSettingsManager : MonoBehaviour
     public void ChangePlayerName(string pNewName)
     {
         _playerName = pNewName;
-        if (TTPlayer.localPlayer)
-            TTPlayer.localPlayer.ChangePlayerName(pNewName);
-
-        if (TTApiUpdater.apiUpdater)
-            TTApiUpdater.apiUpdater.gameName = pNewName;
+        onPlayerNameChanged?.Invoke(pNewName);
     }
 
     public void SetPlayerIndex(int pIndex)

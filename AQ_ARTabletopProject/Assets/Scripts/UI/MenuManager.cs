@@ -313,6 +313,8 @@ public class MenuManager : MonoBehaviour
                 disableNavButtons();
                 break;
         }
+
+        FindObjectOfType<TTServerListManager>().Refresh();
     }
 
     void showPreLobby()
@@ -363,6 +365,20 @@ public class MenuManager : MonoBehaviour
             case MenuState.Settings:
                 _settings.GetComponent<Animator>().SetTrigger("FadeOut");
                 StartCoroutine(disableGOAfterAnimation(_settings.GetComponent<Animator>(), showLobby, _settings, false));
+
+                disableNavButtons();
+                break;
+        }
+    }
+
+    public void JoinLobby()
+    {
+        switch (CurrentMenuState)
+        {
+            case MenuState.PreLobby:
+                _preLobby.GetComponent<Animator>().SetTrigger("FadeOut");
+                _preLobbyContent.GetComponent<Animator>().SetTrigger("FadeOut");
+                StartCoroutine(disableGOAfterAnimation(_preLobby.GetComponent<Animator>(), showLobby));
 
                 disableNavButtons();
                 break;

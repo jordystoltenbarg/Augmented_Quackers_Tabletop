@@ -64,7 +64,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36152608c08ce0e4887c22d1e5bb78b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameName: AR Tabletop Game
+  serverToReach:
+    protocol: 
+    port: 0
+    playerCount: 0
+    maxPlayerCount: 0
+    displayName: 
+    address: 
+    customAddress: 
+    customData: []
 --- !u!114 &4190436326857494009
 MonoBehaviour:
   m_ObjectHideFlags: 0

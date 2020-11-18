@@ -29,8 +29,8 @@ public class TTServerListUIItem : MonoBehaviour
     public void Setup(ServerJson pServer)
     {
         _server = pServer;
-        _hostName.text = pServer.displayName;
-        _playerCount.text = string.Format(_playerCountFormat, pServer.playerCount, pServer.maxPlayerCount);
+        _hostName.text = _server.displayName;
+        _playerCount.text = string.Format(_playerCountFormat, _server.playerCount, _server.maxPlayerCount);
 
         _imageComponent = GetComponent<Image>();
         _imageComponent.sprite = getBackgroundVariation();
@@ -40,6 +40,13 @@ public class TTServerListUIItem : MonoBehaviour
 
         _joinButton = FindObjectOfType<TTServerListManager>().joinButton;
         _joinButton.onClick.AddListener(onJoinClicked);
+    }
+
+    public void UpdateContent(ServerJson pServer)
+    {
+        _server = pServer;
+        _hostName.text = _server.displayName;
+        _playerCount.text = string.Format(_playerCountFormat, _server.playerCount, _server.maxPlayerCount);
     }
 
     private void OnDestroy()

@@ -35,8 +35,8 @@ public class TTServerListManager : MonoBehaviour
 
     void AddButtonHandlers()
     {
-        _refreshButton.onClick.AddListener(RefreshButtonHandler);
-        _startHostButton.onClick.AddListener(StartHostButtonHandler);
+        //_refreshButton.onClick.AddListener(refreshButtonHandler);
+        _startHostButton.onClick.AddListener(startHostButtonHandler);
     }
 
     void OnDestroy()
@@ -50,12 +50,19 @@ public class TTServerListManager : MonoBehaviour
         _apiConnector.ListServer.ClientApi.onServerListUpdated -= _serverListUI.UpdateList;
     }
 
-    public void RefreshButtonHandler()
+    private void refreshButtonHandler()
     {
+        _serverListUI.allowDraw = true;
         _apiConnector.ListServer.ClientApi.GetServerList();
     }
 
-    public void StartHostButtonHandler()
+    public void Refresh()
+    {
+        _serverListUI.allowDraw = true;
+        _apiConnector.ListServer.ClientApi.GetServerList();
+    }
+
+    private void startHostButtonHandler()
     {
         NetworkManager.singleton.StartHost();
     }
