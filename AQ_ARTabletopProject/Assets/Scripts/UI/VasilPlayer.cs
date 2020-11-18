@@ -35,14 +35,14 @@ public class VasilPlayer : MonoBehaviour
 
     private void Start()
     {
-        FindObjectOfType<TurnOrderManager>().GetComponent<TurnOrderManager>().setup();
+        FindObjectOfType<TurnOrderManager>().GetComponent<TurnOrderManager>().Init();
 
-        GameObject.Find("RollButton").GetComponent<Button>().onClick.AddListener(()=>RollDieInput());
+        GameObject.Find("RollButton").GetComponent<Button>().onClick.AddListener(() => RollDieInput());
     }
 
     private void OnEnable()
     {
-        RollDie.OnDieRolled += onDieRoll;
+        RollDie.onDieRolled += onDieRoll;
         _turnOrderPositionPrefab.GetComponentInChildren<TurnOrderPlayerAvatar>().SetPlayer(this);
 
         Pawn[] pawns = FindObjectsOfType(typeof(Pawn)) as Pawn[];
@@ -59,7 +59,7 @@ public class VasilPlayer : MonoBehaviour
 
     private void OnDisable()
     {
-        RollDie.OnDieRolled -= onDieRoll;
+        RollDie.onDieRolled -= onDieRoll;
     }
 
     private void Update()

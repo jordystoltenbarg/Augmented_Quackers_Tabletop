@@ -1,23 +1,18 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class RollDie : MonoBehaviour
 {
-    public delegate void DieRolled(int pRoll);
-    public static DieRolled OnDieRolled;
+    public static event Action<int> onDieRolled;
 
     public static Vector2 DieTossValues;
 
     private Camera _mainCam;
     private Rigidbody _bodyRB;
     private List<Transform> _dieSides = new List<Transform>();
-
-    private Text _uiText;
-    private Text _text2;
-    private bool _canShowText;
 
     //Android
     private Touch _currentTouch;
@@ -39,55 +34,23 @@ public class RollDie : MonoBehaviour
     [SerializeField]
     private float _rotationTorque;
 
-    void Start()
+    private void Start()
     {
         _mainCam = Camera.main;
         _bodyRB = transform.Find("Body").GetComponent<Rigidbody>();
         foreach (Transform child in transform.GetComponentsInChildren<Transform>())
-        {
             if (child.name.Contains("Side"))
-            {
                 _dieSides.Add(child.transform);
-            }
-        }
-
-        if (GameObject.Find("UI Text"))
-        {
-            _uiText = GameObject.Find("UI Text").GetComponent<Text>();
-            _uiText.text = "";
-        }
     }
 
-    void FixedUpdate()
+    private void FixedUpdate()
     {
-        if (_uiText)
-        {
-            if (_bodyRB.velocity.magnitude == 0f)
-            {
-                if (_canShowText && _uiText.text == "")
-                {
-                    foreach (Transform side in _dieSides)
-                    {
-                        if (side.transform.up == Vector3.up)
-                        {
-                            _uiText.text = string.Format("You rolled a {0}", side.name.Substring(4));
-                            _canShowText = false;
-                        }
-                    }
-                }
-            }
-        }
-
-        HandleTouch();
-        HandleClick();
-
-        if (Input.GetKeyDown(KeyCode.T))
-        {
-            rollRandomDie();
-        }
+        //Uncomment to enable dragging
+        //handleTouch();
+        //handleClick();
     }
 
-    private void HandleTouch()
+    private void handleTouch()
     {
         if (Input.touchCount == 0) return;
 
@@ -141,13 +104,10 @@ public class RollDie : MonoBehaviour
             transform.rotation = Quaternion.identity;
 
             _touchedThis = false;
-
-            _uiText.text = "";
-            _canShowText = true;
         }
     }
 
-    private void HandleClick()
+    private void handleClick()
     {
         if (Input.GetMouseButtonDown(0))
         {
@@ -198,39 +158,28 @@ public class RollDie : MonoBehaviour
             transform.rotation = Quaternion.identity;
 
             _clickedThis = false;
-
-            if (_uiText)
-            {
-                _uiText.text = "";
-                _canShowText = true;
-            }
         }
     }
 
-    void rollRandomDie()
+    private void rollRandomDie()
     {
-        _bodyRB.transform.position += Vector3.up * 5 * 0.005f;
+        _bodyRB.transform.position += Vector3.up * 5;
 
-        int x = UnityEngine.Random.Range(-1, 2);
-        while (x == 0)
-            x = UnityEngine.Random.Range(-1, 2);
+        float x = UnityEngine.Random.Range(-1.0f, 1.0f);
+        float z = UnityEngine.Random.Range(-1.0f, 1.0f);
 
-        int z = UnityEngine.Random.Range(-1, 2);
-        while (z == 0)
-            z = UnityEngine.Random.Range(-1, 2);
-
-        _bodyRB.AddForce(new Vector3(x, 0, z) * _sideForce + Vector3.up * _upwardsForce);
-        _bodyRB.AddTorque(new Vector3(x, 0, z) * _rotationTorque);
+        _bodyRB.AddForce(new Vector3(x, 0, z).normalized * _sideForce + Vector3.up * _upwardsForce);
+        _bodyRB.AddTorque(new Vector3(x, 1, z).normalized * _rotationTorque);
 
         DieTossValues = new Vector2(x, z);
     }
 
-    void rollWithValues(int pX, int pZ)
+    private void rollWithValues(int pX, int pZ)
     {
-        //_bodyRB.transform.position += Vector3.up * 5;
+        _bodyRB.transform.position += Vector3.up * 5;
 
-        _bodyRB.AddForce(new Vector3(pX, 0, pZ) * _sideForce + Vector3.up * _upwardsForce);
-        _bodyRB.AddTorque(new Vector3(pX, 0, pZ) * _rotationTorque);
+        _bodyRB.AddForce(new Vector3(pX, 0, pZ).normalized * _sideForce + Vector3.up * _upwardsForce);
+        _bodyRB.AddTorque(new Vector3(pX, 1, pZ).normalized * _rotationTorque);
     }
 
     public IEnumerator RollRandom()
@@ -239,7 +188,7 @@ public class RollDie : MonoBehaviour
         yield return new WaitUntil(() => _bodyRB.velocity.magnitude > 0f);
 
         yield return new WaitWhile(() => _bodyRB.velocity.magnitude > 0f);
-        OnDieRolled(numberRolled());
+        onDieRolled?.Invoke(numberRolled());
     }
 
     public IEnumerator RollWithValues(int pX, int pZ)
@@ -248,18 +197,23 @@ public class RollDie : MonoBehaviour
         yield return new WaitUntil(() => _bodyRB.velocity.magnitude > 0f);
 
         yield return new WaitWhile(() => _bodyRB.velocity.magnitude > 0f);
-        OnDieRolled(numberRolled());
+        onDieRolled?.Invoke(numberRolled());
     }
 
-    int numberRolled()
+    private int numberRolled()
     {
+        Dictionary<Transform, float> sideDots = new Dictionary<Transform, float>();
+
         foreach (Transform side in _dieSides)
         {
             float dot = Vector3.Dot(side.transform.up, Vector3.up);
-            if (dot >= 0.9f)
-                return Int16.Parse(side.name.Substring(4));
+            sideDots.Add(side, dot);
         }
 
-        return 0;
+        List<KeyValuePair<Transform, float>> tempList = sideDots.ToList();
+        tempList.Sort((pX, pY) => pX.Value.CompareTo(pY.Value));
+        tempList.Reverse();
+
+        return Int16.Parse(tempList[0].Key.name.Substring(4));
     }
 }
