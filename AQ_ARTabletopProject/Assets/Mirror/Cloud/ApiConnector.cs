@@ -41,7 +41,6 @@ namespace Mirror.Cloud
         void Awake()
         {
             requestCreator = new RequestCreator(ApiAddress, ApiKey, this);
-
             InitListServer();
         }
 

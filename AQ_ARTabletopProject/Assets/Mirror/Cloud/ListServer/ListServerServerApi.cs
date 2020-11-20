@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
 
@@ -6,74 +7,85 @@ namespace Mirror.Cloud.ListServerService
 {
     public sealed class ListServerServerApi : ListServerBaseApi, IListServerServerApi
     {
-        const int PingInterval = 20;
-        const int MaxPingFails = 15;
+        private const int cPingInterval = 20;
+        private const int cMaxPingFails = 15;
 
-        ServerJson currentServer;
-        string serverId;
+        private ServerJson _currentServer;
+        public ServerJson GetCurrentServer() { return _currentServer; }
 
-        Coroutine _pingCoroutine;
+        private string _serverId;
+
+        private Coroutine _pingCoroutine;
         /// <summary>
         /// If the server has already been added
         /// </summary>
-        bool added;
+        private bool _added;
         /// <summary>
         /// if a request is currently sending
         /// </summary>
-        bool sending;
+        private bool _sending;
         /// <summary>
         /// If an update request was recently sent
         /// </summary>
-        bool skipNextPing;
+        private bool _skipNextPing;
         /// <summary>
         /// How many failed pings in a row
         /// </summary>
-        int pingFails = 0;
+        private int _pingFails = 0;
 
-        public bool ServerInList => added;
+        public bool ServerInList => _added;
 
-        public ListServerServerApi(ICoroutineRunner runner, IRequestCreator requestCreator) : base(runner, requestCreator)
+        private readonly List<GameObject> _players = new List<GameObject>();
+
+        public ListServerServerApi(ICoroutineRunner pRunner, IRequestCreator pRequestCreator) : base(pRunner, pRequestCreator)
         {
         }
 
         public void Shutdown()
         {
             stopPingCoroutine();
-            if (added)
-            {
+            if (_added)
                 removeServerWithoutCoroutine();
-            }
-            added = false;
+
+            _added = false;
         }
 
-        public void AddServer(ServerJson server)
+        public void AddServer(ServerJson pServer)
         {
-            if (added) { Logger.LogWarning("AddServer called when server was already adding or added"); return; }
-            bool valid = server.Validate();
+            if (_added) { Logger.LogWarning("AddServer called when server was already adding or added"); return; }
+            bool valid = pServer.Validate();
             if (!valid) { return; }
 
-            runner.StartCoroutine(addServer(server));
+            runner.StartCoroutine(addServer(pServer));
         }
 
-        public void UpdateServer(int newPlayerCount)
+        public void UpdateServer(int pNewPlayerCount)
         {
-            if (!added) { Logger.LogWarning("UpdateServer called when before server was added"); return; }
+            if (!_added) { Logger.LogWarning("UpdateServer called when before server was added"); return; }
 
-            currentServer.playerCount = newPlayerCount;
-            UpdateServer(currentServer);
+            _currentServer.playerCount = pNewPlayerCount;
+            UpdateServer(_currentServer);
         }
 
-        public void UpdateServer(ServerJson server)
+        public void UpdateServer(string pDisplayName)
+        {
+            if (!_added) { Logger.LogWarning("UpdateServer called when before server was added"); return; }
+
+            _currentServer.displayName = pDisplayName;
+            UpdateServer(_currentServer);
+        }
+
+        public void UpdateServer(ServerJson pServer)
         {
             // TODO, use PartialServerJson as Arg Instead
-            if (!added) { Logger.LogWarning("UpdateServer called when before server was added"); return; }
+            if (!_added) { Logger.LogWarning("UpdateServer called when before server was added"); return; }
 
             PartialServerJson partialServer = new PartialServerJson
             {
-                displayName = server.displayName,
-                playerCount = server.playerCount,
-                maxPlayerCount = server.maxPlayerCount,
-                customData = server.customData,
+                displayName = pServer.displayName,
+                playerCount = pServer.playerCount,
+                maxPlayerCount = pServer.maxPlayerCount,
+                customData = pServer.customData,
             };
             partialServer.Validate();
 
@@ -82,9 +94,9 @@ namespace Mirror.Cloud.ListServerService
 
         public void RemoveServer()
         {
-            if (!added) { return; }
+            if (!_added) { return; }
 
-            if (string.IsNullOrEmpty(serverId))
+            if (string.IsNullOrEmpty(_serverId))
             {
                 Logger.LogWarning("Can not remove server because serverId was empty");
                 return;
@@ -94,7 +106,17 @@ namespace Mirror.Cloud.ListServerService
             runner.StartCoroutine(removeServer());
         }
 
-        void stopPingCoroutine()
+        public int GetServerPlayerCount()
+        {
+            return _currentServer.playerCount;
+        }
+
+        public List<GameObject> GetPlayersInServer()
+        {
+            return _players;
+        }
+
+        private void stopPingCoroutine()
         {
             if (_pingCoroutine != null)
             {
@@ -103,49 +125,49 @@ namespace Mirror.Cloud.ListServerService
             }
         }
 
-        IEnumerator addServer(ServerJson server)
+        private IEnumerator addServer(ServerJson pServer)
         {
-            added = true;
-            sending = true;
-            currentServer = server;
+            _added = true;
+            _sending = true;
+            _currentServer = pServer;
 
-            UnityWebRequest request = requestCreator.Post("servers", currentServer);
+            UnityWebRequest request = requestCreator.Post("servers", _currentServer);
             yield return requestCreator.SendRequestEnumerator(request, onSuccess, onFail);
-            sending = false;
+            _sending = false;
 
-            void onSuccess(string responseBody)
+            void onSuccess(string pResponseBody)
             {
-                CreatedIdJson created = JsonUtility.FromJson<CreatedIdJson>(responseBody);
-                serverId = created.id;
+                CreatedIdJson created = JsonUtility.FromJson<CreatedIdJson>(pResponseBody);
+                _serverId = created.id;
 
                 // Start ping to keep server alive
                 _pingCoroutine = runner.StartCoroutine(ping());
             }
-            void onFail(string responseBody)
+            void onFail(string pResponseBody)
             {
-                added = false;
+                _added = false;
             }
         }
 
-        IEnumerator updateServer(PartialServerJson server)
+        private IEnumerator updateServer(PartialServerJson pServer)
         {
             // wait to not be sending
-            while (sending)
+            while (_sending)
             {
                 yield return new WaitForSeconds(1);
             }
 
             // We need to check added incase Update is called soon after Add, and add failed
-            if (!added) { Logger.LogWarning("UpdateServer called when before server was added"); yield break; }
+            if (!_added) { Logger.LogWarning("UpdateServer called when before server was added"); yield break; }
 
-            sending = true;
-            UnityWebRequest request = requestCreator.Patch("servers/" + serverId, server);
+            _sending = true;
+            UnityWebRequest request = requestCreator.Patch("servers/" + _serverId, pServer);
             yield return requestCreator.SendRequestEnumerator(request, onSuccess);
-            sending = false;
+            _sending = false;
 
-            void onSuccess(string responseBody)
+            void onSuccess(string pResponseBody)
             {
-                skipNextPing = true;
+                _skipNextPing = true;
 
                 if (_pingCoroutine == null)
                 {
@@ -158,59 +180,59 @@ namespace Mirror.Cloud.ListServerService
         /// Keeps server alive in database
         /// </summary>
         /// <returns></returns>
-        IEnumerator ping()
+        private IEnumerator ping()
         {
-            while (pingFails <= MaxPingFails)
+            while (_pingFails <= cMaxPingFails)
             {
-                yield return new WaitForSeconds(PingInterval);
-                if (skipNextPing)
+                yield return new WaitForSeconds(cPingInterval);
+                if (_skipNextPing)
                 {
-                    skipNextPing = false;
+                    _skipNextPing = false;
                     continue;
                 }
 
-                sending = true;
-                UnityWebRequest request = requestCreator.Patch("servers/" + serverId, new EmptyJson());
+                _sending = true;
+                UnityWebRequest request = requestCreator.Patch("servers/" + _serverId, new EmptyJson());
                 yield return requestCreator.SendRequestEnumerator(request, onSuccess, onFail);
-                sending = false;
+                _sending = false;
             }
 
             Logger.LogWarning("Max ping fails reached, stoping to ping server");
             _pingCoroutine = null;
 
 
-            void onSuccess(string responseBody)
+            void onSuccess(string pResponseBody)
             {
-                pingFails = 0;
+                _pingFails = 0;
             }
-            void onFail(string responseBody)
+            void onFail(string pResponseBody)
             {
-                pingFails++;
+                _pingFails++;
             }
         }
 
-        IEnumerator removeServer()
+        private IEnumerator removeServer()
         {
-            sending = true;
-            UnityWebRequest request = requestCreator.Delete("servers/" + serverId);
+            _sending = true;
+            UnityWebRequest request = requestCreator.Delete("servers/" + _serverId);
             yield return requestCreator.SendRequestEnumerator(request);
-            sending = false;
+            _sending = false;
 
-            added = false;
+            _added = false;
         }
 
-        void removeServerWithoutCoroutine()
+        private void removeServerWithoutCoroutine()
         {
-            if (string.IsNullOrEmpty(serverId))
+            if (string.IsNullOrEmpty(_serverId))
             {
                 Logger.LogWarning("Can not remove server becuase serverId was empty");
                 return;
             }
 
-            UnityWebRequest request = requestCreator.Delete("servers/" + serverId);
+            UnityWebRequest request = requestCreator.Delete("servers/" + _serverId);
             UnityWebRequestAsyncOperation operation = request.SendWebRequest();
 
-            operation.completed += (op) =>
+            operation.completed += (pOp) =>
             {
                 Logger.LogResponse(request);
             };

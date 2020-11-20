@@ -6,34 +6,25 @@ public class MenuManager : MonoBehaviour
 {
     #region Inspector exposed fields
     [Header("Navigation Buttons")]
-    [SerializeField]
-    private Button _settingsButton = null;
-    [SerializeField]
-    private Button _backButton = null;
-    [SerializeField]
-    private Button _secondBackButton = null;
+    [SerializeField] private Button _settingsButton = null;
+    [SerializeField] private Button _backButton = null;
+    [SerializeField] private Button _secondBackButton = null;
 
     [Header("Slider")]
-    [SerializeField]
-    private GameObject _slider = null;
-    [SerializeField]
-    private GameObject _preLobbyContent = null;
-    [SerializeField]
-    private GameObject _lobbyContent = null;
+    [SerializeField] private GameObject _slider = null;
+    [SerializeField] private GameObject _preLobbyContent = null;
+    [SerializeField] private GameObject _lobbyContent = null;
 
     [Header("Menu Screens")]
-    [SerializeField]
-    private GameObject _play = null;
-    [SerializeField]
-    private GameObject _collection = null;
-    [SerializeField]
-    private GameObject _preLobby = null;
-    [SerializeField]
-    private GameObject _lobby = null;
-    [SerializeField]
-    private GameObject _settings = null;
-    [SerializeField]
-    private GameObject _credits = null;
+    [SerializeField] private GameObject _play = null;
+    [SerializeField] private GameObject _collection = null;
+    [SerializeField] private GameObject _preLobby = null;
+    [SerializeField] private GameObject _lobby = null;
+    [SerializeField] private GameObject _settings = null;
+    [SerializeField] private GameObject _credits = null;
+
+    [Header("Miscellaneous")]
+    [SerializeField] private float _menuUpdateCallDelay = 0.2f;
     #endregion
 
     #region Private fields
@@ -51,53 +42,80 @@ public class MenuManager : MonoBehaviour
         Settings,
         Credits
     }
+    private MenuState _currentMenuState;
     private MenuState _previousState;
-    public static MenuState CurrentMenuState;
     #endregion
 
-    void Start()
+    private void Start()
     {
         _mainMenu = _play.transform.parent.gameObject;
+        init();
         updateMenuState();
     }
 
-    void OnEnable()
+    private void OnEnable()
     {
         _settingsButton.onClick.AddListener(onSettingsButtonClick);
         _backButton.onClick.AddListener(onBackButtonClick);
         _secondBackButton.onClick.AddListener(onSecondBackButtonClick);
     }
 
-    void OnDisable()
+    private void OnDisable()
     {
         _settingsButton.onClick.RemoveAllListeners();
         _backButton.onClick.RemoveAllListeners();
         _secondBackButton.onClick.RemoveAllListeners();
     }
-    void checkMenuState()
+
+    private void init()
+    {
+        if (_play)
+            _play.SetActive(true);
+        if (_collection)
+            _collection.SetActive(false);
+        if (_preLobby)
+            _preLobby.SetActive(false);
+        if (_lobby)
+            _lobby.SetActive(false);
+        if (_settings)
+            _settings.SetActive(false);
+        if (_credits)
+            _credits.SetActive(false);
+
+        if (_preLobbyContent)
+            _preLobbyContent.SetActive(false);
+        if (_lobbyContent)
+            _lobbyContent.SetActive(false);
+    }
+
+    private void checkMenuState()
     {
         if (_mainMenu.activeSelf)
         {
             if (_play.activeSelf)
-                CurrentMenuState = MenuState.Play;
+                _currentMenuState = MenuState.Play;
             else if (_collection.activeSelf)
-                CurrentMenuState = MenuState.Collection;
+                _currentMenuState = MenuState.Collection;
             else if (_preLobby.activeSelf)
-                CurrentMenuState = MenuState.PreLobby;
+                _currentMenuState = MenuState.PreLobby;
             else if (_lobby.activeSelf)
-                CurrentMenuState = MenuState.Lobby;
+                _currentMenuState = MenuState.Lobby;
         }
         else if (_settings.activeSelf)
-            CurrentMenuState = MenuState.Settings;
+            _currentMenuState = MenuState.Settings;
         else if (_credits.activeSelf)
-            CurrentMenuState = MenuState.Credits;
+            _currentMenuState = MenuState.Credits;
     }
 
-    void updateMenuState()
+    private void updateMenuState()
     {
         checkMenuState();
+        Invoke(nameof(enableBackButtons), _menuUpdateCallDelay);
+    }
 
-        switch (CurrentMenuState)
+    private void enableBackButtons()
+    {
+        switch (_currentMenuState)
         {
             case MenuState.Play:
                 navButtons(0);
@@ -128,38 +146,23 @@ public class MenuManager : MonoBehaviour
     /// <remarks>
     /// 0 = only _settingsButton <para>1 = only _backButton</para> <para>2 = _settingsButton and _secondBackButton</para>
     /// </remarks>
-    void navButtons(int pState)
+    private void navButtons(int pState)
     {
         switch (pState)
         {
             case 0:
-                _settingsButton.gameObject.SetActive(true);
                 _settingsButton.interactable = true;
-
-                _backButton.gameObject.SetActive(false);
                 _backButton.interactable = false;
-
-                _secondBackButton.gameObject.SetActive(false);
                 _secondBackButton.interactable = false;
                 break;
             case 1:
-                _settingsButton.gameObject.SetActive(false);
                 _settingsButton.interactable = false;
-
-                _backButton.gameObject.SetActive(true);
                 _backButton.interactable = true;
-
-                _secondBackButton.gameObject.SetActive(false);
                 _secondBackButton.interactable = false;
                 break;
             case 2:
-                _settingsButton.gameObject.SetActive(true);
                 _settingsButton.interactable = true;
-
-                _backButton.gameObject.SetActive(false);
                 _backButton.interactable = false;
-
-                _secondBackButton.gameObject.SetActive(true);
                 _secondBackButton.interactable = true;
                 break;
         }
@@ -168,33 +171,48 @@ public class MenuManager : MonoBehaviour
     /// <summary>
     /// Transition to Settings Screen
     /// </summary>
-    void onSettingsButtonClick()
+    private void onSettingsButtonClick()
     {
         _mainMenu.GetComponent<Animator>().SetTrigger("FadeOut");
         StartCoroutine(disableGOAfterAnimation(_mainMenu.GetComponent<Animator>(), showSettings, _mainMenu, false));
 
-        _previousState = CurrentMenuState;
+        _previousState = _currentMenuState;
+
+        _settingsButton.GetComponent<Animator>().SetTrigger("FadeOut");
+        _backButton.GetComponent<Animator>().SetTrigger("FadeIn");
+        switch (_currentMenuState)
+        {
+            case MenuState.PreLobby:
+                _secondBackButton.GetComponent<Animator>().SetTrigger("Collapse");
+                break;
+            case MenuState.Lobby:
+                _secondBackButton.GetComponent<Animator>().SetTrigger("Collapse");
+                break;
+        }
 
         disableNavButtons();
     }
 
-    void showSettings()
+    private void showSettings()
     {
         _settings.SetActive(true);
 
         updateMenuState();
     }
 
-    void onBackButtonClick()
+    private void onBackButtonClick()
     {
         disableNavButtons();
 
-        if (CurrentMenuState == MenuState.Credits)
+        if (_currentMenuState == MenuState.Credits)
         {
             _credits.GetComponent<Animator>().SetTrigger("FadeOut");
             StartCoroutine(disableGOAfterAnimation(_credits.GetComponent<Animator>(), showSettings, _credits, false));
             return;
         }
+
+        _settingsButton.GetComponent<Animator>().SetTrigger("FadeIn");
+        _backButton.GetComponent<Animator>().SetTrigger("FadeOut");
 
         switch (_previousState)
         {
@@ -210,17 +228,31 @@ public class MenuManager : MonoBehaviour
         }
     }
 
-    void onSecondBackButtonClick()
+    private void onSecondBackButtonClick()
     {
         disableNavButtons();
 
-        switch (CurrentMenuState)
+        switch (_currentMenuState)
         {
             case MenuState.PreLobby:
                 GoToPlay();
                 break;
             case MenuState.Lobby:
                 GoToPreLobby();
+
+                Mirror.NetworkManager manager = Mirror.NetworkManager.singleton;
+                if (manager == null) break;
+                switch (manager.mode)
+                {
+                    case Mirror.NetworkManagerMode.ClientOnly:
+                        manager.StopClient();
+                        break;
+                    case Mirror.NetworkManagerMode.Host:
+                        manager.StopHost();
+                        break;
+                    default:
+                        break;
+                }
                 break;
         }
     }
@@ -232,30 +264,29 @@ public class MenuManager : MonoBehaviour
     {
         closeSlider();
 
-        switch (CurrentMenuState)
+        switch (_currentMenuState)
         {
             case MenuState.PreLobby:
                 _preLobby.GetComponent<Animator>().SetTrigger("FadeOut");
                 StartCoroutine(disableGOAfterAnimation(_preLobby.GetComponent<Animator>(), showPlay));
 
-                disableNavButtons();
+                _secondBackButton.GetComponent<Animator>().SetTrigger("Collapse");
                 break;
             case MenuState.Settings:
                 _settings.GetComponent<Animator>().SetTrigger("FadeOut");
                 StartCoroutine(disableGOAfterAnimation(_settings.GetComponent<Animator>(), showPlay, _settings, false));
-
-                disableNavButtons();
                 break;
         }
+
+        disableNavButtons();
     }
 
-    void showPlay()
+    private void showPlay()
     {
         if (!_mainMenu.activeSelf)
             _mainMenu.SetActive(true);
 
         _play.SetActive(true);
-
         updateMenuState();
     }
 
@@ -264,31 +295,32 @@ public class MenuManager : MonoBehaviour
     /// </summary>
     public void GoToPreLobby()
     {
-        switch (CurrentMenuState)
+        switch (_currentMenuState)
         {
             case MenuState.Play:
                 _play.GetComponent<Animator>().SetTrigger("FadeOut");
                 StartCoroutine(disableGOAfterAnimation(_play.GetComponent<Animator>(), showPreLobby));
 
-                disableNavButtons();
+                _secondBackButton.GetComponent<Animator>().SetTrigger("Expand");
                 break;
             case MenuState.Lobby:
                 _lobby.GetComponent<Animator>().SetTrigger("FadeOut");
                 _lobbyContent.GetComponent<Animator>().SetTrigger("FadeOut");
                 StartCoroutine(disableGOAfterAnimation(_lobby.GetComponent<Animator>(), showPreLobby));
-
-                disableNavButtons();
                 break;
             case MenuState.Settings:
                 _settings.GetComponent<Animator>().SetTrigger("FadeOut");
                 StartCoroutine(disableGOAfterAnimation(_settings.GetComponent<Animator>(), showPreLobby, _settings, false));
 
-                disableNavButtons();
+                _secondBackButton.GetComponent<Animator>().SetTrigger("Expand");
                 break;
         }
+
+        disableNavButtons();
+        FindObjectOfType<TTServerListManager>().Refresh();
     }
 
-    void showPreLobby()
+    private void showPreLobby()
     {
         if (!_mainMenu.activeSelf)
         {
@@ -298,11 +330,11 @@ public class MenuManager : MonoBehaviour
 
         _preLobby.SetActive(true);
 
-        switch (CurrentMenuState)
+        switch (_currentMenuState)
         {
             case MenuState.Lobby:
                 for (int i = 0; i < _lobby.transform.GetChild(0).childCount; i++)
-                    _lobby.transform.GetChild(0).GetChild(i).gameObject.SetActive(false);
+                    Destroy(_lobby.transform.GetChild(0).GetChild(i).gameObject);
                 break;
         }
 
@@ -310,41 +342,30 @@ public class MenuManager : MonoBehaviour
         openSlider();
     }
 
-    IEnumerator preLobbySearchForServer()
-    {
-        for (int i = 0; i < 1; i++)
-            yield return new WaitForSeconds(UnityEngine.Random.Range(1.0f, 5.0f));
-
-        _preLobbyContent.transform.Find("Searching").gameObject.SetActive(false);
-        _preLobbyContent.transform.Find("ServerListContainer").gameObject.SetActive(true);
-        yield break;
-    }
-
     /// <summary>
     /// Transition to Lobby Screen
     /// </summary>
     public void GoToLobby()
     {
-        switch (CurrentMenuState)
+        switch (_currentMenuState)
         {
             case MenuState.PreLobby:
-                if (ServerSelect.SelectedServer == null) return;
                 _preLobby.GetComponent<Animator>().SetTrigger("FadeOut");
                 _preLobbyContent.GetComponent<Animator>().SetTrigger("FadeOut");
                 StartCoroutine(disableGOAfterAnimation(_preLobby.GetComponent<Animator>(), showLobby));
-
-                disableNavButtons();
                 break;
             case MenuState.Settings:
                 _settings.GetComponent<Animator>().SetTrigger("FadeOut");
                 StartCoroutine(disableGOAfterAnimation(_settings.GetComponent<Animator>(), showLobby, _settings, false));
 
-                disableNavButtons();
+                _secondBackButton.GetComponent<Animator>().SetTrigger("Expand");
                 break;
         }
+
+        disableNavButtons();
     }
 
-    void showLobby()
+    private void showLobby()
     {
         if (!_mainMenu.activeSelf)
         {
@@ -353,40 +374,24 @@ public class MenuManager : MonoBehaviour
         }
 
         _lobby.SetActive(true);
-        StartCoroutine(lobbyLoadPlayers());
 
         updateMenuState();
         openSlider();
     }
 
-    IEnumerator lobbyLoadPlayers()
-    {
-        for (int i = 0; i < _lobby.transform.GetChild(0).childCount; i++)
-        {
-            _lobby.transform.GetChild(0).GetChild(i).gameObject.SetActive(true);
-            yield return new WaitForSeconds(UnityEngine.Random.Range(0.1f, 2.0f));
-        }
-        yield break;
-    }
-
-    void openSlider()
+    private void openSlider()
     {
         if (!_isSliderOpen)
             _slider.GetComponent<Animator>().SetTrigger("OpenSlider");
 
-        switch (CurrentMenuState)
+        switch (_currentMenuState)
         {
             case MenuState.PreLobby:
                 _lobbyContent.SetActive(false);
-
                 _preLobbyContent.SetActive(true);
-                _preLobbyContent.transform.Find("Searching").gameObject.SetActive(true);
-                _preLobbyContent.transform.Find("ServerListContainer").gameObject.SetActive(false);
-                StartCoroutine(preLobbySearchForServer());
                 break;
             case MenuState.Lobby:
                 _preLobbyContent.SetActive(false);
-
                 _lobbyContent.SetActive(true);
                 break;
         }
@@ -394,16 +399,14 @@ public class MenuManager : MonoBehaviour
         _isSliderOpen = true;
     }
 
-    void closeSlider()
+    private void closeSlider()
     {
         if (_isSliderOpen)
             _slider.GetComponent<Animator>().SetTrigger("CloseSlider");
 
-        switch (CurrentMenuState)
+        switch (_currentMenuState)
         {
             case MenuState.PreLobby:
-                _preLobbyContent.transform.Find("Searching").gameObject.SetActive(true);
-                _preLobbyContent.transform.Find("ServerListContainer").gameObject.SetActive(false);
                 _preLobbyContent.SetActive(false);
                 break;
             case MenuState.Lobby:
@@ -425,13 +428,13 @@ public class MenuManager : MonoBehaviour
         disableNavButtons();
     }
 
-    void showCredits()
+    private void showCredits()
     {
         _credits.SetActive(true);
         updateMenuState();
     }
 
-    IEnumerator disableGOAfterAnimation(Animator pAnimator, System.Action pMethodToCall, GameObject overrideGO = null, bool disableBothGOs = true, bool pShouldCallMethod = true)
+    private IEnumerator disableGOAfterAnimation(Animator pAnimator, System.Action pMethodToCall, GameObject pOverrideGO = null, bool pDisableBothGOs = true, bool pShouldCallMethod = true)
     {
         float timeout = 0;
         while (true)
@@ -443,10 +446,10 @@ public class MenuManager : MonoBehaviour
 
             if (pAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1 && !pAnimator.IsInTransition(0))
             {
-                if (overrideGO != null)
+                if (pOverrideGO != null)
                 {
-                    overrideGO.SetActive(false);
-                    if (disableBothGOs)
+                    pOverrideGO.SetActive(false);
+                    if (pDisableBothGOs)
                         pAnimator.gameObject.SetActive(false);
                 }
                 else
@@ -466,7 +469,7 @@ public class MenuManager : MonoBehaviour
         }
     }
 
-    void disableNavButtons()
+    private void disableNavButtons()
     {
         _settingsButton.interactable = false;
         _backButton.interactable = false;

@@ -1,8 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using Mirror;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using Mirror;
 
 public class Player : NetworkBehaviour
 {
@@ -28,6 +26,7 @@ public class Player : NetworkBehaviour
         if (isLocalPlayer)
         {
             localPlayer = this;
+            print("asd");
         }
         else
         {

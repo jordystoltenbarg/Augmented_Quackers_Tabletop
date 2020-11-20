@@ -6,26 +6,20 @@ public class InGameUIManager : MonoBehaviour
 {
     #region Inspector exposed fields
     [Header("Navigation Buttons")]
-    [SerializeField]
-    private Button _settingsButton = null;
-    [SerializeField]
-    private Button _backButton = null;
-    [SerializeField]
-    private Button _homeButton = null;
+    [SerializeField] private Button _settingsButton = null;
+    [SerializeField] private Button _backButton = null;
+    [SerializeField] private Button _homeButton = null;
 
     [Header("Menu Screens")]
-    [SerializeField]
-    private GameObject _play = null;
-    [SerializeField]
-    private GameObject _settings = null;
-    [SerializeField]
-    private GameObject _credits = null;
+    [SerializeField] private GameObject _play = null;
+    [SerializeField] private GameObject _settings = null;
+    [SerializeField] private GameObject _credits = null;
+    [SerializeField] private float _menuUpdateCallDelay = 0.2f;
     #endregion
 
     #region Private fields
     private GameObject _navButtons = null;
     #endregion
-
 
     #region Enum fields
     public enum InGameUIState
@@ -34,23 +28,23 @@ public class InGameUIManager : MonoBehaviour
         Settings,
         Credits
     }
-    public static InGameUIState CurrentInGameUIState;
+    private InGameUIState _currentInGameUIState;
     #endregion
 
-    void Start()
+    private void Start()
     {
         _navButtons = _settingsButton.transform.parent.gameObject;
         updateMenuState();
     }
 
-    void OnEnable()
+    private void OnEnable()
     {
         _settingsButton.onClick.AddListener(onSettingsButtonClick);
         _backButton.onClick.AddListener(onBackButtonClick);
         _homeButton.onClick.AddListener(onHomeButtonClick);
     }
 
-    void OnDisable()
+    private void OnDisable()
     {
         _settingsButton.onClick.RemoveAllListeners();
         _backButton.onClick.RemoveAllListeners();
@@ -59,7 +53,7 @@ public class InGameUIManager : MonoBehaviour
 
     private void onSettingsButtonClick()
     {
-        switch (CurrentInGameUIState)
+        switch (_currentInGameUIState)
         {
             case InGameUIState.Play:
                 GoToSettings();
@@ -69,7 +63,7 @@ public class InGameUIManager : MonoBehaviour
 
     private void onBackButtonClick()
     {
-        switch (CurrentInGameUIState)
+        switch (_currentInGameUIState)
         {
             case InGameUIState.Settings:
                 GoToPlay();
@@ -85,21 +79,21 @@ public class InGameUIManager : MonoBehaviour
         //Go home you're drunk
     }
 
-    void checkMenuState()
+    private void checkMenuState()
     {
         if (_play.activeSelf)
-            CurrentInGameUIState = InGameUIState.Play;
+            _currentInGameUIState = InGameUIState.Play;
         else if (_settings.activeSelf)
-            CurrentInGameUIState = InGameUIState.Settings;
+            _currentInGameUIState = InGameUIState.Settings;
         else if (_credits.activeSelf)
-            CurrentInGameUIState = InGameUIState.Credits;
+            _currentInGameUIState = InGameUIState.Credits;
     }
 
-    void updateMenuState()
+    private void updateMenuState()
     {
         checkMenuState();
 
-        switch (CurrentInGameUIState)
+        switch (_currentInGameUIState)
         {
             case InGameUIState.Play:
                 navButtons(0);
@@ -119,7 +113,7 @@ public class InGameUIManager : MonoBehaviour
     /// <remarks>
     /// 0 = _settingsButton <para>1 = _backButton</para> <para>2 = _backButton and _homeButton</para>
     /// </remarks>
-    void navButtons(int pState)
+    private void navButtons(int pState)
     {
         switch (pState)
         {
@@ -158,7 +152,7 @@ public class InGameUIManager : MonoBehaviour
 
     public void GoToPlay()
     {
-        switch (CurrentInGameUIState)
+        switch (_currentInGameUIState)
         {
             case InGameUIState.Settings:
                 _settings.GetComponent<Animator>().SetTrigger("FadeOut");
@@ -171,15 +165,15 @@ public class InGameUIManager : MonoBehaviour
         }
     }
 
-    void showPlay()
+    private void showPlay()
     {
         _play.SetActive(true);
-        updateMenuState();
+        Invoke(nameof(updateMenuState), _menuUpdateCallDelay);
     }
 
     public void GoToSettings()
     {
-        switch (CurrentInGameUIState)
+        switch (_currentInGameUIState)
         {
             case InGameUIState.Play:
                 _play.GetComponent<Animator>().SetTrigger("FadeOut");
@@ -200,16 +194,15 @@ public class InGameUIManager : MonoBehaviour
         }
     }
 
-    void showSettings()
+    private void showSettings()
     {
         _settings.SetActive(true);
-
-        updateMenuState();
+        Invoke(nameof(updateMenuState), _menuUpdateCallDelay);
     }
 
     public void GoToCredits()
     {
-        switch (CurrentInGameUIState)
+        switch (_currentInGameUIState)
         {
             case InGameUIState.Settings:
                 _settings.GetComponent<Animator>().SetTrigger("FadeOut");
@@ -222,13 +215,13 @@ public class InGameUIManager : MonoBehaviour
         }
     }
 
-    void showCredits()
+    private void showCredits()
     {
         _credits.SetActive(true);
-        updateMenuState();
+        Invoke(nameof(updateMenuState), _menuUpdateCallDelay);
     }
 
-    IEnumerator disableGOAfterAnimation(Animator pAnimator, System.Action pMethodToCall, GameObject overrideGO = null, bool disableBothGOs = true, bool pShouldCallMethod = true)
+    private IEnumerator disableGOAfterAnimation(Animator pAnimator, System.Action pMethodToCall, GameObject pOverrideGO = null, bool pDisableBothGOs = true, bool pShouldCallMethod = true)
     {
         float timeout = 0;
         while (true)
@@ -240,10 +233,10 @@ public class InGameUIManager : MonoBehaviour
 
             if (pAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1 && !pAnimator.IsInTransition(0))
             {
-                if (overrideGO != null)
+                if (pOverrideGO != null)
                 {
-                    overrideGO.SetActive(false);
-                    if (disableBothGOs)
+                    pOverrideGO.SetActive(false);
+                    if (pDisableBothGOs)
                         pAnimator.gameObject.SetActive(false);
                 }
                 else
@@ -263,7 +256,7 @@ public class InGameUIManager : MonoBehaviour
         }
     }
 
-    void disableNavButtons()
+    private void disableNavButtons()
     {
         _settingsButton.interactable = false;
         _backButton.interactable = false;

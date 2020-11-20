@@ -1,48 +1,39 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class CharacterSelect : MonoBehaviour
 {
-    private static GameObject _selectedCharacter = null;
-    public static GameObject SelectedCharacter { get { return _selectedCharacter; } }
+    public static readonly List<GameObject> ListOfCharacters = new List<GameObject>();
 
-    private List<GameObject> _listOfCharacters = new List<GameObject>();
     private Color _transparent = new Color(1, 1, 1, 0);
 
-    void updateList()
-    {
-        _listOfCharacters.Clear();
-
-        for (int i = 0; i < transform.childCount; i++)
-            _listOfCharacters.Add(transform.GetChild(i).gameObject);
-    }
-
-    private void OnEnable()
+    private void Start()
     {
         updateList();
-        _selectedCharacter = null;
 
-        foreach (GameObject go in _listOfCharacters)
+        for (int i = 0; i < ListOfCharacters.Count; i++)
         {
+            GameObject go = ListOfCharacters[i];
+            go.GetComponent<TTLobbyUICharacterItem>().characterIndex = i;
             go.GetComponent<Button>().onClick.AddListener(() => highlightServer(go));
-            go.transform.Find("Highlight").GetComponent<Image>().color = _transparent;
         }
     }
 
-    private void OnDisable()
+    private void updateList()
     {
-        foreach (GameObject go in _listOfCharacters)
-            go.GetComponent<Button>().onClick.RemoveAllListeners();
+        ListOfCharacters.Clear();
+
+        for (int i = 0; i < transform.childCount; i++)
+            ListOfCharacters.Add(transform.GetChild(i).gameObject);
     }
 
-    void highlightServer(GameObject pGO)
+    private void highlightServer(GameObject pGO)
     {
-        foreach (GameObject go in _listOfCharacters)
-            go.transform.Find("Highlight").GetComponent<Image>().color = _transparent;
+        foreach (GameObject go in ListOfCharacters)
+            if (go != pGO)
+                go.GetComponent<TTLobbyUICharacterItem>().DeSelectCharacter(TTPlayer.LocalPlayer);
 
-        pGO.transform.Find("Highlight").GetComponent<Image>().color = Color.white;
-        _selectedCharacter = pGO;
+        pGO.GetComponent<TTLobbyUICharacterItem>().SelectCharacter(TTPlayer.LocalPlayer);
     }
 }

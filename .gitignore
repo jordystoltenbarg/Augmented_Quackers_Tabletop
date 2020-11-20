@@ -3,7 +3,7 @@
 # Get latest from https://github.com/github/gitignore/blob/master/Unity.gitignore
 #
 [Ll]ibrary/
-/AQ_ARTabletopProject/[Ll]ibrary/
+AQ_ARTabletopProject/[Ll]ibrary/
 [Tt]emp/
 [Oo]bj/
 [Bb]uild/
@@ -81,4 +81,4 @@ AQ_ARTabletopProject/Library/
 
 AQ_ARTabletopProject/obj/
 
-*.meta
+*SyncToy*
