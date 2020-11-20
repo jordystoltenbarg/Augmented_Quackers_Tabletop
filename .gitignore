@@ -82,3 +82,6 @@ AQ_ARTabletopProject/Library/
 AQ_ARTabletopProject/obj/
 
 *SyncToy*
+AQ_ARTabletopProject/plugins/
+
+AQ_ARTabletopProject/Assets/Plugins/
