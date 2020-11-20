@@ -82,6 +82,9 @@ AQ_ARTabletopProject/Library/
 AQ_ARTabletopProject/obj/
 
 *SyncToy*
-AQ_ARTabletopProject/plugins/
 
-AQ_ARTabletopProject/Assets/Plugins/
+AQ_ARTabletopProject/plugins/ARFoundationRemoteSource/
+
+AQ_ARTabletopProject/Assets/Plugins/ARFoundationRemoteInstaller/
+
+AQ_ARTabletopProject/Assets/Plugins/ARFoundationRemoteInstaller.meta
