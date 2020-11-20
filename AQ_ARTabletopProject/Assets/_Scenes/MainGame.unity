@@ -5925,7 +5925,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_UseCustomMaterial: 0
-  m_CustomMaterial: {fileID: 0}
+  m_CustomMaterial: {fileID: 2100000, guid: ca027977445ab214e8e59a14e86145cf, type: 2}
 --- !u!114 &876749847
 MonoBehaviour:
   m_ObjectHideFlags: 0
