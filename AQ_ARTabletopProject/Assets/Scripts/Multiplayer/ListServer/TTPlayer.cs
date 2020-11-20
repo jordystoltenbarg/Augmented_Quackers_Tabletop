@@ -1,25 +1,24 @@
-﻿using System;
+﻿using Mirror;
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
-using Mirror;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class TTPlayer : NetworkBehaviour
 {
-    public static TTPlayer localPlayer;
+    public static TTPlayer LocalPlayer;
 
     [SyncVar] private int _lobbyIndex = -1;
-    public int lobbyIndex => _lobbyIndex;
+    public int LobbyIndex => _lobbyIndex;
     [SyncVar] private string _playerName = "";
-    public string playerName => _playerName;
+    public string PlayerName => _playerName;
     [SyncVar] private bool _isReady = false;
-    public bool isReady => _isReady;
+    public bool IsReady => _isReady;
     [SyncVar] private int _selectedCharacterIndex = -1;
-    public int selectedCharacterIndex => _selectedCharacterIndex;
+    public int SelectedCharacterIndex => _selectedCharacterIndex;
+    [SyncVar] private int _colorVariation = -1;
+    public int ColorVariation => _colorVariation;
     [SyncVar] private List<GameObject> _playersInCurrentServer = null;
-    public List<GameObject> playersInCurrentServer => _playersInCurrentServer;
+    public List<GameObject> PlayersInCurrentServer => _playersInCurrentServer;
 
     [SerializeField] private bool _autoUpdatePlayerListInCurrentServer = true;
     [SerializeField] private float _playerListInCurrentServerUpdateInterval = 1.0f;
@@ -28,7 +27,8 @@ public class TTPlayer : NetworkBehaviour
 
     private void Start()
     {
-        Invoke("lobbyUIAddPlayer", 0.5f);
+        Invoke(nameof(lobbyUIAddPlayer), 0.5f);
+        DontDestroyOnLoad(gameObject);
     }
 
     private void OnDestroy()
@@ -37,11 +37,7 @@ public class TTPlayer : NetworkBehaviour
 
         TTSettingsManager.onPlayerNameChanged -= ChangePlayerName;
 
-        cmdRemovePlayerFromList(gameObject);
-
-        FindObjectOfType<MenuManager>().GoToPreLobby();
-
-        localPlayer = null;
+        LocalPlayer = null;
     }
 
     private void Update()
@@ -51,7 +47,7 @@ public class TTPlayer : NetworkBehaviour
 
     private void lobbyUIAddPlayer()
     {
-        TTLobbyUI.singleton.AddPlayer(this);
+        TTLobbyUI.Singleton.AddPlayer(this);
     }
 
     /// <summary>
@@ -61,15 +57,16 @@ public class TTPlayer : NetworkBehaviour
     {
         if (!isLocalPlayer) return;
 
-        localPlayer = this;
-        FindObjectOfType<MenuManager>().JoinLobby();
+        LocalPlayer = this;
+        FindObjectOfType<MenuManager>().GoToLobby();
 
         initLocalPlayer();
     }
 
     public override void OnStopClient()
     {
-        TTLobbyUI.singleton.RemovePlayer(this);
+        if (this == LocalPlayer) return;
+        TTLobbyUI.Singleton.RemovePlayer(this);
     }
 
     private void initLocalPlayer()
@@ -77,43 +74,9 @@ public class TTPlayer : NetworkBehaviour
         _manager = NetworkManager.singleton as TTNetworkManagerListServer;
         TTSettingsManager.onPlayerNameChanged += ChangePlayerName;
 
-        Invoke("cmdSetPlayerIndex", 0.5f);
-        cmdChangePlayerName(TTSettingsManager.singleton.playerName);
-        cmdAddPToList(gameObject);
-
-        //StartCoroutine(updatePlayerListInCurrentServer(_playerListInCurrentServerUpdateInterval));
-    }
-
-    [Command]
-    private void cmdAddPToList(GameObject pGO)
-    {
-        TTApiUpdater.apiUpdater.GetPlayersInServer().Add(pGO);
-    }
-
-    [Command]
-    private void cmdRemovePlayerFromList(GameObject pGO)
-    {
-        TTApiUpdater.apiUpdater.GetPlayersInServer().Remove(pGO);
-    }
-
-    public void GetPlayersInCurrentServer()
-    {
-        cmdGetPlayersInCurrentServer();
-    }
-
-    [Command]
-    private void cmdGetPlayersInCurrentServer()
-    {
-        _playersInCurrentServer = new List<GameObject>(TTApiUpdater.apiUpdater.GetPlayersInServer());
-    }
-
-    private IEnumerator updatePlayerListInCurrentServer(float pInterval)
-    {
-        while (_autoUpdatePlayerListInCurrentServer)
-        {
-            yield return new WaitForSeconds(pInterval);
-            GetPlayersInCurrentServer();
-        }
+        Invoke(nameof(cmdSetPlayerIndex), 0.5f);
+        Invoke(nameof(cmdSetPlayerColorVariation), 0.5f);
+        cmdChangePlayerName(TTSettingsManager.Singleton.PlayerName);
     }
 
     public void ChangePlayerName(string pNewName)
@@ -139,10 +102,28 @@ public class TTPlayer : NetworkBehaviour
             cmdUpdateHigherLobbyIndex();
     }
 
+
     [Command]
     private void cmdUpdateHigherLobbyIndex()
     {
         _lobbyIndex--;
+    }
+
+    public void UpdateColorVariation(int pNewColorVariation)
+    {
+        cmdUpdatePlayerColorVariation(pNewColorVariation);
+    }
+
+    [Command]
+    private void cmdUpdatePlayerColorVariation(int pNewColorVariation)
+    {
+        _colorVariation = pNewColorVariation;
+    }
+
+    [Command]
+    private void cmdSetPlayerColorVariation()
+    {
+        _colorVariation = TTApiUpdater.apiUpdater.GetServerPlayerCount() - 1;
     }
 
     public void ReadyToggle()

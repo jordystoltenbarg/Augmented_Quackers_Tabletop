@@ -11,6 +11,8 @@ public class PlayerNameInputfieldIdentifier : MonoBehaviour
     private void Start()
     {
         inputField.onEndEdit.AddListener((string pNewName) => OnEndEdit(inputField.text));
+        inputField.text = TTSettingsManager.Singleton.PlayerName;
+        _lastInput = inputField.text;
     }
 
     public void OnEndEdit(string pInputText)
@@ -19,7 +21,7 @@ public class PlayerNameInputfieldIdentifier : MonoBehaviour
 
         if (!isValidName(pInputText)) return;
 
-        TTSettingsManager.singleton.ChangePlayerName(pInputText);
+        TTSettingsManager.Singleton.ChangePlayerName(pInputText);
         inputField.text = pInputText;
         _lastInput = pInputText;
     }
@@ -43,7 +45,7 @@ public class PlayerNameInputfieldIdentifier : MonoBehaviour
         for (int i = 0; i < strToReplace.Length; i++)
             check = check.Replace(strToReplace[i], "");
 
-        string[] bans = TTSettingsManager.singleton.bannedWords;
+        string[] bans = TTSettingsManager.Singleton.bannedWords;
         for (int i = 0; i < bans.Length; i++)
             if (check.ToLower().Contains(bans[i].ToLower()))
                 return true;

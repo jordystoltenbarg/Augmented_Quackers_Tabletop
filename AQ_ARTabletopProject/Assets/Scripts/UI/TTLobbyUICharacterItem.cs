@@ -5,19 +5,23 @@ using UnityEngine.UI;
 
 public class TTLobbyUICharacterItem : MonoBehaviour
 {
-    private List<TTPlayer> _playersThatSelected = new List<TTPlayer>();
+    private readonly List<TTPlayer> _playersThatSelected = new List<TTPlayer>();
 
     private Image _image;
 
-    [SerializeField] private Color _selected;
-    [SerializeField] private Color _notSelected;
+    [SerializeField] private Image _highlight;
+    [SerializeField] private Sprite _original;
+    [SerializeField] private Sprite _selected;
     [SerializeField] private bool _autoUpdate = true;
-    [SerializeField] private float _autoUpdateInterval = 0.5f;
+    [SerializeField] private float _autoUpdateInterval = 0.2f;
     [HideInInspector] public int characterIndex = -1;
+
+    private Color _transparentColor = new Color(1, 1, 1, 0);
 
     private void Awake()
     {
         _image = GetComponent<Image>();
+        _image.sprite = _original;
     }
 
     private void OnEnable()
@@ -38,11 +42,11 @@ public class TTLobbyUICharacterItem : MonoBehaviour
     {
         if (_playersThatSelected.Count != 0)
         {
-            _image.color = _selected;
+            _image.sprite = _selected;
             return;
         }
 
-        _image.color = _notSelected;
+        _image.sprite = _original;
     }
 
     public void SelectCharacter(TTPlayer pPlayer)
@@ -52,6 +56,9 @@ public class TTLobbyUICharacterItem : MonoBehaviour
             _playersThatSelected.Add(pPlayer);
             pPlayer.SelectCharacter(characterIndex);
             updateInfo();
+
+            if (pPlayer == TTPlayer.LocalPlayer)
+                _highlight.color = Color.white;
         }
     }
 
@@ -61,6 +68,16 @@ public class TTLobbyUICharacterItem : MonoBehaviour
         {
             _playersThatSelected.Remove(pPlayer);
             updateInfo();
+
+            if (pPlayer == TTPlayer.LocalPlayer)
+                _highlight.color = _transparentColor;
         }
+    }
+
+    public Sprite GetPlayerSprite(TTPlayer pPlayer)
+    {
+        if (_playersThatSelected.Count == 0) return _original;
+        if (pPlayer == _playersThatSelected[0]) return _original;
+        else return _selected;
     }
 }

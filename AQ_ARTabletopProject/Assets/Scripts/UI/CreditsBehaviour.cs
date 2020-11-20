@@ -15,7 +15,7 @@ public class CreditsBehaviour : MonoBehaviour
     void OnEnable()
     {
         _textContainer.anchoredPosition = new Vector2(_textContainer.anchoredPosition.x, 0);
-        _heightModifier = _textContainer.parent.GetComponent<RectTransform>().rect.height / GameObject.Find("Canvas").GetComponent<CanvasScaler>().referenceResolution.y;
+        _heightModifier = _textContainer.parent.GetComponent<RectTransform>().rect.height / FindObjectOfType<CanvasScaler>().referenceResolution.y;
     }
 
     void Update()

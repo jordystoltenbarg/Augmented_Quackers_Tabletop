@@ -64,15 +64,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36152608c08ce0e4887c22d1e5bb78b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  serverToReach:
-    protocol: 
-    port: 0
-    playerCount: 0
-    maxPlayerCount: 0
-    displayName: 
-    address: 
-    customAddress: 
-    customData: []
 --- !u!114 &4190436326857494009
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -80,7 +71,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4190436326857494006}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 76dab753e7255254687cd57985d8d675, type: 3}
   m_Name: 
@@ -102,7 +93,7 @@ MonoBehaviour:
   autoStartServerBuild: 1
   showDebugMessages: 0
   serverTickRate: 30
-  offlineScene: Assets/_Scenes/Vasil/Network/ServerListLobby.unity
+  offlineScene: 
   onlineScene: 
   transport: {fileID: 4190436326857494007}
   networkAddress: localhost

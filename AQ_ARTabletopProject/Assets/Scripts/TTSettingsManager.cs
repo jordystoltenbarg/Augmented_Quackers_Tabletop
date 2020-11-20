@@ -7,12 +7,12 @@ public class TTSettingsManager : MonoBehaviour
 
     public string[] bannedWords;
 
-    public static TTSettingsManager singleton;
+    public static TTSettingsManager Singleton;
 
     private string _playerName = "";
-    public string playerName => _playerName;
+    public string PlayerName => _playerName;
     private int _playerIndex = 0;
-    public int playerIndex => _playerIndex;
+    public int PlayerIndex => _playerIndex;
 
     private void Awake()
     {
@@ -20,8 +20,10 @@ public class TTSettingsManager : MonoBehaviour
         if (ttSMs.Length > 1)
             Destroy(gameObject);
 
-        singleton = this;
+        Singleton = this;
         DontDestroyOnLoad(gameObject);
+
+        ChangePlayerName($"Player {UnityEngine.Random.Range(10000000, 99999999)}");
     }
 
     public void ChangePlayerName(string pNewName)

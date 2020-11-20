@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TTLobbyUI : MonoBehaviour
 {
-    public static TTLobbyUI singleton = null;
+    public static TTLobbyUI Singleton = null;
 
     [SerializeField] private GameObject _playerLobbyUIItemPrefab;
     [SerializeField] private Transform _playersContainer;
@@ -17,7 +17,7 @@ public class TTLobbyUI : MonoBehaviour
         if (ttLs.Length > 1)
             Destroy(gameObject);
 
-        singleton = this;
+        Singleton = this;
         DontDestroyOnLoad(gameObject);
     }
 
@@ -32,11 +32,11 @@ public class TTLobbyUI : MonoBehaviour
     {
         foreach (TTLobbyUIPlayerItem item in _items)
         {
-            if (item.player == pPlayer)
+            if (item.Player == pPlayer)
             {
                 Destroy(item.gameObject);
                 _items.Remove(item);
-                TTPlayer.localPlayer.UpdateHigherLobbyIndex(pPlayer.lobbyIndex);
+                TTPlayer.LocalPlayer.UpdateHigherLobbyIndex(pPlayer.LobbyIndex);
                 break;
             }
         }

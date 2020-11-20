@@ -9,7 +9,7 @@ namespace Mirror.Cloud.ListServerService
     {
         readonly ServerListEvent _onServerListUpdated;
 
-        Coroutine getServerListRepeatCoroutine;
+        Coroutine _getServerListRepeatCoroutine;
 
         public event UnityAction<ServerCollectionJson> onServerListUpdated
         {
@@ -17,9 +17,9 @@ namespace Mirror.Cloud.ListServerService
             remove => _onServerListUpdated.RemoveListener(value);
         }
 
-        public ListServerClientApi(ICoroutineRunner runner, IRequestCreator requestCreator, ServerListEvent onServerListUpdated) : base(runner, requestCreator)
+        public ListServerClientApi(ICoroutineRunner pRunner, IRequestCreator pRequestCreator, ServerListEvent pOnServerListUpdated) : base(pRunner, pRequestCreator)
         {
-            _onServerListUpdated = onServerListUpdated;
+            _onServerListUpdated = pOnServerListUpdated;
         }
 
         public void Shutdown()
@@ -32,27 +32,27 @@ namespace Mirror.Cloud.ListServerService
             runner.StartCoroutine(getServerList());
         }
 
-        public void StartGetServerListRepeat(int interval)
+        public void StartGetServerListRepeat(int pInterval)
         {
-            getServerListRepeatCoroutine = runner.StartCoroutine(GetServerListRepeat(interval));
+            _getServerListRepeatCoroutine = runner.StartCoroutine(GetServerListRepeat(pInterval));
         }
 
         public void StopGetServerListRepeat()
         {
             // if runner is null it has been destroyed and will alraedy be null
-            if (runner.IsNotNull() && getServerListRepeatCoroutine != null)
+            if (runner.IsNotNull() && _getServerListRepeatCoroutine != null)
             {
-                runner.StopCoroutine(getServerListRepeatCoroutine);
+                runner.StopCoroutine(_getServerListRepeatCoroutine);
             }
         }
 
-        IEnumerator GetServerListRepeat(int interval)
+        IEnumerator GetServerListRepeat(int pInterval)
         {
             while (true)
             {
                 yield return getServerList();
 
-                yield return new WaitForSeconds(interval);
+                yield return new WaitForSeconds(pInterval);
             }
         }
         IEnumerator getServerList()
@@ -60,9 +60,9 @@ namespace Mirror.Cloud.ListServerService
             UnityWebRequest request = requestCreator.Get("servers");
             yield return requestCreator.SendRequestEnumerator(request, onSuccess);
 
-            void onSuccess(string responseBody)
+            void onSuccess(string pResponseBody)
             {
-                ServerCollectionJson serverlist = JsonUtility.FromJson<ServerCollectionJson>(responseBody);
+                ServerCollectionJson serverlist = JsonUtility.FromJson<ServerCollectionJson>(pResponseBody);
                 _onServerListUpdated?.Invoke(serverlist);
             }
         }

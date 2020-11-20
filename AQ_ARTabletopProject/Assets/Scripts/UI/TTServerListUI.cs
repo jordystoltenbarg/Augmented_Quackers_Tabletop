@@ -65,7 +65,10 @@ public class TTServerListUI : MonoBehaviour
     private void updateListContent(ServerJson[] pServers)
     {
         for (int i = 0; i < _items.Count; i++)
+        {
+            if (pServers.Length < i) return;
             _items[i].UpdateContent(pServers[i]);
+        }
     }
 
     private void highlightItem(TTServerListUIItem pItem)
