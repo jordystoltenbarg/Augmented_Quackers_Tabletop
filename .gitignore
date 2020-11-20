@@ -80,6 +80,12 @@ AQ_ARTabletopProject/Library/Artifacts/
 AQ_ARTabletopProject/Library/
 
 AQ_ARTabletopProject/obj/
-AQ_ARTabletopProject/plugins/ARFoundationRemoteSource
 
-*.meta
+
+AQ_ARTabletopProject/plugins/ARFoundationRemoteSource/
+
+AQ_ARTabletopProject/Assets/Plugins/ARFoundationRemoteInstaller/
+
+AQ_ARTabletopProject/Assets/Plugins/ARFoundationRemoteInstaller.meta
+
+AQ_ARTabletopProject/Assets/Plugins/
