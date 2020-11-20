@@ -6,13 +6,13 @@ using UnityEngine.XR.ARFoundation;
 using UnityEngine.XR.ARSubsystems;
 
 [RequireComponent(typeof(ARPlaneManager))]
+[RequireComponent(typeof(ARSessionOrigin))]
 public class PlacementDisable : MonoBehaviour
 {
-    
 
     private ARPlaneManager planeManager;
 
-    private void Awake()
+    void Awake()
     {
         planeManager = GetComponent<ARPlaneManager>();
     }
@@ -29,9 +29,13 @@ public class PlacementDisable : MonoBehaviour
         {
             detectedPlanes.gameObject.SetActive(false);
         }
+
+        planeManager.enabled = false;
     }
 
-
     
+
+
+
 
 }
