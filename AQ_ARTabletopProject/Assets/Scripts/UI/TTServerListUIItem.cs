@@ -42,13 +42,6 @@ public class TTServerListUIItem : MonoBehaviour
         _joinButton.onClick.AddListener(onJoinClicked);
     }
 
-    public void UpdateContent(ServerJson pServer)
-    {
-        _server = pServer;
-        _hostName.text = _server.displayName;
-        _playerCount.text = string.Format(_playerCountFormat, _server.playerCount, _server.maxPlayerCount);
-    }
-
     private void OnDestroy()
     {
         GetComponent<Button>().onClick.RemoveAllListeners();
@@ -72,10 +65,15 @@ public class TTServerListUIItem : MonoBehaviour
     private void onJoinClicked()
     {
         if (!_isHighlited) return;
-        //NetworkManager.singleton.StartClient(new Uri(_server.address));
-        TTSettingsManager.Singleton.SetPlayerIndex(_server.playerCount);
-        NetworkManager.singleton.networkAddress = "localhost";
-        NetworkManager.singleton.StartClient();
+        for (int i = 0; i < _server.customData.Length; i++)
+        {
+            if (_server.customData[i].key == "serverID")
+            {
+                NetworkManager.singleton.networkAddress = _server.customData[i].value;
+                NetworkManager.singleton.StartClient();
+                break;
+            }
+        }
     }
 
     private Sprite getBackgroundVariation()

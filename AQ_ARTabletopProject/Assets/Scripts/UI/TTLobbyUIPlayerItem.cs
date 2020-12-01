@@ -68,7 +68,9 @@ public class TTLobbyUIPlayerItem : MonoBehaviour
 
     private void updateContent()
     {
-        if (_player.SelectedCharacterIndex > -1)
+        if (_player == null) return;
+
+        if (_player.SelectedCharacterIndex != -1)
         {
             for (int i = 0; i < CharacterSelect.ListOfCharacters.Count; i++)
             {
@@ -78,11 +80,14 @@ public class TTLobbyUIPlayerItem : MonoBehaviour
                     _avatar.enabled = true;
                     _avatar.sprite = listItem.GetPlayerSprite(_player);
                     _chosenCharacterIndex = _player.SelectedCharacterIndex;
-                    listItem.SelectCharacter(_player);
+
+                    if (_player != TTPlayer.LocalPlayer)
+                        listItem.SelectCharacter(_player);
                 }
                 else
                 {
-                    listItem.DeSelectCharacter(_player);
+                    if (_player != TTPlayer.LocalPlayer)
+                        listItem.DeSelectCharacter(_player);
                 }
             }
         }

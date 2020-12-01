@@ -39,6 +39,11 @@ namespace Mirror.Cloud.ListServerService
         /// <param name="pDisplayName"></param>
         void UpdateServer(string pDisplayName);
         /// <summary>
+        /// Update the current server Name
+        /// </summary>
+        /// <param name="pDisplayName"></param>
+        void UpdateServerCustomDataValue(string pCustomDataKey, string pCustomDataValue);
+        /// <summary>
         /// Update the current server
         /// </summary>
         /// <param name="server"></param>

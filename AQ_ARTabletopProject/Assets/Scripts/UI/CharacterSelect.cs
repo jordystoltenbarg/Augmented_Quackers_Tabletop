@@ -16,7 +16,7 @@ public class CharacterSelect : MonoBehaviour
         {
             GameObject go = ListOfCharacters[i];
             go.GetComponent<TTLobbyUICharacterItem>().characterIndex = i;
-            go.GetComponent<Button>().onClick.AddListener(() => highlightServer(go));
+            go.GetComponent<Button>().onClick.AddListener(() => highlightCharacter(go));
         }
     }
 
@@ -28,7 +28,7 @@ public class CharacterSelect : MonoBehaviour
             ListOfCharacters.Add(transform.GetChild(i).gameObject);
     }
 
-    private void highlightServer(GameObject pGO)
+    private void highlightCharacter(GameObject pGO)
     {
         foreach (GameObject go in ListOfCharacters)
             if (go != pGO)

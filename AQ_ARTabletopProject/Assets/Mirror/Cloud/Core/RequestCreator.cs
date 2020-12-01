@@ -92,7 +92,7 @@ namespace Mirror.Cloud
             return CreateWebRequest(page, POST, jsonString);
         }
 
-        /// <summary>
+        /// <summary>   
         /// Creates Patch Request to page with Json body
         /// </summary>
         /// <typeparam name="T"></typeparam>
@@ -129,6 +129,7 @@ namespace Mirror.Cloud
                 Logger.LogResponse(webRequest);
 
                 string text = webRequest.downloadHandler.text;
+
                 Logger.Verbose(text);
                 if (webRequest.IsOk())
                 {

@@ -38,7 +38,11 @@ namespace Mirror.Cloud.ListServerService
 
         /// <summary>
         /// Array of custom data, use SetCustomData to set values
-        /// <para>optional</para>
+        /// <br></br>
+        /// <br>Array data:</br>
+        /// <br>serverID (int)</br>
+        /// <br>private (bool)</br>
+        /// <br>serverCode (string)</br>
         /// </summary>
         public KeyValue[] customData;
 
@@ -120,7 +124,6 @@ namespace Mirror.Cloud.ListServerService
         /// <para>optional</para>
         /// </summary>
         public KeyValue[] customData;
-
 
         public void SetCustomData(Dictionary<string, string> data)
         {

@@ -1,7 +1,4 @@
 ﻿using Mirror;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 
 public class TTPlayer : NetworkBehaviour
 {
@@ -17,16 +14,13 @@ public class TTPlayer : NetworkBehaviour
     public int SelectedCharacterIndex => _selectedCharacterIndex;
     [SyncVar] private int _colorVariation = -1;
     public int ColorVariation => _colorVariation;
-    [SyncVar] private List<GameObject> _playersInCurrentServer = null;
-    public List<GameObject> PlayersInCurrentServer => _playersInCurrentServer;
-
-    [SerializeField] private bool _autoUpdatePlayerListInCurrentServer = true;
-    [SerializeField] private float _playerListInCurrentServerUpdateInterval = 1.0f;
 
     private TTNetworkManagerListServer _manager = null;
 
     private void Start()
     {
+        print($"<color=green> Hello there! Name's {_playerName}</color>");
+
         Invoke(nameof(lobbyUIAddPlayer), 0.5f);
         DontDestroyOnLoad(gameObject);
     }
@@ -38,6 +32,8 @@ public class TTPlayer : NetworkBehaviour
         TTSettingsManager.onPlayerNameChanged -= ChangePlayerName;
 
         LocalPlayer = null;
+
+        FindObjectOfType<MenuManager>().GoToPreLobby();
     }
 
     private void Update()
@@ -50,33 +46,31 @@ public class TTPlayer : NetworkBehaviour
         TTLobbyUI.Singleton.AddPlayer(this);
     }
 
+    public override void OnStartLocalPlayer()
+    {
+        LocalPlayer = this;
+        _manager = NetworkManager.singleton as TTNetworkManagerListServer;
+
+        TTSettingsManager.onPlayerNameChanged += ChangePlayerName;
+
+        FindObjectOfType<MenuManager>().GoToLobby();
+
+        Invoke(nameof(cmdSetPlayerIndex), 0.2f);
+        Invoke(nameof(cmdSetPlayerColorVariation), 0.2f);
+        cmdChangePlayerName(TTSettingsManager.Singleton.PlayerName);
+    }
+
     /// <summary>
     /// Called when a client joins a Host or when a Hosted game is created
     /// </summary>
     public override void OnStartClient()
     {
-        if (!isLocalPlayer) return;
-
-        LocalPlayer = this;
-        FindObjectOfType<MenuManager>().GoToLobby();
-
-        initLocalPlayer();
     }
 
     public override void OnStopClient()
     {
-        if (this == LocalPlayer) return;
+        if (isLocalPlayer) return;
         TTLobbyUI.Singleton.RemovePlayer(this);
-    }
-
-    private void initLocalPlayer()
-    {
-        _manager = NetworkManager.singleton as TTNetworkManagerListServer;
-        TTSettingsManager.onPlayerNameChanged += ChangePlayerName;
-
-        Invoke(nameof(cmdSetPlayerIndex), 0.5f);
-        Invoke(nameof(cmdSetPlayerColorVariation), 0.5f);
-        cmdChangePlayerName(TTSettingsManager.Singleton.PlayerName);
     }
 
     public void ChangePlayerName(string pNewName)
@@ -101,7 +95,6 @@ public class TTPlayer : NetworkBehaviour
         if (_lobbyIndex > pLobbyIndex)
             cmdUpdateHigherLobbyIndex();
     }
-
 
     [Command]
     private void cmdUpdateHigherLobbyIndex()
@@ -137,7 +130,7 @@ public class TTPlayer : NetworkBehaviour
         _isReady = !_isReady;
         if (_isReady)
         {
-            //When Ready
+            //When Ready    
         }
         else
         {

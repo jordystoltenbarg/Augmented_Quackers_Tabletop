@@ -215,5 +215,15 @@ namespace Mirror.Websocket
             }
             return "";
         }
+
+        public override void DRClientSend(int channelId, ArraySegment<byte> segment)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override void DRServerSend(int connectionIds, int channelId, ArraySegment<byte> segment)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

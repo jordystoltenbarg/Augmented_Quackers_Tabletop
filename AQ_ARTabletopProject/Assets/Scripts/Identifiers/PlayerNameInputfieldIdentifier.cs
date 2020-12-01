@@ -1,6 +1,4 @@
-﻿using System;
-using System.Text.RegularExpressions;
-using TMPro;
+﻿using TMPro;
 using UnityEngine;
 
 public class PlayerNameInputfieldIdentifier : MonoBehaviour
@@ -10,12 +8,12 @@ public class PlayerNameInputfieldIdentifier : MonoBehaviour
 
     private void Start()
     {
-        inputField.onEndEdit.AddListener((string pNewName) => OnEndEdit(inputField.text));
+        inputField.onEndEdit.AddListener((string pNewName) => onEndEdit(inputField.text));
         inputField.text = TTSettingsManager.Singleton.PlayerName;
         _lastInput = inputField.text;
     }
 
-    public void OnEndEdit(string pInputText)
+    private void onEndEdit(string pInputText)
     {
         inputField.text = _lastInput;
 
@@ -23,7 +21,7 @@ public class PlayerNameInputfieldIdentifier : MonoBehaviour
 
         TTSettingsManager.Singleton.ChangePlayerName(pInputText);
         inputField.text = pInputText;
-        _lastInput = pInputText;
+        _lastInput = inputField.text;
     }
 
     private bool isValidName(string pInputText)

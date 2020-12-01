@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 public class TTLobbyUI : MonoBehaviour
@@ -23,6 +22,14 @@ public class TTLobbyUI : MonoBehaviour
 
     public void AddPlayer(TTPlayer pPlayer)
     {
+        if (pPlayer == TTPlayer.LocalPlayer)
+            foreach (TTLobbyUIPlayerItem item in _items)
+                if (item.Player == pPlayer)
+                {
+                    Destroy(item.gameObject);
+                    _items.Remove(item);
+                }
+
         GameObject clone = Instantiate(_playerLobbyUIItemPrefab, _playersContainer);
         clone.GetComponent<TTLobbyUIPlayerItem>().Setup(pPlayer);
         _items.Add(clone.GetComponent<TTLobbyUIPlayerItem>());
@@ -31,7 +38,6 @@ public class TTLobbyUI : MonoBehaviour
     public void RemovePlayer(TTPlayer pPlayer)
     {
         foreach (TTLobbyUIPlayerItem item in _items)
-        {
             if (item.Player == pPlayer)
             {
                 Destroy(item.gameObject);
@@ -39,6 +45,5 @@ public class TTLobbyUI : MonoBehaviour
                 TTPlayer.LocalPlayer.UpdateHigherLobbyIndex(pPlayer.LobbyIndex);
                 break;
             }
-        }
     }
 }
