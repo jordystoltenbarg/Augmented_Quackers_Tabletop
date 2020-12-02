@@ -9,407 +9,7 @@
   <component name="ChangeListManager">
     <list default="true" id="10f0f0d2-91c9-40f7-b374-b9a84e2f4916" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/AR/PlacementDisable.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/AR/PlacementDisable.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scenes/MainGame.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scenes/MainGame.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/APIUpdater/project-dependencies.graph" beforeDir="false" afterPath="$PROJECT_DIR$/Library/APIUpdater/project-dependencies.graph" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/EditorUserBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Library/EditorUserBuildSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/InspectorExpandedItems.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Library/InspectorExpandedItems.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/LastSceneManagerSetup.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Library/LastSceneManagerSetup.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arcore@2.1.11/.gitattributes" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arcore@2.1.11/CHANGELOG.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arcore@2.1.11/Editor/ARCoreBuildProcessor.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arcore@2.1.11/Editor/ARCoreBuildProcessor.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arcore@2.1.11/Editor/ARCorePackageMetadata.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arcore@2.1.11/Editor/ARCoreSettings.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arcore@2.1.11/Editor/ARCoreSettings.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arcore@2.1.11/Editor/ARCoreSettingsProvider.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arcore@2.1.11/Editor/Unity.XR.ARCore.Editor.asmdef" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arcore@2.1.11/Editor/Unity.XR.ARCore.Editor.asmdef.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arcore@2.1.11/LICENSE.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arcore@2.1.11/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arcore@2.1.11/Runtime/ARCoreCameraSubsystem.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arcore@2.1.11/Runtime/ARCoreFaceRegion.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arcore@2.1.11/Runtime/ARCoreFaceRegionData.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arcore@2.1.11/Runtime/ARCoreFaceSubsystem.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arcore@2.1.11/Runtime/ARCoreImageTrackingProvider.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arcore@2.1.11/Runtime/ARCoreImageTrackingProvider.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arcore@2.1.11/Runtime/ARCoreLoader.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arcore@2.1.11/Runtime/ARCoreLoader.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arcore@2.1.11/Runtime/ARCoreLoaderConstants.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arcore@2.1.11/Runtime/ARCoreLoaderConstants.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arcore@2.1.11/Runtime/ARCoreLoaderSettings.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arcore@2.1.11/Runtime/ARCoreLoaderSettings.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arcore@2.1.11/Runtime/ARCorePermissionManager.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arcore@2.1.11/Runtime/ARCorePermissionManager.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arcore@2.1.11/Runtime/ARCorePlaneProvider.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arcore@2.1.11/Runtime/ARCorePlaneProvider.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arcore@2.1.11/Runtime/ARCorePromise.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arcore@2.1.11/Runtime/ARCorePromise.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arcore@2.1.11/Runtime/ARCoreRaycastSubsystem.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arcore@2.1.11/Runtime/ARCoreRaycastSubsystem.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arcore@2.1.11/Runtime/ARCoreReferencePointSubsystem.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arcore@2.1.11/Runtime/ARCoreReferencePointSubsystem.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arcore@2.1.11/Runtime/ARCoreSessionSubsystem.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arcore@2.1.11/Runtime/ARCoreSessionSubsystem.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arcore@2.1.11/Runtime/Android/Resources/ARCoreShader.shader" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arcore@2.1.11/Runtime/Android/Resources/ARCoreShader.shader.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arcore@2.1.11/Runtime/Android/UnityARCore.aar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arcore@2.1.11/Runtime/Android/UnityARCore.aar.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arcore@2.1.11/Runtime/Android/arcore_client.aar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arcore@2.1.11/Runtime/Android/arcore_client.aar.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arcore@2.1.11/Runtime/Android/unityandroidpermissions.aar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arcore@2.1.11/Runtime/Android/unityandroidpermissions.aar.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arcore@2.1.11/Runtime/ArPrestoApi.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arcore@2.1.11/Runtime/ArPrestoApi.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arcore@2.1.11/Runtime/Assembly.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arcore@2.1.11/Runtime/Assembly.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arcore@2.1.11/Runtime/Depth/ARCoreXRDepthSubsystem.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arcore@2.1.11/Runtime/Depth/ARCoreXRDepthSubsystem.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arcore@2.1.11/Runtime/Unity.XR.ARCore.asmdef" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arcore@2.1.11/Runtime/Unity.XR.ARCore.asmdef.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arcore@2.1.11/Runtime/UnitySubsystemsManifest.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arcore@2.1.11/Tests/Runtime/ARCoreTests.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arcore@2.1.11/Tests/Runtime/ARCoreTests.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arcore@2.1.11/Tests/Runtime/Unity.XR.ARCore.Runtime.Tests.asmdef" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arcore@2.1.11/Third Party Notices.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arcore@2.1.11/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arfoundation@2.1.8/CHANGELOG.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arfoundation@2.1.8/Editor/ARCameraBackgroundEditor.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arfoundation@2.1.8/Editor/ARCameraBackgroundEditor.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arfoundation@2.1.8/Editor/ARSceneValidator.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arfoundation@2.1.8/Editor/ARSceneValidator.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arfoundation@2.1.8/Editor/Icons/ARVR@4x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arfoundation@2.1.8/Editor/Icons/d_ARVR@4x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arfoundation@2.1.8/Editor/PlaneDetectionModeAttributeDrawer.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arfoundation@2.1.8/Editor/PlaneDetectionModeAttributeDrawer.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arfoundation@2.1.8/Editor/SceneUtils.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arfoundation@2.1.8/Editor/SceneUtils.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arfoundation@2.1.8/Editor/Unity.XR.ARFoundation.Editor.asmdef" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arfoundation@2.1.8/LICENSE.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arfoundation@2.1.8/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arfoundation@2.1.8/Runtime/AR/ARBackgroundRendererAsset.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arfoundation@2.1.8/Runtime/AR/ARBackgroundRendererAsset.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arfoundation@2.1.8/Runtime/AR/ARCameraBackground.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arfoundation@2.1.8/Runtime/AR/ARCameraBackground.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arfoundation@2.1.8/Runtime/AR/ARCameraFrameEventArgs.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arfoundation@2.1.8/Runtime/AR/ARCameraFrameEventArgs.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arfoundation@2.1.8/Runtime/AR/ARCameraManager.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arfoundation@2.1.8/Runtime/AR/ARCameraManager.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arfoundation@2.1.8/Runtime/AR/AREnvironmentProbe.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arfoundation@2.1.8/Runtime/AR/AREnvironmentProbe.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arfoundation@2.1.8/Runtime/AR/AREnvironmentProbeManager.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arfoundation@2.1.8/Runtime/AR/AREnvironmentProbeManager.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arfoundation@2.1.8/Runtime/AR/AREnvironmentProbePlacementType.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arfoundation@2.1.8/Runtime/AR/AREnvironmentProbePlacementType.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arfoundation@2.1.8/Runtime/AR/AREnvironmentProbesChangedEvent.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arfoundation@2.1.8/Runtime/AR/AREnvironmentProbesChangedEvent.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arfoundation@2.1.8/Runtime/AR/ARFace.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arfoundation@2.1.8/Runtime/AR/ARFace.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arfoundation@2.1.8/Runtime/AR/ARFaceManager.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arfoundation@2.1.8/Runtime/AR/ARFaceManager.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arfoundation@2.1.8/Runtime/AR/ARFaceMeshVisualizer.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arfoundation@2.1.8/Runtime/AR/ARFaceMeshVisualizer.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arfoundation@2.1.8/Runtime/AR/ARFaceUpdatedEventArgs.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arfoundation@2.1.8/Runtime/AR/ARFaceUpdatedEventArgs.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arfoundation@2.1.8/Runtime/AR/ARFacesChangedEventArgs.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arfoundation@2.1.8/Runtime/AR/ARFacesChangedEventArgs.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arfoundation@2.1.8/Runtime/AR/ARFoundationBackgroundRenderer.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arfoundation@2.1.8/Runtime/AR/ARFoundationBackgroundRenderer.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arfoundation@2.1.8/Runtime/AR/ARFoundationBackgroundRendererChangedEventArgs.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arfoundation@2.1.8/Runtime/AR/ARFoundationBackgroundRendererChangedEventArgs.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arfoundation@2.1.8/Runtime/AR/ARInputManager.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arfoundation@2.1.8/Runtime/AR/ARInputManager.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arfoundation@2.1.8/Runtime/AR/ARLightEstimationData.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arfoundation@2.1.8/Runtime/AR/ARLightEstimationData.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arfoundation@2.1.8/Runtime/AR/ARMeshManager.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arfoundation@2.1.8/Runtime/AR/ARMeshManager.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arfoundation@2.1.8/Runtime/AR/ARMeshesChangedEventArgs.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arfoundation@2.1.8/Runtime/AR/ARMeshesChangedEventArgs.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arfoundation@2.1.8/Runtime/AR/ARPlane.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arfoundation@2.1.8/Runtime/AR/ARPlane.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arfoundation@2.1.8/Runtime/AR/ARPlaneBoundaryChangedEventArgs.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arfoundation@2.1.8/Runtime/AR/ARPlaneBoundaryChangedEventArgs.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arfoundation@2.1.8/Runtime/AR/ARPlaneManager.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arfoundation@2.1.8/Runtime/AR/ARPlaneManager.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arfoundation@2.1.8/Runtime/AR/ARPlaneMeshGenerators.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arfoundation@2.1.8/Runtime/AR/ARPlaneMeshGenerators.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arfoundation@2.1.8/Runtime/AR/ARPlaneMeshVisualizer.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arfoundation@2.1.8/Runtime/AR/ARPlaneMeshVisualizer.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arfoundation@2.1.8/Runtime/AR/ARPlanesChangedEventArgs.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arfoundation@2.1.8/Runtime/AR/ARPlanesChangedEventArgs.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arfoundation@2.1.8/Runtime/AR/ARPointCloud.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arfoundation@2.1.8/Runtime/AR/ARPointCloud.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arfoundation@2.1.8/Runtime/AR/ARPointCloudChangedEventArgs.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arfoundation@2.1.8/Runtime/AR/ARPointCloudChangedEventArgs.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arfoundation@2.1.8/Runtime/AR/ARPointCloudManager.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arfoundation@2.1.8/Runtime/AR/ARPointCloudManager.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arfoundation@2.1.8/Runtime/AR/ARPointCloudMeshVisualizer.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arfoundation@2.1.8/Runtime/AR/ARPointCloudMeshVisualizer.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arfoundation@2.1.8/Runtime/AR/ARPointCloudParticleVisualizer.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arfoundation@2.1.8/Runtime/AR/ARPointCloudParticleVisualizer.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arfoundation@2.1.8/Runtime/AR/ARPointCloudUpdatedEventArgs.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arfoundation@2.1.8/Runtime/AR/ARPointCloudUpdatedEventArgs.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arfoundation@2.1.8/Runtime/AR/ARRaycastHit.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arfoundation@2.1.8/Runtime/AR/ARRaycastHit.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arfoundation@2.1.8/Runtime/AR/ARRaycastManager.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arfoundation@2.1.8/Runtime/AR/ARRaycastManager.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arfoundation@2.1.8/Runtime/AR/ARReferencePoint.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arfoundation@2.1.8/Runtime/AR/ARReferencePoint.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arfoundation@2.1.8/Runtime/AR/ARReferencePointManager.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arfoundation@2.1.8/Runtime/AR/ARReferencePointManager.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arfoundation@2.1.8/Runtime/AR/ARReferencePointsChangedEventArgs.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arfoundation@2.1.8/Runtime/AR/ARReferencePointsChangedEventArgs.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arfoundation@2.1.8/Runtime/AR/ARSession.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arfoundation@2.1.8/Runtime/AR/ARSession.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arfoundation@2.1.8/Runtime/AR/ARSessionOrigin.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arfoundation@2.1.8/Runtime/AR/ARSessionOrigin.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arfoundation@2.1.8/Runtime/AR/ARSessionState.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arfoundation@2.1.8/Runtime/AR/ARSessionState.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arfoundation@2.1.8/Runtime/AR/ARSessiontateChangedEventArgs.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arfoundation@2.1.8/Runtime/AR/ARSessiontateChangedEventArgs.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arfoundation@2.1.8/Runtime/AR/ARTrackable.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arfoundation@2.1.8/Runtime/AR/ARTrackable.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arfoundation@2.1.8/Runtime/AR/ARTrackableManager.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arfoundation@2.1.8/Runtime/AR/ARTrackableManager.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arfoundation@2.1.8/Runtime/AR/ARTrackedImage.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arfoundation@2.1.8/Runtime/AR/ARTrackedImage.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arfoundation@2.1.8/Runtime/AR/ARTrackedImageManager.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arfoundation@2.1.8/Runtime/AR/ARTrackedImageManager.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arfoundation@2.1.8/Runtime/AR/ARTrackedImagesChangedEventArgs.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arfoundation@2.1.8/Runtime/AR/ARTrackedImagesChangedEventArgs.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arfoundation@2.1.8/Runtime/AR/ARUpdateOrder.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arfoundation@2.1.8/Runtime/AR/ARUpdateOrder.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arfoundation@2.1.8/Runtime/AR/IRaycaster.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arfoundation@2.1.8/Runtime/AR/IRaycaster.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arfoundation@2.1.8/Runtime/AR/MeshQueue.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arfoundation@2.1.8/Runtime/AR/MeshQueue.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arfoundation@2.1.8/Runtime/AR/PlaneDetectionModeMaskAttribute.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arfoundation@2.1.8/Runtime/AR/PlaneDetectionModeMaskAttribute.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arfoundation@2.1.8/Runtime/AR/PoseExtensions.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arfoundation@2.1.8/Runtime/AR/PoseExtensions.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arfoundation@2.1.8/Runtime/AR/SubsystemLifecycleManager.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arfoundation@2.1.8/Runtime/AR/SubsystemLifecycleManager.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arfoundation@2.1.8/Runtime/AR/TrackableCollection.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arfoundation@2.1.8/Runtime/AR/TrackableCollection.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arfoundation@2.1.8/Runtime/AR/TransformExtensions.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arfoundation@2.1.8/Runtime/AR/TransformExtensions.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arfoundation@2.1.8/Runtime/AssemblyInfo.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arfoundation@2.1.8/Runtime/AssemblyInfo.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arfoundation@2.1.8/Runtime/Unity.XR.ARFoundation.asmdef" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arfoundation@2.1.8/Tests/Runtime/ARFoundationTests.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arfoundation@2.1.8/Tests/Runtime/ARFoundationTests.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arfoundation@2.1.8/Tests/Runtime/MeshQueueTests.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arfoundation@2.1.8/Tests/Runtime/MeshQueueTests.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arfoundation@2.1.8/Tests/Runtime/Unity.XR.ARFoundation.Runtime.Tests.asmdef" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arfoundation@2.1.8/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arsubsystems@2.1.2/CHANGELOG.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arsubsystems@2.1.2/CONTRIBUTIONS.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arsubsystems@2.1.2/Editor/GuidExtensions.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arsubsystems@2.1.2/Editor/GuidExtensions.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arsubsystems@2.1.2/Editor/InternalBridge/TextureImporterBridge.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arsubsystems@2.1.2/Editor/InternalBridge/TextureImporterBridge.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arsubsystems@2.1.2/Editor/InternalBridge/Unity.InternalAPIEditorBridge.005.asmdef" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arsubsystems@2.1.2/Editor/SerializableGuidUtil.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arsubsystems@2.1.2/Editor/SerializableGuidUtil.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arsubsystems@2.1.2/Editor/Unity.XR.ARSubsystems.Editor.asmdef" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arsubsystems@2.1.2/Editor/Unity.XR.ARSubsystems.Editor.asmdef.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arsubsystems@2.1.2/Editor/XRReferenceImageLibraryEditor.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arsubsystems@2.1.2/Editor/XRReferenceImageLibraryEditor.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arsubsystems@2.1.2/Editor/XRReferenceImageLibraryExtensions.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arsubsystems@2.1.2/Editor/XRReferenceImageLibraryExtensions.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arsubsystems@2.1.2/LICENSE.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arsubsystems@2.1.2/LICENSE.md.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arsubsystems@2.1.2/QAReport.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arsubsystems@2.1.2/QAReport.md.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arsubsystems@2.1.2/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arsubsystems@2.1.2/README.md.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arsubsystems@2.1.2/Runtime/AssemblyInfo.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arsubsystems@2.1.2/Runtime/AssemblyInfo.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arsubsystems@2.1.2/Runtime/CameraSubsystem/AsyncCameraImageConversionStatus.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arsubsystems@2.1.2/Runtime/CameraSubsystem/AsyncCameraImageConversionStatus.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arsubsystems@2.1.2/Runtime/CameraSubsystem/CameraFocusMode.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arsubsystems@2.1.2/Runtime/CameraSubsystem/CameraFocusMode.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arsubsystems@2.1.2/Runtime/CameraSubsystem/CameraImageFormat.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arsubsystems@2.1.2/Runtime/CameraSubsystem/CameraImageFormat.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arsubsystems@2.1.2/Runtime/CameraSubsystem/CameraImageTransformation.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arsubsystems@2.1.2/Runtime/CameraSubsystem/CameraImageTransformation.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arsubsystems@2.1.2/Runtime/CameraSubsystem/LightEstimationMode.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arsubsystems@2.1.2/Runtime/CameraSubsystem/LightEstimationMode.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arsubsystems@2.1.2/Runtime/CameraSubsystem/XRAsyncCameraImageConversion.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arsubsystems@2.1.2/Runtime/CameraSubsystem/XRAsyncCameraImageConversion.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arsubsystems@2.1.2/Runtime/CameraSubsystem/XRCameraConfiguration.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arsubsystems@2.1.2/Runtime/CameraSubsystem/XRCameraConfiguration.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arsubsystems@2.1.2/Runtime/CameraSubsystem/XRCameraFrame.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arsubsystems@2.1.2/Runtime/CameraSubsystem/XRCameraFrame.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arsubsystems@2.1.2/Runtime/CameraSubsystem/XRCameraFrameReceivedArgs.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arsubsystems@2.1.2/Runtime/CameraSubsystem/XRCameraFrameReceivedArgs.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arsubsystems@2.1.2/Runtime/CameraSubsystem/XRCameraImage.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arsubsystems@2.1.2/Runtime/CameraSubsystem/XRCameraImage.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arsubsystems@2.1.2/Runtime/CameraSubsystem/XRCameraImageConversionParams.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arsubsystems@2.1.2/Runtime/CameraSubsystem/XRCameraImageConversionParams.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arsubsystems@2.1.2/Runtime/CameraSubsystem/XRCameraImagePlane.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arsubsystems@2.1.2/Runtime/CameraSubsystem/XRCameraImagePlane.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arsubsystems@2.1.2/Runtime/CameraSubsystem/XRCameraIntrinsics.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arsubsystems@2.1.2/Runtime/CameraSubsystem/XRCameraIntrinsics.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arsubsystems@2.1.2/Runtime/CameraSubsystem/XRCameraParams.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arsubsystems@2.1.2/Runtime/CameraSubsystem/XRCameraParams.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arsubsystems@2.1.2/Runtime/CameraSubsystem/XRCameraSubsystem.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arsubsystems@2.1.2/Runtime/CameraSubsystem/XRCameraSubsystem.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arsubsystems@2.1.2/Runtime/CameraSubsystem/XRCameraSubsystemDescriptor.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arsubsystems@2.1.2/Runtime/CameraSubsystem/XRCameraSubsystemDescriptor.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arsubsystems@2.1.2/Runtime/DepthSubsystem/XRDepthSubsystem.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arsubsystems@2.1.2/Runtime/DepthSubsystem/XRDepthSubsystem.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arsubsystems@2.1.2/Runtime/DepthSubsystem/XRDepthSubsystemDescriptor.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arsubsystems@2.1.2/Runtime/DepthSubsystem/XRDepthSubsystemDescriptor.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arsubsystems@2.1.2/Runtime/DepthSubsystem/XRPointCloud.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arsubsystems@2.1.2/Runtime/DepthSubsystem/XRPointCloud.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arsubsystems@2.1.2/Runtime/DepthSubsystem/XRPointCloudData.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arsubsystems@2.1.2/Runtime/DepthSubsystem/XRPointCloudData.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arsubsystems@2.1.2/Runtime/EnvironmentProbeSubsystem/XREnvironmentProbe.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arsubsystems@2.1.2/Runtime/EnvironmentProbeSubsystem/XREnvironmentProbe.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arsubsystems@2.1.2/Runtime/EnvironmentProbeSubsystem/XREnvironmentProbeSubsystem.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arsubsystems@2.1.2/Runtime/EnvironmentProbeSubsystem/XREnvironmentProbeSubsystem.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arsubsystems@2.1.2/Runtime/EnvironmentProbeSubsystem/XREnvironmentProbeSubsystemDescriptor.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arsubsystems@2.1.2/Runtime/EnvironmentProbeSubsystem/XREnvironmentProbeSubsystemDescriptor.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arsubsystems@2.1.2/Runtime/FaceSubsystem/XRFace.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arsubsystems@2.1.2/Runtime/FaceSubsystem/XRFace.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arsubsystems@2.1.2/Runtime/FaceSubsystem/XRFaceMesh.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arsubsystems@2.1.2/Runtime/FaceSubsystem/XRFaceMesh.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arsubsystems@2.1.2/Runtime/FaceSubsystem/XRFaceSubsystem.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arsubsystems@2.1.2/Runtime/FaceSubsystem/XRFaceSubsystem.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arsubsystems@2.1.2/Runtime/FaceSubsystem/XRFaceSubsystemDescriptor.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arsubsystems@2.1.2/Runtime/FaceSubsystem/XRFaceSubsystemDescriptor.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arsubsystems@2.1.2/Runtime/GuidUtil.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arsubsystems@2.1.2/Runtime/GuidUtil.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arsubsystems@2.1.2/Runtime/ImageTrackingSubsystem/XRImageTrackingSubsystem.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arsubsystems@2.1.2/Runtime/ImageTrackingSubsystem/XRImageTrackingSubsystem.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arsubsystems@2.1.2/Runtime/ImageTrackingSubsystem/XRImageTrackingSubsystemDescriptor.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arsubsystems@2.1.2/Runtime/ImageTrackingSubsystem/XRImageTrackingSubsystemDescriptor.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arsubsystems@2.1.2/Runtime/ImageTrackingSubsystem/XRReferenceImage.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arsubsystems@2.1.2/Runtime/ImageTrackingSubsystem/XRReferenceImage.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arsubsystems@2.1.2/Runtime/ImageTrackingSubsystem/XRReferenceImageLibrary.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arsubsystems@2.1.2/Runtime/ImageTrackingSubsystem/XRReferenceImageLibrary.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arsubsystems@2.1.2/Runtime/ImageTrackingSubsystem/XRTrackedImage.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arsubsystems@2.1.2/Runtime/ImageTrackingSubsystem/XRTrackedImage.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arsubsystems@2.1.2/Runtime/NativeCopyUtility.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arsubsystems@2.1.2/Runtime/NativeCopyUtility.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arsubsystems@2.1.2/Runtime/NotTrackingReason.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arsubsystems@2.1.2/Runtime/NotTrackingReason.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arsubsystems@2.1.2/Runtime/PlaneTracking/BoundedPlane.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arsubsystems@2.1.2/Runtime/PlaneTracking/BoundedPlane.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arsubsystems@2.1.2/Runtime/PlaneTracking/PlaneAlignment.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arsubsystems@2.1.2/Runtime/PlaneTracking/PlaneAlignment.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arsubsystems@2.1.2/Runtime/PlaneTracking/PlaneDetectionMode.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arsubsystems@2.1.2/Runtime/PlaneTracking/PlaneDetectionMode.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arsubsystems@2.1.2/Runtime/PlaneTracking/XRPlaneSubsystem.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arsubsystems@2.1.2/Runtime/PlaneTracking/XRPlaneSubsystem.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arsubsystems@2.1.2/Runtime/PlaneTracking/XRPlaneSubsystemDescriptor.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arsubsystems@2.1.2/Runtime/PlaneTracking/XRPlaneSubsystemDescriptor.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arsubsystems@2.1.2/Runtime/Promise.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arsubsystems@2.1.2/Runtime/Promise.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arsubsystems@2.1.2/Runtime/RaycastSubsystem.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arsubsystems@2.1.2/Runtime/RaycastSubsystem/TrackableType.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arsubsystems@2.1.2/Runtime/RaycastSubsystem/TrackableType.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arsubsystems@2.1.2/Runtime/RaycastSubsystem/XRRaycastHit.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arsubsystems@2.1.2/Runtime/RaycastSubsystem/XRRaycastHit.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arsubsystems@2.1.2/Runtime/RaycastSubsystem/XRRaycastSubsystem.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arsubsystems@2.1.2/Runtime/RaycastSubsystem/XRRaycastSubsystem.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arsubsystems@2.1.2/Runtime/RaycastSubsystem/XRRaycastSubsystemDescriptor.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arsubsystems@2.1.2/Runtime/RaycastSubsystem/XRRaycastSubsystemDescriptor.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arsubsystems@2.1.2/Runtime/ReferencePointSubsystem.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arsubsystems@2.1.2/Runtime/ReferencePointSubsystem/XRReferencePoint.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arsubsystems@2.1.2/Runtime/ReferencePointSubsystem/XRReferencePoint.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arsubsystems@2.1.2/Runtime/ReferencePointSubsystem/XRReferencePointSubsystem.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arsubsystems@2.1.2/Runtime/ReferencePointSubsystem/XRReferencePointSubsystem.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arsubsystems@2.1.2/Runtime/ReferencePointSubsystem/XRReferencePointSubsystemDescriptor.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arsubsystems@2.1.2/Runtime/ReferencePointSubsystem/XRReferencePointSubsystemDescriptor.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arsubsystems@2.1.2/Runtime/SerializableGuid.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arsubsystems@2.1.2/Runtime/SerializableGuid.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arsubsystems@2.1.2/Runtime/SessionSubsystem.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arsubsystems@2.1.2/Runtime/SessionSubsystem/SessionAvailability.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arsubsystems@2.1.2/Runtime/SessionSubsystem/SessionAvailability.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arsubsystems@2.1.2/Runtime/SessionSubsystem/SessionInstallationStatus.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arsubsystems@2.1.2/Runtime/SessionSubsystem/SessionInstallationStatus.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arsubsystems@2.1.2/Runtime/SessionSubsystem/XRSessionSubsystem.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arsubsystems@2.1.2/Runtime/SessionSubsystem/XRSessionSubsystem.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arsubsystems@2.1.2/Runtime/SessionSubsystem/XRSessionSubsystemDescriptor.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arsubsystems@2.1.2/Runtime/SessionSubsystem/XRSessionSubsystemDescriptor.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arsubsystems@2.1.2/Runtime/SessionSubsystem/XRSessionUpdateParams.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arsubsystems@2.1.2/Runtime/SessionSubsystem/XRSessionUpdateParams.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arsubsystems@2.1.2/Runtime/TrackableId.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arsubsystems@2.1.2/Runtime/TrackableId.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arsubsystems@2.1.2/Runtime/TrackingState.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arsubsystems@2.1.2/Runtime/TrackingState.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arsubsystems@2.1.2/Runtime/TrackingSubsystem.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arsubsystems@2.1.2/Runtime/TrackingSubsystem/ITrackable.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arsubsystems@2.1.2/Runtime/TrackingSubsystem/ITrackable.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arsubsystems@2.1.2/Runtime/TrackingSubsystem/TrackableChanges.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arsubsystems@2.1.2/Runtime/TrackingSubsystem/TrackableChanges.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arsubsystems@2.1.2/Runtime/TrackingSubsystem/TrackingSubsystem.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arsubsystems@2.1.2/Runtime/TrackingSubsystem/TrackingSubsystem.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arsubsystems@2.1.2/Runtime/TrackingSubsystem/ValidationUtility.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arsubsystems@2.1.2/Runtime/TrackingSubsystem/ValidationUtility.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arsubsystems@2.1.2/Runtime/Unity.XR.ARSubsystems.asmdef" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arsubsystems@2.1.2/Runtime/Unity.XR.ARSubsystems.asmdef.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arsubsystems@2.1.2/Runtime/XRTextureDescriptor.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arsubsystems@2.1.2/Runtime/XRTextureDescriptor.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arsubsystems@2.1.2/Tests.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arsubsystems@2.1.2/Tests/Runtime.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arsubsystems@2.1.2/Tests/Runtime/CameraSubsystem.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arsubsystems@2.1.2/Tests/Runtime/CameraSubsystem/XRCameraSubsystemTests.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arsubsystems@2.1.2/Tests/Runtime/CameraSubsystem/XRCameraSubsystemTests.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arsubsystems@2.1.2/Tests/Runtime/DepthSubsystem.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arsubsystems@2.1.2/Tests/Runtime/DepthSubsystem/XRDepthSubsystemTests.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arsubsystems@2.1.2/Tests/Runtime/DepthSubsystem/XRDepthSubsystemTests.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arsubsystems@2.1.2/Tests/Runtime/PlaneSubsystem.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arsubsystems@2.1.2/Tests/Runtime/PlaneSubsystem/XRPlaneSubsystemTests.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arsubsystems@2.1.2/Tests/Runtime/PlaneSubsystem/XRPlaneSubsystemTests.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arsubsystems@2.1.2/Tests/Runtime/RaycastSubsystem.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arsubsystems@2.1.2/Tests/Runtime/RaycastSubsystem/XRRaycastSubsystemTests.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arsubsystems@2.1.2/Tests/Runtime/RaycastSubsystem/XRRaycastSubsystemTests.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arsubsystems@2.1.2/Tests/Runtime/ReferencePointSubsystem.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arsubsystems@2.1.2/Tests/Runtime/ReferencePointSubsystem/XRReferencePointSubsystemTests.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arsubsystems@2.1.2/Tests/Runtime/ReferencePointSubsystem/XRReferencePointSubsystemTests.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arsubsystems@2.1.2/Tests/Runtime/SessionSubsystem.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arsubsystems@2.1.2/Tests/Runtime/SessionSubsystem/XRSessionSubsystemTests.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arsubsystems@2.1.2/Tests/Runtime/SessionSubsystem/XRSessionSubsystemTests.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arsubsystems@2.1.2/Tests/Runtime/Unity.XR.ARSubsystems.Runtime.Tests.asmdef" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arsubsystems@2.1.2/Tests/Runtime/Unity.XR.ARSubsystems.Runtime.Tests.asmdef.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arsubsystems@2.1.2/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PackageCache/com.unity.xr.arsubsystems@2.1.2/package.json.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/SceneVisibilityState.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Library/SceneVisibilityState.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/ScriptAssemblies/Unity.InternalAPIEditorBridge.005.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Library/ScriptAssemblies/Unity.InternalAPIEditorBridge.005.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/ScriptAssemblies/Unity.Rider.Editor.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Library/ScriptAssemblies/Unity.Rider.Editor.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/ScriptAssemblies/Unity.Subsystem.Registration.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Library/ScriptAssemblies/Unity.Subsystem.Registration.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/ScriptAssemblies/Unity.TextMeshPro.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Library/ScriptAssemblies/Unity.TextMeshPro.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/ScriptAssemblies/Unity.Timeline.Editor.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Library/ScriptAssemblies/Unity.Timeline.Editor.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/ScriptAssemblies/Unity.Timeline.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Library/ScriptAssemblies/Unity.Timeline.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/ScriptAssemblies/Unity.VSCode.Editor.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Library/ScriptAssemblies/Unity.VSCode.Editor.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/ScriptAssemblies/Unity.XR.ARCore.Editor.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Library/ScriptAssemblies/Unity.XR.ARCore.Editor.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/ScriptAssemblies/Unity.XR.ARCore.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Library/ScriptAssemblies/Unity.XR.ARCore.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/ScriptAssemblies/Unity.XR.ARFoundation.Editor.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Library/ScriptAssemblies/Unity.XR.ARFoundation.Editor.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/ScriptAssemblies/Unity.XR.ARFoundation.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Library/ScriptAssemblies/Unity.XR.ARFoundation.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/ScriptAssemblies/Unity.XR.ARSubsystems.Editor.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Library/ScriptAssemblies/Unity.XR.ARSubsystems.Editor.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/ScriptAssemblies/Unity.XR.ARSubsystems.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Library/ScriptAssemblies/Unity.XR.ARSubsystems.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/ScriptAssemblies/Unity.XR.Management.Editor.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Library/ScriptAssemblies/Unity.XR.Management.Editor.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/ScriptAssemblies/Unity.XR.Management.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Library/ScriptAssemblies/Unity.XR.Management.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/ScriptAssemblies/UnityEditor.SpatialTracking.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Library/ScriptAssemblies/UnityEditor.SpatialTracking.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/ScriptAssemblies/UnityEditor.TestRunner.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Library/ScriptAssemblies/UnityEditor.TestRunner.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/ScriptAssemblies/UnityEditor.UI.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Library/ScriptAssemblies/UnityEditor.UI.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/ScriptAssemblies/UnityEditor.XR.LegacyInputHelpers.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Library/ScriptAssemblies/UnityEditor.XR.LegacyInputHelpers.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/ScriptAssemblies/UnityEngine.SpatialTracking.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Library/ScriptAssemblies/UnityEngine.SpatialTracking.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/ScriptAssemblies/UnityEngine.TestRunner.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Library/ScriptAssemblies/UnityEngine.TestRunner.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/ScriptAssemblies/UnityEngine.UI.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Library/ScriptAssemblies/UnityEngine.UI.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/ScriptAssemblies/UnityEngine.XR.LegacyInputHelpers.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Library/ScriptAssemblies/UnityEngine.XR.LegacyInputHelpers.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/ScriptMapper" beforeDir="false" afterPath="$PROJECT_DIR$/Library/ScriptMapper" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/ShaderCache/EditorEncounteredVariants" beforeDir="false" afterPath="$PROJECT_DIR$/Library/ShaderCache/EditorEncounteredVariants" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/UIElements/EditorWindows/UnityEditor.PackageManager.UI.PackageManagerWindow.pref" beforeDir="false" afterPath="$PROJECT_DIR$/Library/UIElements/EditorWindows/UnityEditor.PackageManager.UI.PackageManagerWindow.pref" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/shadercompiler-UnityShaderCompiler.exe1.log" beforeDir="false" afterPath="$PROJECT_DIR$/Library/shadercompiler-UnityShaderCompiler.exe1.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/shadercompiler-UnityShaderCompiler.exe2.log" beforeDir="false" afterPath="$PROJECT_DIR$/Library/shadercompiler-UnityShaderCompiler.exe2.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/Assembly-CSharp.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/Assembly-CSharp.csprojAssemblyReference.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/Die.obj.meta" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -431,7 +31,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="android.sdk.path" value="$PROJECT_DIR$/../../../../../Android SDK" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../Builds/Mobile/MobileTestV1.apk" />
-    <property name="settings.editor.selected.configurable" value="gradle.compiler" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.project.gradle" />
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -447,6 +47,10 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
+    <state x="845" y="382" key="#Notifications" timestamp="1606414153495">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="845" y="382" key="#Notifications/-1920.0.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1606414153495" />
     <state x="477" y="266" key="#PSD" timestamp="1604500889879">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -459,19 +63,23 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="223" y="67" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1603986852232" />
+    <state x="448" y="147" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1606411938130">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="448" y="147" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/-1920.0.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1606411938130" />
     <state x="549" y="153" key="FileChooserDialogImpl" timestamp="1603988793993">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="549" y="153" key="FileChooserDialogImpl/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1603988793993" />
-    <state x="346" y="72" key="SettingsEditor" timestamp="1604500284821">
+    <state x="346" y="72" key="SettingsEditor" timestamp="1606411888191">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="346" y="72" key="SettingsEditor/-1920.0.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1604500284821" />
+    <state x="346" y="72" key="SettingsEditor/-1920.0.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1606411888191" />
     <state x="277" y="57" key="SettingsEditor/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1603991349313" />
     <state x="2266" y="72" key="SettingsEditor/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1603994062678" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1604500904772">
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1606414145530">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/-1920.0.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1604500904772" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/-1920.0.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1606414145530" />
   </component>
 </project>
