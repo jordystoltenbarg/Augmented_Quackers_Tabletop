@@ -238,8 +238,7 @@ public class MenuManager : MonoBehaviour
                 GoToPlay();
                 break;
             case MenuState.Lobby:
-                GoToPreLobby();
-
+                //GoToPreLobby(); Called from TTPlayer
                 Mirror.NetworkManager manager = Mirror.NetworkManager.singleton;
                 if (manager == null) break;
                 switch (manager.mode)

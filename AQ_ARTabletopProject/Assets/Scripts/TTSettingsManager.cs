@@ -1,9 +1,11 @@
 ﻿using System;
+using System.Collections;
 using UnityEngine;
 
 public class TTSettingsManager : MonoBehaviour
 {
     public static event Action<string> onPlayerNameChanged;
+    public static event Action<bool> onServerPrivacyChanged;
 
     public string[] bannedWords;
 
@@ -13,6 +15,8 @@ public class TTSettingsManager : MonoBehaviour
     public string PlayerName => _playerName;
     private int _playerIndex = 0;
     public int PlayerIndex => _playerIndex;
+    private string _serverCode = "";
+    public string ServerCode => _serverCode;
 
     private void Awake()
     {
@@ -23,7 +27,7 @@ public class TTSettingsManager : MonoBehaviour
         Singleton = this;
         DontDestroyOnLoad(gameObject);
 
-        ChangePlayerName($"Player {UnityEngine.Random.Range(10000000, 99999999)}");
+        StartCoroutine(delayedChangeNameForAPIToUpdate());
     }
 
     public void ChangePlayerName(string pNewName)
@@ -32,8 +36,19 @@ public class TTSettingsManager : MonoBehaviour
         onPlayerNameChanged?.Invoke(pNewName);
     }
 
-    public void SetPlayerIndex(int pIndex)
+    private IEnumerator delayedChangeNameForAPIToUpdate()
     {
-        _playerIndex = pIndex;
+        yield return new WaitWhile(() => TTApiUpdater.apiUpdater == null);
+        ChangePlayerName($"Player {UnityEngine.Random.Range(10000000, 99999999)}");
+    }
+
+    public void SetServerCode(string pCode)
+    {
+        _serverCode = pCode;
+    }
+
+    public void ToggleServerPrivacySetting(bool pIsPrivate)
+    {
+        onServerPrivacyChanged?.Invoke(pIsPrivate);
     }
 }

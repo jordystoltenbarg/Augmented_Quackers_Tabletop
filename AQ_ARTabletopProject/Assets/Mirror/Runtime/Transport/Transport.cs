@@ -83,6 +83,7 @@ namespace Mirror
         /// <param name="segment">The data to send to the server. Will be recycled after returning, so either use it directly or copy it internally. This allows for allocation-free sends!</param>
         /// <returns>true if the send was successful</returns>
         public abstract bool ClientSend(int channelId, ArraySegment<byte> segment);
+        public abstract void DRClientSend(int channelId, ArraySegment<byte> segment);
 
         /// <summary>
         /// Disconnect this client from the server
@@ -145,6 +146,7 @@ namespace Mirror
         /// <param name="data"></param>
         /// <returns>true if the data was sent to all clients</returns>
         public abstract bool ServerSend(List<int> connectionIds, int channelId, ArraySegment<byte> segment);
+        public abstract void DRServerSend(int connectionIds, int channelId, ArraySegment<byte> segment);
 
         /// <summary>
         /// Disconnect a client from this server.  Useful to kick people out.

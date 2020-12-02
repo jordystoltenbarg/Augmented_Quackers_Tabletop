@@ -54,11 +54,13 @@ public class TTLobbyUICharacterItem : MonoBehaviour
         if (!_playersThatSelected.Contains(pPlayer))
         {
             _playersThatSelected.Add(pPlayer);
-            pPlayer.SelectCharacter(characterIndex);
             updateInfo();
 
             if (pPlayer == TTPlayer.LocalPlayer)
+            {
+                pPlayer.SelectCharacter(characterIndex);
                 _highlight.color = Color.white;
+            }
         }
     }
 

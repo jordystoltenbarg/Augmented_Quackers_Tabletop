@@ -55,6 +55,7 @@ namespace Mirror.Cloud.ListServerService
                 yield return new WaitForSeconds(pInterval);
             }
         }
+
         IEnumerator getServerList()
         {
             UnityWebRequest request = requestCreator.Get("servers");

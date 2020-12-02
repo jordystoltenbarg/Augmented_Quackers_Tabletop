@@ -75,6 +75,16 @@ namespace Mirror.Cloud.ListServerService
             UpdateServer(_currentServer);
         }
 
+        public void UpdateServerCustomDataValue(string pCustomDataKey, string pCustomDataValue)
+        {
+            if (!_added) { Logger.LogWarning("UpdateServer called when before server was added"); return; }
+
+            for (int i = 0; i < _currentServer.customData.Length; i++)
+                if (_currentServer.customData[i].key == pCustomDataKey) { _currentServer.customData[i].value = pCustomDataValue; break; }
+
+            UpdateServer(_currentServer);
+        }
+
         public void UpdateServer(ServerJson pServer)
         {
             // TODO, use PartialServerJson as Arg Instead

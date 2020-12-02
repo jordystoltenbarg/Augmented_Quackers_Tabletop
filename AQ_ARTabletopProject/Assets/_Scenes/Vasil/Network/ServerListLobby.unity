@@ -128,10 +128,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1522220216, guid: 6c680079b6b36e84e8a98d535aa6a7c5, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1522220216, guid: 6c680079b6b36e84e8a98d535aa6a7c5, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 917921557538120191, guid: 6c680079b6b36e84e8a98d535aa6a7c5,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 917921558033529712, guid: 6c680079b6b36e84e8a98d535aa6a7c5,
         type: 3}
@@ -192,6 +200,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: TTManagers
+      objectReference: {fileID: 0}
+    - target: {fileID: 917921559133935823, guid: 6c680079b6b36e84e8a98d535aa6a7c5,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 917921559252615387, guid: 6c680079b6b36e84e8a98d535aa6a7c5,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6c680079b6b36e84e8a98d535aa6a7c5, type: 3}
