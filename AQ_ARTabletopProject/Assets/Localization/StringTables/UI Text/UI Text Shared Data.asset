@@ -40,11 +40,11 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 335902554017792
-    m_Key: CREDITSTITLE
+    m_Key: CREDITS_TITLE
     m_Metadata:
       m_Items: []
   - m_Id: 339446753480704
-    m_Key: CREDITSPROGRAMMER
+    m_Key: CREDITS_PROGRAMMER
     m_Metadata:
       m_Items: []
   - m_Id: 340109176688640

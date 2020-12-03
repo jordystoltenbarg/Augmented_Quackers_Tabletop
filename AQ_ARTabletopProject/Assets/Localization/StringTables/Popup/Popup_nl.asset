@@ -19,31 +19,31 @@ MonoBehaviour:
     m_Items: []
   m_TableData:
   - m_Id: 163750203392
-    m_Localized: <missing>
+    m_Localized: Let op!
     m_Metadata:
       m_Items: []
   - m_Id: 209094823936
-    m_Localized: <missing>
+    m_Localized: Foutmelding
     m_Metadata:
       m_Items: []
   - m_Id: 256905695232
-    m_Localized: <missing>
+    m_Localized: Vul alstublieft een valide code in!
     m_Metadata:
       m_Items: []
   - m_Id: 1058110033920
-    m_Localized: <missing>
+    m_Localized: Weet jij zeker dat je de lobby wilt verlaten?
     m_Metadata:
       m_Items: []
   - m_Id: 1194554937344
-    m_Localized: <missing>
+    m_Localized: Hierdoor wordt het spel opgeheven.
     m_Metadata:
       m_Items: []
   - m_Id: 1419440934912
-    m_Localized: <missing>
+    m_Localized: Hierdoor wordt de verbinding met de host verbroken.
     m_Metadata:
       m_Items: []
   - m_Id: 12050340630528
-    m_Localized: <missing>
+    m_Localized: 'Voorbeeld: ''ABCDE'''
     m_Metadata:
       m_Items: []
   references:
