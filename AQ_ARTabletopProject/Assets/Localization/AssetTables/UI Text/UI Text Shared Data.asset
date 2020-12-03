@@ -24,11 +24,11 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 38089446215680
-    m_Key: TITLESCREEN
+    m_Key: MAINMENU_TITLESCREEN
     m_Metadata:
       m_Items: []
   - m_Id: 335462848352256
-    m_Key: CHOOSECHARACTER
+    m_Key: LOBBY_CHOOSECHARACTER
     m_Metadata:
       m_Items: []
   - m_Id: 335902554017792
@@ -40,11 +40,11 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 340109176688640
-    m_Key: YES
+    m_Key: YES_BUTTON
     m_Metadata:
       m_Items: []
   - m_Id: 340279410905088
-    m_Key: ENGLISH
+    m_Key: SETTINGS_ENGLISH
     m_Metadata:
       m_Items: []
   - m_Id: 340877904531456
@@ -60,27 +60,43 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 342728569868288
-    m_Key: READY
+    m_Key: LOBBY_READY
     m_Metadata:
       m_Items: []
   - m_Id: 342946321354752
-    m_Key: DUTCH
+    m_Key: SETTINGS_DUTCH
     m_Metadata:
       m_Items: []
   - m_Id: 343214924582912
-    m_Key: SOUNDEFFECTS
+    m_Key: SETTINGS_SOUNDEFFECTS
     m_Metadata:
       m_Items: []
   - m_Id: 343738025594880
-    m_Key: NO
+    m_Key: NO_BUTTON
     m_Metadata:
       m_Items: []
   - m_Id: 343837753561088
-    m_Key: MUSIC
+    m_Key: SETTINGS_MUSIC
     m_Metadata:
       m_Items: []
   - m_Id: 343942623744000
-    m_Key: OK
+    m_Key: OK_BUTTON
+    m_Metadata:
+      m_Items: []
+  - m_Id: 367108804923392
+    m_Key: SETTINGS_DIALOGUE
+    m_Metadata:
+      m_Items: []
+  - m_Id: 367357573287936
+    m_Key: SETTINGS_NAME
+    m_Metadata:
+      m_Items: []
+  - m_Id: 368512571363328
+    m_Key: CREDITS_Organisations
+    m_Metadata:
+      m_Items: []
+  - m_Id: 368768419713024
+    m_Key: CREDITS_SCHOOL
     m_Metadata:
       m_Items: []
   m_Metadata:
