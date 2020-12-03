@@ -46,5 +46,29 @@ MonoBehaviour:
     m_Localized: 'Voorbeeld: ''ABCDE'''
     m_Metadata:
       m_Items: []
+  - m_Id: 37081055842304
+    m_Localized: Melding
+    m_Metadata:
+      m_Items: []
+  - m_Id: 37637413490688
+    m_Localized: "\rJe bent geschopt."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 38349455314944
+    m_Localized: Weet je zeker dat je de speler wilt schoppen?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 39248361771008
+    m_Localized: "Jij bent niet meer verbonden.\n\rControleer uw verbinding."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 40536470278144
+    m_Localized: "\rConnectie time-out."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 41016525148160
+    m_Localized: Weet je zeker dat je het spel wilt verlaten?
+    m_Metadata:
+      m_Items: []
   references:
     version: 1

@@ -16,31 +16,55 @@ MonoBehaviour:
   m_TableCollectionNameGuidString: 94a9f2fe1857a4d4c85c04dfc41ced62
   m_Entries:
   - m_Id: 163750203392
-    m_Key: POPUP_TITLE_WARNING
+    m_Key: TITLE_WARNING
     m_Metadata:
       m_Items: []
   - m_Id: 209094823936
-    m_Key: POPUP_TITLE_ERROR
+    m_Key: TITLE_ERROR
     m_Metadata:
       m_Items: []
   - m_Id: 256905695232
-    m_Key: POPUP_MESSAGE_CODE
+    m_Key: MESSAGE_CODE
     m_Metadata:
       m_Items: []
   - m_Id: 1058110033920
-    m_Key: POPUP_MESSAGE_LEAVELOBBY
+    m_Key: MESSAGE_LEAVELOBBY
     m_Metadata:
       m_Items: []
   - m_Id: 1194554937344
-    m_Key: POPUP_SECONDARY_LEAVELOBBY_HOST
+    m_Key: SECONDARY_LEAVELOBBY_HOST
     m_Metadata:
       m_Items: []
   - m_Id: 1419440934912
-    m_Key: POPUP_SECONDARY_LEAVELOBBY_CLIENT
+    m_Key: SECONDARY_LEAVELOBBY_CLIENT
     m_Metadata:
       m_Items: []
   - m_Id: 12050340630528
-    m_Key: POPUP_SECONDARY_CODE
+    m_Key: SECONDARY_CODE
+    m_Metadata:
+      m_Items: []
+  - m_Id: 37081055842304
+    m_Key: TITLE_NOTIFICATION
+    m_Metadata:
+      m_Items: []
+  - m_Id: 37637413490688
+    m_Key: MESSAGE_KICKED_CLIENT
+    m_Metadata:
+      m_Items: []
+  - m_Id: 38349455314944
+    m_Key: MESSAGE_KICK_HOST
+    m_Metadata:
+      m_Items: []
+  - m_Id: 39248361771008
+    m_Key: MESSAGE_DISCONNECTED
+    m_Metadata:
+      m_Items: []
+  - m_Id: 40536470278144
+    m_Key: MESSAGE_TIMEDOUT
+    m_Metadata:
+      m_Items: []
+  - m_Id: 41016525148160
+    m_Key: MESSAGE_LEAVEGAME
     m_Metadata:
       m_Items: []
   m_Metadata:

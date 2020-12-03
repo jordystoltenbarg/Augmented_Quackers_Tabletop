@@ -46,5 +46,29 @@ MonoBehaviour:
     m_Localized: 'Example: ''ABCDE'''
     m_Metadata:
       m_Items: []
+  - m_Id: 37081055842304
+    m_Localized: Notification
+    m_Metadata:
+      m_Items: []
+  - m_Id: 37637413490688
+    m_Localized: You have been kicked.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 38349455314944
+    m_Localized: Are you sure you want to kick the player?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 39248361771008
+    m_Localized: "You have been disconnected. \nPlease check your connection."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 40536470278144
+    m_Localized: Connection timed out.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 41016525148160
+    m_Localized: Are you sure you want to leave the game?
+    m_Metadata:
+      m_Items: []
   references:
     version: 1

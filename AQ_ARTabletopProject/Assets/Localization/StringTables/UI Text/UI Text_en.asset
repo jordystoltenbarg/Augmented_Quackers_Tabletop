@@ -113,5 +113,13 @@ MonoBehaviour:
       ROC van Twente'
     m_Metadata:
       m_Items: []
+  - m_Id: 391008179802112
+    m_Localized: Please place your gameboard on a flat surface.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 392338709499904
+    m_Localized: Waiting
+    m_Metadata:
+      m_Items: []
   references:
     version: 1

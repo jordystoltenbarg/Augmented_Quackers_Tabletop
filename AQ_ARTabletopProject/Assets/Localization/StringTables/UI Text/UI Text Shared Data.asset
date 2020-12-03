@@ -107,6 +107,14 @@ MonoBehaviour:
     m_Key: CREDITS_SCHOOL
     m_Metadata:
       m_Items: []
+  - m_Id: 391008179802112
+    m_Key: AR_PLACEBOARD
+    m_Metadata:
+      m_Items: []
+  - m_Id: 392338709499904
+    m_Key: WAIT_BUTTON
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
