@@ -22,8 +22,16 @@ MonoBehaviour:
     m_Localized: PLAY
     m_Metadata:
       m_Items: []
-  - m_Id: 3316667240448
-    m_Localized: COLLECTION
+  - m_Id: 297787426459648
+    m_Localized: Warning
+    m_Metadata:
+      m_Items: []
+  - m_Id: 324951974727680
+    m_Localized: Error
+    m_Metadata:
+      m_Items: []
+  - m_Id: 325014000095232
+    m_Localized: Please insert a vaild code!
     m_Metadata:
       m_Items: []
   - m_Id: 38089446215680
