@@ -34,5 +34,65 @@ MonoBehaviour:
     m_Localized: Please insert a vaild code!
     m_Metadata:
       m_Items: []
+  - m_Id: 38089446215680
+    m_Localized: Kronenkamp Adventure
+    m_Metadata:
+      m_Items: []
+  - m_Id: 335462848352256
+    m_Localized: Choose your character
+    m_Metadata:
+      m_Items: []
+  - m_Id: 335902554017792
+    m_Localized: Kronenkamp Adventure
+    m_Metadata:
+      m_Items: []
+  - m_Id: 339446753480704
+    m_Localized: Programmers
+    m_Metadata:
+      m_Items: []
+  - m_Id: 340109176688640
+    m_Localized: Yes
+    m_Metadata:
+      m_Items: []
+  - m_Id: 340279410905088
+    m_Localized: English
+    m_Metadata:
+      m_Items: []
+  - m_Id: 340877904531456
+    m_Localized: Join game
+    m_Metadata:
+      m_Items: []
+  - m_Id: 341462615674880
+    m_Localized: Create Lobby
+    m_Metadata:
+      m_Items: []
+  - m_Id: 342344220626944
+    m_Localized: Join with Code
+    m_Metadata:
+      m_Items: []
+  - m_Id: 342728569868288
+    m_Localized: Ready
+    m_Metadata:
+      m_Items: []
+  - m_Id: 342946321354752
+    m_Localized: Dutch
+    m_Metadata:
+      m_Items: []
+  - m_Id: 343214924582912
+    m_Localized: Sound effects
+    m_Metadata:
+      m_Items: []
+  - m_Id: 343738025594880
+    m_Localized: No
+    m_Metadata:
+      m_Items: []
+  - m_Id: 343837753561088
+    m_Localized: Music
+    m_Metadata:
+      m_Items: []
+  - m_Id: 343942623744000
+    m_Localized: Ok
+    m_Metadata:
+      m_Items: []
   references:
     version: 1
