@@ -88,9 +88,7 @@ public class TTServerListManager : MonoBehaviour
         yield return new WaitUntil(() => !_isDirty);
 
         if (!joinWithCode())
-        {
-            //Error: Please insert a valid CODE.
-        }
+            TTMessagePopup.Singleton.DisplayPopup(TTMessagePopup.PopupTitle.Error, TTMessagePopup.PopupMessage.Code, TTMessagePopup.PopupResponse.Ok);
 
         _joinWithCodeButton.interactable = true;
     }

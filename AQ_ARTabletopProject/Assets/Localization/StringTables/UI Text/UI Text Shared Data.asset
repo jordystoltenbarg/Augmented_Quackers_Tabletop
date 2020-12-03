@@ -19,8 +19,16 @@ MonoBehaviour:
     m_Key: PLAY_BUTTON
     m_Metadata:
       m_Items: []
-  - m_Id: 3316667240448
-    m_Key: COLLECTION_BUTTON
+  - m_Id: 297787426459648
+    m_Key: POPUP_TITLE_WARNING
+    m_Metadata:
+      m_Items: []
+  - m_Id: 324951974727680
+    m_Key: POPUP_TITLE_ERROR
+    m_Metadata:
+      m_Items: []
+  - m_Id: 325014000095232
+    m_Key: POPUP_MESSAGE_CODE
     m_Metadata:
       m_Items: []
   m_Metadata:

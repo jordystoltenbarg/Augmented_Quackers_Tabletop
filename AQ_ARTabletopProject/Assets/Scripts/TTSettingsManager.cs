@@ -25,6 +25,7 @@ public class TTSettingsManager : MonoBehaviour
         Dutch,
         English
     }
+    public ApplicationLanguage applicationLanguage;
 
     private void Awake()
     {
@@ -83,6 +84,7 @@ public class TTSettingsManager : MonoBehaviour
                 break;
         }
 
+        applicationLanguage = pLanguage;
         PlayerPrefs.SetString("Langauge", pLanguage.ToString());
     }
 }

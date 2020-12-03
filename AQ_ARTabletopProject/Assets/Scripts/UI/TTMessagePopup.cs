@@ -1,9 +1,8 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
 using UnityEngine.UI;
+using UnityEngine.Localization;
+using UnityEngine.Localization.Components;
 
 public class TTMessagePopup : MonoBehaviour
 {
@@ -13,23 +12,39 @@ public class TTMessagePopup : MonoBehaviour
     public static Action OnNoButtonPressed;
     public static Action OnOkButtonPressed;
 
-    [SerializeField] private TextMeshProUGUI _title;
-    [SerializeField] private TextMeshProUGUI _message;
-    [SerializeField] private TextMeshProUGUI _secondary;
     [SerializeField] private Button _yesButton;
     [SerializeField] private Button _noButton;
     [SerializeField] private Button _okButton;
-
-    public enum PopupType
-    {
-        Warning,
-        Error
-    }
+    [Header("Title")]
+    [SerializeField] private LocalizeStringEvent _title;
+    [SerializeField] private LocalizedString _tWarning;
+    [SerializeField] private LocalizedString _tError;
+    [Header("Message")]
+    [SerializeField] private LocalizeStringEvent _message;
+    [SerializeField] private LocalizedString _mCode;
+    [SerializeField] private LocalizedString _mLeaveLobby;
+    [Header("Secondary")]
+    [SerializeField] private LocalizeStringEvent _secondary;
+    [SerializeField] private LocalizedString _sCodeExample;
+    [SerializeField] private LocalizedString _sLeaveLobbyHost;
+    [SerializeField] private LocalizedString _sLeaveLobbyClient;
 
     public enum PopupResponse
     {
         YesNo,
         Ok
+    }
+
+    public enum PopupTitle
+    {
+        Warning,
+        Error
+    }
+
+    public enum PopupMessage
+    {
+        Code,
+        LeaveLobby
     }
 
     private void Awake()
@@ -44,6 +59,8 @@ public class TTMessagePopup : MonoBehaviour
         _yesButton.onClick.AddListener(yesButtonHandler);
         _noButton.onClick.AddListener(noButtonHandler);
         _okButton.onClick.AddListener(okButtonHandler);
+
+        transform.GetChild(0).gameObject.SetActive(false);
     }
 
     private void OnDestroy()
@@ -53,18 +70,40 @@ public class TTMessagePopup : MonoBehaviour
         _okButton.onClick.RemoveAllListeners();
     }
 
-    public void DisplayPopup(PopupType pTypeOfMessage, string pMessage, string pSecondary, PopupResponse pMessageResponse)
+    public void DisplayPopup(PopupTitle pTitle, PopupMessage pMessage, PopupResponse pMessageResponse)
     {
-        switch (pTypeOfMessage)
+        switch (pTitle)
         {
-            case PopupType.Warning:
+            case PopupTitle.Warning:
+                //Warning
+                _title.StringReference = _tWarning;
                 break;
-            case PopupType.Error:
+            case PopupTitle.Error:
+                //Title
+                _title.StringReference = _tError;
                 break;
         }
 
-        _message.text = pMessage;
-        _secondary.text = pSecondary;
+        switch (pMessage)
+        {
+            case PopupMessage.Code:
+                //Message
+                _message.StringReference = _mCode;
+                //Secondary
+                _secondary.StringReference = _sCodeExample;
+                break;
+            case PopupMessage.LeaveLobby:
+                //Message
+                _message.StringReference = _mLeaveLobby;
+                //Secondary
+                Mirror.NetworkManager manager = Mirror.NetworkManager.singleton;
+                if (manager == null) break;
+                if (manager.mode == Mirror.NetworkManagerMode.ClientOnly)
+                    _secondary.StringReference = _sLeaveLobbyClient;
+                else if (manager.mode == Mirror.NetworkManagerMode.Host)
+                    _secondary.StringReference = _sLeaveLobbyHost;
+                break;
+        }
 
         switch (pMessageResponse)
         {
@@ -79,20 +118,30 @@ public class TTMessagePopup : MonoBehaviour
                 _okButton.gameObject.SetActive(true);
                 break;
         }
+
+        transform.GetChild(0).gameObject.SetActive(true);
+    }
+
+    private void hideMessage()
+    {
+        transform.GetChild(0).gameObject.SetActive(false);
     }
 
     private void yesButtonHandler()
     {
+        hideMessage();
         OnYesButtonPressed?.Invoke();
     }
 
     private void noButtonHandler()
     {
+        hideMessage();
         OnNoButtonPressed?.Invoke();
     }
 
     private void okButtonHandler()
     {
+        hideMessage();
         OnOkButtonPressed?.Invoke();
     }
 }
