@@ -23,6 +23,66 @@ MonoBehaviour:
     m_Key: COLLECTION_BUTTON
     m_Metadata:
       m_Items: []
+  - m_Id: 38089446215680
+    m_Key: TITLESCREEN
+    m_Metadata:
+      m_Items: []
+  - m_Id: 335462848352256
+    m_Key: CHOOSECHARACTER
+    m_Metadata:
+      m_Items: []
+  - m_Id: 335902554017792
+    m_Key: CREDITSTITLE
+    m_Metadata:
+      m_Items: []
+  - m_Id: 339446753480704
+    m_Key: CREDITSPROGRAMMER
+    m_Metadata:
+      m_Items: []
+  - m_Id: 340109176688640
+    m_Key: YES
+    m_Metadata:
+      m_Items: []
+  - m_Id: 340279410905088
+    m_Key: ENGLISH
+    m_Metadata:
+      m_Items: []
+  - m_Id: 340877904531456
+    m_Key: JOINGAME_BUTTON
+    m_Metadata:
+      m_Items: []
+  - m_Id: 341462615674880
+    m_Key: CREATELOBBY_BUTTON
+    m_Metadata:
+      m_Items: []
+  - m_Id: 342344220626944
+    m_Key: JOINWITHCODE_BUTTON
+    m_Metadata:
+      m_Items: []
+  - m_Id: 342728569868288
+    m_Key: READY
+    m_Metadata:
+      m_Items: []
+  - m_Id: 342946321354752
+    m_Key: DUTCH
+    m_Metadata:
+      m_Items: []
+  - m_Id: 343214924582912
+    m_Key: SOUNDEFFECTS
+    m_Metadata:
+      m_Items: []
+  - m_Id: 343738025594880
+    m_Key: NO
+    m_Metadata:
+      m_Items: []
+  - m_Id: 343837753561088
+    m_Key: MUSIC
+    m_Metadata:
+      m_Items: []
+  - m_Id: 343942623744000
+    m_Key: OK
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
