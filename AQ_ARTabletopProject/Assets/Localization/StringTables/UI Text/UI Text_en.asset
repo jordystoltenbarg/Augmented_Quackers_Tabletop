@@ -23,7 +23,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 297787426459648
-    m_Localized: Warning
+    m_Localized: Warning!
     m_Metadata:
       m_Items: []
   - m_Id: 324951974727680
@@ -31,7 +31,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 325014000095232
-    m_Localized: Please insert a vaild code!
+    m_Localized: Please insert a valid code!
     m_Metadata:
       m_Items: []
   - m_Id: 38089446215680
@@ -109,7 +109,16 @@ MonoBehaviour:
   - m_Id: 368768419713024
     m_Localized: 'University of Applied Sciences Saxion
 
+
       ROC van Twente'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 391008179802112
+    m_Localized: Please place your gameboard on a flat surface.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 392338709499904
+    m_Localized: Waiting
     m_Metadata:
       m_Items: []
   references:

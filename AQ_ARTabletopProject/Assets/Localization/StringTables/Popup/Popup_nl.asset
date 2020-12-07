@@ -19,31 +19,55 @@ MonoBehaviour:
     m_Items: []
   m_TableData:
   - m_Id: 163750203392
-    m_Localized: <missing>
+    m_Localized: Let op!
     m_Metadata:
       m_Items: []
   - m_Id: 209094823936
-    m_Localized: <missing>
+    m_Localized: Foutmelding
     m_Metadata:
       m_Items: []
   - m_Id: 256905695232
-    m_Localized: <missing>
+    m_Localized: Vul alstublieft een valide code in!
     m_Metadata:
       m_Items: []
   - m_Id: 1058110033920
-    m_Localized: <missing>
+    m_Localized: Weet jij zeker dat je de lobby wilt verlaten?
     m_Metadata:
       m_Items: []
   - m_Id: 1194554937344
-    m_Localized: <missing>
+    m_Localized: Hierdoor wordt het spel opgeheven.
     m_Metadata:
       m_Items: []
   - m_Id: 1419440934912
-    m_Localized: <missing>
+    m_Localized: Hierdoor wordt de verbinding met de host verbroken.
     m_Metadata:
       m_Items: []
   - m_Id: 12050340630528
-    m_Localized: <missing>
+    m_Localized: 'Voorbeeld: ''ABCDE'''
+    m_Metadata:
+      m_Items: []
+  - m_Id: 37081055842304
+    m_Localized: Melding
+    m_Metadata:
+      m_Items: []
+  - m_Id: 37637413490688
+    m_Localized: "\rJe bent geschopt."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 38349455314944
+    m_Localized: Weet je zeker dat je de speler wilt schoppen?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 39248361771008
+    m_Localized: "Jij bent niet meer verbonden.\n\rControleer uw verbinding."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 40536470278144
+    m_Localized: "\rConnectie time-out."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 41016525148160
+    m_Localized: Weet je zeker dat je het spel wilt verlaten?
     m_Metadata:
       m_Items: []
   references:

@@ -40,11 +40,11 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 335902554017792
-    m_Key: CREDITSTITLE
+    m_Key: CREDITS_TITLE
     m_Metadata:
       m_Items: []
   - m_Id: 339446753480704
-    m_Key: CREDITSPROGRAMMER
+    m_Key: CREDITS_PROGRAMMER
     m_Metadata:
       m_Items: []
   - m_Id: 340109176688640
@@ -105,6 +105,14 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 368768419713024
     m_Key: CREDITS_SCHOOL
+    m_Metadata:
+      m_Items: []
+  - m_Id: 391008179802112
+    m_Key: AR_PLACEBOARD
+    m_Metadata:
+      m_Items: []
+  - m_Id: 392338709499904
+    m_Key: WAIT_BUTTON
     m_Metadata:
       m_Items: []
   m_Metadata:

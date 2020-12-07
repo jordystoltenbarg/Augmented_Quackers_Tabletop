@@ -101,7 +101,28 @@ MonoBehaviour:
   - m_Id: 368768419713024
     m_Localized: 'Hogeschool Saxion
 
+
       ROC van Twente'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 297787426459648
+    m_Localized: Let op!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 324951974727680
+    m_Localized: Foutmelding
+    m_Metadata:
+      m_Items: []
+  - m_Id: 325014000095232
+    m_Localized: "\rVoer een geldige code in!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 391008179802112
+    m_Localized: Plaats alstublieft jouw gamebord op een vlak oppervlak.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 392338709499904
+    m_Localized: Wachten
     m_Metadata:
       m_Items: []
   references:
