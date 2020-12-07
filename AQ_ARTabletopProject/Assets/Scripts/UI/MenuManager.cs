@@ -240,18 +240,6 @@ public class MenuManager : MonoBehaviour
             case MenuState.Lobby:
                 TTMessagePopup.Singleton.DisplayPopup(TTMessagePopup.PopupTitle.Warning, TTMessagePopup.PopupMessage.LeaveLobby, TTMessagePopup.PopupResponse.YesNo);
                 StartCoroutine(waitForResponse());
-                //GoToPreLobby(); Called from TTPlayer
-                //Mirror.NetworkManager manager = Mirror.NetworkManager.singleton;
-                //if (manager == null) break;
-                //switch (manager.mode)
-                //{
-                //    case Mirror.NetworkManagerMode.ClientOnly:
-                //        manager.StopClient();
-                //        break;
-                //    case Mirror.NetworkManagerMode.Host:
-                //        manager.StopHost();
-                //        break;
-                //}
                 break;
         }
     }

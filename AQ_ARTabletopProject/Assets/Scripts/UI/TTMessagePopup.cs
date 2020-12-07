@@ -1,8 +1,9 @@
 ﻿using System;
+using System.Collections;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.Localization;
 using UnityEngine.Localization.Components;
+using UnityEngine.UI;
 
 public class TTMessagePopup : MonoBehaviour
 {
@@ -124,6 +125,16 @@ public class TTMessagePopup : MonoBehaviour
 
     private void hideMessage()
     {
+        Animator anim = transform.GetChild(0).GetComponent<Animator>();
+        anim.SetTrigger("FadeOut");
+        StartCoroutine(disableGOWhenAnimationFinishes(anim));
+    }
+
+    private IEnumerator disableGOWhenAnimationFinishes(Animator pAnimator)
+    {
+        yield return new WaitWhile(() => pAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime > 1.1f);
+        yield return new WaitUntil(() => pAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1 && !pAnimator.IsInTransition(0));
+
         transform.GetChild(0).gameObject.SetActive(false);
     }
 
