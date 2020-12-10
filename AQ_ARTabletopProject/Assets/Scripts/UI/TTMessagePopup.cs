@@ -20,10 +20,15 @@ public class TTMessagePopup : MonoBehaviour
     [SerializeField] private LocalizeStringEvent _title;
     [SerializeField] private LocalizedString _tWarning;
     [SerializeField] private LocalizedString _tError;
+    [SerializeField] private LocalizedString _tNotification;
     [Header("Message")]
     [SerializeField] private LocalizeStringEvent _message;
     [SerializeField] private LocalizedString _mCode;
     [SerializeField] private LocalizedString _mLeaveLobby;
+    [SerializeField] private LocalizedString _mReconnect;
+    [SerializeField] private LocalizedString _mKickHost;
+    [SerializeField] private LocalizedString _mKickClient;
+    [SerializeField] private LocalizedString _mStartAlone;
     [Header("Secondary")]
     [SerializeField] private LocalizeStringEvent _secondary;
     [SerializeField] private LocalizedString _sCodeExample;
@@ -39,13 +44,17 @@ public class TTMessagePopup : MonoBehaviour
     public enum PopupTitle
     {
         Warning,
-        Error
+        Error,
+        Notification
     }
 
     public enum PopupMessage
     {
         Code,
-        LeaveLobby
+        LeaveLobby,
+        Reconnect,
+        Kick,
+        StartAlone
     }
 
     private void Awake()
@@ -73,6 +82,9 @@ public class TTMessagePopup : MonoBehaviour
 
     public void DisplayPopup(PopupTitle pTitle, PopupMessage pMessage, PopupResponse pMessageResponse)
     {
+        Mirror.NetworkManager manager = Mirror.NetworkManager.singleton;
+        _secondary.gameObject.SetActive(false);
+
         switch (pTitle)
         {
             case PopupTitle.Warning:
@@ -83,6 +95,10 @@ public class TTMessagePopup : MonoBehaviour
                 //Title
                 _title.StringReference = _tError;
                 break;
+            case PopupTitle.Notification:
+                //Title
+                _title.StringReference = _tNotification;
+                break;
         }
 
         switch (pMessage)
@@ -91,18 +107,33 @@ public class TTMessagePopup : MonoBehaviour
                 //Message
                 _message.StringReference = _mCode;
                 //Secondary
+                _secondary.gameObject.SetActive(true);
                 _secondary.StringReference = _sCodeExample;
                 break;
             case PopupMessage.LeaveLobby:
                 //Message
                 _message.StringReference = _mLeaveLobby;
                 //Secondary
-                Mirror.NetworkManager manager = Mirror.NetworkManager.singleton;
-                if (manager == null) break;
-                if (manager.mode == Mirror.NetworkManagerMode.ClientOnly)
-                    _secondary.StringReference = _sLeaveLobbyClient;
-                else if (manager.mode == Mirror.NetworkManagerMode.Host)
+                _secondary.gameObject.SetActive(true);
+                if (manager.mode == Mirror.NetworkManagerMode.Host)
                     _secondary.StringReference = _sLeaveLobbyHost;
+                else if (manager.mode == Mirror.NetworkManagerMode.ClientOnly)
+                    _secondary.StringReference = _sLeaveLobbyClient;
+                break;
+            case PopupMessage.Reconnect:
+                //Message
+                _message.StringReference = _mCode;
+                break;
+            case PopupMessage.Kick:
+                //Message
+                if (manager.mode == Mirror.NetworkManagerMode.Host)
+                    _message.StringReference = _mKickHost;
+                else
+                    _message.StringReference = _mKickClient;
+                break;
+            case PopupMessage.StartAlone:
+                //Message
+                _message.StringReference = _mStartAlone;
                 break;
         }
 

@@ -19,7 +19,7 @@ MonoBehaviour:
     m_Items: []
   m_TableData:
   - m_Id: 20573442048
-    m_Localized: SPEEL
+    m_Localized: SPEL
     m_Metadata:
       m_Items: []
   - m_Id: 3316667240448
@@ -123,6 +123,26 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 392338709499904
     m_Localized: Wachten
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2506161626927104
+    m_Localized: "Priv\xE9"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2506218812067840
+    m_Localized: Openbaar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2531801969315840
+    m_Localized: Niet gereed
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2532778801745920
+    m_Localized: Start Spel
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2912296884359168
+    m_Localized: <MIA>
     m_Metadata:
       m_Items: []
   references:

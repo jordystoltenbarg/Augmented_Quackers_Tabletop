@@ -239,12 +239,12 @@ public class MenuManager : MonoBehaviour
                 break;
             case MenuState.Lobby:
                 TTMessagePopup.Singleton.DisplayPopup(TTMessagePopup.PopupTitle.Warning, TTMessagePopup.PopupMessage.LeaveLobby, TTMessagePopup.PopupResponse.YesNo);
-                StartCoroutine(waitForResponse());
+                StartCoroutine(waitForPopupResponse());
                 break;
         }
     }
 
-    private IEnumerator waitForResponse()
+    private IEnumerator waitForPopupResponse()
     {
         TTMessagePopup.OnYesButtonPressed += yes;
         TTMessagePopup.OnNoButtonPressed += no;

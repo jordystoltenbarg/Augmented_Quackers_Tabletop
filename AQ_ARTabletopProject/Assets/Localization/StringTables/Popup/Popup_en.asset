@@ -70,5 +70,13 @@ MonoBehaviour:
     m_Localized: Are you sure you want to leave the game?
     m_Metadata:
       m_Items: []
+  - m_Id: 1804733245673472
+    m_Localized: Unable to connect to server. Retry?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2548793635885056
+    m_Localized: Are you sure you want to start the game with only one player?
+    m_Metadata:
+      m_Items: []
   references:
     version: 1

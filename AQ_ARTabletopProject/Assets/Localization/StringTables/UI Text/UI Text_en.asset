@@ -121,5 +121,25 @@ MonoBehaviour:
     m_Localized: Waiting
     m_Metadata:
       m_Items: []
+  - m_Id: 2506161626927104
+    m_Localized: Private
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2506218812067840
+    m_Localized: Public
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2531801969315840
+    m_Localized: Unready
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2532778801745920
+    m_Localized: Start Game
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2912296884359168
+    m_Localized: Choose a different character
+    m_Metadata:
+      m_Items: []
   references:
     version: 1

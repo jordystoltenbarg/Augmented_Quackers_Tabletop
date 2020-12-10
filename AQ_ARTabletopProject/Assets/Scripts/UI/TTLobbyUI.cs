@@ -18,26 +18,40 @@ public class TTLobbyUI : MonoBehaviour
 
         Singleton = this;
         DontDestroyOnLoad(gameObject);
+
+        TTSettingsManager.onTTPlayerAdded += onAddPlayer;
+        TTSettingsManager.onTTPlayerRemoved += removePlayer;
     }
 
-    public void AddPlayer(TTPlayer pPlayer)
+    private void OnDestroy()
+    {
+        TTSettingsManager.onTTPlayerAdded -= onAddPlayer;
+        TTSettingsManager.onTTPlayerRemoved -= removePlayer;
+    }
+
+    private void onAddPlayer(TTPlayer pPlayer)
     {
         if (pPlayer == TTPlayer.LocalPlayer)
+        {
             foreach (TTLobbyUIPlayerItem item in _items)
+            {
                 if (item.Player == pPlayer)
                 {
                     Destroy(item.gameObject);
                     _items.Remove(item);
                 }
+            }
+        }
 
         GameObject clone = Instantiate(_playerLobbyUIItemPrefab, _playersContainer);
         clone.GetComponent<TTLobbyUIPlayerItem>().Setup(pPlayer);
         _items.Add(clone.GetComponent<TTLobbyUIPlayerItem>());
     }
 
-    public void RemovePlayer(TTPlayer pPlayer)
+    private void removePlayer(TTPlayer pPlayer)
     {
         foreach (TTLobbyUIPlayerItem item in _items)
+        {
             if (item.Player == pPlayer)
             {
                 Destroy(item.gameObject);
@@ -45,5 +59,6 @@ public class TTLobbyUI : MonoBehaviour
                 TTPlayer.LocalPlayer.UpdateHigherLobbyIndex(pPlayer.LobbyIndex);
                 break;
             }
+        }
     }
 }

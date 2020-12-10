@@ -30,6 +30,8 @@ public class CharacterSelect : MonoBehaviour
 
     private void highlightCharacter(GameObject pGO)
     {
+        if (ReadyUp.IsLocalPlayerReady) return;
+
         foreach (GameObject go in ListOfCharacters)
             if (go != pGO)
                 go.GetComponent<TTLobbyUICharacterItem>().DeSelectCharacter(TTPlayer.LocalPlayer);

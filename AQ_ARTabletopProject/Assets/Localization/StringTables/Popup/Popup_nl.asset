@@ -70,5 +70,13 @@ MonoBehaviour:
     m_Localized: Weet je zeker dat je het spel wilt verlaten?
     m_Metadata:
       m_Items: []
+  - m_Id: 1804733245673472
+    m_Localized: <MIA>
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2548793635885056
+    m_Localized: <MIA>
+    m_Metadata:
+      m_Items: []
   references:
     version: 1

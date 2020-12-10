@@ -67,6 +67,14 @@ MonoBehaviour:
     m_Key: MESSAGE_LEAVEGAME
     m_Metadata:
       m_Items: []
+  - m_Id: 1804733245673472
+    m_Key: MESSAGE_RECONNECT
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2548793635885056
+    m_Key: MESSAGE_STARTALONE
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

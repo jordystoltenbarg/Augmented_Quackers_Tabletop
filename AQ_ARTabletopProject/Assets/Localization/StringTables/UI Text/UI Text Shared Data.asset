@@ -115,6 +115,28 @@ MonoBehaviour:
     m_Key: WAIT_BUTTON
     m_Metadata:
       m_Items: []
+  - m_Id: 2506161626927104
+    m_Key: 'PRIVATE
+
+'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2506218812067840
+    m_Key: PUBLIC
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2531801969315840
+    m_Key: LOBBY_UNREADY
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2532778801745920
+    m_Key: START
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2912296884359168
+    m_Key: LOBBY_CHOOSEADIFFERENTCHARACTER
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

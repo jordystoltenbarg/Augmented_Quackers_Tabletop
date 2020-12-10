@@ -14,6 +14,8 @@ using UnityEngine.Events;
 [RequireComponent(typeof(UnityClient))]
 public class DarkReflectiveMirrorTransport : Transport
 {
+    public Action OnDirectClientKicked;
+
     #region Relay Server Variables
     [Tooltip("If your scene does not need to connect on awake, set this to false, then use 'ConnectToRelay();' when needed.")]
     public bool connectToRelayOnAwake = true;
@@ -296,6 +298,7 @@ public class DarkReflectiveMirrorTransport : Transport
             isClient = false;
             isConnected = false;
             OnClientDisconnected?.Invoke();
+            //TTMessagePopup.Singleton.DisplayPopup(TTMessagePopup.PopupTitle.Error, TTMessagePopup.PopupMessage.Reconnect, TTMessagePopup.PopupResponse.YesNo);
         }
     }
 
@@ -423,14 +426,14 @@ public class DarkReflectiveMirrorTransport : Transport
             directConnectModule.ClientDisconnect();
 
             // Force join the server using relay since direct connect failed.
-            using (DarkRiftWriter writer = DarkRiftWriter.Create())
-            {
-                writer.Write(host);
-                writer.Write(true);
-                writer.Write("0.0.0.0");
-                using (Message sendJoinMessage = Message.Create((ushort)OpCodes.JoinServer, writer))
-                    drClient.Client.SendMessage(sendJoinMessage, SendMode.Reliable);
-            }
+            //using (DarkRiftWriter writer = DarkRiftWriter.Create())
+            //{
+            //    writer.Write(host);
+            //    writer.Write(true);
+            //    writer.Write("0.0.0.0");
+            //    using (Message sendJoinMessage = Message.Create((ushort)OpCodes.JoinServer, writer))
+            //        drClient.Client.SendMessage(sendJoinMessage, SendMode.Reliable);
+            //}
 
             if (showDebugLogs)
                 Debug.Log("Failed to direct connect, falling back to relay.");
@@ -463,25 +466,6 @@ public class DarkReflectiveMirrorTransport : Transport
             directConnectModule.ClientDisconnect();
     }
 
-    //public override void DRClientSend(int channelId, ArraySegment<byte> segment)
-    //{
-    //    // Only channels are 0 (reliable), 1 (unreliable)
-
-    //    if (directConnected)
-    //    {
-    //        directConnectModule.ClientSend(segment, channelId);
-    //    }
-    //    else
-    //    {
-    //        using (DarkRiftWriter writer = DarkRiftWriter.Create())
-    //        {
-    //            writer.Write(segment.Count);
-    //            writer.Write(segment.Array.Take(segment.Count).ToArray());
-    //            using (Message sendDataMessage = Message.Create((ushort)OpCodes.SendData, writer))
-    //                drClient.Client.SendMessage(sendDataMessage, channelId == 0 ? SendMode.Reliable : SendMode.Unreliable);
-    //        }
-    //    }
-    //}
     public override void DRClientSend(int channelId, ArraySegment<byte> segment)
     {
     }
@@ -523,17 +507,17 @@ public class DarkReflectiveMirrorTransport : Transport
     {
         ushort relayID;
         int directID;
-        if (connectedRelayClients.TryGetBySecond(connectionId, out relayID))
-        {
-            using (DarkRiftWriter writer = DarkRiftWriter.Create())
-            {
-                writer.Write(relayID);
-                using (Message sendKickMessage = Message.Create((ushort)OpCodes.KickPlayer, writer))
-                    drClient.Client.SendMessage(sendKickMessage, SendMode.Reliable);
-            }
+        //if (connectedRelayClients.TryGetBySecond(connectionId, out relayID))
+        //{
+        //    using (DarkRiftWriter writer = DarkRiftWriter.Create())
+        //    {
+        //        writer.Write(relayID);
+        //        using (Message sendKickMessage = Message.Create((ushort)OpCodes.KickPlayer, writer))
+        //            drClient.Client.SendMessage(sendKickMessage, SendMode.Reliable);
+        //    }
 
-            return true;
-        }
+        //    return true;
+        //}
 
         if (connectedDirectClients.TryGetBySecond(connectionId, out directID))
         {
@@ -556,27 +540,8 @@ public class DarkReflectiveMirrorTransport : Transport
         return connectedRelayClients.GetBySecond(connectionId).ToString();
     }
 
-    //public override void DRServerSend(int connectionId, int channelId, ArraySegment<byte> segment)
-    //{
-    //    // TODO: Optimize
-    //    bool tryDirectConnect = directConnectModule != null;
-
-    //    if (tryDirectConnect)
-    //    {
-    //        int clientID;
-    //        if (connectedDirectClients.TryGetBySecond(connectionId, out clientID))
-    //        {
-    //            directConnectModule.ServerSend(clientID, segment, channelId);
-    //            return;
-    //        }
-    //    }
-
-    //    ServerSendData(connectedRelayClients.GetBySecond(connectionId), segment, channelId);
-    //}
-
     public override void DRServerSend(int connectionId, int channelId, ArraySegment<byte> segment)
     {
-
     }
 
     public override bool ServerSend(List<int> connectionIds, int channelId, ArraySegment<byte> segment)
