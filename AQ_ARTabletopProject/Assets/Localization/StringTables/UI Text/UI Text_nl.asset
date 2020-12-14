@@ -19,7 +19,7 @@ MonoBehaviour:
     m_Items: []
   m_TableData:
   - m_Id: 20573442048
-    m_Localized: SPEL
+    m_Localized: SPEEL
     m_Metadata:
       m_Items: []
   - m_Id: 3316667240448
@@ -83,7 +83,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 343942623744000
-    m_Localized: "Ok\xE9"
+    m_Localized: Ok
     m_Metadata:
       m_Items: []
   - m_Id: 367108804923392
@@ -91,7 +91,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 367357573287936
-    m_Localized: Naam
+    m_Localized: Gebruikersnaam
     m_Metadata:
       m_Items: []
   - m_Id: 368512571363328
@@ -126,7 +126,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 2506161626927104
-    m_Localized: "Priv\xE9"
+    m_Localized: Gesloten
     m_Metadata:
       m_Items: []
   - m_Id: 2506218812067840
@@ -142,7 +142,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 2912296884359168
-    m_Localized: <MIA>
+    m_Localized: Kies een andere karakter
     m_Metadata:
       m_Items: []
   references:

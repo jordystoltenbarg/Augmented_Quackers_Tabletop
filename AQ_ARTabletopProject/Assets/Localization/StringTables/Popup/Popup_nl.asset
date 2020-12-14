@@ -51,7 +51,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 37637413490688
-    m_Localized: "\rJe bent geschopt."
+    m_Localized: "\rJe bent eruit gezet."
     m_Metadata:
       m_Items: []
   - m_Id: 38349455314944
@@ -71,11 +71,11 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 1804733245673472
-    m_Localized: <MIA>
+    m_Localized: Kan geen verbinding maken met de server. Opnieuw proberen?
     m_Metadata:
       m_Items: []
   - m_Id: 2548793635885056
-    m_Localized: <MIA>
+    m_Localized: "\rWeet u zeker dat u het spel met slechts 1 speler wilt starten?"
     m_Metadata:
       m_Items: []
   references:
