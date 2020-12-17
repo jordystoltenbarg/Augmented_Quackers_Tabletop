@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -230,29 +231,49 @@ public class MenuManager : MonoBehaviour
 
     private void onSecondBackButtonClick()
     {
-        disableNavButtons();
-
         switch (_currentMenuState)
         {
             case MenuState.PreLobby:
                 GoToPlay();
+                disableNavButtons();
                 break;
             case MenuState.Lobby:
-                //GoToPreLobby(); Called from TTPlayer
-                Mirror.NetworkManager manager = Mirror.NetworkManager.singleton;
-                if (manager == null) break;
-                switch (manager.mode)
-                {
-                    case Mirror.NetworkManagerMode.ClientOnly:
-                        manager.StopClient();
-                        break;
-                    case Mirror.NetworkManagerMode.Host:
-                        manager.StopHost();
-                        break;
-                    default:
-                        break;
-                }
+                TTMessagePopup.Singleton.DisplayPopup(TTMessagePopup.PopupTitle.Warning, TTMessagePopup.PopupMessage.LeaveLobby, TTMessagePopup.PopupResponse.YesNo);
+                StartCoroutine(waitForPopupResponse());
                 break;
+        }
+    }
+
+    private IEnumerator waitForPopupResponse()
+    {
+        TTMessagePopup.OnYesButtonPressed += yes;
+        TTMessagePopup.OnNoButtonPressed += no;
+        bool hasReponded = false;
+
+        yield return new WaitWhile(() => !hasReponded);
+
+        TTMessagePopup.OnYesButtonPressed -= yes;
+        TTMessagePopup.OnNoButtonPressed -= no;
+
+        void yes()
+        {
+            disableNavButtons();
+            Mirror.NetworkManager manager = Mirror.NetworkManager.singleton;
+            switch (manager.mode)
+            {
+                case Mirror.NetworkManagerMode.ClientOnly:
+                    manager.StopClient();
+                    break;
+                case Mirror.NetworkManagerMode.Host:
+                    manager.StopHost();
+                    break;
+            }
+            hasReponded = true;
+        }
+
+        void no()
+        {
+            hasReponded = true;
         }
     }
 

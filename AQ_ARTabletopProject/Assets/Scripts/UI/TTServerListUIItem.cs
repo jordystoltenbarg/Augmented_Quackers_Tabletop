@@ -69,6 +69,14 @@ public class TTServerListUIItem : MonoBehaviour
         {
             if (_server.customData[i].key == "serverID")
             {
+                for (int j = 0; j < _server.customData.Length; j++)
+                {
+                    if (_server.customData[j].key == "serverCode")
+                    {
+                        TTSettingsManager.Singleton.SetServerCode(_server.customData[j].value);
+                        break;
+                    }
+                }
                 NetworkManager.singleton.networkAddress = _server.customData[i].value;
                 NetworkManager.singleton.StartClient();
                 break;

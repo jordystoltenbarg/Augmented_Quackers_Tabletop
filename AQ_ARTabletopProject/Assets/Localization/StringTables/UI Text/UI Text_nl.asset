@@ -1,0 +1,149 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: UI Text_nl
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: nl
+  m_SharedData: {fileID: 11400000, guid: 4d1c3d2d9f1ff0d47a9a0aee9292d90a, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 20573442048
+    m_Localized: SPEEL
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3316667240448
+    m_Localized: COLLECTIE
+    m_Metadata:
+      m_Items: []
+  - m_Id: 38089446215680
+    m_Localized: Kronenkamp Avontuur
+    m_Metadata:
+      m_Items: []
+  - m_Id: 335462848352256
+    m_Localized: Kies je character
+    m_Metadata:
+      m_Items: []
+  - m_Id: 335902554017792
+    m_Localized: Kronenkamp Avontuur
+    m_Metadata:
+      m_Items: []
+  - m_Id: 339446753480704
+    m_Localized: Programmeurs
+    m_Metadata:
+      m_Items: []
+  - m_Id: 340109176688640
+    m_Localized: Ja
+    m_Metadata:
+      m_Items: []
+  - m_Id: 340279410905088
+    m_Localized: Engels
+    m_Metadata:
+      m_Items: []
+  - m_Id: 340877904531456
+    m_Localized: Speel mee
+    m_Metadata:
+      m_Items: []
+  - m_Id: 341462615674880
+    m_Localized: Maak Lobby
+    m_Metadata:
+      m_Items: []
+  - m_Id: 342344220626944
+    m_Localized: Speel via Code
+    m_Metadata:
+      m_Items: []
+  - m_Id: 342728569868288
+    m_Localized: Gereed
+    m_Metadata:
+      m_Items: []
+  - m_Id: 342946321354752
+    m_Localized: Nederlands
+    m_Metadata:
+      m_Items: []
+  - m_Id: 343214924582912
+    m_Localized: Geluidseffecten
+    m_Metadata:
+      m_Items: []
+  - m_Id: 343738025594880
+    m_Localized: Nee
+    m_Metadata:
+      m_Items: []
+  - m_Id: 343837753561088
+    m_Localized: Muziek
+    m_Metadata:
+      m_Items: []
+  - m_Id: 343942623744000
+    m_Localized: Ok
+    m_Metadata:
+      m_Items: []
+  - m_Id: 367108804923392
+    m_Localized: Dialoog
+    m_Metadata:
+      m_Items: []
+  - m_Id: 367357573287936
+    m_Localized: Gebruikersnaam
+    m_Metadata:
+      m_Items: []
+  - m_Id: 368512571363328
+    m_Localized: Organisaties
+    m_Metadata:
+      m_Items: []
+  - m_Id: 368768419713024
+    m_Localized: 'Hogeschool Saxion
+
+
+      ROC van Twente'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 297787426459648
+    m_Localized: Let op!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 324951974727680
+    m_Localized: Foutmelding
+    m_Metadata:
+      m_Items: []
+  - m_Id: 325014000095232
+    m_Localized: "\rVoer een geldige code in!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 391008179802112
+    m_Localized: Plaats alstublieft jouw gamebord op een vlak oppervlak.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 392338709499904
+    m_Localized: Wachten
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2506161626927104
+    m_Localized: Gesloten
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2506218812067840
+    m_Localized: Openbaar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2531801969315840
+    m_Localized: Niet gereed
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2532778801745920
+    m_Localized: Start Spel
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2912296884359168
+    m_Localized: Kies een andere karakter
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 1

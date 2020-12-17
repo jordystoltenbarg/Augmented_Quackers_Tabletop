@@ -24,7 +24,7 @@ public class PlayerNameInputfieldIdentifier : MonoBehaviour
         _lastInput = inputField.text;
     }
 
-    private bool isValidName(string pInputText)
+    private static bool isValidName(string pInputText)
     {
         if (pInputText.Length < 3 || containsProfanity(pInputText))
         {
@@ -36,7 +36,7 @@ public class PlayerNameInputfieldIdentifier : MonoBehaviour
         }
     }
 
-    private bool containsProfanity(string pInputText)
+    private static bool containsProfanity(string pInputText)
     {
         string[] strToReplace = { " ", "_", "-" };
         string check = pInputText;
@@ -49,5 +49,10 @@ public class PlayerNameInputfieldIdentifier : MonoBehaviour
                 return true;
 
         return false;
+    }
+
+    public static bool ValidateName(string pName)
+    {
+        return isValidName(pName);
     }
 }

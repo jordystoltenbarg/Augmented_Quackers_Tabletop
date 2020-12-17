@@ -1,13 +1,16 @@
 ﻿using System;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Localization;
 using UnityEngine.Localization.Settings;
 
 public class TTSettingsManager : MonoBehaviour
 {
+    public static event Action<TTPlayer> onTTPlayerAdded;
+    public static event Action<TTPlayer> onTTPlayerRemoved;
     public static event Action<string> onPlayerNameChanged;
     public static event Action<bool> onServerPrivacyChanged;
+    public static event Action onUpdateCall;
 
     public string[] bannedWords;
 
@@ -20,11 +23,16 @@ public class TTSettingsManager : MonoBehaviour
     private string _serverCode = "";
     public string ServerCode => _serverCode;
 
+    public readonly List<TTPlayer> players = new List<TTPlayer>();
+
+    [SerializeField] private float _updateInterval = 0.2f;
+
     public enum ApplicationLanguage
     {
         Dutch,
         English
     }
+    [HideInInspector] public ApplicationLanguage applicationLanguage;
 
     private void Awake()
     {
@@ -37,12 +45,32 @@ public class TTSettingsManager : MonoBehaviour
 
         StartCoroutine(delayedChangeNameForAPIToUpdate());
         StartCoroutine(delayedSelectLanguage());
+        StartCoroutine(updateCall());
+    }
+
+    public void AddPlayer(TTPlayer pPlayer)
+    {
+        if (!players.Contains(pPlayer))
+        {
+            players.Add(pPlayer);
+            onTTPlayerAdded?.Invoke(pPlayer);
+        }
+    }
+
+    public void RemovePlayer(TTPlayer pPlayer)
+    {
+        if (players.Contains(pPlayer))
+        {
+            players.Remove(pPlayer);
+            onTTPlayerRemoved?.Invoke(pPlayer);
+        }
     }
 
     public void ChangePlayerName(string pNewName)
     {
         _playerName = pNewName;
         onPlayerNameChanged?.Invoke(pNewName);
+        PlayerPrefs.SetString("PlayerName", pNewName);
     }
 
     public void SetServerCode(string pCode)
@@ -58,7 +86,11 @@ public class TTSettingsManager : MonoBehaviour
     private IEnumerator delayedChangeNameForAPIToUpdate()
     {
         yield return new WaitWhile(() => TTApiUpdater.apiUpdater == null);
-        ChangePlayerName($"Player {UnityEngine.Random.Range(10000000, 99999999)}");
+
+        if (PlayerNameInputfieldIdentifier.ValidateName(PlayerPrefs.GetString("PlayerName")))
+            ChangePlayerName(PlayerPrefs.GetString("PlayerName"));
+        else
+            ChangePlayerName($"Player {UnityEngine.Random.Range(10000000, 99999999)}");
     }
 
     private IEnumerator delayedSelectLanguage()
@@ -83,6 +115,16 @@ public class TTSettingsManager : MonoBehaviour
                 break;
         }
 
+        applicationLanguage = pLanguage;
         PlayerPrefs.SetString("Langauge", pLanguage.ToString());
+    }
+
+    private IEnumerator updateCall()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(_updateInterval);
+            onUpdateCall?.Invoke();
+        }
     }
 }
