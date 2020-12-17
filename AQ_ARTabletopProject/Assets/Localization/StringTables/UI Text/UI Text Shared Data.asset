@@ -1,0 +1,150 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
+  m_Name: UI Text Shared Data
+  m_EditorClassIdentifier: 
+  m_TableCollectionName: UI Text
+  m_TableCollectionNameGuidString: 4d1c3d2d9f1ff0d47a9a0aee9292d90a
+  m_Entries:
+  - m_Id: 20573442048
+    m_Key: PLAY_BUTTON
+    m_Metadata:
+      m_Items: []
+  - m_Id: 297787426459648
+    m_Key: POPUP_TITLE_WARNING
+    m_Metadata:
+      m_Items: []
+  - m_Id: 324951974727680
+    m_Key: POPUP_TITLE_ERROR
+    m_Metadata:
+      m_Items: []
+  - m_Id: 325014000095232
+    m_Key: POPUP_MESSAGE_CODE
+    m_Metadata:
+      m_Items: []
+  - m_Id: 38089446215680
+    m_Key: MAINMENU_TITLESCREEN
+    m_Metadata:
+      m_Items: []
+  - m_Id: 335462848352256
+    m_Key: LOBBY_CHOOSECHARACTER
+    m_Metadata:
+      m_Items: []
+  - m_Id: 335902554017792
+    m_Key: CREDITS_TITLE
+    m_Metadata:
+      m_Items: []
+  - m_Id: 339446753480704
+    m_Key: CREDITS_PROGRAMMER
+    m_Metadata:
+      m_Items: []
+  - m_Id: 340109176688640
+    m_Key: YES_BUTTON
+    m_Metadata:
+      m_Items: []
+  - m_Id: 340279410905088
+    m_Key: SETTINGS_ENGLISH
+    m_Metadata:
+      m_Items: []
+  - m_Id: 340877904531456
+    m_Key: JOINGAME_BUTTON
+    m_Metadata:
+      m_Items: []
+  - m_Id: 341462615674880
+    m_Key: CREATELOBBY_BUTTON
+    m_Metadata:
+      m_Items: []
+  - m_Id: 342344220626944
+    m_Key: JOINWITHCODE_BUTTON
+    m_Metadata:
+      m_Items: []
+  - m_Id: 342728569868288
+    m_Key: LOBBY_READY
+    m_Metadata:
+      m_Items: []
+  - m_Id: 342946321354752
+    m_Key: SETTINGS_DUTCH
+    m_Metadata:
+      m_Items: []
+  - m_Id: 343214924582912
+    m_Key: SETTINGS_SOUNDEFFECTS
+    m_Metadata:
+      m_Items: []
+  - m_Id: 343738025594880
+    m_Key: NO_BUTTON
+    m_Metadata:
+      m_Items: []
+  - m_Id: 343837753561088
+    m_Key: SETTINGS_MUSIC
+    m_Metadata:
+      m_Items: []
+  - m_Id: 343942623744000
+    m_Key: OK_BUTTON
+    m_Metadata:
+      m_Items: []
+  - m_Id: 367108804923392
+    m_Key: SETTINGS_DIALOGUE
+    m_Metadata:
+      m_Items: []
+  - m_Id: 367357573287936
+    m_Key: SETTINGS_NAME
+    m_Metadata:
+      m_Items: []
+  - m_Id: 368512571363328
+    m_Key: CREDITS_Organisations
+    m_Metadata:
+      m_Items: []
+  - m_Id: 368768419713024
+    m_Key: CREDITS_SCHOOL
+    m_Metadata:
+      m_Items: []
+  - m_Id: 391008179802112
+    m_Key: AR_PLACEBOARD
+    m_Metadata:
+      m_Items: []
+  - m_Id: 392338709499904
+    m_Key: WAIT_BUTTON
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2506161626927104
+    m_Key: 'PRIVATE
+
+'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2506218812067840
+    m_Key: PUBLIC
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2531801969315840
+    m_Key: LOBBY_UNREADY
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2532778801745920
+    m_Key: START
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2912296884359168
+    m_Key: LOBBY_CHOOSEADIFFERENTCHARACTER
+    m_Metadata:
+      m_Items: []
+  m_Metadata:
+    m_Items: []
+  m_KeyGenerator:
+    id: 0
+  references:
+    version: 1
+    00000000:
+      type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables,
+        asm: Unity.Localization}
+      data:
+        m_CustomEpoch: 1606912245242

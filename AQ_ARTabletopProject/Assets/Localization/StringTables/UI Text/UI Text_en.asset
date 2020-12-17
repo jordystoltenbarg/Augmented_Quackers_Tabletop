@@ -1,0 +1,145 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: UI Text_en
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: en
+  m_SharedData: {fileID: 11400000, guid: 4d1c3d2d9f1ff0d47a9a0aee9292d90a, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 20573442048
+    m_Localized: PLAY
+    m_Metadata:
+      m_Items: []
+  - m_Id: 297787426459648
+    m_Localized: Warning!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 324951974727680
+    m_Localized: Error
+    m_Metadata:
+      m_Items: []
+  - m_Id: 325014000095232
+    m_Localized: Please insert a valid code!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 38089446215680
+    m_Localized: Kronenkamp Adventure
+    m_Metadata:
+      m_Items: []
+  - m_Id: 335462848352256
+    m_Localized: Choose your character
+    m_Metadata:
+      m_Items: []
+  - m_Id: 335902554017792
+    m_Localized: Kronenkamp Adventure
+    m_Metadata:
+      m_Items: []
+  - m_Id: 339446753480704
+    m_Localized: Programmers
+    m_Metadata:
+      m_Items: []
+  - m_Id: 340109176688640
+    m_Localized: Yes
+    m_Metadata:
+      m_Items: []
+  - m_Id: 340279410905088
+    m_Localized: English
+    m_Metadata:
+      m_Items: []
+  - m_Id: 340877904531456
+    m_Localized: Join game
+    m_Metadata:
+      m_Items: []
+  - m_Id: 341462615674880
+    m_Localized: Create Lobby
+    m_Metadata:
+      m_Items: []
+  - m_Id: 342344220626944
+    m_Localized: Join with Code
+    m_Metadata:
+      m_Items: []
+  - m_Id: 342728569868288
+    m_Localized: Ready
+    m_Metadata:
+      m_Items: []
+  - m_Id: 342946321354752
+    m_Localized: Dutch
+    m_Metadata:
+      m_Items: []
+  - m_Id: 343214924582912
+    m_Localized: Sound effects
+    m_Metadata:
+      m_Items: []
+  - m_Id: 343738025594880
+    m_Localized: No
+    m_Metadata:
+      m_Items: []
+  - m_Id: 343837753561088
+    m_Localized: Music
+    m_Metadata:
+      m_Items: []
+  - m_Id: 343942623744000
+    m_Localized: Ok
+    m_Metadata:
+      m_Items: []
+  - m_Id: 367108804923392
+    m_Localized: Dialogue
+    m_Metadata:
+      m_Items: []
+  - m_Id: 367357573287936
+    m_Localized: Username
+    m_Metadata:
+      m_Items: []
+  - m_Id: 368512571363328
+    m_Localized: Organisations
+    m_Metadata:
+      m_Items: []
+  - m_Id: 368768419713024
+    m_Localized: 'University of Applied Sciences Saxion
+
+
+      ROC van Twente'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 391008179802112
+    m_Localized: Please place your gameboard on a flat surface.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 392338709499904
+    m_Localized: Waiting
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2506161626927104
+    m_Localized: Private
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2506218812067840
+    m_Localized: Public
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2531801969315840
+    m_Localized: Unready
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2532778801745920
+    m_Localized: Start Game
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2912296884359168
+    m_Localized: Choose a different character
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 1

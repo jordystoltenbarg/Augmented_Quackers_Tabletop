@@ -16,21 +16,17 @@ public class TTLobbyUIPlayerItem : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _name;
     [SerializeField] private TextMeshProUGUI _ready;
     [SerializeField] private GameObject _highlight;
-    [SerializeField] private bool _autoUpdate = true;
-    [SerializeField] private float _autoUpdateInterval = 0.2f;
+    [SerializeField] private Button _kickButton;
+    public Image Avatar => _avatar;
+    public bool characterAlreadySelected = false;
 
     private static readonly List<Sprite> _playerColorVariationsInUse = new List<Sprite>();
     private int _chosenColorVariation = -1;
     private int _chosenCharacterIndex = -1;
 
-    private void OnEnable()
-    {
-        _playerAvatarColor = GetComponent<Image>();
-        StartCoroutine(autoUpdateContent());
-    }
-
     public void Setup(TTPlayer pPLayer)
     {
+        _playerAvatarColor = GetComponent<Image>();
         _player = pPLayer;
         StartCoroutine(setPlayerColorVariation());
         _avatar.enabled = false;
@@ -43,7 +39,25 @@ public class TTLobbyUIPlayerItem : MonoBehaviour
         else
             _highlight.SetActive(false);
 
+        if (Mirror.NetworkManager.singleton.mode == Mirror.NetworkManagerMode.Host)
+        {
+            if (pPLayer != TTPlayer.LocalPlayer)
+            {
+                _kickButton.gameObject.SetActive(true);
+                _kickButton.onClick.AddListener(kickPlayer);
+            }
+            else
+            {
+                _kickButton.gameObject.SetActive(false);
+            }
+        }
+        else if (Mirror.NetworkManager.singleton.mode == Mirror.NetworkManagerMode.ClientOnly)
+        {
+            _kickButton.gameObject.SetActive(false);
+        }
+
         TTSettingsManager.onPlayerNameChanged += updateContent;
+        TTSettingsManager.onUpdateCall += updateContent;
     }
 
     private void OnDestroy()
@@ -55,15 +69,8 @@ public class TTLobbyUIPlayerItem : MonoBehaviour
             CharacterSelect.ListOfCharacters[_chosenCharacterIndex].GetComponent<TTLobbyUICharacterItem>().DeSelectCharacter(_player);
 
         TTSettingsManager.onPlayerNameChanged -= updateContent;
-    }
-
-    private IEnumerator autoUpdateContent()
-    {
-        while (_autoUpdate)
-        {
-            yield return new WaitForSeconds(_autoUpdateInterval);
-            updateContent();
-        }
+        TTSettingsManager.onUpdateCall -= updateContent;
+        _kickButton.onClick.RemoveAllListeners();
     }
 
     private void updateContent()
@@ -79,6 +86,7 @@ public class TTLobbyUIPlayerItem : MonoBehaviour
                 {
                     _avatar.enabled = true;
                     _avatar.sprite = listItem.GetPlayerSprite(_player);
+                    characterAlreadySelected = listItem.GetPlayerIsAlreadySelected(_player);
                     _chosenCharacterIndex = _player.SelectedCharacterIndex;
 
                     if (_player != TTPlayer.LocalPlayer)
@@ -130,6 +138,35 @@ public class TTLobbyUIPlayerItem : MonoBehaviour
             _chosenColorVariation = _player.ColorVariation;
             _playerColorVariationsInUse.Add(sprite);
             return sprite;
+        }
+    }
+
+    private void kickPlayer()
+    {
+        TTMessagePopup.Singleton.DisplayPopup(TTMessagePopup.PopupTitle.Warning, TTMessagePopup.PopupMessage.Kick, TTMessagePopup.PopupResponse.YesNo);
+        StartCoroutine(waitForPopupResponse());
+    }
+
+    private IEnumerator waitForPopupResponse()
+    {
+        TTMessagePopup.OnYesButtonPressed += yes;
+        TTMessagePopup.OnNoButtonPressed += no;
+        bool hasReponded = false;
+
+        yield return new WaitWhile(() => !hasReponded);
+
+        TTMessagePopup.OnYesButtonPressed -= yes;
+        TTMessagePopup.OnNoButtonPressed -= no;
+
+        void yes()
+        {
+            TTPlayer.LocalPlayer.KickClient(_player.LobbyIndex);
+            hasReponded = true;
+        }
+
+        void no()
+        {
+            hasReponded = true;
         }
     }
 }

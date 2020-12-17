@@ -1,4 +1,6 @@
 ﻿using Mirror;
+using System.Collections;
+using UnityEngine;
 
 public class TTPlayer : NetworkBehaviour
 {
@@ -14,36 +16,23 @@ public class TTPlayer : NetworkBehaviour
     public int SelectedCharacterIndex => _selectedCharacterIndex;
     [SyncVar] private int _colorVariation = -1;
     public int ColorVariation => _colorVariation;
+    [SyncVar] private bool _hostedServerIsPrivate = false;
+    public bool HostedServerIsPrivate => _hostedServerIsPrivate;
+    [HideInInspector] public bool hasBeenKicked = false;
 
     private TTNetworkManagerListServer _manager = null;
 
     private void Start()
     {
-        print($"<color=green> Hello there! Name's {_playerName}</color>");
+        print($"<color=green> Hello there!</color>");
 
         Invoke(nameof(lobbyUIAddPlayer), 0.5f);
         DontDestroyOnLoad(gameObject);
     }
 
-    private void OnDestroy()
-    {
-        if (!isLocalPlayer) return;
-
-        TTSettingsManager.onPlayerNameChanged -= ChangePlayerName;
-
-        LocalPlayer = null;
-
-        FindObjectOfType<MenuManager>().GoToPreLobby();
-    }
-
-    private void Update()
-    {
-        if (!isLocalPlayer) return;
-    }
-
     private void lobbyUIAddPlayer()
     {
-        TTLobbyUI.Singleton.AddPlayer(this);
+        TTSettingsManager.Singleton.AddPlayer(this);
     }
 
     public override void OnStartLocalPlayer()
@@ -51,13 +40,31 @@ public class TTPlayer : NetworkBehaviour
         LocalPlayer = this;
         _manager = NetworkManager.singleton as TTNetworkManagerListServer;
 
-        TTSettingsManager.onPlayerNameChanged += ChangePlayerName;
+        TTSettingsManager.onPlayerNameChanged += changePlayerName;
+        TTSettingsManager.onServerPrivacyChanged += changeServerPrivacy;
 
         FindObjectOfType<MenuManager>().GoToLobby();
 
         Invoke(nameof(cmdSetPlayerIndex), 0.2f);
         Invoke(nameof(cmdSetPlayerColorVariation), 0.2f);
         cmdChangePlayerName(TTSettingsManager.Singleton.PlayerName);
+    }
+
+    private void OnDestroy()
+    {
+        if (!isLocalPlayer) return;
+
+        if (hasBeenKicked)
+        {
+            TTMessagePopup.Singleton.DisplayPopup(TTMessagePopup.PopupTitle.Notification, TTMessagePopup.PopupMessage.Kick, TTMessagePopup.PopupResponse.Ok);
+        }
+
+        TTSettingsManager.onPlayerNameChanged -= changePlayerName;
+        TTSettingsManager.onServerPrivacyChanged -= changeServerPrivacy;
+
+        LocalPlayer = null;
+
+        FindObjectOfType<MenuManager>().GoToPreLobby();
     }
 
     /// <summary>
@@ -70,10 +77,15 @@ public class TTPlayer : NetworkBehaviour
     public override void OnStopClient()
     {
         if (isLocalPlayer) return;
-        TTLobbyUI.Singleton.RemovePlayer(this);
+        TTSettingsManager.Singleton.RemovePlayer(this);
     }
 
-    public void ChangePlayerName(string pNewName)
+    private void Update()
+    {
+        if (!isLocalPlayer) return;
+    }
+
+    private void changePlayerName(string pNewName)
     {
         cmdChangePlayerName(pNewName);
     }
@@ -82,6 +94,17 @@ public class TTPlayer : NetworkBehaviour
     private void cmdChangePlayerName(string pNewName)
     {
         _playerName = pNewName;
+    }
+
+    private void changeServerPrivacy(bool pIsPrivate)
+    {
+        cmdChangeServerPrivacy(pIsPrivate);
+    }
+
+    [Command]
+    private void cmdChangeServerPrivacy(bool pIsPrivate)
+    {
+        _hostedServerIsPrivate = pIsPrivate;
     }
 
     [Command]
@@ -128,14 +151,6 @@ public class TTPlayer : NetworkBehaviour
     private void cmdReadyToggle()
     {
         _isReady = !_isReady;
-        if (_isReady)
-        {
-            //When Ready    
-        }
-        else
-        {
-            //When Un-Ready
-        }
     }
 
     public void SelectCharacter(int pCharacterIndex)
@@ -147,5 +162,25 @@ public class TTPlayer : NetworkBehaviour
     private void cmdSelectCharacter(int pCharacterIndex)
     {
         _selectedCharacterIndex = pCharacterIndex;
+    }
+
+    public void KickClient(int pLocalPlayerIndex)
+    {
+        cmdKickClient(pLocalPlayerIndex);
+    }
+
+    [Command]
+    private void cmdKickClient(int pLocalPlayerIndex)
+    {
+        clientKick(pLocalPlayerIndex);
+    }
+
+    [ClientRpc]
+    private void clientKick(int pLocalPlayerIndex)
+    {
+        if (LocalPlayer.LobbyIndex != pLocalPlayerIndex || LocalPlayer.hasBeenKicked) return;
+
+        LocalPlayer.hasBeenKicked = true;
+        NetworkManager.singleton.StopClient();
     }
 }

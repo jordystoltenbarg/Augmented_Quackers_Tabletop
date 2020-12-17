@@ -23,17 +23,17 @@ public class SmoothenSlider : MonoBehaviour, IBeginDragHandler, IDropHandler
         _slider.wholeNumbers = true;
     }
 
-    public void OnBeginDrag(PointerEventData eventData)
+    public void OnBeginDrag(PointerEventData pEventData)
     {
-        if (eventData.pointerDrag != null)
+        if (pEventData.pointerDrag != null)
         {
             _slider.wholeNumbers = false;
         }
     }
 
-    public void OnDrop(PointerEventData eventData)
+    public void OnDrop(PointerEventData pEventData)
     {
-        if (eventData.pointerDrag != null)
+        if (pEventData.pointerDrag != null)
         {
             _slider.value = Mathf.FloorToInt(_slider.value);
             _slider.wholeNumbers = true;

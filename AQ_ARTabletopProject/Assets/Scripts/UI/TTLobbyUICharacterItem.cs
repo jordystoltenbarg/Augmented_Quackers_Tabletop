@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -12,8 +11,6 @@ public class TTLobbyUICharacterItem : MonoBehaviour
     [SerializeField] private Image _highlight;
     [SerializeField] private Sprite _original;
     [SerializeField] private Sprite _selected;
-    [SerializeField] private bool _autoUpdate = true;
-    [SerializeField] private float _autoUpdateInterval = 0.2f;
     [HideInInspector] public int characterIndex = -1;
 
     private Color _transparentColor = new Color(1, 1, 1, 0);
@@ -22,23 +19,15 @@ public class TTLobbyUICharacterItem : MonoBehaviour
     {
         _image = GetComponent<Image>();
         _image.sprite = _original;
+        TTSettingsManager.onUpdateCall += updateContent;
     }
 
-    private void OnEnable()
+    private void OnDestroy()
     {
-        StartCoroutine(autoUpdate());
+        TTSettingsManager.onUpdateCall -= updateContent;
     }
 
-    private IEnumerator autoUpdate()
-    {
-        while (_autoUpdate)
-        {
-            yield return new WaitForSeconds(_autoUpdateInterval);
-            updateInfo();
-        }
-    }
-
-    private void updateInfo()
+    private void updateContent()
     {
         if (_playersThatSelected.Count != 0)
         {
@@ -54,7 +43,7 @@ public class TTLobbyUICharacterItem : MonoBehaviour
         if (!_playersThatSelected.Contains(pPlayer))
         {
             _playersThatSelected.Add(pPlayer);
-            updateInfo();
+            updateContent();
 
             if (pPlayer == TTPlayer.LocalPlayer)
             {
@@ -69,7 +58,7 @@ public class TTLobbyUICharacterItem : MonoBehaviour
         if (_playersThatSelected.Contains(pPlayer))
         {
             _playersThatSelected.Remove(pPlayer);
-            updateInfo();
+            updateContent();
 
             if (pPlayer == TTPlayer.LocalPlayer)
                 _highlight.color = _transparentColor;
@@ -81,5 +70,12 @@ public class TTLobbyUICharacterItem : MonoBehaviour
         if (_playersThatSelected.Count == 0) return _original;
         if (pPlayer == _playersThatSelected[0]) return _original;
         else return _selected;
+    }
+
+    public bool GetPlayerIsAlreadySelected(TTPlayer pPlayer)
+    {
+        if (_playersThatSelected.Count == 0) return false;
+        if (pPlayer == _playersThatSelected[0]) return false;
+        else return true;
     }
 }
