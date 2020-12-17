@@ -5,7 +5,8 @@ using UnityEngine;
 
 public class Pawn : MonoBehaviour
 {
-    public static event Action onPawnReadecFinalTile;
+    public static event Action onPawnReachedFinalTile;
+    public static event Action<GameObject> onPawnReachedFinalTileWithGameObject;
 
     [SerializeField]
     private float _speed = 5;
@@ -96,7 +97,8 @@ public class Pawn : MonoBehaviour
                 {
                     _currentTile = pTileList[reachedWPIndex];
                     _rb.constraints = RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezeRotation;
-                    onPawnReadecFinalTile?.Invoke();
+                    onPawnReachedFinalTile?.Invoke();
+                    onPawnReachedFinalTileWithGameObject?.Invoke(_currentTile.gameObject);
                     yield break;
                 }
                 else
@@ -109,7 +111,10 @@ public class Pawn : MonoBehaviour
             }
 
             transform.Translate(direction * Time.deltaTime * _speed, Space.World);
-            if (!_player.HasCurrentTurn) break;
+            if (!_player.HasCurrentTurn)
+            {
+                break;
+            }
             yield return null;
         }
     }
