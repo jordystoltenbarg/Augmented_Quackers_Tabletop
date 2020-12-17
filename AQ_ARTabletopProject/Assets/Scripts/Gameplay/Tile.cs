@@ -2,7 +2,10 @@
 
 public class Tile : MonoBehaviour
 {
+    
+    
     private Vector3 _waypoint = Vector3.zero;
+
     public Vector3 Waypoint
     {
         get
@@ -14,6 +17,9 @@ public class Tile : MonoBehaviour
 
     void Start()
     {
-        _waypoint = new Vector3(transform.position.x, 0, transform.position.z);
+        _waypoint = new Vector3(transform.position.x, 0, transform.position.z);       
     }
+
+
+
 }
