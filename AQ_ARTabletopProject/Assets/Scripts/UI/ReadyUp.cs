@@ -9,6 +9,7 @@ using UnityEngine.UI;
 public class ReadyUp : MonoBehaviour
 {
     public static bool IsLocalPlayerReady = false;
+    public static bool CanStartGame = false;
 
     [SerializeField] private TMP_FontAsset _greenFont;
     [SerializeField] private TMP_FontAsset _redFont;
@@ -27,7 +28,6 @@ public class ReadyUp : MonoBehaviour
     private TTLobbyUIPlayerItem _localPlayerUILobbyItem = null;
 
     private Image _image;
-    private bool _canStartGame = false;
     private bool _isButtonInteractable = true;
     private Mirror.NetworkManager _manager;
 
@@ -41,6 +41,7 @@ public class ReadyUp : MonoBehaviour
         StartCoroutine(waitForCharacterSelect());
 
         GetComponent<Button>().onClick.AddListener(onReadyPressed);
+        CharacterSelect.OnSelectedCharacterChanged += onSelectedCharacterChanged;
         TTSettingsManager.onUpdateCall += updateContent;
     }
 
@@ -56,7 +57,14 @@ public class ReadyUp : MonoBehaviour
     private void OnDestroy()
     {
         GetComponent<Button>().onClick.RemoveAllListeners();
+        CharacterSelect.OnSelectedCharacterChanged -= onSelectedCharacterChanged;
         TTSettingsManager.onUpdateCall -= updateContent;
+    }
+
+    private void onSelectedCharacterChanged()
+    {
+        //StartCoroutine(setInteracableWhenCharacterIsAvailable());
+        //_isButtonInteractable = false;
     }
 
     private void onReadyPressed()
@@ -93,7 +101,7 @@ public class ReadyUp : MonoBehaviour
                 }
                 break;
             case Mirror.NetworkManagerMode.Host:
-                if (!_canStartGame)
+                if (!CanStartGame)
                 {
                     //Host gets ready
                     TTPlayer.LocalPlayer.ReadyToggle();
@@ -103,7 +111,7 @@ public class ReadyUp : MonoBehaviour
                     _text.StringReference = _hostWaitingString;
 
                     _isButtonInteractable = false;
-                    _canStartGame = true;
+                    CanStartGame = true;
                 }
                 else
                 {
@@ -157,7 +165,7 @@ public class ReadyUp : MonoBehaviour
                 foreach (TTPlayer player in TTSettingsManager.Singleton.players)
                     if (!player.IsReady) everyoneIsReady = false;
 
-                if (_canStartGame)
+                if (CanStartGame)
                 {
                     if (everyoneIsReady)
                     {

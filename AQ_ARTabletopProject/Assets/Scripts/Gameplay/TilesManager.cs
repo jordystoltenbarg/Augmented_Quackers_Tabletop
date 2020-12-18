@@ -8,6 +8,8 @@ public class TilesManager : MonoBehaviour
 
     void Start()
     {
-        ListOfTiles = GetComponentsInChildren<Tile>().ToList();
+        //ListOfTiles = GetComponentsInChildren<Tile>().ToList();
+        for (int i = 0; i < transform.childCount; i++)
+            ListOfTiles.Add(transform.GetChild(i).GetComponent<Tile>());
     }
 }

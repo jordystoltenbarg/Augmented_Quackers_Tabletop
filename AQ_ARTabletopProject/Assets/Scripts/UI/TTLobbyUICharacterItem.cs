@@ -20,11 +20,15 @@ public class TTLobbyUICharacterItem : MonoBehaviour
         _image = GetComponent<Image>();
         _image.sprite = _original;
         TTSettingsManager.onUpdateCall += updateContent;
+        TTSettingsManager.onTTPlayerAdded += onTTPlayerAdded;
+        TTSettingsManager.onTTPlayerRemoved += onTTPlayerRemoved;
     }
 
     private void OnDestroy()
     {
         TTSettingsManager.onUpdateCall -= updateContent;
+        TTSettingsManager.onTTPlayerAdded -= onTTPlayerAdded;
+        TTSettingsManager.onTTPlayerRemoved -= onTTPlayerRemoved;
     }
 
     private void updateContent()
@@ -42,13 +46,15 @@ public class TTLobbyUICharacterItem : MonoBehaviour
     {
         if (!_playersThatSelected.Contains(pPlayer))
         {
-            _playersThatSelected.Add(pPlayer);
-            updateContent();
-
             if (pPlayer == TTPlayer.LocalPlayer)
             {
                 pPlayer.SelectCharacter(characterIndex);
-                _highlight.color = Color.white;
+                //_highlight.color = Color.white;
+            }
+            else
+            {
+                _playersThatSelected.Add(pPlayer);
+                updateContent();
             }
         }
     }
@@ -77,5 +83,43 @@ public class TTLobbyUICharacterItem : MonoBehaviour
         if (_playersThatSelected.Count == 0) return false;
         if (pPlayer == _playersThatSelected[0]) return false;
         else return true;
+    }
+
+    private void onTTPlayerAdded(TTPlayer pPlayer)
+    {
+        if (!pPlayer.isLocalPlayer) return;
+
+        pPlayer.onCharacterSelectApproved += onCharacterSelectApproved;
+        pPlayer.onCharacterSelectDenied += onCharacterSelectDenied;
+    }
+
+    private void onTTPlayerRemoved(TTPlayer pPlayer)
+    {
+        if (!pPlayer.isLocalPlayer) return;
+
+        pPlayer.onCharacterSelectApproved -= onCharacterSelectApproved;
+        pPlayer.onCharacterSelectDenied -= onCharacterSelectDenied;
+    }
+
+    private void onCharacterSelectApproved(int pCharacterIndex)
+    {
+        if (pCharacterIndex != characterIndex) return;
+
+        _playersThatSelected.Add(TTPlayer.LocalPlayer);
+        updateContent();
+        _highlight.color = Color.white;
+
+        print("Approved");
+    }
+
+    private void onCharacterSelectDenied(int pCharacterIndex)
+    {
+        if (pCharacterIndex != characterIndex) return;
+
+        _playersThatSelected.Add(TTPlayer.LocalPlayer);
+        updateContent();
+        _highlight.color = Color.white;
+
+        print("nope");
     }
 }

@@ -99,7 +99,7 @@ public class TTServerListManager : MonoBehaviour
 
         if (string.IsNullOrEmpty(code)) return false;
 
-        foreach (ServerJson server in TTApiUpdater.apiUpdater.serverList)
+        foreach (ServerJson server in TTApiUpdater.Singleton.serverList)
         {
             for (int i = 0; i < server.customData.Length; i++)
             {

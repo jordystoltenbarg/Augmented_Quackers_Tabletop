@@ -185,7 +185,7 @@ MonoBehaviour:
   isAuthenticated: 0
   useWebsockets: 0
   serverID: 0
-  directConnectTimeout: 5
+  directConnectTimeout: 30
 --- !u!114 &3389076429813031025
 MonoBehaviour:
   m_ObjectHideFlags: 0
