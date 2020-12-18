@@ -44,7 +44,7 @@ public class TurnOrderManager : MonoBehaviour
         setPlayerTurn(_playersByTurnOrder[0]);
         GameObject.Find("RoundCount").GetComponent<TextMeshProUGUI>().text = string.Format("Round: {0}", _round);
 
-        Pawn.onPawnReadecFinalTile += nextPlayer;
+        Pawn.onPawnReachedFinalTile += nextPlayer;
 
         _isinit = true;
     }

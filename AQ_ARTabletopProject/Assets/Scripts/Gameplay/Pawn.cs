@@ -8,6 +8,8 @@ public class Pawn : MonoBehaviour
     public static event Action onPawnReadecFinalTile;
     public static event Action<Tile> onPawnReachedTileEvent;
     public static event Action<Tile> onPawnReachedRegularTile;
+    public static event Action onPawnReachedFinalTile;
+    public static event Action<GameObject> onPawnReachedFinalTileWithGameObject;
 
     [SerializeField] private float _speed = 5;
     [Header("Verticality")]
@@ -143,6 +145,8 @@ public class Pawn : MonoBehaviour
                         onPawnReachedRegularTile?.Invoke(_currentTile);
 
                     onPawnReadecFinalTile?.Invoke();
+                    onPawnReachedFinalTile?.Invoke();
+                    onPawnReachedFinalTileWithGameObject?.Invoke(_currentTile.gameObject);
                     yield break;
                 }
                 else

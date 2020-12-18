@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: 714cb67a39f297a43820500d79a565af
+=======
+guid: b84208eeadba8cf41b05ed8d6d88ce76
+>>>>>>> InGame_Functionality
 PluginImporter:
   externalObjects: {}
   serializedVersion: 2
