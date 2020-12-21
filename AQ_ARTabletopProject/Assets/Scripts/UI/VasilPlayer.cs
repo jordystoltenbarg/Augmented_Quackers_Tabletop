@@ -5,33 +5,27 @@ using UnityEngine.UI;
 
 public class VasilPlayer : MonoBehaviour
 {
-    [SerializeField]
-    private Sprite _characterImage = null;
-    public Sprite CharacterImage { get { return _characterImage; } }
-    [SerializeField]
-    private GameObject _turnOrderPositionPrefab = null;
-    public GameObject TurnOrderPositionPrefab { get { return _turnOrderPositionPrefab; } }
-    [SerializeField]
-    private string _name = "";
-    public string PlayerName { get { return _name; } }
+    [SerializeField] private Sprite _characterImage = null;
+    public Sprite CharacterImage => _characterImage;
+    [SerializeField] private GameObject _turnOrderPositionPrefab = null;
+    public GameObject TurnOrderPositionPrefab => _turnOrderPositionPrefab;
+    [SerializeField] private string _playerName = "";
+    public string PlayerName => _playerName;
 
-    [HideInInspector]
-    public int turnsToSkip = 0;
-    [HideInInspector]
-    public int extraTurns = 0;
-    [HideInInspector]
-    public bool hasActedThisTurn = false;
+    [HideInInspector] public int turnsToSkip = 0;
+    [HideInInspector] public int extraTurns = 0;
+    [HideInInspector] public bool hasActedThisTurn = false;
 
     private bool _hasCurrentTurn = false;
-    public bool HasCurrentTurn { get { return _hasCurrentTurn; } }
+    public bool HasCurrentTurn => _hasCurrentTurn;
     private bool _isOutOfActions = false;
-    public bool IsOutOfActions { get { return _isOutOfActions; } }
+    public bool IsOutOfActions => _isOutOfActions;
 
     private int _dieRolls = 1;
     private bool _canRollAgain = true;
 
     private Pawn _pawn;
-    public Pawn pawn => _pawn;
+    public Pawn Pawn => _pawn;
 
     private void Start()
     {
@@ -42,13 +36,15 @@ public class VasilPlayer : MonoBehaviour
 
     private void OnEnable()
     {
-        RollDie.onDieRolled += onDieRoll;
+        //RollDie.onDieRolled += onDieRolled;
+        Pawn.onPawnReachedTileEvent += onPawnReachedTileEvent;
+        Pawn.onPawnReachedRegularTile += onPawnReachedRegularTile;
         _turnOrderPositionPrefab.GetComponentInChildren<TurnOrderPlayerAvatar>().SetPlayer(this);
 
         Pawn[] pawns = FindObjectsOfType(typeof(Pawn)) as Pawn[];
         for (int i = 0; i < pawns.Length; i++)
         {
-            if (pawns[i].name == _name)
+            if (pawns[i].name == _playerName)
             {
                 _pawn = pawns[i];
                 _pawn.SetPlayer(this);
@@ -59,7 +55,9 @@ public class VasilPlayer : MonoBehaviour
 
     private void OnDisable()
     {
-        RollDie.onDieRolled -= onDieRoll;
+        //RollDie.onDieRolled -= onDieRolled;
+        Pawn.onPawnReachedTileEvent -= onPawnReachedTileEvent;
+        Pawn.onPawnReachedRegularTile -= onPawnReachedRegularTile;
     }
 
     private void Update()
@@ -68,7 +66,7 @@ public class VasilPlayer : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.R))
         {
-            Roll();
+            RollTheDie();
             _dieRolls--;
             if (_dieRolls <= 0)
                 _canRollAgain = false;
@@ -79,19 +77,19 @@ public class VasilPlayer : MonoBehaviour
     {
         if (!_hasCurrentTurn || !_canRollAgain) return;
 
-        Roll();
+        RollTheDie();
         _dieRolls--;
         if (_dieRolls <= 0)
             _canRollAgain = false;
     }
 
-    public int RullDie(int pSides = 6)
+    public int RollForInitialive(int pSides = 6)
     {
         int rand = Random.Range(1, pSides + 1);
         return rand;
     }
 
-    public void Roll()
+    public void RollTheDie()
     {
         RollDie die = FindObjectOfType(typeof(RollDie)) as RollDie;
         die.StartCoroutine(die.RollRandom());
@@ -105,7 +103,7 @@ public class VasilPlayer : MonoBehaviour
         _dieRolls = 1;
         _canRollAgain = true;
 
-        GameObject.Find("DieRoll").GetComponent<TextMeshProUGUI>().text = string.Format("{0} press 'R' roll your die", _name);
+        GameObject.Find("DieRoll").GetComponent<TextMeshProUGUI>().text = string.Format("{0} press 'R' roll your die", _playerName);
         StartCoroutine(lerpToColor(_pawn.GetComponent<Renderer>().material.color));
     }
 
@@ -115,12 +113,39 @@ public class VasilPlayer : MonoBehaviour
         GameObject.Find("DieRoll").GetComponent<TextMeshProUGUI>().text = "";
     }
 
-    void onDieRoll(int pInt)
+    private void onPawnReachedTileEvent(Tile pTile)
     {
+        if (!_hasCurrentTurn) return;
+        _isOutOfActions = false;
+    }
+
+    private void onPawnReachedRegularTile(Tile pTile)
+    {
+        if (!_hasCurrentTurn) return;
         _isOutOfActions = true;
     }
 
-    IEnumerator lerpToColor(Color pColor)
+    public IEnumerator EndTurnAfterDelay(bool pIsOutOfActions, float pDelay)
+    {
+        while (pDelay > 0)
+        {
+            if (pDelay % 1 <= 0.05f)
+                Debug.Log($"{_playerName}'s turn will end in {(int)pDelay}s.");
+            yield return new WaitForSeconds(0.1f);
+            pDelay -= 0.1f;
+        }
+        _isOutOfActions = pIsOutOfActions;
+        TurnOrderManager.Singleton.EndCurrentPlayerTurn();
+        Debug.Log($"{_playerName}'s turn had ended.");
+    }
+
+    private void onDieRolled(int pInt)
+    {
+        if (!_hasCurrentTurn) return;
+        _isOutOfActions = true;
+    }
+
+    private IEnumerator lerpToColor(Color pColor)
     {
         RollDie die = FindObjectOfType(typeof(RollDie)) as RollDie;
         Renderer dieRend = die.gameObject.transform.GetChild(0).GetComponent<Renderer>();

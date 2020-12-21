@@ -7,24 +7,32 @@ using UnityEngine.UI;
 
 public class TurnOrderManager : MonoBehaviour
 {
+    public static TurnOrderManager Singleton = null;
+
     private static VasilPlayer _currentPlayerTurn = null;
-    public static VasilPlayer CurrentPlayerTurn { get { return _currentPlayerTurn; } }
+    public static VasilPlayer CurrentPlayerTurn => _currentPlayerTurn;
 
     private static int _round = 1;
-    public static int Round { get { return _round; } }
+    public static int Round => _round;
 
-    private List<GameObject> _positions = new List<GameObject>();
-    private List<GameObject> _playerAvatars = new List<GameObject>();
+    private readonly List<GameObject> _positions = new List<GameObject>();
+    private readonly List<GameObject> _playerAvatars = new List<GameObject>();
 
     private List<VasilPlayer> _players = new List<VasilPlayer>();
-    private List<VasilPlayer> _playersByTurnOrder = new List<VasilPlayer>();
-    private List<GameObject> _playersByTurnOrderPositionPrefabs = new List<GameObject>();
+    private readonly List<VasilPlayer> _playersByTurnOrder = new List<VasilPlayer>();
+    private readonly List<GameObject> _playersByTurnOrderPositionPrefabs = new List<GameObject>();
 
     private bool _hasCreatingSkippedTurnFinished = false;
     private bool _isinit = false;
 
-    void Start()
+    private void Awake()
     {
+        TurnOrderManager[] TOMs = FindObjectsOfType<TurnOrderManager>();
+        if (TOMs.Length > 1)
+            Destroy(gameObject);
+
+        Singleton = this;
+        DontDestroyOnLoad(gameObject);
     }
 
     public void Init()
@@ -41,7 +49,7 @@ public class TurnOrderManager : MonoBehaviour
         _isinit = true;
     }
 
-    void Update()
+    private void Update()
     {
         if (!_isinit) return;
 
@@ -69,8 +77,7 @@ public class TurnOrderManager : MonoBehaviour
             playerSkipTurn(_playersByTurnOrder[3]);
     }
 
-
-    public void EndTurnInput()
+    private void endTurnInput()
     {
         if (!_currentPlayerTurn.IsOutOfActions)
             GameObject.Find("DieRoll").GetComponent<TextMeshProUGUI>().text = string.Format("Waiting for {0}...", _currentPlayerTurn.PlayerName);
@@ -78,10 +85,10 @@ public class TurnOrderManager : MonoBehaviour
             nextPlayer();
     }
 
-    void fillLists()
+    private void fillLists()
     {
         _players.Clear();
-        _players = GameObject.FindObjectsOfType<VasilPlayer>().ToList();
+        _players = FindObjectsOfType<VasilPlayer>().ToList();
 
         _positions.Clear();
         for (int i = 0; i < transform.childCount; i++)
@@ -98,14 +105,14 @@ public class TurnOrderManager : MonoBehaviour
         }
     }
 
-    void shufflePlayerTurnOrder()
+    private void shufflePlayerTurnOrder()
     {
         Dictionary<VasilPlayer, int> order = new Dictionary<VasilPlayer, int>();
         foreach (VasilPlayer p in _players)
-            order.Add(p, p.RullDie());
+            order.Add(p, p.RollForInitialive());
 
         List<KeyValuePair<VasilPlayer, int>> orderList = order.ToList();
-        orderList.Sort((x, y) => x.Value.CompareTo(y.Value));
+        orderList.Sort((pX, pY) => pX.Value.CompareTo(pY.Value));
         orderList.Reverse();
 
         _playersByTurnOrder.Clear();
@@ -123,7 +130,7 @@ public class TurnOrderManager : MonoBehaviour
         updatePlayerTurnOrder();
     }
 
-    void updatePlayerTurnOrder()
+    private void updatePlayerTurnOrder()
     {
         for (int i = 0; i < _playerAvatars.Count; i++)
         {
@@ -136,8 +143,15 @@ public class TurnOrderManager : MonoBehaviour
         }
     }
 
-    void nextPlayer()
+    public void EndCurrentPlayerTurn()
     {
+        nextPlayer();
+    }
+
+    private void nextPlayer()
+    {
+        if (!_currentPlayerTurn.IsOutOfActions) return;
+
         VasilPlayer currentPlayer = _playerAvatars[0].GetComponent<TurnOrderPlayerAvatar>().Player;
         currentPlayer.hasActedThisTurn = true;
         currentPlayer.EndTurn();
@@ -184,7 +198,7 @@ public class TurnOrderManager : MonoBehaviour
         setPlayerTurn(_playerAvatars[0].GetComponent<TurnOrderPlayerAvatar>().Player);
     }
 
-    bool hasFinalPlayerActed()
+    private bool hasFinalPlayerActed()
     {
         for (int i = _playersByTurnOrder.Count - 1; i >= 0; i--)
         {
@@ -200,7 +214,12 @@ public class TurnOrderManager : MonoBehaviour
         return false;
     }
 
-    void playerSkipTurn(VasilPlayer pPlayer)
+    public void SkipCurrentPlayerTurn()
+    {
+        playerSkipTurn(_currentPlayerTurn);
+    }
+
+    private void playerSkipTurn(VasilPlayer pPlayer)
     {
         pPlayer.turnsToSkip++;
         for (int i = 0; i < _playerAvatars.Count; i++)
@@ -215,7 +234,6 @@ public class TurnOrderManager : MonoBehaviour
                         StartCoroutine(createNextPlayableTurn());
                         return;
                     }
-
                     continue;
                 }
 
@@ -287,16 +305,16 @@ public class TurnOrderManager : MonoBehaviour
         _hasCreatingSkippedTurnFinished = false;
     }
 
-    void createNewPosition(int i)
+    private void createNewPosition(int pIndex)
     {
-        GameObject newPosition = Instantiate(_playersByTurnOrderPositionPrefabs[i], _positions[0].transform.parent);
-        newPosition.GetComponentInChildren<TurnOrderPlayerAvatar>().SetPlayer(_playersByTurnOrderPositionPrefabs[i].transform.GetChild(0).GetComponentInChildren<TurnOrderPlayerAvatar>().Player);
+        GameObject newPosition = Instantiate(_playersByTurnOrderPositionPrefabs[pIndex], _positions[0].transform.parent);
+        newPosition.GetComponentInChildren<TurnOrderPlayerAvatar>().SetPlayer(_playersByTurnOrderPositionPrefabs[pIndex].transform.GetChild(0).GetComponentInChildren<TurnOrderPlayerAvatar>().Player);
         newPosition.GetComponent<SetSizeToChildSize>().StartUpdatingSize(newPosition.transform.GetChild(0).gameObject);
         _positions.Add(newPosition);
         _playerAvatars.Add(newPosition.transform.GetChild(0).gameObject);
     }
 
-    void setPlayerTurn(VasilPlayer pPlayer)
+    private void setPlayerTurn(VasilPlayer pPlayer)
     {
         _currentPlayerTurn = pPlayer;
         foreach (VasilPlayer p in _players)

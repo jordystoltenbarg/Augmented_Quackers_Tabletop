@@ -1,10 +1,13 @@
 ﻿using Mirror;
-using System.Collections;
+using System;
 using UnityEngine;
 
 public class TTPlayer : NetworkBehaviour
 {
     public static TTPlayer LocalPlayer;
+
+    public Action<int> onCharacterSelectApproved;
+    public Action<int> onCharacterSelectDenied;
 
     [SyncVar] private int _lobbyIndex = -1;
     public int LobbyIndex => _lobbyIndex;
@@ -52,6 +55,8 @@ public class TTPlayer : NetworkBehaviour
 
     private void OnDestroy()
     {
+        TTSettingsManager.Singleton.RemovePlayer(this);
+
         if (!isLocalPlayer) return;
 
         if (hasBeenKicked)
@@ -59,6 +64,8 @@ public class TTPlayer : NetworkBehaviour
             TTMessagePopup.Singleton.DisplayPopup(TTMessagePopup.PopupTitle.Notification, TTMessagePopup.PopupMessage.Kick, TTMessagePopup.PopupResponse.Ok);
         }
 
+        ReadyUp.IsLocalPlayerReady = false;
+        ReadyUp.CanStartGame = false;
         TTSettingsManager.onPlayerNameChanged -= changePlayerName;
         TTSettingsManager.onServerPrivacyChanged -= changeServerPrivacy;
 
@@ -76,8 +83,6 @@ public class TTPlayer : NetworkBehaviour
 
     public override void OnStopClient()
     {
-        if (isLocalPlayer) return;
-        TTSettingsManager.Singleton.RemovePlayer(this);
     }
 
     private void Update()
@@ -110,7 +115,7 @@ public class TTPlayer : NetworkBehaviour
     [Command]
     private void cmdSetPlayerIndex()
     {
-        _lobbyIndex = TTApiUpdater.apiUpdater.GetServerPlayerCount() - 1;
+        _lobbyIndex = TTApiUpdater.Singleton.GetServerPlayerCount() - 1;
     }
 
     public void UpdateHigherLobbyIndex(int pLobbyIndex)
@@ -139,7 +144,7 @@ public class TTPlayer : NetworkBehaviour
     [Command]
     private void cmdSetPlayerColorVariation()
     {
-        _colorVariation = TTApiUpdater.apiUpdater.GetServerPlayerCount() - 1;
+        _colorVariation = TTApiUpdater.Singleton.GetServerPlayerCount() - 1;
     }
 
     public void ReadyToggle()
@@ -162,6 +167,19 @@ public class TTPlayer : NetworkBehaviour
     private void cmdSelectCharacter(int pCharacterIndex)
     {
         _selectedCharacterIndex = pCharacterIndex;
+        targetCharacterSelectApproved(pCharacterIndex);
+    }
+
+    [TargetRpc]
+    private void targetCharacterSelectApproved(int pCharacterIndex)
+    {
+        onCharacterSelectApproved?.Invoke(pCharacterIndex);
+    }
+
+    [TargetRpc]
+    private void targetCharacterSelectDenied(int pCharacterIndex)
+    {
+        onCharacterSelectDenied?.Invoke(pCharacterIndex);
     }
 
     public void KickClient(int pLocalPlayerIndex)

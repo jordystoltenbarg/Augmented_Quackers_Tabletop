@@ -85,7 +85,7 @@ public class TTSettingsManager : MonoBehaviour
 
     private IEnumerator delayedChangeNameForAPIToUpdate()
     {
-        yield return new WaitWhile(() => TTApiUpdater.apiUpdater == null);
+        yield return new WaitWhile(() => TTApiUpdater.Singleton == null);
 
         if (PlayerNameInputfieldIdentifier.ValidateName(PlayerPrefs.GetString("PlayerName")))
             ChangePlayerName(PlayerPrefs.GetString("PlayerName"));

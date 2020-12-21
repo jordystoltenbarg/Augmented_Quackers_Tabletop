@@ -1,12 +1,16 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class CharacterSelect : MonoBehaviour
 {
+    public static Action OnSelectedCharacterChanged;
     public static readonly List<GameObject> ListOfCharacters = new List<GameObject>();
 
     private Color _transparent = new Color(1, 1, 1, 0);
+
+    private GameObject _lastButtonClicked = null;
 
     private void Start()
     {
@@ -18,6 +22,9 @@ public class CharacterSelect : MonoBehaviour
             go.GetComponent<TTLobbyUICharacterItem>().characterIndex = i;
             go.GetComponent<Button>().onClick.AddListener(() => highlightCharacter(go));
         }
+
+        TTSettingsManager.onTTPlayerAdded += onTTPlayerAdded;
+        TTSettingsManager.onTTPlayerRemoved += onTTPlayerRemoved;
     }
 
     private void updateList()
@@ -32,10 +39,48 @@ public class CharacterSelect : MonoBehaviour
     {
         if (ReadyUp.IsLocalPlayerReady) return;
 
-        foreach (GameObject go in ListOfCharacters)
-            if (go != pGO)
-                go.GetComponent<TTLobbyUICharacterItem>().DeSelectCharacter(TTPlayer.LocalPlayer);
+        //foreach (GameObject go in ListOfCharacters)
+        //    if (go != pGO)
+        //        go.GetComponent<TTLobbyUICharacterItem>().DeSelectCharacter(TTPlayer.LocalPlayer);
 
         pGO.GetComponent<TTLobbyUICharacterItem>().SelectCharacter(TTPlayer.LocalPlayer);
+        _lastButtonClicked = pGO;
+        //OnSelectedCharacterChanged?.Invoke();
+    }
+
+    private void onTTPlayerAdded(TTPlayer pPlayer)
+    {
+        if (!pPlayer.isLocalPlayer) return;
+
+        pPlayer.onCharacterSelectApproved += onCharacterSelectApproved;
+        pPlayer.onCharacterSelectDenied += onCharacterSelectDenied;
+    }
+
+    private void onTTPlayerRemoved(TTPlayer pPlayer)
+    {
+        if (!pPlayer.isLocalPlayer) return;
+
+        pPlayer.onCharacterSelectApproved -= onCharacterSelectApproved;
+        pPlayer.onCharacterSelectDenied -= onCharacterSelectDenied;
+    }
+
+    private void onCharacterSelectApproved(int pCharacterIndex)
+    {
+        foreach (GameObject go in ListOfCharacters)
+            if (go != _lastButtonClicked)
+                go.GetComponent<TTLobbyUICharacterItem>().DeSelectCharacter(TTPlayer.LocalPlayer);
+
+        OnSelectedCharacterChanged?.Invoke();
+        print("Approvedasd");
+    }
+
+    private void onCharacterSelectDenied(int pCharacterIndex)
+    {
+        foreach (GameObject go in ListOfCharacters)
+            if (go != _lastButtonClicked)
+                go.GetComponent<TTLobbyUICharacterItem>().DeSelectCharacter(TTPlayer.LocalPlayer);
+
+        OnSelectedCharacterChanged?.Invoke();
+        print("nopeasd");
     }
 }

@@ -13,12 +13,12 @@ public class TTLobbyUIPlayerItem : MonoBehaviour
 
     [SerializeField] private Sprite[] _playerColorVariations = null;
     [SerializeField] private Image _avatar = null;
+    public Image Avatar => _avatar;
     [SerializeField] private TextMeshProUGUI _name;
     [SerializeField] private TextMeshProUGUI _ready;
     [SerializeField] private GameObject _highlight;
     [SerializeField] private Button _kickButton;
-    public Image Avatar => _avatar;
-    public bool characterAlreadySelected = false;
+    [HideInInspector] public bool characterAlreadySelected = false;
 
     private static readonly List<Sprite> _playerColorVariationsInUse = new List<Sprite>();
     private int _chosenColorVariation = -1;

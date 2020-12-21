@@ -9,7 +9,7 @@ using TMPro;
 /// </summary>
 public class TTApiUpdater : MonoBehaviour
 {
-    public static TTApiUpdater apiUpdater = null;
+    public static TTApiUpdater Singleton = null;
     private static readonly ILogger _logger = LogFactory.GetLogger<TTApiUpdater>();
 
     private TTNetworkManagerListServer _manager;
@@ -21,9 +21,18 @@ public class TTApiUpdater : MonoBehaviour
 
     public readonly List<ServerJson> serverList = new List<ServerJson>();
 
+    private void Awake()
+    {
+        TTApiUpdater[] ttApiUs = FindObjectsOfType<TTApiUpdater>();
+        if (ttApiUs.Length > 1)
+            Destroy(gameObject);
+
+        Singleton = this;
+        DontDestroyOnLoad(gameObject);
+    }
+
     private void Start()
     {
-        apiUpdater = this;
 
         _manager = NetworkManager.singleton as TTNetworkManagerListServer;
         _apiConnector = _manager.GetComponent<TTApiConnector>();
