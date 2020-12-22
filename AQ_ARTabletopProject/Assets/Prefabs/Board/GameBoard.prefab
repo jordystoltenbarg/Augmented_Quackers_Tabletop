@@ -534,7 +534,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &7381232227998059874
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1038,7 +1038,7 @@ MonoBehaviour:
   _characterImage: {fileID: 21300000, guid: 3a262ce60b8c4ac4bbcae93828f66405, type: 3}
   _turnOrderPositionPrefab: {fileID: 2942765163618601153, guid: 83ed190f30ef58f4b96512aba9bcdde4,
     type: 3}
-  _name: Pepe
+  _playerName: 
   turnsToSkip: 0
   extraTurns: 0
   hasActedThisTurn: 0
@@ -1088,7 +1088,7 @@ MonoBehaviour:
   _characterImage: {fileID: 21300000, guid: dd27a76eaac547a4bbd8b4dbb80b6f03, type: 3}
   _turnOrderPositionPrefab: {fileID: 2942765163618601153, guid: 19d0a017d0d48774d8485dbd03d399e0,
     type: 3}
-  _name: Rick
+  _playerName: 
   turnsToSkip: 0
   extraTurns: 0
   hasActedThisTurn: 0
@@ -2529,7 +2529,7 @@ MonoBehaviour:
   _characterImage: {fileID: 21300000, guid: 6a9db87c0ba54a840ad2895b67e983d7, type: 3}
   _turnOrderPositionPrefab: {fileID: 2942765163618601153, guid: 18c48d2be1e41ee4fa8b16d15d00105a,
     type: 3}
-  _name: Mike
+  _playerName: 
   turnsToSkip: 0
   extraTurns: 0
   hasActedThisTurn: 0
@@ -4115,6 +4115,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 50
+  _moveVertically: 0
+  _yOffset: 0
 --- !u!136 &7591892655754256851
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -5222,6 +5224,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 50
+  _moveVertically: 0
+  _yOffset: 0
 --- !u!136 &7591892656015482599
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -7272,6 +7276,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 50
+  _moveVertically: 0
+  _yOffset: 0
 --- !u!136 &7591892656694066569
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -9059,6 +9065,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 50
+  _moveVertically: 0
+  _yOffset: 0
 --- !u!136 &7591892657130977616
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -10053,7 +10061,7 @@ MonoBehaviour:
   _characterImage: {fileID: 21300000, guid: d38a500aca7d6734b9bae4c02a666efa, type: 3}
   _turnOrderPositionPrefab: {fileID: 2942765163618601153, guid: e06372cbd1b4e6c4db80d2df695e48ee,
     type: 3}
-  _name: Juan
+  _playerName: 
   turnsToSkip: 0
   extraTurns: 0
   hasActedThisTurn: 0
