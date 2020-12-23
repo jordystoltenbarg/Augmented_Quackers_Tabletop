@@ -18,9 +18,9 @@ public class AudioManager : MonoBehaviour
         }
     }
 
-    public void Play(string name)
+    public void Play(AudioClip clip)
     {
-        Sound s = Array.Find(sounds, Sound => Sound.name == name);
+        Sound s = Array.Find(sounds, Sound => Sound.name == clip.name);
         if (s == null)
             return; 
         s.source.Play();
