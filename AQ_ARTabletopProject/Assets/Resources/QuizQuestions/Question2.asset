@@ -19,3 +19,5 @@ MonoBehaviour:
   - 120cm
   - 140cm
   correctAnswer: 100cm
+  quizTheme: Water Treatment
+  QuizIcon: {fileID: 21300000, guid: 77ebbc2e90a4d6840bdfc8cce715defa, type: 3}

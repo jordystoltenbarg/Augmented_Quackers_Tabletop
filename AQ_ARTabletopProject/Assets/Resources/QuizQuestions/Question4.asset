@@ -19,3 +19,5 @@ MonoBehaviour:
   - I'm batman
   - Uhh, have you seen batman?
   correctAnswer: I'm batman
+  quizTheme: Nature
+  QuizIcon: {fileID: 21300000, guid: 6120d854a3b46da4ca3716ec000200df, type: 3}
