@@ -8,4 +8,7 @@ public class Question : ScriptableObject
     public string question;
     public string[] answers = new string[4];
     public string correctAnswer;
+    public string quizTheme;
+
+    public Sprite QuizIcon;
 }
