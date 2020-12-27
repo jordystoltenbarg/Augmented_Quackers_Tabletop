@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 76831010736313833}
   - component: {fileID: 76831010736313839}
   - component: {fileID: 76831010736313832}
+  - component: {fileID: 6437989830803617763}
   m_Layer: 5
   m_Name: Ready
   m_TagString: Untagged
@@ -134,6 +135,39 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &6437989830803617763
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 76831010736313834}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56eb0353ae6e5124bb35b17aff880f16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_StringReference:
+    m_TableReference:
+      m_TableCollectionName: GUID:4d1c3d2d9f1ff0d47a9a0aee9292d90a
+    m_TableEntryReference:
+      m_KeyId: 2531801969315840
+      m_Key: 
+  m_FormatArguments: []
+  m_UpdateString:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 76831010736313832}
+        m_MethodName: set_text
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &76831011153280875
 GameObject:
   m_ObjectHideFlags: 0
@@ -233,11 +267,22 @@ MonoBehaviour:
   - {fileID: 21300000, guid: e777c65096847dc4fa945ee01ee2f127, type: 3}
   _avatar: {fileID: 1032035602824215639}
   _name: {fileID: 76831011783826320}
-  _ready: {fileID: 76831010736313832}
+  _ready: {fileID: 6437989830803617763}
+  _rReady:
+    m_TableReference:
+      m_TableCollectionName: GUID:4d1c3d2d9f1ff0d47a9a0aee9292d90a
+    m_TableEntryReference:
+      m_KeyId: 342728569868288
+      m_Key: 
+  _rNotReady:
+    m_TableReference:
+      m_TableCollectionName: GUID:4d1c3d2d9f1ff0d47a9a0aee9292d90a
+    m_TableEntryReference:
+      m_KeyId: 6862101478232064
+      m_Key: 
   _highlight: {fileID: 2597889579148092546}
   _kickButton: {fileID: 3992570733286383168}
-  _autoUpdate: 1
-  _autoUpdateInterval: 0.2
+  characterAlreadySelected: 0
 --- !u!1 &76831011783826322
 GameObject:
   m_ObjectHideFlags: 0

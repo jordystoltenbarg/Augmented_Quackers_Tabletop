@@ -5,11 +5,16 @@ using UnityEngine.UI;
 
 public class VasilPlayer : MonoBehaviour
 {
-    [SerializeField] private Sprite _characterImage = null;
+    [Header("Turn Related")]
+    [SerializeField] private GameObject[] _turnOrderPositionPrefabs = null;
+    [SerializeField] private Material[] _emissionMaterials = null;
+    private Sprite _characterImage = null;
     public Sprite CharacterImage => _characterImage;
-    [SerializeField] private GameObject _turnOrderPositionPrefab = null;
+    private GameObject _turnOrderPositionPrefab = null;
     public GameObject TurnOrderPositionPrefab => _turnOrderPositionPrefab;
-    [SerializeField] private string _playerName = "";
+    [Header("Pawns")]
+    [SerializeField] private GameObject[] _pawnPrefabs = null;
+    private string _playerName = "";
     public string PlayerName => _playerName;
 
     [HideInInspector] public int turnsToSkip = 0;
@@ -27,33 +32,32 @@ public class VasilPlayer : MonoBehaviour
     private Pawn _pawn;
     public Pawn Pawn => _pawn;
 
-    private void Start()
+    public void Init(int pLobbyIndex, int pSelectedCharacterIndex, int pColorVariation)
     {
-        FindObjectOfType<TurnOrderManager>().GetComponent<TurnOrderManager>().Init();
+        GameObject pawn = Instantiate(_pawnPrefabs[pSelectedCharacterIndex],
+                                      GameObject.Find("Tile").transform.GetChild(pLobbyIndex).transform.position,
+                                      GameObject.Find("Tile").transform.GetChild(pLobbyIndex).transform.rotation,
+                                      GameObject.Find("In-GameBoard").transform);
+        _pawn = pawn.GetComponent<Pawn>();
+        _pawn.SetPlayer(this);
+        _turnOrderPositionPrefab = _turnOrderPositionPrefabs[pColorVariation];
+        _characterImage = _turnOrderPositionPrefab.GetComponentInChildren<Image>().sprite;
+        _turnOrderPositionPrefab.GetComponentInChildren<TurnOrderPlayerAvatar>().SetPlayer(this);
 
-        GameObject.Find("RollButton").GetComponent<Button>().onClick.AddListener(() => RollDieInput());
-    }
-
-    private void OnEnable()
-    {
         //RollDie.onDieRolled += onDieRolled;
         Pawn.onPawnReachedTileEvent += onPawnReachedTileEvent;
         Pawn.onPawnReachedRegularTile += onPawnReachedRegularTile;
-        _turnOrderPositionPrefab.GetComponentInChildren<TurnOrderPlayerAvatar>().SetPlayer(this);
+        GameObject.Find("RollButton").GetComponent<Button>().onClick.AddListener(() => RollDieInput());
 
-        Pawn[] pawns = FindObjectsOfType(typeof(Pawn)) as Pawn[];
-        for (int i = 0; i < pawns.Length; i++)
-        {
-            if (pawns[i].name == _playerName)
-            {
-                _pawn = pawns[i];
-                _pawn.SetPlayer(this);
-                break;
-            }
-        }
+        Invoke(nameof(initTOM), 0.25f);
     }
 
-    private void OnDisable()
+    private void initTOM()
+    {
+        FindObjectOfType<TurnOrderManager>().Init();
+    }
+
+    private void OnDestroy()
     {
         //RollDie.onDieRolled -= onDieRolled;
         Pawn.onPawnReachedTileEvent -= onPawnReachedTileEvent;
@@ -83,6 +87,16 @@ public class VasilPlayer : MonoBehaviour
             _canRollAgain = false;
     }
 
+    public void RollDieInput(Vector2 pDieTossValues)
+    {
+        if (!_hasCurrentTurn || !_canRollAgain) return;
+
+        RollTheDie(pDieTossValues);
+        _dieRolls--;
+        if (_dieRolls <= 0)
+            _canRollAgain = false;
+    }
+
     public int RollForInitialive(int pSides = 6)
     {
         int rand = Random.Range(1, pSides + 1);
@@ -91,12 +105,23 @@ public class VasilPlayer : MonoBehaviour
 
     public void RollTheDie()
     {
-        RollDie die = FindObjectOfType(typeof(RollDie)) as RollDie;
+        RollDie die = FindObjectOfType<RollDie>();
         die.StartCoroutine(die.RollRandom());
+    }
+
+    public void RollTheDie(Vector2 pDieTossValues)
+    {
+        RollDie die = FindObjectOfType<RollDie>();
+        die.StartCoroutine(die.RollWithValues(pDieTossValues));
     }
 
     public void StartTurn()
     {
+        if (GetComponent<TTPlayer>().isLocalPlayer)
+            GameObject.Find("RollButton").GetComponent<Image>().enabled = true;
+        else
+            GameObject.Find("RollButton").GetComponent<Image>().enabled = false;
+
         _hasCurrentTurn = true;
         _isOutOfActions = false;
 
@@ -104,7 +129,7 @@ public class VasilPlayer : MonoBehaviour
         _canRollAgain = true;
 
         GameObject.Find("DieRoll").GetComponent<TextMeshProUGUI>().text = string.Format("{0} press 'R' roll your die", _playerName);
-        StartCoroutine(lerpToColor(_pawn.GetComponent<Renderer>().material.color));
+        StartCoroutine(lerpToColor(_emissionMaterials[0].color));
     }
 
     public void EndTurn()

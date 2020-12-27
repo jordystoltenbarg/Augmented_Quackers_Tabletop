@@ -1,5 +1,7 @@
 ﻿using Mirror;
 using System;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class TTPlayer : NetworkBehaviour
@@ -21,6 +23,11 @@ public class TTPlayer : NetworkBehaviour
     public int ColorVariation => _colorVariation;
     [SyncVar] private bool _hostedServerIsPrivate = false;
     public bool HostedServerIsPrivate => _hostedServerIsPrivate;
+    [SyncVar] private bool _hasLoaded = false;
+    public bool HasLoaded => _hasLoaded;
+    [SyncVar] private Vector3 _diePosition = Vector3.zero;
+    public Vector3 DiePosition => _diePosition;
+
     [HideInInspector] public bool hasBeenKicked = false;
 
     private TTNetworkManagerListServer _manager = null;
@@ -31,6 +38,8 @@ public class TTPlayer : NetworkBehaviour
 
         Invoke(nameof(lobbyUIAddPlayer), 0.5f);
         DontDestroyOnLoad(gameObject);
+
+        Invoke(nameof(setGOName), 2f);
     }
 
     private void lobbyUIAddPlayer()
@@ -88,6 +97,14 @@ public class TTPlayer : NetworkBehaviour
     private void Update()
     {
         if (!isLocalPlayer) return;
+    }
+
+    private void setGOName()
+    {
+        if (_lobbyIndex == 0)
+            gameObject.name = (isLocalPlayer) ? $"Host/LocalPlayer ({_playerName})" : $"Host ({_playerName})";
+        else
+            gameObject.name = (isLocalPlayer) ? $"LocalPlayer ({_playerName})" : $"Client:{_lobbyIndex} ({_playerName})";
     }
 
     private void changePlayerName(string pNewName)
@@ -200,5 +217,63 @@ public class TTPlayer : NetworkBehaviour
 
         LocalPlayer.hasBeenKicked = true;
         NetworkManager.singleton.StopClient();
+    }
+
+    public void StartGame()
+    {
+        cmdStartGame();
+    }
+
+    [Command]
+    private void cmdStartGame()
+    {
+        clientStartGame();
+    }
+
+    [ClientRpc]
+    private void clientStartGame()
+    {
+        TTSettingsManager.Singleton.LobbyCamera.gameObject.SetActive(false);
+        GameObject canvas = GameObject.Find("Canvas");
+        canvas.transform.Find("LobbyUI").gameObject.SetActive(false);
+        canvas.transform.Find("In-GameUI").gameObject.SetActive(true);
+        TTSettingsManager.Singleton.InGameCamera.gameObject.SetActive(true);
+        foreach (TTPlayer player in TTSettingsManager.Singleton.players)
+            player.InitializeBoard();
+    }
+
+    public void InitializeBoard()
+    {
+        GetComponent<VasilPlayer>().Init(_lobbyIndex, _selectedCharacterIndex, _colorVariation); ;
+    }
+
+    private IEnumerator loading()
+    {
+        yield return null;
+        cmdFinshedLoading();
+    }
+
+    [Command]
+    private void cmdFinshedLoading()
+    {
+        _hasLoaded = true;
+    }
+
+    public void TossDie(Vector2 pDieTossValues)
+    {
+        cmdTossDie(pDieTossValues);
+    }
+
+    [Command]
+    private void cmdTossDie(Vector2 pDieTossValues)
+    {
+        clientTossDie(pDieTossValues);
+    }
+
+    [ClientRpc]
+    private void clientTossDie(Vector2 pDieTossValues)
+    {
+        if (isLocalPlayer) return;
+        GetComponent<VasilPlayer>().RollDieInput(pDieTossValues);
     }
 }

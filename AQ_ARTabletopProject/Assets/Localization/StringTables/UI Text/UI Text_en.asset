@@ -141,5 +141,9 @@ MonoBehaviour:
     m_Localized: Choose a different character
     m_Metadata:
       m_Items: []
+  - m_Id: 6862101478232064
+    m_Localized: Not Ready
+    m_Metadata:
+      m_Items: []
   references:
     version: 1

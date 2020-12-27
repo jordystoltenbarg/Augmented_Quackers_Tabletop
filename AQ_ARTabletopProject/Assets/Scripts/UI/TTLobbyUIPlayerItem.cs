@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Localization;
+using UnityEngine.Localization.Components;
 using UnityEngine.UI;
 
 public class TTLobbyUIPlayerItem : MonoBehaviour
@@ -15,7 +17,10 @@ public class TTLobbyUIPlayerItem : MonoBehaviour
     [SerializeField] private Image _avatar = null;
     public Image Avatar => _avatar;
     [SerializeField] private TextMeshProUGUI _name;
-    [SerializeField] private TextMeshProUGUI _ready;
+    [SerializeField] private LocalizeStringEvent _ready;
+    [SerializeField] private LocalizedString _rReady;
+    [SerializeField] private LocalizedString _rNotReady;
+
     [SerializeField] private GameObject _highlight;
     [SerializeField] private Button _kickButton;
     [HideInInspector] public bool characterAlreadySelected = false;
@@ -31,8 +36,7 @@ public class TTLobbyUIPlayerItem : MonoBehaviour
         StartCoroutine(setPlayerColorVariation());
         _avatar.enabled = false;
         _name.text = _player.PlayerName;
-        //_ready.text = (pPLayer.isReady) ? "Ready" : "Not Ready";
-        _ready.text = _player.LobbyIndex.ToString();
+        _ready.StringReference = _rNotReady;
 
         if (pPLayer == TTPlayer.LocalPlayer)
             _highlight.SetActive(true);
@@ -100,7 +104,7 @@ public class TTLobbyUIPlayerItem : MonoBehaviour
             }
         }
         _name.text = _player.PlayerName;
-        _ready.text = _player.LobbyIndex.ToString();
+        _ready.StringReference = (_player.IsReady) ? _rReady : _rNotReady;
     }
 
     private void updateContent(string pNewName)
