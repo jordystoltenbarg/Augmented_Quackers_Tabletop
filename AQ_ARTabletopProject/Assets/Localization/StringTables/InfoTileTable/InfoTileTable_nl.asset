@@ -19,11 +19,101 @@ MonoBehaviour:
     m_Items: []
   m_TableData:
   - m_Id: 22402158592
-    m_Localized: kak
+    m_Localized: Wist jij dat vleermuizen zoogdieren zijn?
     m_Metadata:
       m_Items: []
   - m_Id: 144921972736
-    m_Localized: jj
+    m_Localized: Het geraamte van een vleermuis lijkt het meest op een mens.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 34098045865984
+    m_Localized: Vleermuizen zijn opzicht niet gevaarlijk. Alleen zieke vleermuizen
+      zijn gevaarlijk.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 34113950666752
+    m_Localized: In Nederland mag je vleermuizen niet verjagen. Want vleermuizen
+      zijn bij wet beschermd.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 34145399558144
+    m_Localized: Om veiliger te zijn voor aanvallers en om sneller weg te kunnen
+      vliegen hangen vleermuizen graag ondersteboven.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 34161224667136
+    m_Localized: Wist jij dat vleermuizen poept tijdens het vliegen?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 34177909608448
+    m_Localized: Er worden vaak in de nieuwbouwwijken vleermuiskasten opgehangen.
+      Omdat vleermuizen hun veilige plek in een boom, hol of oude boerderij kwijt
+      zijn geraakt.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 34194489692160
+    m_Localized: Een grote groep vleermuizen heet een kolonie.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 34209429803008
+    m_Localized: De kleinste vleermuis dat bestaat is een hommelvleermuis.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 34220641177600
+    m_Localized: De spanwijdte van de grootste vleermuis is ongeveer 2 meter groot.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 34234755010560
+    m_Localized: Vleermuizen vliegen tegen nergens aan door het gebruik van echolocatie
+      en ziet dus eigenlijk met zijn oren.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 34246784274432
+    m_Localized: Vleermuizen gaan in winterslaap wanneer het 10 graden vorst in de
+      winter.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 34264312270848
+    m_Localized: Natuurpark Kronenkamp zet aardwarmte en zonnepanelen in om energieneutraal
+      te zijn.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 34275506868224
+    m_Localized: Wist jij dat Natuurpark Kronenkamp draagt bij aan klimaatbeheersing
+      en economische groeibeheersing?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 34285908742144
+    m_Localized: Vitamine G wordt steeds meer beschouwd als de natuur(het groen)
+    m_Metadata:
+      m_Items: []
+  - m_Id: 34295715024896
+    m_Localized: Wist jij dat de woudolifant het grootste landdier is dat 10 miljoen
+      jaar geleden heeft geleefd in de Needse Berg?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 34309061300224
+    m_Localized: De eerste nederzetting rond de Needse Berg vond plaats rond 3000
+      - 1100 voor Christus.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 34318162939904
+    m_Localized: De kerk van Neede is gebouwd rond 1235 na Christus.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 34329240096768
+    m_Localized: Wist jij dat het waterzuiveringsproces in Neede zich afspeelde tussen
+      het jaar van 1954 - 2002?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 34339067351040
+    m_Localized: 1 van de filters in Kronenkamp is omgebouwd tot een educatie- en 
+      tentoonstellingsruimte
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36981239795712
+    m_Localized: Sinds 2003 wordt de oude rioolwaterzuivering in Neede niet meer
+      gebruikt.
     m_Metadata:
       m_Items: []
   references:
