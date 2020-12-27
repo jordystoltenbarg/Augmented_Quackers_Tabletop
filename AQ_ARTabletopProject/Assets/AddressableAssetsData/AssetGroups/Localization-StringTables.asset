@@ -59,6 +59,20 @@ MonoBehaviour:
     - Locale-en
     m_MainAsset: {fileID: 0}
     m_TargetAsset: {fileID: 0}
+  - m_GUID: cdc8104f556f4354fa3343fda3d03729
+    m_Address: QuestionsTable_nl
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-nl
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: 2c992752bb517fd4a8d4a5d4a20c46dd
+    m_Address: QuestionsTable_en
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
   m_ReadOnly: 1
   m_Settings: {fileID: 11400000, guid: 7a45fdb5473fe2e4f8b27353762f8feb, type: 2}
   m_SchemaSet:
