@@ -1351,7 +1351,7 @@ Transform:
   - {fileID: 6152276873325661476}
   - {fileID: 5775695439260132206}
   m_Father: {fileID: 2462993414445675483}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &584792331853817515
 GameObject:
@@ -1471,7 +1471,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 677240941277249181}
   m_LocalRotation: {x: 0.70772356, y: 0, z: 0, w: 0.7064895}
-  m_LocalPosition: {x: 0, y: 0, z: -14}
+  m_LocalPosition: {x: 0, y: 0, z: -12.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5775695439260132206}
@@ -1479,7 +1479,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 90.1, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -570.2, y: -266.5}
+  m_AnchoredPosition: {x: -728, y: -317.5}
   m_SizeDelta: {x: 10.380608, y: 10.127714}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8456348626891288293
@@ -3062,7 +3062,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1350720475072968405}
   m_LocalRotation: {x: 0.70772356, y: 0, z: 0, w: 0.7064895}
-  m_LocalPosition: {x: 0, y: 0, z: -64.6}
+  m_LocalPosition: {x: 0, y: 0, z: -63.299995}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5775695439260132206}
@@ -3070,7 +3070,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 90.1, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -531.7, y: -270}
+  m_AnchoredPosition: {x: -689.49994, y: -321}
   m_SizeDelta: {x: 21.202347, y: 10.2143955}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6069201474906522201
@@ -4660,7 +4660,7 @@ GameObject:
   - component: {fileID: 4861187375137645637}
   m_Layer: 0
   m_Name: Tile (22)
-  m_TagString: Untagged
+  m_TagString: PositiveTile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4737,7 +4737,7 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 7317253298261729006, guid: a8d81afae9d84c94eb0c1f304e015b2e, type: 3}
 --- !u!114 &1100701793642244631
@@ -5240,7 +5240,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2275861090039435267}
   m_LocalRotation: {x: 0.70772356, y: 0, z: 0, w: 0.7064895}
-  m_LocalPosition: {x: 0, y: 0, z: 51.2}
+  m_LocalPosition: {x: 0, y: 0, z: 52.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5775695439260132206}
@@ -5248,7 +5248,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 90.1, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -522.5, y: -267.17}
+  m_AnchoredPosition: {x: -680.3, y: -318.17}
   m_SizeDelta: {x: 13.821327, y: 7.6233616}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &9221393555650150496
@@ -5692,7 +5692,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2357882351609185914}
   m_LocalRotation: {x: 0.70772356, y: 0, z: 0, w: 0.7064895}
-  m_LocalPosition: {x: 0, y: 0, z: 58.35}
+  m_LocalPosition: {x: 0, y: 0, z: 59.65}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5775695439260132206}
@@ -5700,7 +5700,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 90.1, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -463.29, y: -266.47}
+  m_AnchoredPosition: {x: -621.08997, y: -317.47}
   m_SizeDelta: {x: 13.821327, y: 7.6233616}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5390915004994312276
@@ -6138,6 +6138,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 8660258337315177503}
   - {fileID: 2462993414778970003}
   - {fileID: 2462993414564645747}
   - {fileID: 576918487370576347}
@@ -6255,7 +6256,7 @@ Transform:
   - {fileID: 5437425108407166971}
   - {fileID: 5437425107801278045}
   m_Father: {fileID: 2462993414445675483}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2462993414564645746
 MonoBehaviour:
@@ -6285,7 +6286,7 @@ GameObject:
   - component: {fileID: 5437425108657238720}
   m_Layer: 0
   m_Name: EventTile (5)
-  m_TagString: Untagged
+  m_TagString: QuestionTile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6362,7 +6363,7 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 5302568919011541938, guid: 06288311c60c094438b6ffe3bff93185, type: 3}
 --- !u!114 &2462993414599000086
@@ -6410,7 +6411,7 @@ GameObject:
   - component: {fileID: 3859643829235050758}
   m_Layer: 0
   m_Name: Tile (17)
-  m_TagString: Untagged
+  m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6487,7 +6488,7 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 5302568919011541938, guid: 06288311c60c094438b6ffe3bff93185, type: 3}
 --- !u!114 &2462993414602913418
@@ -6531,7 +6532,7 @@ GameObject:
   - component: {fileID: 1253285063225184987}
   m_Layer: 0
   m_Name: Tile (2)
-  m_TagString: Untagged
+  m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6608,7 +6609,7 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 7317253298261729006, guid: a8d81afae9d84c94eb0c1f304e015b2e, type: 3}
 --- !u!114 &2462993414608362123
@@ -6652,7 +6653,7 @@ GameObject:
   - component: {fileID: 8063950765961571142}
   m_Layer: 0
   m_Name: Tile (33)
-  m_TagString: Untagged
+  m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6729,7 +6730,7 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 7375087399646436070, guid: 5896529e8ea686b41b3ad11b0293349a, type: 3}
 --- !u!114 &2462993414759514888
@@ -6789,7 +6790,7 @@ Transform:
   m_Children:
   - {fileID: 2462993414929830681}
   m_Father: {fileID: 2462993414445675483}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2462993414778970000
 MeshFilter:
@@ -6868,7 +6869,7 @@ GameObject:
   - component: {fileID: 6649231797250893461}
   m_Layer: 0
   m_Name: Tile (20)
-  m_TagString: Untagged
+  m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6945,7 +6946,7 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 3369316746193770658, guid: 079488d7b325300418e25a1593d43c66, type: 3}
 --- !u!114 &2462993414817266748
@@ -6989,7 +6990,7 @@ GameObject:
   - component: {fileID: 1938598042410085224}
   m_Layer: 0
   m_Name: Tile (14)
-  m_TagString: Untagged
+  m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7066,7 +7067,7 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 7317253298261729006, guid: a8d81afae9d84c94eb0c1f304e015b2e, type: 3}
 --- !u!114 &2462993414868482213
@@ -7110,7 +7111,7 @@ GameObject:
   - component: {fileID: 7442400918956784467}
   m_Layer: 0
   m_Name: Tile (28)
-  m_TagString: Untagged
+  m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7187,7 +7188,7 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 7317253298261729006, guid: a8d81afae9d84c94eb0c1f304e015b2e, type: 3}
 --- !u!114 &2462993414897701435
@@ -7401,7 +7402,7 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 3369316746193770658, guid: 079488d7b325300418e25a1593d43c66, type: 3}
 --- !u!114 &2462993414967826749
@@ -7432,7 +7433,7 @@ GameObject:
   - component: {fileID: 2997060867576912139}
   m_Layer: 0
   m_Name: Tile (18)
-  m_TagString: Untagged
+  m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7509,7 +7510,7 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 7317253298261729006, guid: a8d81afae9d84c94eb0c1f304e015b2e, type: 3}
 --- !u!114 &2462993414970010804
@@ -7553,7 +7554,7 @@ GameObject:
   - component: {fileID: 2462993415025286724}
   m_Layer: 0
   m_Name: QuizTile (21)
-  m_TagString: Untagged
+  m_TagString: QuestionTile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7631,7 +7632,7 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -2432090755550338912, guid: 704390662a7f3dd4799d04f4f23279f1, type: 3}
 --- !u!114 &2462993415025287097
@@ -7675,7 +7676,7 @@ GameObject:
   - component: {fileID: 2462993415105046201}
   m_Layer: 0
   m_Name: QuizTile (8)
-  m_TagString: Untagged
+  m_TagString: QuestionTile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7753,7 +7754,7 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -2432090755550338912, guid: 704390662a7f3dd4799d04f4f23279f1, type: 3}
 --- !u!114 &2462993415105046198
@@ -7797,7 +7798,7 @@ GameObject:
   - component: {fileID: 2462993415125793998}
   m_Layer: 0
   m_Name: EventTile (31)
-  m_TagString: Untagged
+  m_TagString: NegativeTile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7887,7 +7888,7 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 5302568919011541938, guid: 06288311c60c094438b6ffe3bff93185, type: 3}
 --- !u!114 &2462993415125793995
@@ -7935,7 +7936,7 @@ GameObject:
   - component: {fileID: 4120316463798894909}
   m_Layer: 0
   m_Name: Tile (3)
-  m_TagString: Untagged
+  m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8012,7 +8013,7 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 7375087399646436070, guid: 5896529e8ea686b41b3ad11b0293349a, type: 3}
 --- !u!114 &2462993415216157351
@@ -8056,7 +8057,7 @@ GameObject:
   - component: {fileID: 2462993415301611872}
   m_Layer: 0
   m_Name: QuizTile (15)
-  m_TagString: Untagged
+  m_TagString: QuestionTile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8134,7 +8135,7 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -2432090755550338912, guid: 704390662a7f3dd4799d04f4f23279f1, type: 3}
 --- !u!114 &2462993415301611877
@@ -8178,7 +8179,7 @@ GameObject:
   - component: {fileID: 3452512460692703408}
   m_Layer: 0
   m_Name: Tile (24)
-  m_TagString: Untagged
+  m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8255,7 +8256,7 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 7317253298261729006, guid: a8d81afae9d84c94eb0c1f304e015b2e, type: 3}
 --- !u!114 &2462993415345785902
@@ -8299,7 +8300,7 @@ GameObject:
   - component: {fileID: 7500274904082553911}
   m_Layer: 0
   m_Name: Tile (10)
-  m_TagString: Untagged
+  m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8376,7 +8377,7 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 7317253298261729006, guid: a8d81afae9d84c94eb0c1f304e015b2e, type: 3}
 --- !u!114 &2462993415378023329
@@ -8420,7 +8421,7 @@ GameObject:
   - component: {fileID: 7439039586849145057}
   m_Layer: 0
   m_Name: Tile (4)
-  m_TagString: Untagged
+  m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8497,7 +8498,7 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 3369316746193770658, guid: 079488d7b325300418e25a1593d43c66, type: 3}
 --- !u!114 &2462993415423346539
@@ -8541,7 +8542,7 @@ GameObject:
   - component: {fileID: 2462993415430148120}
   m_Layer: 0
   m_Name: QuizTile (30)
-  m_TagString: Untagged
+  m_TagString: QuestionTile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8619,7 +8620,7 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -2432090755550338912, guid: 704390662a7f3dd4799d04f4f23279f1, type: 3}
 --- !u!114 &2462993415430148125
@@ -8663,7 +8664,7 @@ GameObject:
   - component: {fileID: 1735681944377399185}
   m_Layer: 0
   m_Name: Tile (25)
-  m_TagString: Untagged
+  m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8740,7 +8741,7 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 7375087399646436070, guid: 5896529e8ea686b41b3ad11b0293349a, type: 3}
 --- !u!114 &2462993415614133356
@@ -8784,7 +8785,7 @@ GameObject:
   - component: {fileID: 6801993184400042662}
   m_Layer: 0
   m_Name: Tile (7)
-  m_TagString: Untagged
+  m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8861,7 +8862,7 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 7375087399646436070, guid: 5896529e8ea686b41b3ad11b0293349a, type: 3}
 --- !u!114 &2462993415651383497
@@ -8905,7 +8906,7 @@ GameObject:
   - component: {fileID: 2462993415874664599}
   m_Layer: 0
   m_Name: QuizTile (26)
-  m_TagString: Untagged
+  m_TagString: QuestionTile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8983,7 +8984,7 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -2432090755550338912, guid: 704390662a7f3dd4799d04f4f23279f1, type: 3}
 --- !u!114 &2462993415874664596
@@ -9027,7 +9028,7 @@ GameObject:
   - component: {fileID: 7439024250387757143}
   m_Layer: 0
   m_Name: Tile (6)
-  m_TagString: Untagged
+  m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9104,7 +9105,7 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 7317253298261729006, guid: a8d81afae9d84c94eb0c1f304e015b2e, type: 3}
 --- !u!114 &2462993416034482723
@@ -9148,7 +9149,7 @@ GameObject:
   - component: {fileID: 2462993416070139399}
   m_Layer: 0
   m_Name: EventTile (12)
-  m_TagString: Untagged
+  m_TagString: NegativeTile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9225,7 +9226,7 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 3369316746193770658, guid: 079488d7b325300418e25a1593d43c66, type: 3}
 --- !u!114 &2462993416070139396
@@ -9274,7 +9275,7 @@ GameObject:
   - component: {fileID: 2948345890067810834}
   m_Layer: 0
   m_Name: Tile (27)
-  m_TagString: Untagged
+  m_TagString: NegativeTile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9351,7 +9352,7 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 5302568919011541938, guid: 06288311c60c094438b6ffe3bff93185, type: 3}
 --- !u!114 &2462993416094781298
@@ -9412,7 +9413,7 @@ GameObject:
   - component: {fileID: 7650951177769761429}
   m_Layer: 0
   m_Name: Tile (19)
-  m_TagString: Untagged
+  m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9489,7 +9490,7 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 7375087399646436070, guid: 5896529e8ea686b41b3ad11b0293349a, type: 3}
 --- !u!114 &2462993416114095042
@@ -9533,7 +9534,7 @@ GameObject:
   - component: {fileID: 6548825593020058437}
   m_Layer: 0
   m_Name: Tile (1)
-  m_TagString: Untagged
+  m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9610,7 +9611,7 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 5302568919011541938, guid: 06288311c60c094438b6ffe3bff93185, type: 3}
 --- !u!114 &2462993416130238160
@@ -9654,7 +9655,7 @@ GameObject:
   - component: {fileID: 3991675750377611798}
   m_Layer: 0
   m_Name: Tile (29)
-  m_TagString: Untagged
+  m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9731,7 +9732,7 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 7375087399646436070, guid: 5896529e8ea686b41b3ad11b0293349a, type: 3}
 --- !u!114 &2462993416135945092
@@ -9775,7 +9776,7 @@ GameObject:
   - component: {fileID: 1542471619328310047}
   m_Layer: 0
   m_Name: Tile (32)
-  m_TagString: Untagged
+  m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9852,7 +9853,7 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 7317253298261729006, guid: a8d81afae9d84c94eb0c1f304e015b2e, type: 3}
 --- !u!114 &2462993416322324168
@@ -9896,7 +9897,7 @@ GameObject:
   - component: {fileID: 2462993416413718096}
   m_Layer: 0
   m_Name: EventTile (16)
-  m_TagString: Untagged
+  m_TagString: PositiveTile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9979,7 +9980,7 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 3369316746193770658, guid: 079488d7b325300418e25a1593d43c66, type: 3}
 --- !u!114 &2462993416413718101
@@ -10027,7 +10028,7 @@ GameObject:
   - component: {fileID: 4809156118939432002}
   m_Layer: 0
   m_Name: Tile (9)
-  m_TagString: Untagged
+  m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10104,7 +10105,7 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 5302568919011541938, guid: 06288311c60c094438b6ffe3bff93185, type: 3}
 --- !u!114 &2462993416500329787
@@ -10148,7 +10149,7 @@ GameObject:
   - component: {fileID: 3374178069091951450}
   m_Layer: 0
   m_Name: Tile (13)
-  m_TagString: Untagged
+  m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10225,7 +10226,7 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 5302568919011541938, guid: 06288311c60c094438b6ffe3bff93185, type: 3}
 --- !u!114 &2462993416502509081
@@ -10269,7 +10270,7 @@ GameObject:
   - component: {fileID: 5871920239968373713}
   m_Layer: 0
   m_Name: Tile (11)
-  m_TagString: Untagged
+  m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10346,7 +10347,7 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 7375087399646436070, guid: 5896529e8ea686b41b3ad11b0293349a, type: 3}
 --- !u!114 &2462993416513030105
@@ -10400,7 +10401,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2603332990858383695}
   m_LocalRotation: {x: 0.70772356, y: 0, z: 0, w: 0.7064895}
-  m_LocalPosition: {x: 0, y: 0, z: 38.3}
+  m_LocalPosition: {x: 0, y: 0, z: 39.6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5775695439260132206}
@@ -10408,7 +10409,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 90.1, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -521.1, y: -266.6}
+  m_AnchoredPosition: {x: -678.89996, y: -317.6}
   m_SizeDelta: {x: 10.380608, y: 10.127714}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &9078435929398350521
@@ -10685,7 +10686,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2680369461296369372}
   m_LocalRotation: {x: 0.70772356, y: 0, z: 0, w: 0.7064895}
-  m_LocalPosition: {x: 0, y: 0, z: 58}
+  m_LocalPosition: {x: 0, y: 0, z: 59.300003}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5775695439260132206}
@@ -10693,7 +10694,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 90.1, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -547.4, y: -257.91}
+  m_AnchoredPosition: {x: -705.2, y: -308.91}
   m_SizeDelta: {x: 15.345264, y: 9.023611}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2031258981040750835
@@ -11325,7 +11326,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3240619708076496651}
   m_LocalRotation: {x: 0.70772356, y: 0, z: 0, w: 0.7064895}
-  m_LocalPosition: {x: 0, y: 0, z: 3.7}
+  m_LocalPosition: {x: 0, y: 0, z: 5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5775695439260132206}
@@ -11333,7 +11334,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 90.1, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -519.8, y: -269.1}
+  m_AnchoredPosition: {x: -677.5999, y: -320.1}
   m_SizeDelta: {x: 13.821327, y: 7.6233616}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &295134133441787561
@@ -13060,6 +13061,50 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!1 &4308925372580985577
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8660258337315177503}
+  - component: {fileID: 8671504671889530502}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8660258337315177503
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4308925372580985577}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.66845095, y: 42.411106, z: 48.20721}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2462993414445675483}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8671504671889530502
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4308925372580985577}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea9dbedf2cad43f4b953bce7175dfc38, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds: []
 --- !u!1 &4311970821555586071
 GameObject:
   m_ObjectHideFlags: 0
@@ -13709,7 +13754,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4435795955110204510}
   m_LocalRotation: {x: 0.70772356, y: 0, z: 0, w: 0.7064895}
-  m_LocalPosition: {x: 0, y: 0, z: 31.59}
+  m_LocalPosition: {x: 0, y: 0, z: 32.89}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5775695439260132206}
@@ -13717,7 +13762,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 90.1, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -604.8, y: -264.38}
+  m_AnchoredPosition: {x: -762.5999, y: -315.38}
   m_SizeDelta: {x: 10.380608, y: 10.127714}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &717578974406916226
@@ -15625,7 +15670,7 @@ GameObject:
   - component: {fileID: 6354590036715783810}
   m_Layer: 0
   m_Name: Tile (40)
-  m_TagString: Untagged
+  m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15702,7 +15747,7 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 7317253298261729006, guid: a8d81afae9d84c94eb0c1f304e015b2e, type: 3}
 --- !u!114 &5437425107096302979
@@ -15745,7 +15790,7 @@ GameObject:
   - component: {fileID: 5437425107193935913}
   m_Layer: 0
   m_Name: TileShortcut
-  m_TagString: Untagged
+  m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -16280,7 +16325,7 @@ GameObject:
   - component: {fileID: 5437425107433433894}
   m_Layer: 0
   m_Name: TileShortcut (5)
-  m_TagString: Untagged
+  m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -16495,7 +16540,7 @@ GameObject:
   - component: {fileID: 3494255480211562826}
   m_Layer: 0
   m_Name: Tile (35)
-  m_TagString: Untagged
+  m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -16572,7 +16617,7 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 5302568919011541938, guid: 06288311c60c094438b6ffe3bff93185, type: 3}
 --- !u!114 &5437425107502283980
@@ -16616,7 +16661,7 @@ GameObject:
   - component: {fileID: 6394592934678465566}
   m_Layer: 0
   m_Name: Tile (41)
-  m_TagString: Untagged
+  m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -16693,7 +16738,7 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 7375087399646436070, guid: 5896529e8ea686b41b3ad11b0293349a, type: 3}
 --- !u!114 &5437425107513308160
@@ -17272,7 +17317,7 @@ GameObject:
   - component: {fileID: 5437425107720708979}
   m_Layer: 0
   m_Name: TileShortcut (3)
-  m_TagString: Untagged
+  m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -17487,7 +17532,7 @@ GameObject:
   - component: {fileID: 1262072242666061480}
   m_Layer: 0
   m_Name: Tile (34)
-  m_TagString: Untagged
+  m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -17564,7 +17609,7 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 3369316746193770658, guid: 079488d7b325300418e25a1593d43c66, type: 3}
 --- !u!114 &5437425107750240623
@@ -17608,7 +17653,7 @@ GameObject:
   - component: {fileID: 4223292850341936639}
   m_Layer: 0
   m_Name: Tile (43)
-  m_TagString: Untagged
+  m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -17685,7 +17730,7 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 5302568919011541938, guid: 06288311c60c094438b6ffe3bff93185, type: 3}
 --- !u!114 &5437425107757458691
@@ -17729,7 +17774,7 @@ GameObject:
   - component: {fileID: 4599367742817205626}
   m_Layer: 0
   m_Name: Tile (51)
-  m_TagString: Untagged
+  m_TagString: PositiveTile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -17806,7 +17851,7 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 3369316746193770658, guid: 079488d7b325300418e25a1593d43c66, type: 3}
 --- !u!114 &5437425107801278046
@@ -17850,7 +17895,7 @@ GameObject:
   - component: {fileID: 5437425107853757076}
   m_Layer: 0
   m_Name: EventTile (36)
-  m_TagString: Untagged
+  m_TagString: NegativeTile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -17927,7 +17972,7 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 7317253298261729006, guid: a8d81afae9d84c94eb0c1f304e015b2e, type: 3}
 --- !u!114 &5437425107853757077
@@ -17974,7 +18019,7 @@ GameObject:
   - component: {fileID: 5437425107883913456}
   m_Layer: 0
   m_Name: TileShortcut (4)
-  m_TagString: Untagged
+  m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -18082,7 +18127,7 @@ GameObject:
   - component: {fileID: 7194206087042175441}
   m_Layer: 0
   m_Name: Tile (48)
-  m_TagString: Untagged
+  m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -18159,7 +18204,7 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 3369316746193770658, guid: 079488d7b325300418e25a1593d43c66, type: 3}
 --- !u!114 &5437425107890297283
@@ -18738,7 +18783,7 @@ GameObject:
   - component: {fileID: 5437425108177251640}
   m_Layer: 0
   m_Name: EventTile (47)
-  m_TagString: Untagged
+  m_TagString: NegativeTile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -18815,7 +18860,7 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 3369316746193770658, guid: 079488d7b325300418e25a1593d43c66, type: 3}
 --- !u!114 &5437425108177251641
@@ -19076,7 +19121,7 @@ GameObject:
   - component: {fileID: 5437425108290809883}
   m_Layer: 0
   m_Name: TileShortcut (1)
-  m_TagString: Untagged
+  m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -19184,7 +19229,7 @@ GameObject:
   - component: {fileID: 5437425108395265890}
   m_Layer: 0
   m_Name: QuizTile (38)
-  m_TagString: Untagged
+  m_TagString: QuestionTile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -19263,7 +19308,7 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -5076798556035486163, guid: 100560191922fbb4ca6d311cd843f84b, type: 3}
 --- !u!114 &5437425108395265891
@@ -19414,7 +19459,7 @@ GameObject:
   - component: {fileID: 1473004705098905151}
   m_Layer: 0
   m_Name: Tile (50)
-  m_TagString: Untagged
+  m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -19491,7 +19536,7 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 3369316746193770658, guid: 079488d7b325300418e25a1593d43c66, type: 3}
 --- !u!114 &5437425108407166852
@@ -19535,7 +19580,7 @@ GameObject:
   - component: {fileID: 7892754432630274526}
   m_Layer: 0
   m_Name: Tile (49)
-  m_TagString: Untagged
+  m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -19612,7 +19657,7 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 3369316746193770658, guid: 079488d7b325300418e25a1593d43c66, type: 3}
 --- !u!114 &5437425108468123294
@@ -19763,7 +19808,7 @@ GameObject:
   - component: {fileID: 5437425108495871608}
   m_Layer: 0
   m_Name: QuizTile (46)
-  m_TagString: Untagged
+  m_TagString: QuestionTile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -19841,7 +19886,7 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -2432090755550338912, guid: 704390662a7f3dd4799d04f4f23279f1, type: 3}
 --- !u!114 &5437425108495871609
@@ -19992,7 +20037,7 @@ GameObject:
   - component: {fileID: 5437425108634017247}
   m_Layer: 0
   m_Name: EventTile (44)
-  m_TagString: Untagged
+  m_TagString: NegativeTile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -20084,7 +20129,7 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 7317253298261729006, guid: a8d81afae9d84c94eb0c1f304e015b2e, type: 3}
 --- !u!114 &5437425108634017240
@@ -20238,7 +20283,7 @@ GameObject:
   - component: {fileID: 5437425108721085090}
   m_Layer: 0
   m_Name: TileShortcut (2)
-  m_TagString: Untagged
+  m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -20453,7 +20498,7 @@ GameObject:
   - component: {fileID: 3909473979478894829}
   m_Layer: 0
   m_Name: Tile (39)
-  m_TagString: Untagged
+  m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -20530,7 +20575,7 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 5302568919011541938, guid: 06288311c60c094438b6ffe3bff93185, type: 3}
 --- !u!114 &5437425108751111393
@@ -20681,7 +20726,7 @@ GameObject:
   - component: {fileID: 5437425108808987124}
   m_Layer: 0
   m_Name: EventTile (42)
-  m_TagString: Untagged
+  m_TagString: PositiveTile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -20758,7 +20803,7 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 3369316746193770658, guid: 079488d7b325300418e25a1593d43c66, type: 3}
 --- !u!114 &5437425108808987125
@@ -20913,7 +20958,7 @@ GameObject:
   - component: {fileID: 267079251202227465}
   m_Layer: 0
   m_Name: Tile (37)
-  m_TagString: Untagged
+  m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -20990,7 +21035,7 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 7375087399646436070, guid: 5896529e8ea686b41b3ad11b0293349a, type: 3}
 --- !u!114 &5437425108921218833
@@ -21248,7 +21293,7 @@ GameObject:
   - component: {fileID: 488391458850777803}
   m_Layer: 0
   m_Name: Tile (45)
-  m_TagString: Untagged
+  m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -21325,7 +21370,7 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 7375087399646436070, guid: 5896529e8ea686b41b3ad11b0293349a, type: 3}
 --- !u!114 &5437425109209641004
@@ -21583,7 +21628,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5453889084505134439}
   m_LocalRotation: {x: 0.70772356, y: 0, z: 0, w: 0.7064895}
-  m_LocalPosition: {x: 0, y: 0, z: -37.28}
+  m_LocalPosition: {x: 0, y: 0, z: -35.98}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5775695439260132206}
@@ -21591,7 +21636,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 90.1, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -483.29, y: -270}
+  m_AnchoredPosition: {x: -641.08997, y: -321}
   m_SizeDelta: {x: 10.380608, y: 10.127714}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2670788985981911430
@@ -21928,7 +21973,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5651172169188243480}
   m_LocalRotation: {x: 0.70772356, y: 0, z: 0, w: 0.7064895}
-  m_LocalPosition: {x: 0, y: 0, z: 34.7}
+  m_LocalPosition: {x: 0, y: 0, z: 36}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5775695439260132206}
@@ -21936,7 +21981,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 90.1, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -445.1, y: -266}
+  m_AnchoredPosition: {x: -602.89996, y: -317}
   m_SizeDelta: {x: 10.380608, y: 10.127714}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8582301899134441944
@@ -22062,7 +22107,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5654373479291849672}
   m_LocalRotation: {x: 0.70772356, y: 0, z: 0, w: 0.7064895}
-  m_LocalPosition: {x: 0, y: 0, z: -3.7}
+  m_LocalPosition: {x: 0, y: 0, z: -2.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5775695439260132206}
@@ -22070,7 +22115,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 90.1, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -484.5, y: -269.5}
+  m_AnchoredPosition: {x: -642.3, y: -320.5}
   m_SizeDelta: {x: 10.380608, y: 10.127714}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1716205106507758730
@@ -22196,7 +22241,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5781761638059247232}
   m_LocalRotation: {x: 0.54146385, y: -0.45572966, z: 0.45493498, w: 0.5405198}
-  m_LocalPosition: {x: 0, y: 0, z: 41.97}
+  m_LocalPosition: {x: 0, y: 0, z: 43.270004}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5775695439260132206}
@@ -22204,7 +22249,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 89.90301, y: 0, z: 80.172005}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -482.31, y: -267.77}
+  m_AnchoredPosition: {x: -640.1099, y: -318.77}
   m_SizeDelta: {x: 18.26712, y: 5.534336}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2006298414601727163
@@ -22528,7 +22573,7 @@ GameObject:
   - component: {fileID: 6360706672362941265}
   m_Layer: 0
   m_Name: Tile (23)
-  m_TagString: Untagged
+  m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -22605,7 +22650,7 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 7317253298261729006, guid: a8d81afae9d84c94eb0c1f304e015b2e, type: 3}
 --- !u!114 &4194714731885624736
@@ -22834,7 +22879,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6030676013170904628}
   m_LocalRotation: {x: 0.6984104, y: -0.114435434, z: 0.11423588, w: 0.6971927}
-  m_LocalPosition: {x: 0, y: 0, z: 12.8}
+  m_LocalPosition: {x: 0, y: 0, z: 14.099998}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5775695439260132206}
@@ -22842,7 +22887,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 89.90301, y: 0, z: 18.611}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -586.2, y: -269.5}
+  m_AnchoredPosition: {x: -743.99994, y: -320.5}
   m_SizeDelta: {x: 18.26712, y: 5.534336}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1461627978131089077
@@ -23727,7 +23772,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6585486112245155062}
   m_LocalRotation: {x: 0.70772356, y: 0, z: 0, w: 0.7064895}
-  m_LocalPosition: {x: 0, y: 0, z: -11.55}
+  m_LocalPosition: {x: 0, y: 0, z: -10.25}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5775695439260132206}
@@ -23735,7 +23780,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 90.1, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -460, y: -269.1}
+  m_AnchoredPosition: {x: -617.8, y: -320.1}
   m_SizeDelta: {x: 14.026409, y: 6.9669113}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7919116990274101260
@@ -24842,7 +24887,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6896984837957741565}
   m_LocalRotation: {x: 0.70772356, y: 0, z: 0, w: 0.7064895}
-  m_LocalPosition: {x: 0, y: 0, z: -11.79}
+  m_LocalPosition: {x: 0, y: 0, z: -10.49}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5775695439260132206}
@@ -24850,7 +24895,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 90.1, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -583.7, y: -266.83}
+  m_AnchoredPosition: {x: -741.49994, y: -317.83}
   m_SizeDelta: {x: 13.821327, y: 7.6233616}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4272669912674431026
@@ -25367,7 +25412,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7039290269914793151}
   m_LocalRotation: {x: 0.70772356, y: 0, z: 0, w: 0.7064895}
-  m_LocalPosition: {x: 0, y: 0, z: 58.31}
+  m_LocalPosition: {x: 0, y: 0, z: 59.61}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5775695439260132206}
@@ -25375,7 +25420,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 90.1, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -569.76, y: -253.96}
+  m_AnchoredPosition: {x: -727.56, y: -304.96}
   m_SizeDelta: {x: 13.821327, y: 7.6233616}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8197989962126162324
@@ -27249,7 +27294,7 @@ RectTransform:
   m_Children:
   - {fileID: 3636057487233221951}
   m_Father: {fileID: 2462993414445675483}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -28296,7 +28341,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8370088811482730636}
   m_LocalRotation: {x: 0.70772356, y: 0, z: 0, w: 0.7064895}
-  m_LocalPosition: {x: 0, y: 0, z: 5.5}
+  m_LocalPosition: {x: 0, y: 0, z: 6.799999}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5775695439260132206}
@@ -28304,7 +28349,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 90.1, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -533.6, y: -269.1}
+  m_AnchoredPosition: {x: -691.39996, y: -320.1}
   m_SizeDelta: {x: 15.345264, y: 9.023611}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3240211574460111968
@@ -29504,7 +29549,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8610559919883561064}
   m_LocalRotation: {x: 0.70772356, y: 0, z: 0, w: 0.7064895}
-  m_LocalPosition: {x: 0, y: 0, z: 6.9}
+  m_LocalPosition: {x: 0, y: 0, z: 8.199999}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5775695439260132206}
@@ -29512,7 +29557,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 90.1, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -477.2, y: -269.1}
+  m_AnchoredPosition: {x: -634.99994, y: -320.1}
   m_SizeDelta: {x: 13.90168, y: 7.009901}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1961919323039988573
@@ -30901,7 +30946,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9162736208205168392}
   m_LocalRotation: {x: 0.5004361, y: -0.49956352, z: 0.5004361, w: 0.49956352}
-  m_LocalPosition: {x: 0, y: 0, z: -46.3}
+  m_LocalPosition: {x: 0, y: 0, z: -45}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5775695439260132206}
@@ -30909,7 +30954,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 90.1, y: -90, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -601.9, y: -250}
+  m_AnchoredPosition: {x: -759.7, y: -301}
   m_SizeDelta: {x: 28.19466, y: 10.197916}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1173794798730903768

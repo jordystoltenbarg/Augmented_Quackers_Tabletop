@@ -6,7 +6,9 @@ public class PawnAudio : MonoBehaviour
 
 {    //public GameObject moving;
      public AudioClip Sound;
-     public AudioClip UniqueSound;
+     public AudioClip QuestionSound;
+     public AudioClip PositiveSound;
+     public AudioClip NegativeSound;
 
 
     // Start is called before the first frame update
@@ -23,14 +25,24 @@ public class PawnAudio : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Tile")
-        { 
-            //print("Something gone wrong!");
-            FindObjectOfType<AudioManager>().Play(Sound);
-        } 
-        else if (other.tag == "UniqueTile")
         {
             //print("Something gone wrong!");
-            FindObjectOfType<AudioManager>().Play(UniqueSound);
+            FindObjectOfType<AudioManager>().Play(Sound);
+        }
+        else if (other.tag == "QuestionTile")
+        {
+            //print("Something gone wrong!");
+            FindObjectOfType<AudioManager>().Play(QuestionSound);
+        }
+        else if (other.tag == "PositiveTile")
+        {
+            //print("Something gone wrong!");
+            FindObjectOfType<AudioManager>().Play(PositiveSound);
+        }
+        else if (other.tag == "NegativeTile")
+        {
+            //print("Something gone wrong!");
+            FindObjectOfType<AudioManager>().Play(NegativeSound);
         }
     }
 }
