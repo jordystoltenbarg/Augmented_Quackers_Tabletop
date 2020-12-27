@@ -220,4 +220,14 @@ public class RollDie : MonoBehaviour
 
         return Int16.Parse(tempList[0].Key.name.Substring(4));
     }
+
+    public int GetNumberRolled()
+    {
+        return numberRolled();
+    }
+
+    public void OnDieRolled(int pRoll)
+    {
+        onDieRolled?.Invoke(pRoll);
+    }
 }

@@ -25,16 +25,18 @@ public class TTPlayer : NetworkBehaviour
     public bool HostedServerIsPrivate => _hostedServerIsPrivate;
     [SyncVar] private bool _hasLoaded = false;
     public bool HasLoaded => _hasLoaded;
-    [SyncVar] private Vector3 _diePosition = Vector3.zero;
-    public Vector3 DiePosition => _diePosition;
 
     [HideInInspector] public bool hasBeenKicked = false;
 
     private TTNetworkManagerListServer _manager = null;
 
+    private Rigidbody _dieRB = null;
+
     private void Start()
     {
         print($"<color=green> Hello there!</color>");
+
+        _dieRB = FindObjectOfType<RollDie>().GetComponentInChildren<Rigidbody>();
 
         Invoke(nameof(lobbyUIAddPlayer), 0.5f);
         DontDestroyOnLoad(gameObject);
@@ -259,9 +261,64 @@ public class TTPlayer : NetworkBehaviour
         _hasLoaded = true;
     }
 
+    public void RequestDieRoll()
+    {
+        cmdRequestDieRoll();
+    }
+
+    [Command]
+    private void cmdRequestDieRoll()
+    {
+        RollDie die = FindObjectOfType<RollDie>();
+        die.StartCoroutine(die.RollRandom());
+        StartCoroutine(updateDie(die.transform.GetChild(0).gameObject));
+    }
+
+    private IEnumerator updateDie(GameObject pDie)
+    {
+        Rigidbody rb = pDie.GetComponentInChildren<Rigidbody>();
+        while (true)
+        {
+            clientUpdateDie(pDie.transform.position, pDie.transform.rotation.eulerAngles);
+
+            yield return new WaitForSeconds(0.025f);
+
+            if (rb.velocity.magnitude <= 0)
+            {
+                clientDieStopped(pDie.transform.parent.GetComponent<RollDie>().GetNumberRolled());
+                yield break;
+            }
+        }
+    }
+
+    [ClientRpc]
+    private void clientUpdateDie(Vector3 pPos, Vector3 pRot)
+    {
+        if (LocalPlayer.LobbyIndex == 0) return;
+
+        _dieRB.isKinematic = true;
+        _dieRB.transform.SetPositionAndRotation(pPos, Quaternion.Euler(pRot));
+    }
+
+    [ClientRpc]
+    private void clientDieStopped(int pRoll)
+    {
+        if (LocalPlayer.LobbyIndex == 0) return;
+
+        foreach (TTPlayer player in TTSettingsManager.Singleton.players)
+        {
+            if (!player.GetComponent<VasilPlayer>().HasCurrentTurn) continue;
+            player.GetComponent<VasilPlayer>().SimulateDieThrow();
+            print("simulate die throw");
+        }
+
+        _dieRB.transform.parent.GetComponent<RollDie>().OnDieRolled(pRoll);
+        _dieRB.isKinematic = false;
+    }
+
     public void TossDie(Vector2 pDieTossValues)
     {
-        cmdTossDie(pDieTossValues);
+        //cmdTossDie(pDieTossValues);
     }
 
     [Command]
@@ -274,6 +331,7 @@ public class TTPlayer : NetworkBehaviour
     private void clientTossDie(Vector2 pDieTossValues)
     {
         if (isLocalPlayer) return;
+
         GetComponent<VasilPlayer>().RollDieInput(pDieTossValues);
     }
 }
