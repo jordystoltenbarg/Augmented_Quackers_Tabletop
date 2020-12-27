@@ -31,6 +31,7 @@ public class VasilPlayer : MonoBehaviour
 
     private Pawn _pawn;
     public Pawn Pawn => _pawn;
+    public AudioClip TurnSound;
 
     public void Init(int pLobbyIndex, int pSelectedCharacterIndex, int pColorVariation)
     {
@@ -128,9 +129,13 @@ public class VasilPlayer : MonoBehaviour
     public void StartTurn()
     {
         if (GetComponent<TTPlayer>().isLocalPlayer)
+        {
+            FindObjectOfType <AudioManager> ().Play(TurnSound);
             GameObject.Find("RollButton").GetComponent<Image>().enabled = true;
-        else
+        }
+        else { 
             GameObject.Find("RollButton").GetComponent<Image>().enabled = false;
+        }
 
         _hasCurrentTurn = true;
         _isOutOfActions = false;
