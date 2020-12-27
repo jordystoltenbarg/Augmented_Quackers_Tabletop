@@ -94,3 +94,4 @@ MonoBehaviour:
   turnsToSkip: 0
   extraTurns: 0
   hasActedThisTurn: 0
+  TurnSound: {fileID: 8300000, guid: 509157b1bfe055f4584a3147be04c1ea, type: 3}

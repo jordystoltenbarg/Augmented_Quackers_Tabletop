@@ -236,7 +236,7 @@ public class TTPlayer : NetworkBehaviour
     private void clientStartGame()
     {
         TTSettingsManager.Singleton.LobbyCamera.gameObject.SetActive(false);
-        GameObject canvas = GameObject.Find("Canvas");
+        GameObject canvas = GameObject.Find("MainUICanvas");
         canvas.transform.Find("LobbyUI").gameObject.SetActive(false);
         canvas.transform.Find("In-GameUI").gameObject.SetActive(true);
         TTSettingsManager.Singleton.InGameCamera.gameObject.SetActive(true);

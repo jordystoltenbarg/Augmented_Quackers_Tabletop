@@ -38,7 +38,8 @@ public class VasilPlayer : MonoBehaviour
         GameObject pawn = Instantiate(_pawnPrefabs[pSelectedCharacterIndex],
                                       GameObject.Find("Tile").transform.GetChild(pLobbyIndex).transform.position,
                                       GameObject.Find("Tile").transform.GetChild(pLobbyIndex).transform.rotation,
-                                      GameObject.Find("In-GameBoard").transform);
+                                      //GameObject.Find("In-GameBoard").transform);
+                                      GameObject.Find("Finalgameboard").transform);
         _pawn = pawn.GetComponent<Pawn>();
         _pawn.SetPlayer(this);
         _turnOrderPositionPrefab = _turnOrderPositionPrefabs[pColorVariation];
@@ -130,10 +131,11 @@ public class VasilPlayer : MonoBehaviour
     {
         if (GetComponent<TTPlayer>().isLocalPlayer)
         {
-            FindObjectOfType <AudioManager> ().Play(TurnSound);
+            FindObjectOfType<AudioManager>().Play(TurnSound);
             GameObject.Find("RollButton").GetComponent<Image>().enabled = true;
         }
-        else { 
+        else
+        {
             GameObject.Find("RollButton").GetComponent<Image>().enabled = false;
         }
 

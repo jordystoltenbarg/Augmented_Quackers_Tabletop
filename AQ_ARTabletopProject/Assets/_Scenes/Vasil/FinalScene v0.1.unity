@@ -2658,7 +2658,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 65792
+    m_Bits: 4294967295
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -4042,7 +4042,7 @@ GameObject:
   - component: {fileID: 917921558440430572}
   - component: {fileID: 917921558440430560}
   m_Layer: 15
-  m_Name: Canvas
+  m_Name: MainUICanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -10,10 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9521e697238f39943aa06b9d5ef08046, type: 3}
-  m_Name: InfoText3
+  m_Name: jord
   m_EditorClassIdentifier: 
-  line1: Hi
-  line2: I'm Karen
-  line3: I would like
-  line4: To speak to your manager
-  line5: Oh you are the manager..?
+  _localizedString:
+    m_TableReference:
+      m_TableCollectionName: GUID:2484a09d7f7f9874497d7c5252612031
+    m_TableEntryReference:
+      m_KeyId: 144921972736
+      m_Key: 
