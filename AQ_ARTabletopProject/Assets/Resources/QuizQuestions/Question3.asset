@@ -19,3 +19,5 @@ MonoBehaviour:
   - Duhh
   - Covid-19?
   correctAnswer: Yes
+  quizTheme: History
+  QuizIcon: {fileID: 21300000, guid: 47d6e40be7bdc1745a18ecea8de0fcb5, type: 3}

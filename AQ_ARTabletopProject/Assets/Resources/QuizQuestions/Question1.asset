@@ -19,3 +19,5 @@ MonoBehaviour:
   - 2
   - 4
   correctAnswer: 4
+  quizTheme: Bats
+  QuizIcon: {fileID: 21300000, guid: 6d7cca8c3a3c9c5408ef026abc535feb, type: 3}
