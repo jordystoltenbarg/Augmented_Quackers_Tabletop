@@ -94,6 +94,7 @@ GameObject:
   - component: {fileID: 4972977772653156278}
   - component: {fileID: 4972977772653156281}
   - component: {fileID: 4972977772653156280}
+  - component: {fileID: 8885256710368793944}
   m_Layer: 16
   m_Name: Frog
   m_TagString: Untagged
@@ -161,3 +162,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 116
   m_CollisionDetection: 0
+--- !u!114 &8885256710368793944
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4972977772653156282}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6477bb0ccae3d5940aed921ddd5b7e3b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Sound: {fileID: 8300000, guid: ffa6062c439b6e644836b1f9ae70ac26, type: 3}
+  QuestionSound: {fileID: 8300000, guid: d45702d10644f114f92c50d00f4372eb, type: 3}
+  PositiveSound: {fileID: 8300000, guid: 8c7ba446ef4928c498c01494fbe5a836, type: 3}
+  NegativeSound: {fileID: 8300000, guid: 759347c0bc98d964583f80afb7c0671a, type: 3}
