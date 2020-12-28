@@ -153,7 +153,9 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 11061913276416
-    m_Localized: "That must be done \r\nfrom the mayor\r\n"
+    m_Localized: 'That must be done from the mayor
+
+'
     m_Metadata:
       m_Items: []
   - m_Id: 11072487116800
@@ -225,7 +227,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 13987520008192
-    m_Localized: "He uses echolocation and actually sees with \r\nhis ears\r"
+    m_Localized: "He uses echolocation and actually sees with \rhis ears\r"
     m_Metadata:
       m_Items: []
   - m_Id: 13927524683776
@@ -305,7 +307,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 17987367686144
-    m_Localized: Vitamin G.
+    m_Localized: Vitamin G
     m_Metadata:
       m_Items: []
   - m_Id: 17947991560192
