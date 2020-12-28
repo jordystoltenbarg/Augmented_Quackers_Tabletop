@@ -2585,6 +2585,7 @@ MonoBehaviour:
   _upwardsForce: 2000
   _sideForce: 2000
   _rotationTorque: 10000
+  _alwaysRollThisNumber: 8
 --- !u!1 &1846281067
 GameObject:
   m_ObjectHideFlags: 0
@@ -4461,11 +4462,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e906fa962c46ff4b99f5653ae7d0d12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  answers:
-  - {fileID: 2647354187923365322}
-  - {fileID: 2515198220559384667}
-  - {fileID: 6318784509320665797}
-  - {fileID: 1773949358909395185}
 --- !u!1 &585092678223351873
 GameObject:
   m_ObjectHideFlags: 0
@@ -4821,11 +4817,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e906fa962c46ff4b99f5653ae7d0d12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  answers:
-  - {fileID: 4569813475549486577}
-  - {fileID: 5362519101153496426}
-  - {fileID: 4103013446712107723}
-  - {fileID: 2411320169729196783}
 --- !u!1 &767278833453839679
 GameObject:
   m_ObjectHideFlags: 0
@@ -5814,8 +5805,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe5ab6d92cdafe041bfaf3e46c7d5b3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _localizedQuestionTextEvent: {fileID: 0}
-  _bubbleIcon: {fileID: 0}
 --- !u!1 &1171221781845315836
 GameObject:
   m_ObjectHideFlags: 0
@@ -6357,8 +6346,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe5ab6d92cdafe041bfaf3e46c7d5b3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _localizedQuestionTextEvent: {fileID: 0}
-  _bubbleIcon: {fileID: 0}
 --- !u!1 &1454955552418748946
 GameObject:
   m_ObjectHideFlags: 0
@@ -8718,11 +8705,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e906fa962c46ff4b99f5653ae7d0d12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  answers:
-  - {fileID: 6035595878817784686}
-  - {fileID: 400245123695588288}
-  - {fileID: 5407272135329838689}
-  - {fileID: 2831893145555898929}
 --- !u!1 &2357882351609185914
 GameObject:
   m_ObjectHideFlags: 0
@@ -9215,8 +9197,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be56f4929b358f84dab40644a5ae6b94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _questionTypeVariations: []
-  _answerParent: {fileID: 0}
+  _questionTypeVariations:
+  - {fileID: 21300000, guid: 6120d854a3b46da4ca3716ec000200df, type: 3}
+  - {fileID: 21300000, guid: 47d6e40be7bdc1745a18ecea8de0fcb5, type: 3}
+  - {fileID: 21300000, guid: 77ebbc2e90a4d6840bdfc8cce715defa, type: 3}
+  - {fileID: 21300000, guid: 6d7cca8c3a3c9c5408ef026abc535feb, type: 3}
+  _localizedQuestionThemeStrings:
+  - m_TableReference:
+      m_TableCollectionName: GUID:f00c88b087c55e048ad8e8626352f1a3
+    m_TableEntryReference:
+      m_KeyId: 334002943021056
+      m_Key: 
+  - m_TableReference:
+      m_TableCollectionName: GUID:f00c88b087c55e048ad8e8626352f1a3
+    m_TableEntryReference:
+      m_KeyId: 334069661814784
+      m_Key: 
+  - m_TableReference:
+      m_TableCollectionName: GUID:f00c88b087c55e048ad8e8626352f1a3
+    m_TableEntryReference:
+      m_KeyId: 334082538328064
+      m_Key: 
+  - m_TableReference:
+      m_TableCollectionName: GUID:f00c88b087c55e048ad8e8626352f1a3
+    m_TableEntryReference:
+      m_KeyId: 334149206790144
+      m_Key: 
 --- !u!114 &7139335316463661669
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13983,17 +13989,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_MethodName: 
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!1 &2807120505579933213
 GameObject:
   m_ObjectHideFlags: 0
@@ -14734,8 +14729,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe5ab6d92cdafe041bfaf3e46c7d5b3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _localizedQuestionTextEvent: {fileID: 0}
-  _bubbleIcon: {fileID: 0}
 --- !u!1 &3408682722602708151
 GameObject:
   m_ObjectHideFlags: 0
@@ -15344,11 +15337,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e906fa962c46ff4b99f5653ae7d0d12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  answers:
-  - {fileID: 8880136803025640185}
-  - {fileID: 6971775561675748837}
-  - {fileID: 8874758697799342356}
-  - {fileID: 6961701733260907092}
 --- !u!1 &3848740387036775739
 GameObject:
   m_ObjectHideFlags: 0
@@ -18444,11 +18432,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e906fa962c46ff4b99f5653ae7d0d12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  answers:
-  - {fileID: 5360168363636297891}
-  - {fileID: 5719222167784299443}
-  - {fileID: 7190145359301958843}
-  - {fileID: 8608018093187716208}
 --- !u!1 &5378931552415053327
 GameObject:
   m_ObjectHideFlags: 0
@@ -28777,7 +28760,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 1
+  m_hasFontAssetChanged: 0
   m_renderer: {fileID: 8061278264461429259}
   m_maskType: 0
   _SortingLayerID: 0
@@ -31064,7 +31047,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &907880696787054222
 Transform:
   m_ObjectHideFlags: 0
@@ -31174,8 +31157,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe5ab6d92cdafe041bfaf3e46c7d5b3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _localizedQuestionTextEvent: {fileID: 0}
-  _bubbleIcon: {fileID: 0}
 --- !u!1 &8173890415463576666
 GameObject:
   m_ObjectHideFlags: 0
@@ -31773,8 +31754,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe5ab6d92cdafe041bfaf3e46c7d5b3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _localizedQuestionTextEvent: {fileID: 0}
-  _bubbleIcon: {fileID: 0}
 --- !u!1 &8466312091917025758
 GameObject:
   m_ObjectHideFlags: 0
@@ -31904,8 +31883,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe5ab6d92cdafe041bfaf3e46c7d5b3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _localizedQuestionTextEvent: {fileID: 0}
-  _bubbleIcon: {fileID: 0}
 --- !u!1 &8486999635248560662
 GameObject:
   m_ObjectHideFlags: 0
@@ -32169,8 +32146,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe5ab6d92cdafe041bfaf3e46c7d5b3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _localizedQuestionTextEvent: {fileID: 0}
-  _bubbleIcon: {fileID: 0}
 --- !u!1 &8510494100848836044
 GameObject:
   m_ObjectHideFlags: 0
@@ -32302,7 +32277,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 1
+  m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &8534574701701025887
@@ -32562,11 +32537,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e906fa962c46ff4b99f5653ae7d0d12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  answers:
-  - {fileID: 6010443085334585858}
-  - {fileID: 2652467102845568492}
-  - {fileID: 5433997818437063834}
-  - {fileID: 7508204797236233187}
 --- !u!1 &8610559919883561064
 GameObject:
   m_ObjectHideFlags: 0
@@ -32883,11 +32853,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e906fa962c46ff4b99f5653ae7d0d12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  answers:
-  - {fileID: 1023706828893975243}
-  - {fileID: 8968322462215171678}
-  - {fileID: 904689856264534051}
-  - {fileID: 3851797410396815330}
 --- !u!1 &8649782780595787010
 GameObject:
   m_ObjectHideFlags: 0

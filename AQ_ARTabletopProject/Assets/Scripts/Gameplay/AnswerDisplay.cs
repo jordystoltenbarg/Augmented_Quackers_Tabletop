@@ -1,23 +1,25 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Localization.Components;
 using UnityEngine.UI;
-using TMPro;
-using System.Linq;
-using System;
 
 public class AnswerDisplay : MonoBehaviour
 {
     public static Action OnQuizHide;
-    public TMP_Text[] answers;
-    private List<TMP_Text> answerList = new List<TMP_Text>();
+    private readonly List<LocalizeStringEvent> _localizedAnswersList = new List<LocalizeStringEvent>();
 
-
-    void Start()
+    private void Start()
     {
-        foreach (var a in answers)
+        for (int i = 0; i < transform.GetChild(0).childCount; i++)
         {
-            answerList.Add(a);
+            //Get the localized string event from the text
+            LocalizeStringEvent lse = transform.GetChild(0).GetChild(i).GetComponentInChildren<LocalizeStringEvent>();
+            //Add it to the list
+            _localizedAnswersList.Add(lse);
+            //Add a listener to the Answer button
+            lse.GetComponentInParent<Button>().onClick.AddListener(() => CheckAnswer(lse));
         }
     }
 
@@ -27,43 +29,41 @@ public class AnswerDisplay : MonoBehaviour
     }
 
     private void answerDisplay()
-    {      
+    {
         transform.GetChild(0).gameObject.SetActive(true);
 
-        
-
         Question q = QuizManager.Singleton.CurrentQuestion;
-
-        for (int i = 0; i < answerList.Count; i++)
+        for (int i = 0; i < _localizedAnswersList.Count; i++)
         {
-            TMP_Text temp = answerList[i];
-            int randomIndex = UnityEngine.Random.Range(i, answerList.Count);
-            answerList[i] = answerList[randomIndex];
-            answerList[randomIndex] = temp;
+            LocalizeStringEvent temp = _localizedAnswersList[i];
+            int randomIndex = UnityEngine.Random.Range(i, _localizedAnswersList.Count);
+            _localizedAnswersList[i] = _localizedAnswersList[randomIndex];
+            _localizedAnswersList[randomIndex] = temp;
         }
 
-        for (int i = 0; i < answerList.Count; i++)
+        for (int i = 0; i < _localizedAnswersList.Count; i++)
         {
-            answerList[i].transform.parent.GetComponent<Button>().interactable = true;
+            _localizedAnswersList[i].transform.parent.GetComponent<Button>().interactable = true;
 
-            answerList[i].transform.parent.parent.Find("Correct").gameObject.SetActive(false);
-            answerList[i].transform.parent.parent.Find("Wrong").gameObject.SetActive(false);
-            answerList[i].text = q.answers[i];
+            _localizedAnswersList[i].transform.parent.parent.Find("Correct").gameObject.SetActive(false);
+            _localizedAnswersList[i].transform.parent.parent.Find("Wrong").gameObject.SetActive(false);
+            if (i == _localizedAnswersList.Count - 1)
+                _localizedAnswersList[i].StringReference = q.LocalizedCorrectAnswer;
+            else
+                _localizedAnswersList[i].StringReference = q.LocalizedWrongAnswersArray[i];
         }
-
-
     }
 
-    public void CheckAnswer(TMP_Text pAnswer)
+    public void CheckAnswer(LocalizeStringEvent pLocalizedStringEvent)
     {
-        if (pAnswer.text == QuizManager.Singleton.CurrentQuestion.correctAnswer)
+        if (pLocalizedStringEvent.StringReference == QuizManager.Singleton.CurrentQuestion.LocalizedCorrectAnswer)
         {
             Debug.Log("Correct!");
-            pAnswer.transform.parent.parent.Find("Correct").gameObject.SetActive(true);
+            pLocalizedStringEvent.transform.parent.parent.Find("Correct").gameObject.SetActive(true);
 
-            for (int i = 0; i < answerList.Count; i++)
+            for (int i = 0; i < _localizedAnswersList.Count; i++)
             {
-                answerList[i].transform.parent.GetComponent<Button>().interactable = false;
+                _localizedAnswersList[i].transform.parent.GetComponent<Button>().interactable = false;
             }
 
             Invoke(nameof(HideQuiz), 3);
@@ -71,9 +71,8 @@ public class AnswerDisplay : MonoBehaviour
         else
         {
             Debug.Log("Sorry, but that's wrong");
-            pAnswer.transform.parent.parent.Find("Wrong").gameObject.SetActive(true);
-            StartCoroutine(ResetAnswers(pAnswer.transform.parent.parent.Find("Wrong").gameObject, 0.2f));
-
+            pLocalizedStringEvent.transform.parent.parent.Find("Wrong").gameObject.SetActive(true);
+            StartCoroutine(ResetAnswers(pLocalizedStringEvent.transform.parent.parent.Find("Wrong").gameObject, 0.2f));
         }
     }
 
@@ -88,8 +87,4 @@ public class AnswerDisplay : MonoBehaviour
         yield return new WaitForSeconds(delay);
         wrong.SetActive(false);
     }
-
-
-
-
 }
