@@ -174,7 +174,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6477bb0ccae3d5940aed921ddd5b7e3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Sound: {fileID: 8300000, guid: 70fb6dd41db25894c9f711122dbf78a6, type: 3}
-  QuestionSound: {fileID: 8300000, guid: d45702d10644f114f92c50d00f4372eb, type: 3}
-  PositiveSound: {fileID: 8300000, guid: 8c7ba446ef4928c498c01494fbe5a836, type: 3}
-  NegativeSound: {fileID: 8300000, guid: 759347c0bc98d964583f80afb7c0671a, type: 3}
+  _sound: {fileID: 8300000, guid: 70fb6dd41db25894c9f711122dbf78a6, type: 3}
+  _questionSound: {fileID: 8300000, guid: d45702d10644f114f92c50d00f4372eb, type: 3}
+  _positiveSound: {fileID: 8300000, guid: 8c7ba446ef4928c498c01494fbe5a836, type: 3}
+  _negativeSound: {fileID: 8300000, guid: 759347c0bc98d964583f80afb7c0671a, type: 3}
