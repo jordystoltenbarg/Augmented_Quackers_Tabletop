@@ -15,6 +15,7 @@ public class TurnOrderManager : MonoBehaviour
     private static int _round = 1;
     public static int Round => _round;
 
+    [SerializeField] private GameObject _turnOrderParent = null;
     private readonly List<GameObject> _positions = new List<GameObject>();
     private readonly List<GameObject> _playerAvatars = new List<GameObject>();
 
@@ -49,34 +50,6 @@ public class TurnOrderManager : MonoBehaviour
         _isinit = true;
     }
 
-    private void Update()
-    {
-        if (!_isinit) return;
-
-        //End Turn
-        if (Input.GetKeyDown(KeyCode.D))
-            if (!_currentPlayerTurn.IsOutOfActions)
-                GameObject.Find("DieRoll").GetComponent<TextMeshProUGUI>().text = string.Format("Waiting for {0}...", _currentPlayerTurn.PlayerName);
-            else
-                nextPlayer();
-
-        //Skip P1
-        if (Input.GetKeyDown(KeyCode.Keypad1))
-            playerSkipTurn(_playersByTurnOrder[0]);
-
-        //Skip P2
-        if (Input.GetKeyDown(KeyCode.Keypad2))
-            playerSkipTurn(_playersByTurnOrder[1]);
-
-        //Skip P3
-        if (Input.GetKeyDown(KeyCode.Keypad3))
-            playerSkipTurn(_playersByTurnOrder[2]);
-
-        //Skip P4
-        if (Input.GetKeyDown(KeyCode.Keypad4))
-            playerSkipTurn(_playersByTurnOrder[3]);
-    }
-
     private void endTurnInput()
     {
         if (!_currentPlayerTurn.IsOutOfActions)
@@ -91,36 +64,47 @@ public class TurnOrderManager : MonoBehaviour
         _players = FindObjectsOfType<VasilPlayer>().ToList();
 
         _positions.Clear();
-        for (int i = 0; i < transform.childCount; i++)
+        for (int i = 0; i < _turnOrderParent.transform.childCount; i++)
         {
-            if (transform.GetChild(i).name == "Border") continue;
+            if (_turnOrderParent.transform.GetChild(i).name == "Border") continue;
 
-            _positions.Add(transform.GetChild(i).gameObject);
+            if (_players.Count <= i)
+                _turnOrderParent.transform.GetChild(i).gameObject.SetActive(false);
+            else
+                _positions.Add(_turnOrderParent.transform.GetChild(i).gameObject);
         }
 
         _playerAvatars.Clear();
+        //_playersByTurnOrder.Clear();
+        //_playersByTurnOrderPositionPrefabs.Clear();
         for (int i = 0; i < _positions.Count; i++)
         {
             _playerAvatars.Add(_positions[i].transform.GetChild(0).gameObject);
+
+            //_playersByTurnOrder.Add(_players[i]);
+            //_playersByTurnOrderPositionPrefabs.Add(_playersByTurnOrder[i].TurnOrderPositionPrefab);
         }
+
+        //updatePlayerTurnOrder();
     }
 
     private void shufflePlayerTurnOrder()
     {
         Dictionary<VasilPlayer, int> order = new Dictionary<VasilPlayer, int>();
         foreach (VasilPlayer p in _players)
-            order.Add(p, p.RollForInitialive());
+            //order.Add(p, p.RollForInitialive());
+            order.Add(p, p.GetComponent<TTPlayer>().LobbyIndex);
 
         List<KeyValuePair<VasilPlayer, int>> orderList = order.ToList();
         orderList.Sort((pX, pY) => pX.Value.CompareTo(pY.Value));
-        orderList.Reverse();
+        //orderList.Reverse();
 
         _playersByTurnOrder.Clear();
         _playersByTurnOrderPositionPrefabs.Clear();
         for (int i = 0; i < _players.Count; i++)
         {
-            if (orderList[i].Key.TurnOrderPositionPrefab.GetComponentInChildren<TextMeshProUGUI>())
-                orderList[i].Key.TurnOrderPositionPrefab.GetComponentInChildren<TextMeshProUGUI>().text = (i + 1).ToString();
+            //if (orderList[i].Key.TurnOrderPositionPrefab.GetComponentInChildren<TextMeshProUGUI>())
+            //    orderList[i].Key.TurnOrderPositionPrefab.GetComponentInChildren<TextMeshProUGUI>().text = (i + 1).ToString();
             _playerAvatars[i].GetComponent<TurnOrderPlayerAvatar>().SetPlayer(orderList[i].Key);
 
             _playersByTurnOrder.Add(orderList[i].Key);
@@ -189,7 +173,7 @@ public class TurnOrderManager : MonoBehaviour
         {
             _playerAvatars[_playerAvatars.Count - 1].GetComponent<LerpToZero>().enabled = false;
             _playerAvatars[_playerAvatars.Count - 1].GetComponent<Image>().enabled = false;
-            _playerAvatars[_playerAvatars.Count - 1].GetComponent<RectTransform>().position = new Vector2(transform.parent.parent.position.x, _playerAvatars[_playerAvatars.Count - 1].GetComponent<RectTransform>().position.y);
+            _playerAvatars[_playerAvatars.Count - 1].GetComponent<RectTransform>().position = new Vector2(_turnOrderParent.transform.parent.parent.position.x, _playerAvatars[_playerAvatars.Count - 1].GetComponent<RectTransform>().position.y);
             _playerAvatars[_playerAvatars.Count - 1].GetComponent<TurnOrderPlayerAvatar>().SelfDestroy();
             _positions.RemoveAt(_positions.Count - 1);
             _playerAvatars.RemoveAt(_playerAvatars.Count - 1);

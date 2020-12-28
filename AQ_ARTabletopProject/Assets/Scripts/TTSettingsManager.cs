@@ -22,6 +22,10 @@ public class TTSettingsManager : MonoBehaviour
     public int PlayerIndex => _playerIndex;
     private string _serverCode = "";
     public string ServerCode => _serverCode;
+    private Camera _lobbyCamera = null;
+    public Camera LobbyCamera => _lobbyCamera;
+    private Camera _inGameCamera = null;
+    public Camera InGameCamera => _inGameCamera;
 
     public readonly List<TTPlayer> players = new List<TTPlayer>();
 
@@ -46,6 +50,10 @@ public class TTSettingsManager : MonoBehaviour
         StartCoroutine(delayedChangeNameForAPIToUpdate());
         StartCoroutine(delayedSelectLanguage());
         StartCoroutine(updateCall());
+
+        _lobbyCamera = GameObject.Find("LobbyCamera").GetComponent<Camera>();
+        _inGameCamera = GameObject.Find("In-GameCamera").GetComponent<Camera>();
+        _inGameCamera.gameObject.SetActive(false);
     }
 
     public void AddPlayer(TTPlayer pPlayer)

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4059512043169728469}
   - component: {fileID: 3865954735733139172}
   - component: {fileID: 4059512043169728466}
+  - component: {fileID: -6308380584087643153}
   m_Layer: 0
   m_Name: TTPlayerPrefab
   m_TagString: Untagged
@@ -62,3 +63,35 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   syncMode: 0
   syncInterval: 0.1
+  hasBeenKicked: 0
+--- !u!114 &-6308380584087643153
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4059512043169728468}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a422ce0ca8f0ea46aaa3631646270fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _turnOrderPositionPrefabs:
+  - {fileID: 2942765163618601153, guid: 18c48d2be1e41ee4fa8b16d15d00105a, type: 3}
+  - {fileID: 2942765163618601153, guid: 83ed190f30ef58f4b96512aba9bcdde4, type: 3}
+  - {fileID: 2942765163618601153, guid: 19d0a017d0d48774d8485dbd03d399e0, type: 3}
+  - {fileID: 2942765163618601153, guid: e06372cbd1b4e6c4db80d2df695e48ee, type: 3}
+  _emissionMaterials:
+  - {fileID: 2100000, guid: c7404f570a31c7b4596de256ad3c1c50, type: 2}
+  - {fileID: 2100000, guid: 0851a755ea855d748b30235ac3da43d9, type: 2}
+  - {fileID: 2100000, guid: 0cfcb636f05319141bf293762bffa5a6, type: 2}
+  - {fileID: 2100000, guid: db55b8587eb7f014c822db8af8f04dc7, type: 2}
+  _pawnPrefabs:
+  - {fileID: 4972977772653156282, guid: 30f9ea6f3184bda4aa8e30160822cc38, type: 3}
+  - {fileID: 4972977772653156282, guid: a1487aae6f81d144498508e173c2c31e, type: 3}
+  - {fileID: 4972977772653156282, guid: 7e21a118874bc994bbc6bc639870f25e, type: 3}
+  - {fileID: 4972977772653156282, guid: f17e1b15d15ee9d44838d1f4d822a9a8, type: 3}
+  turnsToSkip: 0
+  extraTurns: 0
+  hasActedThisTurn: 0
+  TurnSound: {fileID: 8300000, guid: 509157b1bfe055f4584a3147be04c1ea, type: 3}

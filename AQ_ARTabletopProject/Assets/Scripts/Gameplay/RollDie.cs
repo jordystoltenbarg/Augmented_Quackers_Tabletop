@@ -8,11 +8,10 @@ public class RollDie : MonoBehaviour
 {
     public static event Action<int> onDieRolled;
 
-    public static Vector2 DieTossValues;
-
     private Camera _mainCam;
     private Rigidbody _bodyRB;
     private List<Transform> _dieSides = new List<Transform>();
+    private Vector2 _dieTossValues;
 
     //Android
     private Touch _currentTouch;
@@ -163,23 +162,28 @@ public class RollDie : MonoBehaviour
 
     private void rollRandomDie()
     {
-        _bodyRB.transform.position += Vector3.up * 5;
-
         float x = UnityEngine.Random.Range(-1.0f, 1.0f);
         float z = UnityEngine.Random.Range(-1.0f, 1.0f);
+        _dieTossValues = new Vector2(x, z);
 
-        _bodyRB.AddForce(new Vector3(x, 0, z).normalized * _sideForce + Vector3.up * _upwardsForce);
-        _bodyRB.AddTorque(new Vector3(x, 1, z).normalized * _rotationTorque);
+        tossDie(_dieTossValues);
 
-        DieTossValues = new Vector2(x, z);
+        TTPlayer.LocalPlayer.TossDie(_dieTossValues);
     }
 
-    private void rollWithValues(int pX, int pZ)
+    private void rollWithValues(Vector2 pDieTossValues)
     {
-        _bodyRB.transform.position += Vector3.up * 5;
+        tossDie(pDieTossValues);
+    }
 
-        _bodyRB.AddForce(new Vector3(pX, 0, pZ).normalized * _sideForce + Vector3.up * _upwardsForce);
-        _bodyRB.AddTorque(new Vector3(pX, 1, pZ).normalized * _rotationTorque);
+    private void tossDie(Vector2 pDieTossValues)
+    {
+        float x = pDieTossValues.x;
+        float z = pDieTossValues.y;
+
+        _bodyRB.transform.position += Vector3.up * 5;
+        _bodyRB.AddForce(new Vector3(x, 0, z).normalized * _sideForce + Vector3.up * _upwardsForce);
+        _bodyRB.AddTorque(new Vector3(x, 1, z).normalized * _rotationTorque);
     }
 
     public IEnumerator RollRandom()
@@ -189,12 +193,12 @@ public class RollDie : MonoBehaviour
 
         yield return new WaitWhile(() => _bodyRB.velocity.magnitude > 0f);
         //onDieRolled?.Invoke(numberRolled());
-        onDieRolled?.Invoke(8);
+        onDieRolled?.Invoke(16);
     }
 
-    public IEnumerator RollWithValues(int pX, int pZ)
+    public IEnumerator RollWithValues(Vector2 pDieTossValues)
     {
-        rollWithValues(pX, pZ);
+        rollWithValues(pDieTossValues);
         yield return new WaitUntil(() => _bodyRB.velocity.magnitude > 0f);
 
         yield return new WaitWhile(() => _bodyRB.velocity.magnitude > 0f);
@@ -216,5 +220,15 @@ public class RollDie : MonoBehaviour
         tempList.Reverse();
 
         return Int16.Parse(tempList[0].Key.name.Substring(4));
+    }
+
+    public int GetNumberRolled()
+    {
+        return numberRolled();
+    }
+
+    public void OnDieRolled(int pRoll)
+    {
+        onDieRolled?.Invoke(pRoll);
     }
 }

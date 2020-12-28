@@ -137,6 +137,10 @@ MonoBehaviour:
     m_Key: LOBBY_CHOOSEADIFFERENTCHARACTER
     m_Metadata:
       m_Items: []
+  - m_Id: 6862101478232064
+    m_Key: LOBBY_NOTREADY
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

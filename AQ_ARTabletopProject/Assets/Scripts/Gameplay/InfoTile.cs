@@ -1,25 +1,24 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class InfoTile : MonoBehaviour
 {
     public GameObject InfoPanel;
     private InfoDisplay infoDisplay;
 
-    void Start()
+    private void Start()
     {
         Pawn.onPawnReachedFinalTileWithGameObject += onPawnFinalTileReached;
         infoDisplay = InfoPanel.GetComponent<InfoDisplay>();
     }
 
     private void onPawnFinalTileReached(GameObject pGameObject)
-    {       
+    {
         if (pGameObject == this.gameObject && InfoPanel != null)
         {
             HideInfoPanel();
-            infoDisplay.RandomizeInfoText();
-            Invoke("ShowInfoPanel", 0.5f);
+            //infoDisplay.RandomizeInfoText();
+            infoDisplay.RandomizeLocalizedString();
+            Invoke(nameof(ShowInfoPanel), 0.5f);
         }
     }
 

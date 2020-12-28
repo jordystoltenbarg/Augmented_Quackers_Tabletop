@@ -124,6 +124,7 @@ public class ReadyUp : MonoBehaviour
                     {
                         //Game should start
                         Debug.Log("Starting...lol");
+                        TTPlayer.LocalPlayer.StartGame();
                     }
                 }
                 break;
@@ -241,6 +242,7 @@ public class ReadyUp : MonoBehaviour
         void yes()
         {
             //Game should start
+            TTPlayer.LocalPlayer.StartGame();
             hasReponded = true;
         }
 

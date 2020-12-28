@@ -1,0 +1,449 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: QuestionsTable_en
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: en
+  m_SharedData: {fileID: 11400000, guid: f00c88b087c55e048ad8e8626352f1a3, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 14164545536
+    m_Localized: 'To which species do the bats belong?
+
+'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 68321398784
+    m_Localized: Butterflies
+    m_Metadata:
+      m_Items: []
+  - m_Id: 610049314816
+    m_Localized: Birds
+    m_Metadata:
+      m_Items: []
+  - m_Id: 625484353536
+    m_Localized: Reptiles
+    m_Metadata:
+      m_Items: []
+  - m_Id: 641934413824
+    m_Localized: Mammels
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7013323591680
+    m_Localized: How does the skeleton of a bat look like the most?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7058160701440
+    m_Localized: A Human
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7036769751040
+    m_Localized: A bird
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7047163236352
+    m_Localized: A flying squirrel
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7048249561088
+    m_Localized: A mouse
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7862074560512
+    m_Localized: Are bats dangerous?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7939266531328
+    m_Localized: Only sick bats
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7882882502656
+    m_Localized: Very
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7908031549440
+    m_Localized: Not at all
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7914088124416
+    m_Localized: Only some bats
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8787098947584
+    m_Localized: Are you allowed to chase away bats in the Netherlands?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8899820867584
+    m_Localized: Nee, vleermuizen zijn bij wet beschermd
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8810616410112
+    m_Localized: Yes, you can
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8817461514240
+    m_Localized: Only big bats
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8874164310016
+    m_Localized: That is allowed if they are annoying
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10039862054912
+    m_Localized: Why do bats hang upside down?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10059868884992
+    m_Localized: Because they are born from upside down
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10102088749056
+    m_Localized: Then they can fly away quickly and are more safe from attackers
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10080890736640
+    m_Localized: Then they smell better
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10092227940352
+    m_Localized: Then they can hear and see better
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10577194340352
+    m_Localized: How does a bat defecate?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10643967660032
+    m_Localized: While flying
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10596114845696
+    m_Localized: Upside down
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10617069588480
+    m_Localized: While sleeping
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10628654256128
+    m_Localized: With droppings
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10972062896128
+    m_Localized: Why are bat boxes often hung in modern residential areas?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11082448588800
+    m_Localized: Bats have lost their safe place in a tree, hole or old farm
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11035577241600
+    m_Localized: It Is a nice decoration
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11061913276416
+    m_Localized: "That must be done \r\nfrom the mayor\r\n"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11072487116800
+    m_Localized: Because bats will not come to live in your house
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11544732192768
+    m_Localized: What do you call a large group of bats?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11617360760832
+    m_Localized: A colony
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11572045500416
+    m_Localized: A pack
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11595240001536
+    m_Localized: A family
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11607332179968
+    m_Localized: A herd
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12192949293056
+    m_Localized: What is the smallest bat breed called?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12254651699200
+    m_Localized: A bumblebee bat
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12244325322752
+    m_Localized: An ant bat
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12234217050112
+    m_Localized: A pipistrelle bat
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12212192759808
+    m_Localized: A gnome bat
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13563131940864
+    m_Localized: How big can the wingspan of the largest bat get?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13629112537088
+    m_Localized: About 2 meters
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13587119165440
+    m_Localized: About 10 meters
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13609260896256
+    m_Localized: About 1 meter
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13619411111936
+    m_Localized: About 30 centimeters
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13907660460032
+    m_Localized: How is it possible that a bat does not hit anything?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13987520008192
+    m_Localized: "He uses echolocation and actually sees with \r\nhis ears\r"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13927524683776
+    m_Localized: He sees very well
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13948030636032
+    m_Localized: He can slow down quickly
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13960391249920
+    m_Localized: He smells danger
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16128351490048
+    m_Localized: How do bats survive 10 degrees of frost in the winter?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16200128614400
+    m_Localized: They go into hibernation
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16153710252032
+    m_Localized: They put on a fur coat
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16158449815552
+    m_Localized: Build a nest just like mice and hedgehogs
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16190683041792
+    m_Localized: Find a place in your house
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16923708968960
+    m_Localized: What does Nature Park Kronenkamp use to make the park energy neutral?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16988087341056
+    m_Localized: Geothermal energy and solar panels.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16946656006144
+    m_Localized: Kinetic energy
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16965110943744
+    m_Localized: Power plant an dynamos
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16979921031168
+    m_Localized: Wind power energy and wind energy
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17544025559040
+    m_Localized: In which cases does Kronenkamp Nature Park contribute locally?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17614879936512
+    m_Localized: Climate control and economic growth control
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17580704747520
+    m_Localized: Education of history
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17596882178048
+    m_Localized: Purifying water
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17606768152576
+    m_Localized: Filming of bats
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17934733365248
+    m_Localized: How is nature (greenery) increasingly viewed?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17987367686144
+    m_Localized: Vitamin G.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17947991560192
+    m_Localized: Freedom and growth
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17965276286976
+    m_Localized: Fun
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17977775312896
+    m_Localized: grass and flowers
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18402310180864
+    m_Localized: What is the largest land animal that lived in Needse Berg 10 million
+      years ago?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18458589351936
+    m_Localized: Forest Elephant
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18418948984832
+    m_Localized: Bat
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18438964203520
+    m_Localized: White rhinoceros
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18448426553344
+    m_Localized: Giraffe
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18947611643904
+    m_Localized: When did the first settlement take place around the Needse Berg?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19016385646592
+    m_Localized: 3000 - 1100 BC
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18968742547456
+    m_Localized: '2000 - 500 BC
+
+'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18997704216576
+    m_Localized: "\r4000 - 1000 BC\r"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19006256402432
+    m_Localized: "1100 - 900 BC\r"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19361618808832
+    m_Localized: When was the church of Neede built?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19429688168448
+    m_Localized: 1235 AD
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19390089744384
+    m_Localized: 1300 AD
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19405495422976
+    m_Localized: 1580 AD
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19415859548160
+    m_Localized: 1125 AD
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20279835840512
+    m_Localized: Between which years did the water purification process  of the water
+      treatment take place in Neede?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20349738110976
+    m_Localized: 1954 - 2002
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20341462749184
+    m_Localized: "\r1960 - 2002\r"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20331752935424
+    m_Localized: "\r1944 - 2004\r"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20304481570816
+    m_Localized: "1980 - 2012\r"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20806699143168
+    m_Localized: What has one of the filters been converted to?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20871677300736
+    m_Localized: Education and exhibition space
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20851024547840
+    m_Localized: "Bee exhibition\r\n\r"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20860432371712
+    m_Localized: "Historical museum\r"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20829071560704
+    m_Localized: "Bat exhibit\r"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21394325327872
+    m_Localized: In what year has the old water treatment plant in Neede has been
+      decommissioned?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21455046266880
+    m_Localized: 2003
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21444669558784
+    m_Localized: 2005
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21435647610880
+    m_Localized: 2002
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21417356251136
+    m_Localized: 2000
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 1

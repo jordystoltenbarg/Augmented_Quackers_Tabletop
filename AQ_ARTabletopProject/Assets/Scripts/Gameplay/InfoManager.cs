@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class InfoManager : MonoBehaviour
 {
@@ -17,7 +15,6 @@ public class InfoManager : MonoBehaviour
         {
             Destroy(gameObject);
             return;
-
         }
 
         singleton = this;
@@ -33,6 +30,5 @@ public class InfoManager : MonoBehaviour
     public void SetInfoText(int index)
     {
         currentInfo = infoTexts[index];
-
     }
 }

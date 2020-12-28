@@ -1,0 +1,117 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: InfoTileTable_en
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: en
+  m_SharedData: {fileID: 11400000, guid: 2484a09d7f7f9874497d7c5252612031, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 22402158592
+    m_Localized: Did you know that bats are mammals?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 144921972736
+    m_Localized: The skeleton of a bat most closely resembles a human.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 34098045865984
+    m_Localized: Bats are not dangerous. Only sick bats are dangerous.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 34113950666752
+    m_Localized: In the Netherlands you are not allowed to chase away bats. Because
+      bats are protected by law.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 34145399558144
+    m_Localized: To be safer from attackers and to be able to fly away faster, bats
+      like to hang upside down.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 34161224667136
+    m_Localized: Did you know that bats poop when flying?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 34177909608448
+    m_Localized: Bats boxes are often hung in new housing estates. Because bats have
+      lost their safe place in a tree, hole or old farm.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 34194489692160
+    m_Localized: A large group of bats is called a colony.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 34209429803008
+    m_Localized: The smallest bat that exists is a bumblebee bat.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 34220641177600
+    m_Localized: The wingspan of the largest bat is about 2 meters.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 34234755010560
+    m_Localized: Bats fly into nowhere through the use of echolocation and so actually
+      see with its ears.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 34246784274432
+    m_Localized: Bats go into hibernation when it is 10 degrees celsius in winter.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 34264312270848
+    m_Localized: Nature park Kronenkamp uses geothermal energy and solar panels to
+      be energy neutral.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 34275506868224
+    m_Localized: Did you know that Nature park Kronenkamp contributes to climate
+      control and economic growth control?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 34285908742144
+    m_Localized: Vitamine G is increasingly regarded as nature(the green)
+    m_Metadata:
+      m_Items: []
+  - m_Id: 34295715024896
+    m_Localized: Did you know that the forest elephant is the largest land animal
+      that lived in the Needse Berg 10 million years ago?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 34309061300224
+    m_Localized: The first settlement around Needse Berg took place around 3000 -
+      1100 BC.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 34318162939904
+    m_Localized: The church of Neede is built around 1235 AD.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 34329240096768
+    m_Localized: Did you know that the water purification process in Neede took place
+      between the year 1954 - 2002?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 34339067351040
+    m_Localized: One of the filters in Kronenkamp has been converted into an education
+      and exhibition space.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36981239795712
+    m_Localized: The old sewage treatment plant in Neede has not been used since
+      2003.
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 1
