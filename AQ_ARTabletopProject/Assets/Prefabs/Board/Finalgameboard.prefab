@@ -3025,7 +3025,7 @@ Transform:
   - {fileID: 1767820569}
   - {fileID: 817262157}
   m_Father: {fileID: 2462993414445675483}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2083763006
 GameObject:
@@ -4410,7 +4410,7 @@ Transform:
   - {fileID: 6152276873325661476}
   - {fileID: 5775695439260132206}
   m_Father: {fileID: 2462993414445675483}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &584792331853817515
 GameObject:
@@ -5814,9 +5814,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe5ab6d92cdafe041bfaf3e46c7d5b3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  questionText: {fileID: 4405640846839189936}
-  BubbleIcon: {fileID: 4246057324935545532}
-  themeText: {fileID: 5236237346034954159}
+  _localizedQuestionTextEvent: {fileID: 0}
+  _bubbleIcon: {fileID: 0}
 --- !u!1 &1171221781845315836
 GameObject:
   m_ObjectHideFlags: 0
@@ -6358,9 +6357,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe5ab6d92cdafe041bfaf3e46c7d5b3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  questionText: {fileID: 961673635911324440}
-  BubbleIcon: {fileID: 8283791330855346266}
-  themeText: {fileID: 1578546488025210730}
+  _localizedQuestionTextEvent: {fileID: 0}
+  _bubbleIcon: {fileID: 0}
 --- !u!1 &1454955552418748946
 GameObject:
   m_ObjectHideFlags: 0
@@ -9197,7 +9195,6 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 8660258337315177503}
   - {fileID: 2462993414778970003}
   - {fileID: 2462993414564645747}
   - {fileID: 576918487370576347}
@@ -9218,10 +9215,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be56f4929b358f84dab40644a5ae6b94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  questions: []
-  QuizBubbleIcon: {fileID: 0}
-  QuizBubbleTheme: 
-  answerParent: {fileID: 9117740257923372100}
+  _questionTypeVariations: []
+  _answerParent: {fileID: 0}
 --- !u!114 &7139335316463661669
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9316,7 +9311,7 @@ Transform:
   - {fileID: 5437425108407166971}
   - {fileID: 5437425107801278045}
   m_Father: {fileID: 2462993414445675483}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2462993414564645746
 MonoBehaviour:
@@ -9850,7 +9845,7 @@ Transform:
   m_Children:
   - {fileID: 2462993414929830681}
   m_Father: {fileID: 2462993414445675483}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2462993414778970000
 MeshFilter:
@@ -14739,9 +14734,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe5ab6d92cdafe041bfaf3e46c7d5b3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  questionText: {fileID: 8406380305136073046}
-  BubbleIcon: {fileID: 6968099869503111560}
-  themeText: {fileID: 756579565181384700}
+  _localizedQuestionTextEvent: {fileID: 0}
+  _bubbleIcon: {fileID: 0}
 --- !u!1 &3408682722602708151
 GameObject:
   m_ObjectHideFlags: 0
@@ -16125,50 +16119,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!1 &4308925372580985577
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 8660258337315177503}
-  - component: {fileID: 8671504671889530502}
-  m_Layer: 0
-  m_Name: AudioManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &8660258337315177503
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4308925372580985577}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.66845095, y: 42.411106, z: 48.20721}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 2462993414445675483}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8671504671889530502
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4308925372580985577}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ea9dbedf2cad43f4b953bce7175dfc38, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sounds: []
 --- !u!1 &4311970821555586071
 GameObject:
   m_ObjectHideFlags: 0
@@ -30392,7 +30342,7 @@ RectTransform:
   m_Children:
   - {fileID: 3636057487233221951}
   m_Father: {fileID: 2462993414445675483}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -31224,9 +31174,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe5ab6d92cdafe041bfaf3e46c7d5b3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  questionText: {fileID: 3375996524316080241}
-  BubbleIcon: {fileID: 6679944258209241184}
-  themeText: {fileID: 1849748935612961731}
+  _localizedQuestionTextEvent: {fileID: 0}
+  _bubbleIcon: {fileID: 0}
 --- !u!1 &8173890415463576666
 GameObject:
   m_ObjectHideFlags: 0
@@ -31824,9 +31773,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe5ab6d92cdafe041bfaf3e46c7d5b3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  questionText: {fileID: 8992100460934047890}
-  BubbleIcon: {fileID: 90828292781832938}
-  themeText: {fileID: 5706906729209945305}
+  _localizedQuestionTextEvent: {fileID: 0}
+  _bubbleIcon: {fileID: 0}
 --- !u!1 &8466312091917025758
 GameObject:
   m_ObjectHideFlags: 0
@@ -31956,9 +31904,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe5ab6d92cdafe041bfaf3e46c7d5b3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  questionText: {fileID: 8101705992848865236}
-  BubbleIcon: {fileID: 9146052721215302002}
-  themeText: {fileID: 3769748388993316397}
+  _localizedQuestionTextEvent: {fileID: 0}
+  _bubbleIcon: {fileID: 0}
 --- !u!1 &8486999635248560662
 GameObject:
   m_ObjectHideFlags: 0
@@ -32222,9 +32169,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe5ab6d92cdafe041bfaf3e46c7d5b3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  questionText: {fileID: 6722175679287595245}
-  BubbleIcon: {fileID: 7210803309097605684}
-  themeText: {fileID: 1508168557899325433}
+  _localizedQuestionTextEvent: {fileID: 0}
+  _bubbleIcon: {fileID: 0}
 --- !u!1 &8510494100848836044
 GameObject:
   m_ObjectHideFlags: 0

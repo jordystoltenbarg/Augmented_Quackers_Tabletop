@@ -1,55 +1,55 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.UI;
 
 public class QuizManager : MonoBehaviour
 {
+    public static QuizManager Singleton = null;
 
-    public static QuizManager singleton = null;
-    [HideInInspector]public Question[] questions;
-    private Question currentQuestion;
-    public Question CurrentQuestion => currentQuestion;
-    public Sprite QuizBubbleIcon;
-    public string QuizBubbleTheme;
+    [SerializeField] private Sprite[] _questionTypeVariations;
+    [SerializeField] private GameObject _answerParent;
 
-
-    [SerializeField]
-    private GameObject answerParent;
+    private Question[] _questions;
+    public Question[] Questions => _questions;
+    private Question _currentQuestion;
+    public Question CurrentQuestion => _currentQuestion;
+    private Image _quizBubbleIcon;
+    public Image QuizBubbleIcon => _quizBubbleIcon;
 
     private void Awake()
     {
-        QuizManager[] QM = FindObjectsOfType<QuizManager>();
-
-        if (QM.Length > 1)
+        QuizManager[] qm = FindObjectsOfType<QuizManager>();
+        if (qm.Length > 1)
         {
-            Debug.Log("Destroyed GameManager");
+            Debug.Log("QuizManager already exists: DESTROY!");
             Destroy(gameObject);
             return;
-            
         }
-
-        singleton = this;
-
+        Singleton = this;
         LoadQuestions();
-
-        
-
     }
 
-    private void LoadQuestions ()
+    private void LoadQuestions()
     {
-        questions = Resources.LoadAll<Question>("QuizQuestions");
+        _questions = Resources.LoadAll<Question>("QuizQuestions");
     }
 
-    public void SetQuestion(int index)
+    public void SetQuestion(int pIndex)
     {
-        currentQuestion = questions[index];
-        QuizBubbleIcon = currentQuestion.QuizIcon;
-        QuizBubbleTheme = currentQuestion.quizTheme;
+        _currentQuestion = _questions[pIndex];
+        switch (_currentQuestion.QuestionType)
+        {
+            case Question.Type.Nature:
+                _quizBubbleIcon.sprite = _questionTypeVariations[0];
+                break;
+            case Question.Type.History:
+                _quizBubbleIcon.sprite = _questionTypeVariations[1];
+                break;
+            case Question.Type.WaterTreatment:
+                _quizBubbleIcon.sprite = _questionTypeVariations[2];
+                break;
+            case Question.Type.Bats:
+                _quizBubbleIcon.sprite = _questionTypeVariations[3];
+                break;
+        }
     }
-
-
-    
-
-
 }

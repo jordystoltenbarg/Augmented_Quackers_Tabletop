@@ -15,7 +15,7 @@ public class TurnOrderManager : MonoBehaviour
     private static int _round = 1;
     public static int Round => _round;
 
-    [SerializeField] private GameObject _turnOrderParent = null;
+    private GameObject _turnOrderParent = null;
     private readonly List<GameObject> _positions = new List<GameObject>();
     private readonly List<GameObject> _playerAvatars = new List<GameObject>();
 
@@ -64,6 +64,7 @@ public class TurnOrderManager : MonoBehaviour
         _players = FindObjectsOfType<VasilPlayer>().ToList();
 
         _positions.Clear();
+        _turnOrderParent = GameObject.Find("TurnOrder");
         for (int i = 0; i < _turnOrderParent.transform.childCount; i++)
         {
             if (_turnOrderParent.transform.GetChild(i).name == "Border") continue;
