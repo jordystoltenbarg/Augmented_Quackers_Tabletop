@@ -18,24 +18,432 @@ MonoBehaviour:
   m_Metadata:
     m_Items: []
   m_TableData:
-  - m_Id: 68321398784
-    m_Localized: Ja
+  - m_Id: 14164545536
+    m_Localized: Wat voor soort dier is een vleermuis?
     m_Metadata:
       m_Items: []
-  - m_Id: 14164545536
-    m_Localized: que?
+  - m_Id: 68321398784
+    m_Localized: Vlinders
     m_Metadata:
       m_Items: []
   - m_Id: 610049314816
-    m_Localized: 12
+    m_Localized: Vogels
     m_Metadata:
       m_Items: []
   - m_Id: 625484353536
-    m_Localized: 55+
+    m_Localized: Reptielen
     m_Metadata:
       m_Items: []
   - m_Id: 641934413824
-    m_Localized: COCK
+    m_Localized: Zoogdieren
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7013323591680
+    m_Localized: Het geraamte van een vleermuis lijkt het meeste op?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7058160701440
+    m_Localized: Een mens
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7036769751040
+    m_Localized: Een vogel
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7047163236352
+    m_Localized: Een vliegende eekhoorn
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7048249561088
+    m_Localized: Een muis
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7862074560512
+    m_Localized: Zijn vleermuizen gevaarlijk?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7939266531328
+    m_Localized: Alleen zieke vleermuizen
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7882882502656
+    m_Localized: Heel erg
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7908031549440
+    m_Localized: Helemaal niet
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7914088124416
+    m_Localized: Alleen sommige vleermuizen
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8787098947584
+    m_Localized: Mag je in Nederland vleermuizen verjagen?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8899820867584
+    m_Localized: No, bats are protected by law
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8810616410112
+    m_Localized: Ja hoor, dat mag
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8817461514240
+    m_Localized: Aleen grote vleermuizen
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8874164310016
+    m_Localized: Dat mag als je er last van hebt
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10039862054912
+    m_Localized: Waarom hangen vleermuizen ondersteboven?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10059868884992
+    m_Localized: Omdat ze ondersteboven geboren worden
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10102088749056
+    m_Localized: Dan kunnen ze snel wegvliegen en zijn ze veiliger voor aanvallers
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10080890736640
+    m_Localized: Dan ruiken ze beter
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10092227940352
+    m_Localized: Dan kunnen ze beter horen en zien
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10577194340352
+    m_Localized: Hoe poept een vleermuis?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10643967660032
+    m_Localized: Tijdens het vliegen
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10596114845696
+    m_Localized: Ondersteboven
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10617069588480
+    m_Localized: Tijdens het slapen
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10628654256128
+    m_Localized: Met keuteltjes
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10972062896128
+    m_Localized: Waarom worden er in nieuwbouwwijken vaak vleermuiskasten opgehangen?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11082448588800
+    m_Localized: Vleermuizen zijn hun veilige plek in een boom, hol of oude boerderij
+      kwijt
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11035577241600
+    m_Localized: Is een leuke versiering
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11061913276416
+    m_Localized: Dat moet van de burgemeester
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11072487116800
+    m_Localized: Omdat vleermuizen dan niet in jouw huis komen wonen
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11544732192768
+    m_Localized: Hoe noem je een grote groep vleermuizen?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11617360760832
+    m_Localized: Een kolonie
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11572045500416
+    m_Localized: Een roedel
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11595240001536
+    m_Localized: Een familie
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11607332179968
+    m_Localized: Een kudde
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12192949293056
+    m_Localized: Hoe heet de kleinste vleermuis?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12254651699200
+    m_Localized: Een hommelvleermuis
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12212192759808
+    m_Localized: Een kaboutervleermuis
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12234217050112
+    m_Localized: Een dwergvleermuis
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12244325322752
+    m_Localized: Een mierenvleermuis
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13563131940864
+    m_Localized: Hoe groot kan de spanwijdte worden van de grootste vleermuis?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13629112537088
+    m_Localized: Ongeveer 2 meter
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13587119165440
+    m_Localized: Ongeveer 10 meter
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13619411111936
+    m_Localized: Ongeveer 30 centimeter
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13609260896256
+    m_Localized: Ongeveer 1 meter
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13907660460032
+    m_Localized: Hoe kan het dat een vleermuis nergens tegenaan vliegt?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13987520008192
+    m_Localized: Hij maakt gebruik van echolocatie en ziet dus eigenlijk met zijn
+      oren
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13927524683776
+    m_Localized: Hij ziet heel goed
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13948030636032
+    m_Localized: Hij kan snel afremmen
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13960391249920
+    m_Localized: Hij ruikt gevaar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16128351490048
+    m_Localized: Hoe overleven vleermuizen 10 graden vorst in de winter?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16200128614400
+    m_Localized: Ze gaan in winterslaap
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16153710252032
+    m_Localized: Ze trekken een bontjas aan
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16158449815552
+    m_Localized: Bouwen een nest, net als muizen en egels
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16190683041792
+    m_Localized: Zoeken een plekje in jouw huis
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16923708968960
+    m_Localized: Wat zet Natuurpark Kronenkamp in om het park energieneutraal te
+      zijn?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16988087341056
+    m_Localized: Aardwarmte en zonnepanelen.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16946656006144
+    m_Localized: Kinetische energie
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16965110943744
+    m_Localized: Energiecentrale en dynamo's
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16979921031168
+    m_Localized: Windkracht energie en windenergie
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17544025559040
+    m_Localized: Bij welke zaken levert Natuurpark Kronenkamp lokaal een bijdrage?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17614879936512
+    m_Localized: "Klimaatbeheersing en economische \r\ngroeibeheersing\r\n"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17580704747520
+    m_Localized: Educatie van gescchiedenis
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17596882178048
+    m_Localized: Zuiveren van water
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17606768152576
+    m_Localized: Filmen van vleermuizen
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17934733365248
+    m_Localized: Hoe wordt de natuur(het groen) steeds meer beschouwd?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17987367686144
+    m_Localized: Vitamine G.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17947991560192
+    m_Localized: Vrijheid en groei
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17965276286976
+    m_Localized: Plezier
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17977775312896
+    m_Localized: Gras en bloemen
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18402310180864
+    m_Localized: Wat is het grootste landdier dat 10 miljoen jaar geleden heeft geleefd
+      in de Needse Berg?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18418948984832
+    m_Localized: Vleermuis
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18458589351936
+    m_Localized: Woudolifant
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18438964203520
+    m_Localized: Witte neushoorn
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18448426553344
+    m_Localized: Giraffe
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18947611643904
+    m_Localized: Wanneer vond de eerste nederzetting plaats in rond de Needse Berg?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19016385646592
+    m_Localized: 3000 - 1100 voor Christus
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18968742547456
+    m_Localized: "2000 - 500 voor Christus\r\r"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19006256402432
+    m_Localized: "1100 - 900 voor Christus\r"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18997704216576
+    m_Localized: "4000 - 1000 voor Christus\r"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19361618808832
+    m_Localized: Wanneer werd de kerk van Neede gebouwd?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19429688168448
+    m_Localized: 1235 na Christus
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19390089744384
+    m_Localized: 1300 na Christus
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19405495422976
+    m_Localized: 1580 na Christus
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19415859548160
+    m_Localized: 1125 na Christus
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20279835840512
+    m_Localized: Tussen welke jaartallen speelde zich het waterzuiveringsproces zich
+      af in Neede?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20349738110976
+    m_Localized: 1954 - 2002
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20304481570816
+    m_Localized: "1980 - 2012\r"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20331752935424
+    m_Localized: "\r1944 - 2004\r"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20341462749184
+    m_Localized: "\r1960 - 2002\r"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20806699143168
+    m_Localized: "Tot wat is \xE9\xE9n van de filters omgebouwd?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20871677300736
+    m_Localized: Educatie- en tentoonstellingsruimte
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20829071560704
+    m_Localized: 'Vleermuizenexpositie
+
+'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20851024547840
+    m_Localized: "\rBijententoonstelling\r"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20860432371712
+    m_Localized: "\rHistorische museum\r"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21394325327872
+    m_Localized: Sinds welk jaar wordt de oude rioolwaterzuivering in Neede niet
+      meer gebruikt?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21455046266880
+    m_Localized: 2003
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21444669558784
+    m_Localized: 2005
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21435647610880
+    m_Localized: 2002
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21417356251136
+    m_Localized: 2000
     m_Metadata:
       m_Items: []
   references:

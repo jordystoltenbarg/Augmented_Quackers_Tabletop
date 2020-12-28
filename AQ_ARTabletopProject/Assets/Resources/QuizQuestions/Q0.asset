@@ -1,0 +1,52 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b687bd1370d7a6443bb9f66470a2e2db, type: 3}
+  m_Name: Q0
+  m_EditorClassIdentifier: 
+  question: 
+  answers:
+  - 
+  - 
+  - 
+  - 
+  correctAnswer: 
+  quizTheme: 
+  QuizIcon: {fileID: 0}
+  _localizedQuestion:
+    m_TableReference:
+      m_TableCollectionName: GUID:f00c88b087c55e048ad8e8626352f1a3
+    m_TableEntryReference:
+      m_KeyId: 14164545536
+      m_Key: 
+  _localizedWrongAnswersArray:
+  - m_TableReference:
+      m_TableCollectionName: GUID:f00c88b087c55e048ad8e8626352f1a3
+    m_TableEntryReference:
+      m_KeyId: 68321398784
+      m_Key: 
+  - m_TableReference:
+      m_TableCollectionName: GUID:f00c88b087c55e048ad8e8626352f1a3
+    m_TableEntryReference:
+      m_KeyId: 610049314816
+      m_Key: 
+  - m_TableReference:
+      m_TableCollectionName: GUID:f00c88b087c55e048ad8e8626352f1a3
+    m_TableEntryReference:
+      m_KeyId: 625484353536
+      m_Key: 
+  _localizedCorrectAnswer:
+    m_TableReference:
+      m_TableCollectionName: GUID:f00c88b087c55e048ad8e8626352f1a3
+    m_TableEntryReference:
+      m_KeyId: 641934413824
+      m_Key: 
+  _questionType: 3
