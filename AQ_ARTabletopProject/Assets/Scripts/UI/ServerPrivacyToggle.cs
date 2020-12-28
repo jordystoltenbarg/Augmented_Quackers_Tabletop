@@ -41,6 +41,10 @@ public class ServerPrivacyToggle : MonoBehaviour
                 GetComponent<Button>().onClick.AddListener(toggle);
             }
         }
+        else
+        {
+            GetComponent<Button>().onClick.AddListener(toggle);
+        }
 
         TTSettingsManager.Singleton.ToggleServerPrivacySetting(_isPrivate);
     }
