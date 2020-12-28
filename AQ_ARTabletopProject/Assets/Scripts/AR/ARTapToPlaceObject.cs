@@ -17,7 +17,7 @@ public class ARTapToPlaceObject : MonoBehaviour
     private Pose placementPose;
     //private ARRaycastManager aRRaycastManager;
     private bool placementPoseIsValid;
-    private bool ObjectPlaced = false;
+    public bool ObjectPlaced = false;
 
     // Start is called before the first frame update
     void Start()
@@ -36,6 +36,7 @@ public class ARTapToPlaceObject : MonoBehaviour
         if (placementPoseIsValid && Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
         {
             PlaceObject();
+            placementIndicator.SetActive(false);
         }
 
         if (ObjectPlaced == true)
