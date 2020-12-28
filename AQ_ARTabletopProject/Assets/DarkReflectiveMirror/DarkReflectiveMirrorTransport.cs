@@ -82,7 +82,6 @@ public class DarkReflectiveMirrorTransport : Transport
         {
             if (useWebsockets)
             {
-
                 websocketClient = new WebSocketClientConnection(relayIP, relayPort);
 
                 if (Application.platform != RuntimePlatform.WebGLPlayer)
@@ -378,44 +377,10 @@ public class DarkReflectiveMirrorTransport : Transport
                 break;
             }
 
-            //if (isConnected)
-            //{
-            //    if (showDebugLogs)
-            //        Debug.Log("Stopping direct connect attempt. Server doesnt support direct connect and used relay.");
-
-            //    yield break;
-            //}
-
-            yield return new WaitForEndOfFrame();
-        }
-
-        //if (currentTime > 0)
-        //{
-        //    // Waiting for info timed out, just use relay and connect.
-        //    using (DarkRiftWriter writer = DarkRiftWriter.Create())
-        //    {
-        //        writer.Write(host);
-        //        writer.Write(true);
-        //        writer.Write("0.0.0.0");
-        //        using (Message sendJoinMessage = Message.Create((ushort)OpCodes.JoinServer, writer))
-        //            drClient.Client.SendMessage(sendJoinMessage, SendMode.Reliable);
-        //    }
-        //    if (showDebugLogs)
-        //        Debug.Log("Failed to receive IP from server, falling back to relay.");
-        //}
-        //else
-        //{
-        if (showDebugLogs)
-            Debug.Log($"Received server connection info, attempting direct connection to {directConnectAddress}...");
-
-        while (currentTime < directConnectTimeout)
-        {
-            currentTime += Time.deltaTime;
-
             if (isConnected)
             {
                 if (showDebugLogs)
-                    Debug.Log("Direct connect successful!");
+                    Debug.Log("Stopping direct connect attempt. Server doesnt support direct connect and used relay.");
 
                 yield break;
             }
@@ -423,21 +388,55 @@ public class DarkReflectiveMirrorTransport : Transport
             yield return new WaitForEndOfFrame();
         }
 
-        directConnectModule.ClientDisconnect();
+        if (currentTime > 0)
+        {
+            // Waiting for info timed out, just use relay and connect.
+            using (DarkRiftWriter writer = DarkRiftWriter.Create())
+            {
+                writer.Write(host);
+                writer.Write(true);
+                writer.Write("0.0.0.0");
+                using (Message sendJoinMessage = Message.Create((ushort)OpCodes.JoinServer, writer))
+                    drClient.Client.SendMessage(sendJoinMessage, SendMode.Reliable);
+            }
+            if (showDebugLogs)
+                Debug.Log("Failed to receive IP from server, falling back to relay.");
+        }
+        else
+        {
+            if (showDebugLogs)
+                Debug.Log($"Received server connection info, attempting direct connection to {directConnectAddress}...");
 
-        // Force join the server using relay since direct connect failed.
-        //using (DarkRiftWriter writer = DarkRiftWriter.Create())
-        //{
-        //    writer.Write(host);
-        //    writer.Write(true);
-        //    writer.Write("0.0.0.0");
-        //    using (Message sendJoinMessage = Message.Create((ushort)OpCodes.JoinServer, writer))
-        //        drClient.Client.SendMessage(sendJoinMessage, SendMode.Reliable);
-        //}
+            while (currentTime < directConnectTimeout)
+            {
+                currentTime += Time.deltaTime;
 
-        if (showDebugLogs)
-            Debug.Log("Failed to direct connect, falling back to relay.");
-        //}
+                if (isConnected)
+                {
+                    if (showDebugLogs)
+                        Debug.Log("Direct connect successful!");
+
+                    yield break;
+                }
+
+                yield return new WaitForEndOfFrame();
+            }
+
+            directConnectModule.ClientDisconnect();
+
+            // Force join the server using relay since direct connect failed.
+            using (DarkRiftWriter writer = DarkRiftWriter.Create())
+            {
+                writer.Write(host);
+                writer.Write(true);
+                writer.Write("0.0.0.0");
+                using (Message sendJoinMessage = Message.Create((ushort)OpCodes.JoinServer, writer))
+                    drClient.Client.SendMessage(sendJoinMessage, SendMode.Reliable);
+            }
+
+            if (showDebugLogs)
+                Debug.Log("Failed to direct connect, falling back to relay.");
+        }
     }
 
     public override void ClientConnect(Uri uri)
