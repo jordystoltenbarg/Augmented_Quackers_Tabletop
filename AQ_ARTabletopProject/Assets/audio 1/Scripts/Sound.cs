@@ -1,5 +1,11 @@
-﻿using UnityEngine.Audio;
-using UnityEngine;
+﻿using UnityEngine;
+
+public enum SoundType
+{
+    SFX,
+    Music,
+    Dialogue
+}
 
 [System.Serializable]
 public class Sound
@@ -18,4 +24,6 @@ public class Sound
     [HideInInspector]
     public AudioSource source;
 
+    [SerializeField] private SoundType _soundType;
+    public SoundType SoundType => _soundType;
 }

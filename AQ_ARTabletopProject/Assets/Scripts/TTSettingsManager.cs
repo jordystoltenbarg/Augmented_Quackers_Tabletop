@@ -43,7 +43,6 @@ public class TTSettingsManager : MonoBehaviour
         TTSettingsManager[] ttSMs = FindObjectsOfType<TTSettingsManager>();
         if (ttSMs.Length > 1)
             Destroy(gameObject);
-
         Singleton = this;
         DontDestroyOnLoad(gameObject);
 
