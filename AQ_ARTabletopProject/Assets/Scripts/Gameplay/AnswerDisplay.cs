@@ -32,7 +32,7 @@ public class AnswerDisplay : MonoBehaviour
 
         
 
-        Question q = QuizManager.singleton.CurrentQuestion;
+        Question q = QuizManager.Singleton.CurrentQuestion;
 
         for (int i = 0; i < answerList.Count; i++)
         {
@@ -56,7 +56,7 @@ public class AnswerDisplay : MonoBehaviour
 
     public void CheckAnswer(TMP_Text pAnswer)
     {
-        if (pAnswer.text == QuizManager.singleton.CurrentQuestion.correctAnswer)
+        if (pAnswer.text == QuizManager.Singleton.CurrentQuestion.correctAnswer)
         {
             Debug.Log("Correct!");
             pAnswer.transform.parent.parent.Find("Correct").gameObject.SetActive(true);
