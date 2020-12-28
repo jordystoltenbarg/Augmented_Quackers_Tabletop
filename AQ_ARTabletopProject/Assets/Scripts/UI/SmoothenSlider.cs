@@ -1,9 +1,11 @@
 ﻿using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using UnityEngine.Audio;
 
 public class SmoothenSlider : MonoBehaviour, IBeginDragHandler, IDropHandler, IDragHandler
 {
+    [SerializeField] private AudioMixer _audioMixer = null;
     private Slider _slider = null;
     private AudioManager _audioManager = null;
     private int _previousValue = 0;
@@ -42,7 +44,22 @@ public class SmoothenSlider : MonoBehaviour, IBeginDragHandler, IDropHandler, ID
 
             if (_audioManager && currentValue != _previousValue)
             {
-                _audioManager.Play("buttonsound");
+                float volume = Mathf.Clamp(currentValue * 0.1f, 0.0001f, 1f);
+                volume = Mathf.Log10(volume) * TTSettingsManager.Singleton.AudioVolumeModifier;
+                switch (_slider.transform.parent.name)
+                {
+                    case "SFX":
+                        _audioMixer.SetFloat("sfxVolume", volume);
+                        break;
+                    case "Music":
+                        _audioMixer.SetFloat("musicVolume", volume);
+                        break;
+                    case "Dialogue":
+                        _audioMixer.SetFloat("dialogueVolume", volume);
+                        break;
+                }
+                if (currentValue != 0)
+                    _audioManager.Play("buttonsound");
                 _previousValue = currentValue;
             }
         }

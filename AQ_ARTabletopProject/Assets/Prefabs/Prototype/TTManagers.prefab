@@ -71,6 +71,8 @@ MonoBehaviour:
   - bad
   - hitler
   _updateInterval: 0.2
+  _audioMixer: {fileID: 24100000, guid: 474577246ffaf8c44a993ca5cb504f57, type: 2}
+  _audioVolumeModifier: 60
   applicationLanguage: 0
 --- !u!114 &8101747182186894535
 MonoBehaviour:
@@ -269,6 +271,24 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1787113105667769536, guid: 1abc52ece07028b47bf7c7cc66274f45,
+        type: 3}
+      propertyPath: _sfxAudioMixer
+      value: 
+      objectReference: {fileID: 8381323616885275075, guid: 474577246ffaf8c44a993ca5cb504f57,
+        type: 2}
+    - target: {fileID: 1787113105667769536, guid: 1abc52ece07028b47bf7c7cc66274f45,
+        type: 3}
+      propertyPath: _musicAudioMixer
+      value: 
+      objectReference: {fileID: 2043842934589912415, guid: 474577246ffaf8c44a993ca5cb504f57,
+        type: 2}
+    - target: {fileID: 1787113105667769536, guid: 1abc52ece07028b47bf7c7cc66274f45,
+        type: 3}
+      propertyPath: _dialogueAudioMixer
+      value: 
+      objectReference: {fileID: -1631038449931253936, guid: 474577246ffaf8c44a993ca5cb504f57,
+        type: 2}
     - target: {fileID: 6581490388790616239, guid: 1abc52ece07028b47bf7c7cc66274f45,
         type: 3}
       propertyPath: m_Name
