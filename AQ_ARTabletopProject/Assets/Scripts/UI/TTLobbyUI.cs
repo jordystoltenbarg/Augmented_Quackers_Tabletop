@@ -6,7 +6,7 @@ public class TTLobbyUI : MonoBehaviour
     public static TTLobbyUI Singleton = null;
 
     [SerializeField] private GameObject _playerLobbyUIItemPrefab;
-    [SerializeField] private Transform _playersContainer;
+    private Transform _playersContainer;
 
     private readonly List<TTLobbyUIPlayerItem> _items = new List<TTLobbyUIPlayerItem>();
 
@@ -43,6 +43,7 @@ public class TTLobbyUI : MonoBehaviour
             }
         }
 
+        _playersContainer = GameObject.Find("PlayerList").transform;
         GameObject clone = Instantiate(_playerLobbyUIItemPrefab, _playersContainer);
         clone.GetComponent<TTLobbyUIPlayerItem>().Setup(pPlayer);
         _items.Add(clone.GetComponent<TTLobbyUIPlayerItem>());

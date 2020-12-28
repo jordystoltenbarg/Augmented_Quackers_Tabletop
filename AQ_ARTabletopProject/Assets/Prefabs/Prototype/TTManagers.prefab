@@ -86,7 +86,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _playerLobbyUIItemPrefab: {fileID: 76831011153280875, guid: f8a58c0e33a58f14e860a3b6a90dccec,
     type: 3}
-  _playersContainer: {fileID: 0}
 --- !u!1 &8101747182947954747
 GameObject:
   m_ObjectHideFlags: 0
@@ -208,7 +207,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d1b5dddfb0d3ac498fb6faf13ba910a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _turnOrderParent: {fileID: 0}
 --- !u!1001 &8994300781230880855
 PrefabInstance:
   m_ObjectHideFlags: 0
