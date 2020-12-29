@@ -67,7 +67,7 @@ public class TurnOrderManager : MonoBehaviour
         _turnOrderParent = GameObject.Find("TurnOrder");
         for (int i = 0; i < _turnOrderParent.transform.childCount; i++)
         {
-            if (_turnOrderParent.transform.GetChild(i).name == "Border") continue;
+            if (_turnOrderParent.transform.GetChild(i).name != "Position") continue;
 
             if (_players.Count <= i)
                 _turnOrderParent.transform.GetChild(i).gameObject.SetActive(false);

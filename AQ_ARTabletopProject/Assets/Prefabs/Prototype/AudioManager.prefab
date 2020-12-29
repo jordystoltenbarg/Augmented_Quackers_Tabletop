@@ -24,7 +24,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6581490388790616239}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.66845095, y: 42.411106, z: 48.20721}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -43,59 +43,95 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea9dbedf2cad43f4b953bce7175dfc38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _sfxAudioMixer: {fileID: 8381323616885275075, guid: 474577246ffaf8c44a993ca5cb504f57,
+    type: 2}
+  _musicAudioMixer: {fileID: 2043842934589912415, guid: 474577246ffaf8c44a993ca5cb504f57,
+    type: 2}
+  _dialogueAudioMixer: {fileID: -1631038449931253936, guid: 474577246ffaf8c44a993ca5cb504f57,
+    type: 2}
+  _firstMusicIndex: -1
   sounds:
   - clip: {fileID: 8300000, guid: f6770698d7590a34e8e78f6d4f5c2131, type: 3}
     volume: 1
     pitch: 1
     loop: 0
     source: {fileID: 0}
+    _soundType: 0
   - clip: {fileID: 8300000, guid: dffaf4878267cc9428ad53d40f10c997, type: 3}
     volume: 1
     pitch: 1
     loop: 0
     source: {fileID: 0}
+    _soundType: 0
   - clip: {fileID: 8300000, guid: 13db196fd1307aa4c997e495e90f58a1, type: 3}
     volume: 1
     pitch: 1
     loop: 0
     source: {fileID: 0}
+    _soundType: 0
   - clip: {fileID: 8300000, guid: 271c4d6356b62804990ce9cd75006c82, type: 3}
     volume: 1
     pitch: 1
     loop: 0
     source: {fileID: 0}
+    _soundType: 0
   - clip: {fileID: 8300000, guid: ffa6062c439b6e644836b1f9ae70ac26, type: 3}
     volume: 1
     pitch: 1
     loop: 0
     source: {fileID: 0}
+    _soundType: 0
   - clip: {fileID: 8300000, guid: 759347c0bc98d964583f80afb7c0671a, type: 3}
     volume: 1
     pitch: 1
     loop: 0
     source: {fileID: 0}
+    _soundType: 0
   - clip: {fileID: 8300000, guid: c9386be1a2eb31e47a1202b2e2399919, type: 3}
     volume: 1
     pitch: 1
     loop: 0
     source: {fileID: 0}
+    _soundType: 0
   - clip: {fileID: 8300000, guid: 8c7ba446ef4928c498c01494fbe5a836, type: 3}
     volume: 1
     pitch: 1
     loop: 0
     source: {fileID: 0}
+    _soundType: 0
   - clip: {fileID: 8300000, guid: d45702d10644f114f92c50d00f4372eb, type: 3}
     volume: 1
     pitch: 1
     loop: 0
     source: {fileID: 0}
+    _soundType: 0
   - clip: {fileID: 8300000, guid: e1eaa1f38ca38bc42a3866af03fbd27b, type: 3}
     volume: 1
     pitch: 1
     loop: 0
     source: {fileID: 0}
+    _soundType: 0
   - clip: {fileID: 8300000, guid: 70fb6dd41db25894c9f711122dbf78a6, type: 3}
     volume: 1
     pitch: 1
     loop: 0
     source: {fileID: 0}
+    _soundType: 0
+  - clip: {fileID: 8300000, guid: 9d0ade018c047524f81e3b07ee50c05b, type: 3}
+    volume: 0.6
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+    _soundType: 1
+  - clip: {fileID: 8300000, guid: 210248584f234e748bd915feb6cfad7b, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+    _soundType: 1
+  - clip: {fileID: 8300000, guid: 56349438446a3d84891971b91f88a8fc, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+    _soundType: 1

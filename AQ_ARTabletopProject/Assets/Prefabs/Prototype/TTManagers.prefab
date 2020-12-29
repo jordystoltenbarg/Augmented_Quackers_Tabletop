@@ -44,6 +44,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5affed1c54536341b487aea4706557f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _vSYNC: 1
+  _FPSCap: 60
   bannedWords:
   - fuck
   - shit
@@ -73,6 +75,9 @@ MonoBehaviour:
   _updateInterval: 0.2
   _audioMixer: {fileID: 24100000, guid: 474577246ffaf8c44a993ca5cb504f57, type: 2}
   _audioVolumeModifier: 60
+  _defaultSFXVolume: 5
+  _defaultMusicVolume: 5
+  _defaultDialogueVolume: 5
   applicationLanguage: 0
 --- !u!114 &8101747182186894535
 MonoBehaviour:
@@ -219,17 +224,17 @@ PrefabInstance:
     - target: {fileID: 1780379231752101465, guid: 1abc52ece07028b47bf7c7cc66274f45,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.66845095
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1780379231752101465, guid: 1abc52ece07028b47bf7c7cc66274f45,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 42.411106
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1780379231752101465, guid: 1abc52ece07028b47bf7c7cc66274f45,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 48.20721
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1780379231752101465, guid: 1abc52ece07028b47bf7c7cc66274f45,
         type: 3}
@@ -271,24 +276,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1787113105667769536, guid: 1abc52ece07028b47bf7c7cc66274f45,
-        type: 3}
-      propertyPath: _sfxAudioMixer
-      value: 
-      objectReference: {fileID: 8381323616885275075, guid: 474577246ffaf8c44a993ca5cb504f57,
-        type: 2}
-    - target: {fileID: 1787113105667769536, guid: 1abc52ece07028b47bf7c7cc66274f45,
-        type: 3}
-      propertyPath: _musicAudioMixer
-      value: 
-      objectReference: {fileID: 2043842934589912415, guid: 474577246ffaf8c44a993ca5cb504f57,
-        type: 2}
-    - target: {fileID: 1787113105667769536, guid: 1abc52ece07028b47bf7c7cc66274f45,
-        type: 3}
-      propertyPath: _dialogueAudioMixer
-      value: 
-      objectReference: {fileID: -1631038449931253936, guid: 474577246ffaf8c44a993ca5cb504f57,
-        type: 2}
     - target: {fileID: 6581490388790616239, guid: 1abc52ece07028b47bf7c7cc66274f45,
         type: 3}
       propertyPath: m_Name

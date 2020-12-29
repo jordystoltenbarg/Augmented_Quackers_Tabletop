@@ -15,6 +15,9 @@ public class TTSettingsManager : MonoBehaviour
 
     public static TTSettingsManager Singleton;
 
+    [Header("FPS")]
+    [SerializeField] private bool _vSYNC = true;
+    [SerializeField] private int _FPSCap = 60;
     [Header("Profanity")]
     public string[] bannedWords;
     [Header("Program Related")]
@@ -23,6 +26,9 @@ public class TTSettingsManager : MonoBehaviour
     [SerializeField] private AudioMixer _audioMixer = null;
     [SerializeField] [Range(20, 80)] private int _audioVolumeModifier = 60;
     public int AudioVolumeModifier => _audioVolumeModifier;
+    [SerializeField] [Range(0, 10)] private int _defaultSFXVolume = 5;
+    [SerializeField] [Range(0, 10)] private int _defaultMusicVolume = 5;
+    [SerializeField] [Range(0, 10)] private int _defaultDialogueVolume = 5;
 
     public readonly List<TTPlayer> players = new List<TTPlayer>();
     private string _playerName = "";
@@ -51,7 +57,7 @@ public class TTSettingsManager : MonoBehaviour
         Singleton = this;
         DontDestroyOnLoad(gameObject);
 
-        StartCoroutine(delayedChangeNameForAPIToUpdate());
+        StartCoroutine(delayedChangeName());
         StartCoroutine(delayedSelectLanguage());
         Invoke(nameof(adjustSoundVolume), 0.2f);
         StartCoroutine(updateCall());
@@ -59,6 +65,9 @@ public class TTSettingsManager : MonoBehaviour
         _lobbyCamera = GameObject.Find("LobbyCamera").GetComponent<Camera>();
         _inGameCamera = GameObject.Find("In-GameCamera").GetComponent<Camera>();
         _inGameCamera.gameObject.SetActive(false);
+
+        Application.targetFrameRate = _FPSCap;
+        QualitySettings.vSyncCount = (_vSYNC) ? 1 : 0;
     }
 
     public void AddPlayer(TTPlayer pPlayer)
@@ -96,11 +105,13 @@ public class TTSettingsManager : MonoBehaviour
         onServerPrivacyChanged?.Invoke(pIsPrivate);
     }
 
-    private IEnumerator delayedChangeNameForAPIToUpdate()
+    private IEnumerator delayedChangeName()
     {
         yield return new WaitWhile(() => TTApiUpdater.Singleton == null);
 
-        if (PlayerNameInputfieldIdentifier.ValidateName(PlayerPrefs.GetString("PlayerName")))
+        if (!PlayerPrefs.HasKey("PlayerName"))
+            ChangePlayerName($"Player {UnityEngine.Random.Range(10000000, 99999999)}");
+        else if (PlayerNameInputfieldIdentifier.ValidateName(PlayerPrefs.GetString("PlayerName")))
             ChangePlayerName(PlayerPrefs.GetString("PlayerName"));
         else
             ChangePlayerName($"Player {UnityEngine.Random.Range(10000000, 99999999)}");
@@ -110,6 +121,10 @@ public class TTSettingsManager : MonoBehaviour
     {
         yield return new WaitForSeconds(0.1f);
         yield return new WaitUntil(() => LocalizationSettings.AvailableLocales.Locales.Count > 0);
+
+        if (!PlayerPrefs.HasKey("Langauge"))
+            PlayerPrefs.SetString("Langauge", ApplicationLanguage.Dutch.ToString());
+
         string language = PlayerPrefs.GetString("Langauge");
         if (language == ApplicationLanguage.Dutch.ToString())
             SelectLanguage(ApplicationLanguage.Dutch);
@@ -136,12 +151,19 @@ public class TTSettingsManager : MonoBehaviour
     private void adjustSoundVolume()
     {
         float volume = 0;
+
+        if (!PlayerPrefs.HasKey("SFX"))
+            PlayerPrefs.SetInt("SFX", 5);
         volume = Mathf.Log10(Mathf.Clamp(PlayerPrefs.GetInt("SFX") * 0.1f, 0.0001f, 1f)) * _audioVolumeModifier;
         _audioMixer.SetFloat("sfxVolume", volume);
 
+        if (!PlayerPrefs.HasKey("Music"))
+            PlayerPrefs.SetInt("Music", 5);
         volume = Mathf.Log10(Mathf.Clamp(PlayerPrefs.GetInt("Music") * 0.1f, 0.0001f, 1f)) * _audioVolumeModifier;
         _audioMixer.SetFloat("musicVolume", volume);
 
+        if (!PlayerPrefs.HasKey("Dialogue"))
+            PlayerPrefs.SetInt("Dialogue", 5);
         volume = Mathf.Log10(Mathf.Clamp(PlayerPrefs.GetInt("Dialogue") * 0.1f, 0.0001f, 1f)) * _audioVolumeModifier;
         _audioMixer.SetFloat("dialogueVolume", volume);
     }

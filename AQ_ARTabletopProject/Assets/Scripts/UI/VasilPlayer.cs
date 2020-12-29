@@ -68,15 +68,15 @@ public class VasilPlayer : MonoBehaviour
 
     private void Update()
     {
-        if (!_hasCurrentTurn || !_canRollAgain) return;
+        //if (!_hasCurrentTurn || !_canRollAgain) return;
 
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            RollTheDie();
-            _dieRolls--;
-            if (_dieRolls <= 0)
-                _canRollAgain = false;
-        }
+        //if (Input.GetKeyDown(KeyCode.R))
+        //{
+        //    RollTheDie();
+        //    _dieRolls--;
+        //    if (_dieRolls <= 0)
+        //        _canRollAgain = false;
+        //}
     }
 
     public void SimulateDieThrow()
@@ -145,7 +145,7 @@ public class VasilPlayer : MonoBehaviour
         _dieRolls = 1;
         _canRollAgain = true;
 
-        GameObject.Find("DieRoll").GetComponent<TextMeshProUGUI>().text = string.Format("{0} press 'R' roll your die", _playerName);
+        GameObject.Find("DieRoll").GetComponent<TextMeshProUGUI>().text = $"{GetComponent<TTPlayer>().PlayerName}'s turn!";
         StartCoroutine(lerpToColor(_emissionMaterials[GetComponent<TTPlayer>().ColorVariation].color));
     }
 

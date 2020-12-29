@@ -14,6 +14,6 @@ public class TTPing : MonoBehaviour
 
     private void Update()
     {
-        _tm.text = $"{(int)(NetworkTime.rtt * 1000)}ms";
+        _tm.text = $"{Mathf.FloorToInt(1 / Time.deltaTime)}fps\n{(int)(NetworkTime.rtt * 1000)}ms";
     }
 }
