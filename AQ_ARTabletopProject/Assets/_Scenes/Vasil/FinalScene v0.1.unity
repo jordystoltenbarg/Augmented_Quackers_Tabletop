@@ -10239,6 +10239,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f476cc09005923e4d8b9d7aead0234d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _otherAfter: {fileID: 0}
 --- !u!114 &1842306446
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12984,7 +12985,7 @@ PrefabInstance:
     - target: {fileID: 1229402367879411962, guid: 3a416a4251dbe4d4987a6bf7ef6b7198,
         type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1229402367879411962, guid: 3a416a4251dbe4d4987a6bf7ef6b7198,
         type: 3}
@@ -19735,6 +19736,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7214543465278684311, guid: 07866d6d041c5ce459789b8fa6b69bb7,
+        type: 3}
+      propertyPath: sounds.Array.data[11].volume
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7214543465278684311, guid: 07866d6d041c5ce459789b8fa6b69bb7,
+        type: 3}
+      propertyPath: sounds.Array.data[12].volume
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7214543465278684311, guid: 07866d6d041c5ce459789b8fa6b69bb7,
+        type: 3}
+      propertyPath: sounds.Array.data[13].volume
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 8101747183213198611, guid: 07866d6d041c5ce459789b8fa6b69bb7,
         type: 3}
       propertyPath: m_LocalPosition.x

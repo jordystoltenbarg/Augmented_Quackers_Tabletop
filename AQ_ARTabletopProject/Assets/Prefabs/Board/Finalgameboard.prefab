@@ -2585,7 +2585,7 @@ MonoBehaviour:
   _upwardsForce: 2000
   _sideForce: 2000
   _rotationTorque: 10000
-  _alwaysRollThisNumber: 8
+  _alwaysRollThisNumber: 0
 --- !u!1 &1846281067
 GameObject:
   m_ObjectHideFlags: 0
