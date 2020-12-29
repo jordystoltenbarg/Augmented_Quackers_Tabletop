@@ -192,8 +192,8 @@ public class RollDie : MonoBehaviour
         yield return new WaitUntil(() => _bodyRB.velocity.magnitude > 0f);
 
         yield return new WaitWhile(() => _bodyRB.velocity.magnitude > 0f);
-        //onDieRolled?.Invoke(numberRolled());
-        onDieRolled?.Invoke(16);
+        onDieRolled?.Invoke(numberRolled());
+        //onDieRolled?.Invoke(16);
     }
 
     public IEnumerator RollWithValues(Vector2 pDieTossValues)

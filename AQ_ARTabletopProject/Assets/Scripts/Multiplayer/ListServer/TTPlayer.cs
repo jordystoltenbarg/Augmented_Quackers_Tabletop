@@ -29,14 +29,14 @@ public class TTPlayer : NetworkBehaviour
     [HideInInspector] public bool hasBeenKicked = false;
 
     private TTNetworkManagerListServer _manager = null;
-
-    private Rigidbody _dieRB = null;
+    [HideInInspector]
+    public Rigidbody dieRB = null;
 
     private void Start()
     {
         print($"<color=green> Hello there!</color>");
 
-        _dieRB = FindObjectOfType<RollDie>().GetComponentInChildren<Rigidbody>();
+        
 
         Invoke(nameof(lobbyUIAddPlayer), 0.5f);
         DontDestroyOnLoad(gameObject);
@@ -238,10 +238,14 @@ public class TTPlayer : NetworkBehaviour
         TTSettingsManager.Singleton.LobbyCamera.gameObject.SetActive(false);
         GameObject canvas = GameObject.Find("MainUICanvas");
         canvas.transform.Find("LobbyUI").gameObject.SetActive(false);
-        canvas.transform.Find("In-GameUI").gameObject.SetActive(true);
         TTSettingsManager.Singleton.InGameCamera.gameObject.SetActive(true);
+        GameObject.Find("AR Session Origin").transform.GetChild(0).GetChild(0).GetChild(0).GetChild(0).gameObject.SetActive(true);  //canvas.transform.Find("In-GameUI").gameObject.SetActive(true);
+
         foreach (TTPlayer player in TTSettingsManager.Singleton.players)
+        {
+            player.dieRB = FindObjectOfType<RollDie>().GetComponentInChildren<Rigidbody>();
             player.InitializeBoard();
+        }
     }
 
     public void InitializeBoard()
@@ -296,8 +300,8 @@ public class TTPlayer : NetworkBehaviour
     {
         if (LocalPlayer.LobbyIndex == 0) return;
 
-        _dieRB.isKinematic = true;
-        _dieRB.transform.SetPositionAndRotation(pPos, Quaternion.Euler(pRot));
+        dieRB.isKinematic = true;
+        dieRB.transform.SetPositionAndRotation(pPos, Quaternion.Euler(pRot));
     }
 
     [ClientRpc]
@@ -312,8 +316,8 @@ public class TTPlayer : NetworkBehaviour
             print("simulate die throw");
         }
 
-        _dieRB.transform.parent.GetComponent<RollDie>().OnDieRolled(pRoll);
-        _dieRB.isKinematic = false;
+        dieRB.transform.parent.GetComponent<RollDie>().OnDieRolled(pRoll);
+        dieRB.isKinematic = false;
     }
 
     public void TossDie(Vector2 pDieTossValues)

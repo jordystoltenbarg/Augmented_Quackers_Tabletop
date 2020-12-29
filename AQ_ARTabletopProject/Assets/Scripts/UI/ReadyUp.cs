@@ -25,6 +25,13 @@ public class ReadyUp : MonoBehaviour
     [SerializeField] private Sprite _unavailable;
     [SerializeField] private Sprite _unready;
 
+    [SerializeField] private GameObject ARCamera;
+    [SerializeField] private GameObject LobbyCamera;
+    [SerializeField] private GameObject LobbyUI;
+    [SerializeField] private GameObject ARSession;
+    [SerializeField] private GameObject XRInteraction;
+    [SerializeField] private GameObject ARPlacement;
+
     private TTLobbyUIPlayerItem _localPlayerUILobbyItem = null;
 
     private Image _image;
@@ -87,10 +94,12 @@ public class ReadyUp : MonoBehaviour
         {
             case Mirror.NetworkManagerMode.ClientOnly:
                 //Client gets ready
+                
                 TTPlayer.LocalPlayer.ReadyToggle();
                 IsLocalPlayerReady = !IsLocalPlayerReady;
                 if (IsLocalPlayerReady)
                 {
+                    PrepAR();
                     _image.sprite = _unready;
                     _text.StringReference = _clientUnreadyString;
                 }
@@ -104,6 +113,7 @@ public class ReadyUp : MonoBehaviour
                 if (!CanStartGame)
                 {
                     //Host gets ready
+                    PrepAR();
                     TTPlayer.LocalPlayer.ReadyToggle();
                     IsLocalPlayerReady = !IsLocalPlayerReady;
 
@@ -129,6 +139,16 @@ public class ReadyUp : MonoBehaviour
                 }
                 break;
         }
+    }
+
+    private void PrepAR()
+    {
+        ARCamera.SetActive(true);
+        LobbyCamera.SetActive(false);
+        LobbyUI.SetActive(false);
+        ARSession.SetActive(true);
+        XRInteraction.SetActive(true);
+        ARPlacement.SetActive(true);
     }
 
     private void updateContent()
