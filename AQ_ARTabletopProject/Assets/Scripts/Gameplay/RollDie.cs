@@ -26,12 +26,10 @@ public class RollDie : MonoBehaviour
     private Vector3 _lastMousePos;
     private bool _clickedThis;
 
-    [SerializeField]
-    private float _upwardsForce;
-    [SerializeField]
-    private float _sideForce;
-    [SerializeField]
-    private float _rotationTorque;
+    [SerializeField] private float _upwardsForce;
+    [SerializeField] private float _sideForce;
+    [SerializeField] private float _rotationTorque;
+    [SerializeField] private int _alwaysRollThisNumber = 0;
 
     private void Start()
     {
@@ -192,8 +190,10 @@ public class RollDie : MonoBehaviour
         yield return new WaitUntil(() => _bodyRB.velocity.magnitude > 0f);
 
         yield return new WaitWhile(() => _bodyRB.velocity.magnitude > 0f);
-        //onDieRolled?.Invoke(numberRolled());
-        onDieRolled?.Invoke(16);
+        if (_alwaysRollThisNumber > 0)
+            onDieRolled?.Invoke(_alwaysRollThisNumber);
+        else
+            onDieRolled?.Invoke(numberRolled());
     }
 
     public IEnumerator RollWithValues(Vector2 pDieTossValues)

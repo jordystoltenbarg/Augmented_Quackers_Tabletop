@@ -246,7 +246,7 @@ public class TTPlayer : NetworkBehaviour
 
     public void InitializeBoard()
     {
-        GetComponent<VasilPlayer>().Init(_lobbyIndex, _selectedCharacterIndex, _colorVariation); ;
+        GetComponent<VasilPlayer>().Init(_lobbyIndex, _selectedCharacterIndex, _colorVariation);
     }
 
     private IEnumerator loading()

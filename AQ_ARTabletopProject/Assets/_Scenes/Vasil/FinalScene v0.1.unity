@@ -7363,6 +7363,7 @@ MonoBehaviour:
   _upwardsForce: 2000
   _sideForce: 2000
   _rotationTorque: 10000
+  _alwaysRollThisNumber: 0
 --- !u!23 &1503390469704100204
 MeshRenderer:
   m_ObjectHideFlags: 0

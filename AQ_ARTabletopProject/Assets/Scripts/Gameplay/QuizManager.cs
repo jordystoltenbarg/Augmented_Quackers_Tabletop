@@ -1,19 +1,21 @@
 ﻿using UnityEngine;
-using UnityEngine.UI;
+using UnityEngine.Localization;
 
 public class QuizManager : MonoBehaviour
 {
     public static QuizManager Singleton = null;
 
     [SerializeField] private Sprite[] _questionTypeVariations;
-    [SerializeField] private GameObject _answerParent;
+    [SerializeField] private LocalizedString[] _localizedQuestionThemeStrings;
 
-    private Question[] _questions;
+    private Question[] _questions = null;
     public Question[] Questions => _questions;
-    private Question _currentQuestion;
+    private Question _currentQuestion = null;
     public Question CurrentQuestion => _currentQuestion;
-    private Image _quizBubbleIcon;
-    public Image QuizBubbleIcon => _quizBubbleIcon;
+    private Sprite _quizBubbleIcon = null;
+    public Sprite QuizBubbleIcon => _quizBubbleIcon;
+    private LocalizedString _localizedQuestionTheme = null;
+    public LocalizedString LocalizedQuestionTheme => _localizedQuestionTheme;
 
     private void Awake()
     {
@@ -39,16 +41,20 @@ public class QuizManager : MonoBehaviour
         switch (_currentQuestion.QuestionType)
         {
             case Question.Type.Nature:
-                _quizBubbleIcon.sprite = _questionTypeVariations[0];
+                _quizBubbleIcon = _questionTypeVariations[0];
+                _localizedQuestionTheme = _localizedQuestionThemeStrings[0];
                 break;
             case Question.Type.History:
-                _quizBubbleIcon.sprite = _questionTypeVariations[1];
+                _quizBubbleIcon = _questionTypeVariations[1];
+                _localizedQuestionTheme = _localizedQuestionThemeStrings[1];
                 break;
             case Question.Type.WaterTreatment:
-                _quizBubbleIcon.sprite = _questionTypeVariations[2];
+                _quizBubbleIcon = _questionTypeVariations[2];
+                _localizedQuestionTheme = _localizedQuestionThemeStrings[2];
                 break;
             case Question.Type.Bats:
-                _quizBubbleIcon.sprite = _questionTypeVariations[3];
+                _quizBubbleIcon = _questionTypeVariations[3];
+                _localizedQuestionTheme = _localizedQuestionThemeStrings[3];
                 break;
         }
     }
