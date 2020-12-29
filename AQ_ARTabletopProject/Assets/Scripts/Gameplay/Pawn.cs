@@ -139,10 +139,16 @@ public class Pawn : MonoBehaviour
                     _currentTile = pTileList[reachedWPIndex];
                     _rb.constraints = RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezeRotation;
 
-                    if (_currentTile.GetComponent<TileEvent>() != null && _currentTile.GetComponent<TileEvent>().enabled)
+                    if (_currentTile.GetComponent<TileEvent>() != null && _currentTile.GetComponent<TileEvent>().enabled ||
+                        _currentTile.GetComponent<QuizTile>() != null && _currentTile.GetComponent<QuizTile>().enabled)
+                    {
                         onPawnReachedTileEvent?.Invoke(_currentTile);
+                        AnswerDisplay.OnQuizHide += onHideQuiz;
+                    }
                     else
+                    {
                         onPawnReachedRegularTile?.Invoke(_currentTile);
+                    }
 
                     onPawnReadecFinalTile?.Invoke();
                     onPawnReachedFinalTile?.Invoke();
@@ -163,5 +169,11 @@ public class Pawn : MonoBehaviour
             if (!_player.HasCurrentTurn) break;
             yield return null;
         }
+    }
+
+    private void onHideQuiz()
+    {
+        onPawnReachedRegularTile?.Invoke(_currentTile);
+        AnswerDisplay.OnQuizHide -= onHideQuiz;
     }
 }

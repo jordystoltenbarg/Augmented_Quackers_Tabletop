@@ -239,7 +239,7 @@ public class TTPlayer : NetworkBehaviour
         GameObject canvas = GameObject.Find("MainUICanvas");
         canvas.transform.Find("LobbyUI").gameObject.SetActive(false);
         TTSettingsManager.Singleton.InGameCamera.gameObject.SetActive(true);
-        if (canvas.transform.Find("In-GameUI").gameObject != null)
+        if (canvas.transform.Find("In-GameUI") != null)
             canvas.transform.Find("In-GameUI").gameObject.SetActive(true);
         else
             GameObject.Find("AR Session Origin").transform.GetChild(0).GetChild(0).GetChild(0).GetChild(0).gameObject.SetActive(true);

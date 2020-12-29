@@ -151,7 +151,7 @@ public class VasilPlayer : MonoBehaviour
     public void EndTurn()
     {
         _hasCurrentTurn = false;
-        GameObject.Find("DieRoll").GetComponent<TextMeshProUGUI>().text = "";
+        //GameObject.Find("DieRoll").GetComponent<TextMeshProUGUI>().text = "";
     }
 
     private void onPawnReachedTileEvent(Tile pTile)
