@@ -33,8 +33,8 @@ public class TTSettingsManager : MonoBehaviour
     public string ServerCode => _serverCode;
     private Camera _lobbyCamera = null;
     public Camera LobbyCamera => _lobbyCamera;
-    private Camera _inGameCamera = null;
-    public Camera InGameCamera => _inGameCamera;
+    private GameObject _inGameCamera = null;
+    public GameObject InGameCamera => _inGameCamera;
 
     public enum ApplicationLanguage
     {
@@ -57,7 +57,7 @@ public class TTSettingsManager : MonoBehaviour
         StartCoroutine(updateCall());
 
         _lobbyCamera = GameObject.Find("LobbyCamera").GetComponent<Camera>();
-        _inGameCamera = GameObject.Find("In-GameCamera").GetComponent<Camera>();
+        _inGameCamera = GameObject.Find("AR Session Origin");
         _inGameCamera.gameObject.SetActive(false);
     }
 
