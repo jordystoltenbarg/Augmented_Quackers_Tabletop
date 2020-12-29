@@ -94,7 +94,7 @@ public class ReadyUp : MonoBehaviour
         {
             case Mirror.NetworkManagerMode.ClientOnly:
                 //Client gets ready
-                
+
                 TTPlayer.LocalPlayer.ReadyToggle();
                 IsLocalPlayerReady = !IsLocalPlayerReady;
                 if (IsLocalPlayerReady)
@@ -143,6 +143,7 @@ public class ReadyUp : MonoBehaviour
 
     private void PrepAR()
     {
+        if (!ARCamera) return;
         ARCamera.SetActive(true);
         LobbyCamera.SetActive(false);
         LobbyUI.SetActive(false);

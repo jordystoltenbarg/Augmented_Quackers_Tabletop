@@ -43,7 +43,7 @@ public class TurnOrderManager : MonoBehaviour
         fillLists();
         shufflePlayerTurnOrder();
         setPlayerTurn(_playersByTurnOrder[0]);
-        GameObject.Find("RoundCount").GetComponent<TextMeshProUGUI>().text = string.Format("Round: {0}", _round);
+        //GameObject.Find("RoundCount").GetComponent<TextMeshProUGUI>().text = string.Format("Round: {0}", _round);
 
         Pawn.onPawnReachedFinalTile += nextPlayer;
 
@@ -144,7 +144,7 @@ public class TurnOrderManager : MonoBehaviour
         if (hasFinalPlayerActed())
         {
             _round++;
-            GameObject.Find("RoundCount").GetComponent<TextMeshProUGUI>().text = string.Format("Round: {0}", _round);
+            //GameObject.Find("RoundCount").GetComponent<TextMeshProUGUI>().text = string.Format("Round: {0}", _round);
 
             foreach (VasilPlayer p in _players)
             {

@@ -36,7 +36,7 @@ public class TTPlayer : NetworkBehaviour
     {
         print($"<color=green> Hello there!</color>");
 
-        
+
 
         Invoke(nameof(lobbyUIAddPlayer), 0.5f);
         DontDestroyOnLoad(gameObject);
@@ -239,7 +239,10 @@ public class TTPlayer : NetworkBehaviour
         GameObject canvas = GameObject.Find("MainUICanvas");
         canvas.transform.Find("LobbyUI").gameObject.SetActive(false);
         TTSettingsManager.Singleton.InGameCamera.gameObject.SetActive(true);
-        GameObject.Find("AR Session Origin").transform.GetChild(0).GetChild(0).GetChild(0).GetChild(0).gameObject.SetActive(true);  //canvas.transform.Find("In-GameUI").gameObject.SetActive(true);
+        if (canvas.transform.Find("In-GameUI").gameObject != null)
+            canvas.transform.Find("In-GameUI").gameObject.SetActive(true);
+        else
+            GameObject.Find("AR Session Origin").transform.GetChild(0).GetChild(0).GetChild(0).GetChild(0).gameObject.SetActive(true);
 
         foreach (TTPlayer player in TTSettingsManager.Singleton.players)
         {

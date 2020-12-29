@@ -63,7 +63,7 @@ public class TTSettingsManager : MonoBehaviour
         StartCoroutine(updateCall());
 
         _lobbyCamera = GameObject.Find("LobbyCamera").GetComponent<Camera>();
-        _inGameCamera = GameObject.Find("AR Session Origin");
+        _inGameCamera = (GameObject.Find("AR Session Origin")) ? GameObject.Find("AR Session Origin") : GameObject.Find("In-GameCamera");
         _inGameCamera.gameObject.SetActive(false);
 
         Application.targetFrameRate = _FPSCap;

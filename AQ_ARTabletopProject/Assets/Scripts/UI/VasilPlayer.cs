@@ -35,11 +35,10 @@ public class VasilPlayer : MonoBehaviour
 
     public void Init(int pLobbyIndex, int pSelectedCharacterIndex, int pColorVariation)
     {
-        GameObject pawn = Instantiate(_pawnPrefabs[pSelectedCharacterIndex],
-                                      GameObject.Find("Tile").transform.GetChild(pLobbyIndex).transform.position,
-                                      GameObject.Find("Tile").transform.GetChild(pLobbyIndex).transform.rotation,
-                                      //GameObject.Find("In-GameBoard").transform);
-                                      GameObject.Find("Finalgameboard(Clone)").transform);
+        Transform boardTransform = (GameObject.Find("Finalgameboard(Clone)")) ?
+                                    GameObject.Find("Finalgameboard(Clone)").transform : GameObject.Find("Finalgameboard").transform;
+        Transform firstTile = GameObject.Find("Tile").transform.GetChild(pLobbyIndex).transform;
+        GameObject pawn = Instantiate(_pawnPrefabs[pSelectedCharacterIndex], firstTile.position, firstTile.rotation, boardTransform);
         _pawn = pawn.GetComponent<Pawn>();
         _pawn.SetPlayer(this);
         _turnOrderPositionPrefab = _turnOrderPositionPrefabs[pColorVariation];

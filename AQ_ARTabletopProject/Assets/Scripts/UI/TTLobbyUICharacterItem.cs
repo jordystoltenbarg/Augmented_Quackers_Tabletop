@@ -108,8 +108,6 @@ public class TTLobbyUICharacterItem : MonoBehaviour
         _playersThatSelected.Add(TTPlayer.LocalPlayer);
         updateContent();
         _highlight.color = Color.white;
-
-        print("Approved");
     }
 
     private void onCharacterSelectDenied(int pCharacterIndex)
@@ -119,7 +117,5 @@ public class TTLobbyUICharacterItem : MonoBehaviour
         _playersThatSelected.Add(TTPlayer.LocalPlayer);
         updateContent();
         _highlight.color = Color.white;
-
-        print("nope");
     }
 }

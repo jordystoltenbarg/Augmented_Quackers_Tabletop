@@ -71,7 +71,6 @@ public class CharacterSelect : MonoBehaviour
                 go.GetComponent<TTLobbyUICharacterItem>().DeSelectCharacter(TTPlayer.LocalPlayer);
 
         OnSelectedCharacterChanged?.Invoke();
-        print("Approvedasd");
     }
 
     private void onCharacterSelectDenied(int pCharacterIndex)
@@ -81,6 +80,5 @@ public class CharacterSelect : MonoBehaviour
                 go.GetComponent<TTLobbyUICharacterItem>().DeSelectCharacter(TTPlayer.LocalPlayer);
 
         OnSelectedCharacterChanged?.Invoke();
-        print("nopeasd");
     }
 }

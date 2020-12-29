@@ -41,9 +41,10 @@ public class AnswerDisplay : MonoBehaviour
             _localizedAnswersList[randomIndex] = temp;
         }
 
+        bool isLocalPlayer = TTPlayer.LocalPlayer.GetComponent<VasilPlayer>().HasCurrentTurn;
         for (int i = 0; i < _localizedAnswersList.Count; i++)
         {
-            _localizedAnswersList[i].transform.parent.GetComponent<Button>().interactable = true;
+            _localizedAnswersList[i].transform.parent.GetComponent<Button>().interactable = isLocalPlayer;
 
             _localizedAnswersList[i].transform.parent.parent.Find("Correct").gameObject.SetActive(false);
             _localizedAnswersList[i].transform.parent.parent.Find("Wrong").gameObject.SetActive(false);
