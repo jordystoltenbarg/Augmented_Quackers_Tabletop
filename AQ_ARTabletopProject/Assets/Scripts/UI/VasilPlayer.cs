@@ -39,7 +39,7 @@ public class VasilPlayer : MonoBehaviour
                                       GameObject.Find("Tile").transform.GetChild(pLobbyIndex).transform.position,
                                       GameObject.Find("Tile").transform.GetChild(pLobbyIndex).transform.rotation,
                                       //GameObject.Find("In-GameBoard").transform);
-                                      GameObject.Find("Finalgameboard").transform);
+                                      GameObject.Find("Finalgameboard(Clone)").transform);
         _pawn = pawn.GetComponent<Pawn>();
         _pawn.SetPlayer(this);
         _turnOrderPositionPrefab = _turnOrderPositionPrefabs[pColorVariation];

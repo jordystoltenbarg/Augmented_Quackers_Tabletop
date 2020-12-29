@@ -11,46 +11,64 @@ public class ARTapToPlaceObject : MonoBehaviour
 
     public GameObject objectToPlace;
     public GameObject placementIndicator;
+    public GameObject LobbyUI;
+    public GameObject LobbyCamera;
+    public GameObject ARCamera;
 
     private ARSessionOrigin arOrigin;
     private PlacementDisable disablePlacement;
     private Pose placementPose;
     //private ARRaycastManager aRRaycastManager;
     private bool placementPoseIsValid;
-    private bool ObjectPlaced = false;
+    public bool ObjectPlaced = false;
 
     // Start is called before the first frame update
     void Start()
     {
         arOrigin = FindObjectOfType<ARSessionOrigin>();
+        
         //aRRaycastManager = arOrigin.GetComponent<ARRaycastManager>();
         disablePlacement = arOrigin.GetComponent<PlacementDisable>();
+        
     }
 
     // Update is called once per frame
     void Update()
     {
         UpdatePlacementPose();
-        UpdatePlacementIndicator();
+        
 
-        if (placementPoseIsValid && Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
+        if (placementPoseIsValid && Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began && ObjectPlaced == false)
         {
             PlaceObject();
         }
 
         if (ObjectPlaced == true)
         {
-            disablePlacement.DisablePlanes();
+            placementIndicator.SetActive(false);
         }
+        else if(ObjectPlaced == false)
+        {
+            ShowPlacementIndicator();
+        }
+    }
+
+    private void DelaySetActive()
+    {
+        LobbyUI.SetActive(true);
+        LobbyCamera.SetActive(true);
+        ARCamera.SetActive(false);
     }
 
     private void PlaceObject()
     {
         Instantiate(objectToPlace, placementPose.position, placementPose.rotation);
         ObjectPlaced = true;
+        disablePlacement.DisablePlanes();
+        Invoke(nameof(DelaySetActive), 3);
     }
 
-    private void UpdatePlacementIndicator()
+    private void ShowPlacementIndicator()
     {
         if (placementPoseIsValid)
         {
