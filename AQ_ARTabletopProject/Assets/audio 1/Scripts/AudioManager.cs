@@ -34,6 +34,11 @@ public class AudioManager : MonoBehaviour
         }
     }
 
+    void Start()
+    {
+        if 
+        Play("BG1");
+    }
     public void Play(AudioClip clip)
     {
         Sound s = Array.Find(sounds, Sound => Sound.name == clip.name);
