@@ -118,19 +118,19 @@ MonoBehaviour:
     source: {fileID: 0}
     _soundType: 0
   - clip: {fileID: 8300000, guid: 9d0ade018c047524f81e3b07ee50c05b, type: 3}
-    volume: 0.6
+    volume: 0.3
     pitch: 1
     loop: 0
     source: {fileID: 0}
     _soundType: 1
   - clip: {fileID: 8300000, guid: 210248584f234e748bd915feb6cfad7b, type: 3}
-    volume: 1
+    volume: 0.5
     pitch: 1
     loop: 0
     source: {fileID: 0}
     _soundType: 1
   - clip: {fileID: 8300000, guid: 56349438446a3d84891971b91f88a8fc, type: 3}
-    volume: 1
+    volume: 0.5
     pitch: 1
     loop: 0
     source: {fileID: 0}
