@@ -32,6 +32,8 @@ public class VasilPlayer : MonoBehaviour
     private Pawn _pawn;
     public Pawn Pawn => _pawn;
     public AudioClip TurnSound;
+    private GameObject _dieRollButton = null;
+    private TextMeshProUGUI _turnOrderTextBox = null;
 
     public void Init(int pLobbyIndex, int pSelectedCharacterIndex, int pColorVariation)
     {
@@ -48,7 +50,11 @@ public class VasilPlayer : MonoBehaviour
         //RollDie.onDieRolled += onDieRolled;
         Pawn.onPawnReachedTileEvent += onPawnReachedTileEvent;
         Pawn.onPawnReachedRegularTile += onPawnReachedRegularTile;
-        GameObject.Find("RollButton").GetComponent<Button>().onClick.AddListener(() => RollDieInput());
+
+        _dieRollButton = GameObject.Find("RollButton");
+        _dieRollButton.GetComponent<Button>().onClick.AddListener(() => RollDieInput());
+
+        _turnOrderTextBox = GameObject.Find("DieRoll").GetComponent<TextMeshProUGUI>();
 
         Invoke(nameof(initTOM), 0.25f);
     }
@@ -131,11 +137,11 @@ public class VasilPlayer : MonoBehaviour
         if (GetComponent<TTPlayer>().isLocalPlayer)
         {
             FindObjectOfType<AudioManager>().Play(TurnSound);
-            GameObject.Find("RollButton").GetComponent<Image>().enabled = true;
+            _dieRollButton.GetComponent<Image>().enabled = true;
         }
         else
         {
-            GameObject.Find("RollButton").GetComponent<Image>().enabled = false;
+            _dieRollButton.GetComponent<Image>().enabled = false;
         }
 
         _hasCurrentTurn = true;
@@ -144,14 +150,14 @@ public class VasilPlayer : MonoBehaviour
         _dieRolls = 1;
         _canRollAgain = true;
 
-        GameObject.Find("DieRoll").GetComponent<TextMeshProUGUI>().text = $"{GetComponent<TTPlayer>().PlayerName}'s turn!";
+        _turnOrderTextBox.text = $"{GetComponent<TTPlayer>().PlayerName}'s turn!";
         StartCoroutine(lerpToColor(_emissionMaterials[GetComponent<TTPlayer>().ColorVariation].color));
     }
 
     public void EndTurn()
     {
         _hasCurrentTurn = false;
-        //GameObject.Find("DieRoll").GetComponent<TextMeshProUGUI>().text = "";
+        _turnOrderTextBox.text = "";
     }
 
     private void onPawnReachedTileEvent(Tile pTile)

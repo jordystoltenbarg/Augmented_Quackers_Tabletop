@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class PawnAudio : MonoBehaviour
 {
@@ -8,9 +6,11 @@ public class PawnAudio : MonoBehaviour
     [SerializeField] private AudioClip _questionSound;
     [SerializeField] private AudioClip _positiveSound;
     [SerializeField] private AudioClip _negativeSound;
+    private VasilPlayer _player;
 
     private void Start()
     {
+        _player = GetComponent<Pawn>().Player;
         Pawn.onPawnReachedFinalTileWithGameObject += playSound;
     }
 
@@ -21,6 +21,8 @@ public class PawnAudio : MonoBehaviour
 
     private void playSound(GameObject pTile)
     {
+        if (!_player.HasCurrentTurn) return;
+
         if (pTile.CompareTag("Tile"))
             FindObjectOfType<AudioManager>().Play(_sound);
         else if (pTile.CompareTag("QuestionTile"))
@@ -29,29 +31,5 @@ public class PawnAudio : MonoBehaviour
             FindObjectOfType<AudioManager>().Play(_positiveSound);
         else if (pTile.CompareTag("NegativeTile"))
             FindObjectOfType<AudioManager>().Play(_negativeSound);
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        //if (other.tag == "Tile")
-        //{
-        //    //print("Something gone wrong!");
-        //    FindObjectOfType<AudioManager>().Play(_sound);
-        //}
-        //else if (other.tag == "QuestionTile")
-        //{
-        //    //print("Something gone wrong!");
-        //    FindObjectOfType<AudioManager>().Play(_questionSound);
-        //}
-        //else if (other.tag == "PositiveTile")
-        //{
-        //    //print("Something gone wrong!");
-        //    FindObjectOfType<AudioManager>().Play(_positiveSound);
-        //}
-        //else if (other.tag == "NegativeTile")
-        //{
-        //    //print("Something gone wrong!");
-        //    FindObjectOfType<AudioManager>().Play(_negativeSound);
-        //}
     }
 }

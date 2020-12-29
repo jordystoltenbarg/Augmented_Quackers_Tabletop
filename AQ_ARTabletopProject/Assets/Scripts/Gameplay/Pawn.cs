@@ -24,6 +24,7 @@ public class Pawn : MonoBehaviour
     private Rigidbody _rb = null;
 
     private VasilPlayer _player;
+    public VasilPlayer Player => _player;
 
     private void Start()
     {
@@ -150,7 +151,6 @@ public class Pawn : MonoBehaviour
                         onPawnReachedRegularTile?.Invoke(_currentTile);
                     }
 
-                    onPawnReadecFinalTile?.Invoke();
                     onPawnReachedFinalTile?.Invoke();
                     onPawnReachedFinalTileWithGameObject?.Invoke(_currentTile.gameObject);
                     yield break;
@@ -174,6 +174,8 @@ public class Pawn : MonoBehaviour
     private void onHideQuiz()
     {
         onPawnReachedRegularTile?.Invoke(_currentTile);
+        onPawnReachedFinalTile?.Invoke();
+        TTPlayer.LocalPlayer.HideQuiz();
         AnswerDisplay.OnQuizHide -= onHideQuiz;
     }
 }

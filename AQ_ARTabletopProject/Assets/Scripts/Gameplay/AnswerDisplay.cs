@@ -77,7 +77,7 @@ public class AnswerDisplay : MonoBehaviour
         }
     }
 
-    private void HideQuiz()
+    public void HideQuiz()
     {
         OnQuizHide?.Invoke();
         transform.GetChild(0).gameObject.SetActive(false);

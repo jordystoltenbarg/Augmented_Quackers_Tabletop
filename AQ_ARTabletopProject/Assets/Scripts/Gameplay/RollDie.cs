@@ -165,8 +165,6 @@ public class RollDie : MonoBehaviour
         _dieTossValues = new Vector2(x, z);
 
         tossDie(_dieTossValues);
-
-        TTPlayer.LocalPlayer.TossDie(_dieTossValues);
     }
 
     private void rollWithValues(Vector2 pDieTossValues)
@@ -224,6 +222,8 @@ public class RollDie : MonoBehaviour
 
     public int GetNumberRolled()
     {
+        if (_alwaysRollThisNumber > 0)
+            return _alwaysRollThisNumber;
         return numberRolled();
     }
 

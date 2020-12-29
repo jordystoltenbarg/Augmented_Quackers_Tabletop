@@ -18,8 +18,6 @@ public class QuizTile : MonoBehaviour
         if (pGameObject == this.gameObject && QuizBubble != null)
         {
             QuizBubble.SetActive(true);
-            AnswerDisplay aD = FindObjectOfType<AnswerDisplay>();
-            aD.DisplayAnswers();
         }
     }
 

@@ -311,7 +311,7 @@ public class TTPlayer : NetworkBehaviour
     private void clientDieStopped(int pRoll)
     {
         if (LocalPlayer.LobbyIndex == 0) return;
-
+        print(pRoll);
         foreach (TTPlayer player in TTSettingsManager.Singleton.players)
         {
             if (!player.GetComponent<VasilPlayer>().HasCurrentTurn) continue;
@@ -323,22 +323,42 @@ public class TTPlayer : NetworkBehaviour
         dieRB.isKinematic = false;
     }
 
-    public void TossDie(Vector2 pDieTossValues)
+    public void HideQuiz()
     {
-        //cmdTossDie(pDieTossValues);
+        cmdHideQuiz();
     }
 
     [Command]
-    private void cmdTossDie(Vector2 pDieTossValues)
+    private void cmdHideQuiz()
     {
-        clientTossDie(pDieTossValues);
+        clientHideQuiz();
     }
 
     [ClientRpc]
-    private void clientTossDie(Vector2 pDieTossValues)
+    private void clientHideQuiz()
     {
-        if (isLocalPlayer) return;
+        if (this == LocalPlayer) return;
+        AnswerDisplay ad = FindObjectOfType<AnswerDisplay>();
+        if (ad != null)
+            ad.HideQuiz();
+    }
 
-        GetComponent<VasilPlayer>().RollDieInput(pDieTossValues);
+    public void RequestShowQuiz(int pQuestionIndex)
+    {
+        cmdShowQuiz(pQuestionIndex);
+    }
+
+    [Command]
+    private void cmdShowQuiz(int pQuestionIndex)
+    {
+        clientShowQuiz(pQuestionIndex);
+    }
+
+    [ClientRpc]
+    private void clientShowQuiz(int pQuestionIndex)
+    {
+        QuestionDisplay qd = FindObjectOfType<QuestionDisplay>();
+        if (qd != null)
+            qd.DisplayQuestion(pQuestionIndex);
     }
 }

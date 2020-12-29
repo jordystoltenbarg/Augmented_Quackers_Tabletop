@@ -24,10 +24,23 @@ public class QuestionDisplay : MonoBehaviour
     {
         Question[] qs = QuizManager.Singleton.Questions;
         int random = Random.Range(0, qs.Length);
-        _localizedQuestionTextEvent.StringReference = qs[random].LocalizedQuestion;
+        TTPlayer.LocalPlayer.RequestShowQuiz(random);
 
-        QuizManager.Singleton.SetQuestion(random);
+        //_localizedQuestionTextEvent.StringReference = qs[random].LocalizedQuestion;
+        //QuizManager.Singleton.SetQuestion(random);
+        //_bubbleIcon.sprite = QuizManager.Singleton.QuizBubbleIcon;
+        //_localizedQuestionTheme.StringReference = QuizManager.Singleton.LocalizedQuestionTheme;
+    }
+
+    public void DisplayQuestion(int pQuestionIndex)
+    {
+        Question[] qs = QuizManager.Singleton.Questions;
+        _localizedQuestionTextEvent.StringReference = qs[pQuestionIndex].LocalizedQuestion;
+        QuizManager.Singleton.SetQuestion(pQuestionIndex);
         _bubbleIcon.sprite = QuizManager.Singleton.QuizBubbleIcon;
         _localizedQuestionTheme.StringReference = QuizManager.Singleton.LocalizedQuestionTheme;
+
+        AnswerDisplay aD = FindObjectOfType<AnswerDisplay>();
+        aD.DisplayAnswers();
     }
 }
