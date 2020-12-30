@@ -20,6 +20,7 @@ public class ARTapToPlaceObject : MonoBehaviour
     private Pose placementPose;
     //private ARRaycastManager aRRaycastManager;
     private bool placementPoseIsValid;
+    private bool isLocked = false;
     public bool ObjectPlaced = false;
 
     // Start is called before the first frame update
@@ -29,15 +30,11 @@ public class ARTapToPlaceObject : MonoBehaviour
         
         //aRRaycastManager = arOrigin.GetComponent<ARRaycastManager>();
         disablePlacement = arOrigin.GetComponent<PlacementDisable>();
-        
     }
 
     // Update is called once per frame
     void Update()
     {
-        UpdatePlacementPose();
-        
-
         if (placementPoseIsValid && Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began && ObjectPlaced == false)
         {
             PlaceObject();
@@ -46,10 +43,21 @@ public class ARTapToPlaceObject : MonoBehaviour
         if (ObjectPlaced == true)
         {
             placementIndicator.SetActive(false);
+            ARCamera.GetComponent<MakeAppearOnPlane>().enabled = false;
         }
         else if(ObjectPlaced == false)
         {
             ShowPlacementIndicator();
+            UpdatePlacementPose();
+        }
+    }
+
+    private void Lock()
+    {
+        isLocked = !isLocked;
+        if(ObjectPlaced == true)
+        {
+
         }
     }
 
