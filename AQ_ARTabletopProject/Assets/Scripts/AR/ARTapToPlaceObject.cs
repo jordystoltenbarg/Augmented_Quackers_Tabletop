@@ -14,6 +14,7 @@ public class ARTapToPlaceObject : MonoBehaviour
     public GameObject LobbyUI;
     public GameObject LobbyCamera;
     public GameObject ARCamera;
+    private GameObject PlacedBoard;
 
     private ARSessionOrigin arOrigin;
     private PlacementDisable disablePlacement;
@@ -22,6 +23,8 @@ public class ARTapToPlaceObject : MonoBehaviour
     private bool placementPoseIsValid;
     private bool isLocked = false;
     public bool ObjectPlaced = false;
+
+    Vector3 BoardPosition = new Vector3(0, 0, 0);
 
     // Start is called before the first frame update
     void Start()
@@ -35,6 +38,8 @@ public class ARTapToPlaceObject : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        PlacedBoard = GameObject.Find("Finalgameboard(Clone)");
+
         if (placementPoseIsValid && Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began && ObjectPlaced == false)
         {
             PlaceObject();
@@ -44,20 +49,12 @@ public class ARTapToPlaceObject : MonoBehaviour
         {
             placementIndicator.SetActive(false);
             ARCamera.GetComponent<MakeAppearOnPlane>().enabled = false;
+            PlacedBoard.transform.position = BoardPosition;
         }
         else if(ObjectPlaced == false)
         {
             ShowPlacementIndicator();
             UpdatePlacementPose();
-        }
-    }
-
-    private void Lock()
-    {
-        isLocked = !isLocked;
-        if(ObjectPlaced == true)
-        {
-
         }
     }
 
@@ -73,6 +70,8 @@ public class ARTapToPlaceObject : MonoBehaviour
         Instantiate(objectToPlace, placementPose.position, placementPose.rotation);
         ObjectPlaced = true;
         disablePlacement.DisablePlanes();
+        
+
         Invoke(nameof(DelaySetActive), 3);
     }
 
