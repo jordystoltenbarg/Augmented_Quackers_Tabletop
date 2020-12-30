@@ -286,7 +286,7 @@ public class TTPlayer : NetworkBehaviour
         Rigidbody rb = pDie.GetComponentInChildren<Rigidbody>();
         while (true)
         {
-            clientUpdateDie(pDie.transform.position, pDie.transform.rotation.eulerAngles);
+            clientUpdateDie(pDie.transform.localPosition, pDie.transform.rotation.eulerAngles);
 
             yield return new WaitForSeconds(0.025f);
 
@@ -304,7 +304,8 @@ public class TTPlayer : NetworkBehaviour
         if (LocalPlayer.LobbyIndex == 0) return;
 
         dieRB.isKinematic = true;
-        dieRB.transform.SetPositionAndRotation(pPos, Quaternion.Euler(pRot));
+        dieRB.transform.localPosition = pPos;
+        dieRB.transform.rotation = Quaternion.Euler(pRot);
     }
 
     [ClientRpc]
@@ -323,7 +324,35 @@ public class TTPlayer : NetworkBehaviour
         dieRB.isKinematic = false;
     }
 
-    public void HideQuiz()
+    public void RequestShowQuiz(int pQuestionIndex)
+    {
+        cmdShowQuiz(pQuestionIndex);
+    }
+
+    [Command]
+    private void cmdShowQuiz(int pQuestionIndex)
+    {
+        clientShowQuiz(pQuestionIndex);
+    }
+
+    [ClientRpc]
+    private void clientShowQuiz(int pQuestionIndex)
+    {
+        StartCoroutine(displayQuestionWithDelay(pQuestionIndex));
+        //QuestionDisplay qd = FindObjectOfType<QuestionDisplay>();
+        //if (qd != null)
+        //    qd.DisplayQuestion(pQuestionIndex);
+    }
+
+    private IEnumerator displayQuestionWithDelay(int pQuestionIndex)
+    {
+        yield return new WaitUntil(() => FindObjectOfType<QuestionDisplay>() != null);
+        QuestionDisplay qd = FindObjectOfType<QuestionDisplay>();
+        if (qd != null)
+            qd.DisplayQuestion(pQuestionIndex);
+    }
+
+    public void RequestHideQuiz()
     {
         cmdHideQuiz();
     }
@@ -341,24 +370,5 @@ public class TTPlayer : NetworkBehaviour
         AnswerDisplay ad = FindObjectOfType<AnswerDisplay>();
         if (ad != null)
             ad.HideQuiz();
-    }
-
-    public void RequestShowQuiz(int pQuestionIndex)
-    {
-        cmdShowQuiz(pQuestionIndex);
-    }
-
-    [Command]
-    private void cmdShowQuiz(int pQuestionIndex)
-    {
-        clientShowQuiz(pQuestionIndex);
-    }
-
-    [ClientRpc]
-    private void clientShowQuiz(int pQuestionIndex)
-    {
-        QuestionDisplay qd = FindObjectOfType<QuestionDisplay>();
-        if (qd != null)
-            qd.DisplayQuestion(pQuestionIndex);
     }
 }

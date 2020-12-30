@@ -17,7 +17,10 @@ public class QuestionDisplay : MonoBehaviour
 
     private void OnEnable()
     {
-        setupQuestionDisplay();
+        if (TTPlayer.LocalPlayer.GetComponent<VasilPlayer>().HasCurrentTurn)
+        {
+            setupQuestionDisplay();
+        }
     }
 
     private void setupQuestionDisplay()

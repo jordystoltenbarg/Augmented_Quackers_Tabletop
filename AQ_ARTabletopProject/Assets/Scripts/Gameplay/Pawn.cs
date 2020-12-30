@@ -173,9 +173,10 @@ public class Pawn : MonoBehaviour
 
     private void onHideQuiz()
     {
+        if (TTPlayer.LocalPlayer.GetComponent<VasilPlayer>().HasCurrentTurn)
+            TTPlayer.LocalPlayer.RequestHideQuiz();
         onPawnReachedRegularTile?.Invoke(_currentTile);
         onPawnReachedFinalTile?.Invoke();
-        TTPlayer.LocalPlayer.HideQuiz();
         AnswerDisplay.OnQuizHide -= onHideQuiz;
     }
 }
