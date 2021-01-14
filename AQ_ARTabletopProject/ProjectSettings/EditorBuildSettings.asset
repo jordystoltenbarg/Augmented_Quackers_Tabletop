@@ -9,5 +9,9 @@ EditorBuildSettings:
     path: Assets/_Scenes/Vasil/FinalSceneNon-AR v0.1.unity
     guid: c4313d1bc15a42d4abf58dec9d81cd5b
   m_configObjects:
+    UnityEditor.XR.ARCore.ARCoreSettings: {fileID: 11400000, guid: 42a504777c0c97346ba5191c87597d05,
+      type: 2}
     com.unity.addressableassets: {fileID: 11400000, guid: 6c61b50e8f2f95348b7ab515d0c2815a,
+      type: 2}
+    com.unity.localization.settings: {fileID: 11400000, guid: 6e00601e60f177c4cbfd25422771027e,
       type: 2}
