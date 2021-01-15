@@ -19,9 +19,7 @@ MonoBehaviour:
     m_Items: []
   m_TableData:
   - m_Id: 14164545536
-    m_Localized: 'To which species do the bats belong?
-
-'
+    m_Localized: To which species do the bats belong?
     m_Metadata:
       m_Items: []
   - m_Id: 68321398784
@@ -85,7 +83,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 8899820867584
-    m_Localized: Nee, vleermuizen zijn bij wet beschermd
+    m_Localized: No, bats are protected by law
     m_Metadata:
       m_Items: []
   - m_Id: 8810616410112
@@ -153,9 +151,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 11061913276416
-    m_Localized: 'That must be done from the mayor
-
-'
+    m_Localized: That must be done from the mayor
     m_Metadata:
       m_Items: []
   - m_Id: 11072487116800
