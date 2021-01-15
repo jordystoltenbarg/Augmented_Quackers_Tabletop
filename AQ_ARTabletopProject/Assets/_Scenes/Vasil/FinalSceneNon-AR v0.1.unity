@@ -1547,6 +1547,7 @@ GameObject:
   - component: {fileID: 917921557692618588}
   - component: {fileID: 917921557692618587}
   - component: {fileID: 917921557692618586}
+  - component: {fileID: 917921557692618589}
   m_Layer: 0
   m_Name: LobbyCamera
   m_TagString: MainCamera
@@ -1619,6 +1620,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &917921557692618589
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 917921557692618585}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b9a305e18de0c04dbd257a21cd47087, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sharedProfile: {fileID: 11400000, guid: e3f49eb94e43f434b9d50a30345bb67f, type: 2}
+  isGlobal: 1
+  blendDistance: 0
+  weight: 1
+  priority: 0
 --- !u!224 &917921558430103834 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 799836431475002551, guid: b9f01c35952709a43997f4998e24c35e,
@@ -1696,7 +1714,7 @@ MonoBehaviour:
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 2560, y: 1440}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
+  m_MatchWidthOrHeight: 1
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
