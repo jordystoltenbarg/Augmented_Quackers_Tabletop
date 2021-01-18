@@ -13098,8 +13098,8 @@ Transform:
   - {fileID: 5437425109209640995}
   - {fileID: 5437425108495871615}
   - {fileID: 5437425108177251647}
-  - {fileID: 5437425107890297282}
   - {fileID: 5437425108468123293}
+  - {fileID: 5437425107890297282}
   - {fileID: 5437425108407166971}
   - {fileID: 5437425107801278045}
   m_Father: {fileID: 2462993414445675483}
@@ -14409,7 +14409,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2462993415025287098
 Transform:
   m_ObjectHideFlags: 0
@@ -14531,7 +14531,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2462993415105046199
 Transform:
   m_ObjectHideFlags: 0
@@ -28387,7 +28387,7 @@ GameObject:
   - component: {fileID: 5437425107890297283}
   - component: {fileID: 7194206087042175441}
   m_Layer: 0
-  m_Name: Tile (48)
+  m_Name: Tile (49)
   m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -28405,7 +28405,7 @@ Transform:
   m_LocalScale: {x: 6.4194, y: 2.1398, z: 6.0758553}
   m_Children: []
   m_Father: {fileID: 2462993414564645747}
-  m_RootOrder: 48
+  m_RootOrder: 49
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &5437425107890297294
 MeshFilter:
@@ -29304,7 +29304,7 @@ GameObject:
   - component: {fileID: 5437425108468123294}
   - component: {fileID: 7892754432630274526}
   m_Layer: 0
-  m_Name: Tile (49)
+  m_Name: Tile (48)
   m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29322,7 +29322,7 @@ Transform:
   m_LocalScale: {x: 10.105957, y: 10.105957, z: 10.105957}
   m_Children: []
   m_Father: {fileID: 2462993414564645747}
-  m_RootOrder: 49
+  m_RootOrder: 48
   m_LocalEulerAnglesHint: {x: 0, y: -3.3820002, z: 0}
 --- !u!33 &5437425108468123289
 MeshFilter:
@@ -32175,7 +32175,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 5.6
+  m_fontSize: 8
   m_fontSizeBase: 8
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -33743,7 +33743,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 4.4
+  m_fontSize: 8
   m_fontSizeBase: 8
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -37005,7 +37005,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 4.7
+  m_fontSize: 8
   m_fontSizeBase: 8
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -40591,7 +40591,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &907880696787054222
 Transform:
   m_ObjectHideFlags: 0
@@ -42405,7 +42405,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 0.7
+  m_fontSize: 36
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
